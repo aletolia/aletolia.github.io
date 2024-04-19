@@ -1,0 +1,171 @@
+site_name: One Last Kiss
+site_url: https://james-willett.github.io/mkdocs-material-youtube-tutorial/
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+    - navigation.instant  #即时加载
+    - navigation.tracking  #锚点跟踪
+    - navigation.tabs.sticky  #粘性导航选项卡
+    - navigation.sections  #次级目录在侧边栏中呈现为组，与tabs同存则有2级导航
+#    - navigation.expand  #左侧边栏全展开，取消则折叠其他只展开当选
+    - navigation.indexes  #次级索引页，直接将文档附加到章节，提供概览页面，在相应文件夹中创建index.md添加到导航nav开头。不兼容toc.integrate。
+    - toc.follow   #锚跟随，文章小标题目录侧边栏自动滚动，以便活动锚点始终可见（付费功能）
+#    - toc.integrate  #导航集成，文章小标题目录是左侧边栏的一部分
+    - navigation.top  #返回顶端
+    - search.suggest  #搜索建议，省略回车
+    - search.highlight  #搜索词高亮突出显示
+    - search.share   #搜索共享
+    - header.autohide  #标题自动隐藏
+  language: zh
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline 
+        name: Switch to dark mode
+      primary: indigo
+      accent: indigo 
+    - scheme: slate 
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode    
+      primary: teal
+      accent: lime
+
+  font:  #字体，false 则阻止从Google加载字体
+  # 内置隐私插件自动下载和自托管 Web 字体文件，无需阻止。其他字体使用附加样式表 extra.css 。
+    text: Roboto  #常规字体，默认Roboto，正文、标题等，300、400、400i和700
+    code: Roboto Mono  #等宽字体，默认Roboto Mono，代码块，400
+
+nav:
+  - Home: index.md
+  - CV and Multimodels:
+    - Mygo.md
+    - Segment Anything in Medical Images.md
+    - Vision Mamba Efficient Visual Representation Learning with Bidirectional State Space Model.md
+    - 多模态预后.md
+    - Data-efficient and weakly supervised computational pathology on whole-slide images.md
+    - Recurrent memory with optimal polynomial projections..md
+
+  - scRNA Analysis:
+    - scGPT toward building a foundation model for single-cell multi-omics using generative AI.md
+    - scBERT as a large-scale pretrained deep language model for cell type annotation of single-cell RNA-seq data.md
+    - scRNA-seq of gastric tumor shows complex intercellular interaction with an alternative T cell exhaustion trajectory（参考）.md
+    - Single-cell analysis reveals new evolutionary complexity in uveal melanoma（参考 2）.md
+    - Single-cell characterization of macrophages in uveal melanoma uncovers transcriptionally heterogeneous subsets conferring poor prognosis and aggressive behavior（范例 1）.md
+
+  - Data Structures:
+    - 第 1 章 python 入门.md
+    - 第 2 章 面向对象编程.md
+    - 第 3 章 算法分析.md
+    - 第 4 章 递归.md
+    - 第 5 章 基于数组的序列.md
+    - 第 6 章 栈、队列和双端队列.md
+    - 第 7 章 链表(Linked Lists).md
+    - 第 8 章 树 ★.md
+    - 第 9 章 优先级队列.md
+
+# plugins:
+#   - social
+#   - search
+
+# extra:
+#   social:
+#     - icon: fontawesome/brands/github-alt
+#       link: https://github.com/james-willett
+#     - icon: fontawesome/brands/twitter
+#       link: https://twitter.com/TheJamesWillett
+#     - icon: fontawesome/brands/linkedin
+#       link: https://www.linkedin.com/in/willettjames/
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - admonition  # 提示块
+  - pymdownx.snippets  #片段，将任意文件或部分内容嵌入到文档中  
+  - admonition  #警告或标注
+  - pymdownx.details  #细节折叠
+  - pymdownx.superfences  #超级围栏
+  - attr_list   #属性列表（按钮-颜色图标）
+  - def_list   #定义列表
+  - footnotes  #行内脚注
+  - meta   #元数据
+  - md_in_html  #HTML 中的 Markdown
+  - toc:  #目录
+      toc_depth: 3 #目录深度，默认6，0则隐藏
+#      title: On this page  #默认值，自动获取
+#      permalink: true   #每个标题的末尾添加段落符号锚链接，默认false
+#      permalink: ⚓︎  #每个标题的末尾添加自定义符号锚链接
+#      permalink_title: Anchor link to this section for reference #在悬停时显示并由屏幕阅读器阅读的锚链接的标题
+  - tables #表格（未推荐）
+  - pymdownx.arithmatex:  #数学公式
+      generic: true  
+  - pymdownx.betterem:   #粗体斜体
+      smart_enable: all
+  - pymdownx.caret  #插入角标符号(`^`)
+  - pymdownx.mark  #双等号(`==`)
+  - pymdownx.tilde  #波浪号(`~`)
+  - pymdownx.critic:  #评论家(突出显示建议更改)，未推荐
+#      mode: reject #应如何解析标记，默认view查看更改，accept是接受更改，reject是拒绝更改
+  - pymdownx.keys   #键盘键和组合  
+  - pymdownx.emoji:  #表情符号
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+#      options: #默认无
+#        custom_icons: #允许列出要在 Markdown 中使用的附加图标集的文件夹
+#          - overrides/.icons
+  - pymdownx.highlight  #代码高亮，对代码块（SuperFences）和行内代码块（InlineHilite）的语法突出显示
+  - pymdownx.inlinehilite  #行内高亮
+  - pymdownx.smartsymbols  #智能符号
+
+
+
+# 下面是提示块语法
+# !!! note "可以双引号中指明标题"
+#     随便多少缩进文本.
+
+#     空行分段.
+# !!! hint
+#     标题会自动大写。
+# !!! important ""
+#     无标题提示块。
+# !!! danger highlight blink "不要在家里做"
+#     ...
+
+# mkdocs.yml file
+
+# other settings ...
+
+markdown_extensions:
+   # other extensions ...
+   - pymdownx.arithmatex
+
+# other settings ...
+
+extra_javascript:
+  # other extra java script
+  - mathjax-config.js
+  - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+# other settings ...
