@@ -1,6 +1,10 @@
 site_name: One Last Kiss
 site_dir: 'site'
 site_url: https://localhost:8000/
+
+repo_name: aletolia/aletolia.github.io # 仓库名称
+repo_url: https://github.com/aletolia/aletolia.github.io.git # 仓库地址
+
 theme:
   # logo: assets\saber.ico
   favicon: img/favicon.ico
