@@ -109,7 +109,7 @@ markdown_extensions:
   - pymdownx.emoji:  #表情符号
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg  
-  - pymdownx.smartsymbols  #智能符号
+  # - pymdownx.smartsymbols  #智能符号
   - mkdocs-jupyter
   - glightbox
   - gen-files:
