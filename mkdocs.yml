@@ -17,13 +17,6 @@ theme:
     - content.code.copy
     - navigation.instant  #即时加载
     - navigation.tracking  #锚点跟踪
-    - navigation.tabs.sticky  #粘性导航选项卡
-    - navigation.sections  #次级目录在侧边栏中呈现为组，与tabs同存则有2级导航
-#    - navigation.expand  #左侧边栏全展开，取消则折叠其他只展开当选
-    - navigation.indexes  #次级索引页，直接将文档附加到章节，提供概览页面，在相应文件夹中创建index.md添加到导航nav开头。不兼容toc.integrate。
-    - navigation.top  #返回顶端
-    - search.suggest  #搜索建议，省略回车
-    - search.highlight  #搜索词高亮突出显示
     - search.share   #搜索共享
     - header.autohide  #标题自动隐藏
   language: zh
@@ -40,11 +33,6 @@ theme:
         name: Switch to light mode    
       primary: teal
       accent: lime
-
-  font:  #字体，false 则阻止从Google加载字体
-  # 内置隐私插件自动下载和自托管 Web 字体文件，无需阻止。其他字体使用附加样式表 extra.css 。
-    text: Roboto  #常规字体，默认Roboto，正文、标题等，300、400、400i和700
-    code: Roboto Mono  #等宽字体，默认Roboto Mono，代码块，400
 
 nav:
   - Home: 
@@ -93,21 +81,11 @@ markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - admonition
   - pymdownx.arithmatex:
       generic: true
-  - footnotes
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.mark
   - attr_list
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
   - admonition  # 提示块
   - pymdownx.snippets  #片段，将任意文件或部分内容嵌入到文档中  
-  - admonition  #警告或标注
   - pymdownx.details  #细节折叠
   - pymdownx.superfences  #超级围栏
   - attr_list   #属性列表（按钮-颜色图标）
@@ -117,10 +95,6 @@ markdown_extensions:
   - md_in_html  #HTML 中的 Markdown
   - toc:  #目录
       toc_depth: 3 #目录深度，默认6，0则隐藏
-#      title: On this page  #默认值，自动获取
-#      permalink: true   #每个标题的末尾添加段落符号锚链接，默认false
-#      permalink: ⚓︎  #每个标题的末尾添加自定义符号锚链接
-#      permalink_title: Anchor link to this section for reference #在悬停时显示并由屏幕阅读器阅读的锚链接的标题
   - tables #表格（未推荐）
   - pymdownx.arithmatex:  #数学公式
       generic: true  
@@ -134,12 +108,7 @@ markdown_extensions:
   - pymdownx.keys   #键盘键和组合  
   - pymdownx.emoji:  #表情符号
       emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-#      options: #默认无
-#        custom_icons: #允许列出要在 Markdown 中使用的附加图标集的文件夹
-#          - overrides/.icons
-  - pymdownx.highlight  #代码高亮，对代码块（SuperFences）和行内代码块（InlineHilite）的语法突出显示
-  - pymdownx.inlinehilite  #行内高亮
+      emoji_generator: !!python/name:materialx.emoji.to_svg  
   - pymdownx.smartsymbols  #智能符号
   - mkdocs-jupyter
   - glightbox
@@ -183,8 +152,9 @@ extra_javascript:
   # other extra java script
   - mathjax-config.js
   - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-  - javascripts/extra.js  
+  - extra.js  
+
 extra_css: 
-  - stylesheets/extra.css
+  - extra.css
 
 # other settings ...
