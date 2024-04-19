@@ -46,7 +46,7 @@ theme:
     code: Roboto Mono  #等宽字体，默认Roboto Mono，代码块，400
 
 nav:
-  - Home: index.md
+  - Home: README.md
   - CV and Multimodels:
     - Mygo.md
     - Segment Anything in Medical Images.md
