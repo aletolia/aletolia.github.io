@@ -151,7 +151,7 @@ extra_javascript:
   - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
   - extra.js  
   - js/toggle_sidebar.js
-  - https://cdn.jsdelivr.net/npm/canvas-nest.js/dist/canvas-nest.js
+  # - https://cdn.jsdelivr.net/npm/canvas-nest.js/dist/canvas-nest.js
 
 extra_css: 
   - extra.css
