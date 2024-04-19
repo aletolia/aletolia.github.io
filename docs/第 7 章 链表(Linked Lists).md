@@ -26,13 +26,13 @@ python 的 list 类是高度优化的，并且通常是考虑存储问题时很�
 
 **<u>单向链表最简单的实现形式就是由多个节点的集合共同构成一个线性序列</u>**。每个节点存储一个对象的引用，这个引用指向序列中的一个元素，即存储指向列表中的下一个节点，如图 7- 1 和图 7 -2 所示。
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230318163547047.png" alt="image-20230318163547047" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146747.png" alt="image-20230318163547047" style="zoom:50%;" />
 
 图 7- 1 节点实例的示例，用于构成单向链表的一部分**<u>。这个节点含有两个成员：元素成员引用一个任意的对象，该对象是序列中的一个元素（在这个例子中，序列指的是机场节点 MSP ) ； 指针域成员指向单向链表的后继节点（如果没有后继节点，则为空）</u>**
 
 **链表的第一个和最后一个节点分别为列表的头节点和尾节点**。从头节点开始，**通过每个节点的 " next " 引用，可以从一个节点移动到另一个节点，从而最终到达列表的尾节点。若 当前节点的 " next " 引用指向空时， 我们可以确定该节点为尾节点**。这个过程通常叫作**<u>遍历链表</u>**。由于一个节点的 " next " 引用**可以被视为指向下一个节点的链接或者指针，遍历列表的过程也称为链接跳跃或指针跳跃**。
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230318163821147.png" alt="image-20230318163821147" style="zoom: 50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146748.png" alt="image-20230318163821147" style="zoom: 50%;" />
 
 图 7 -2 元素是用字符串表示机场代码的单向链表示例。列表实例中维护了一个叫作头节点( head ) 的成员，它标识列表的第一个节点。在某些应用程序中，另有一个叫作尾节点 (tail) 的成员，它标识列表的最后一个节点。空对象被表示为 $\empty$
 
@@ -40,7 +40,7 @@ python 的 list 类是高度优化的，并且通常是考虑存储问题时很�
 
 在本章的其余部分，我们将继续把节点称为 “对象”，而把每个节点指向 “ next " 节点的引用称为”指针＂ 。但是，为简单起见， 我们将一个节点的元素直接嵌入该节点的结构中， 尽管元素实际上是一个独立的对象。对此，图 7-3 以更简洁的方式展示了图 7-2 的链表。
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230318170552929.png" alt="image-20230318170552929" style="zoom: 50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146749.png" alt="image-20230318170552929" style="zoom: 50%;" />
 
 ##### 在单向链表的头部插入一个元素
 
@@ -56,7 +56,7 @@ Algorithm add_first(L,e):
   L.size = L.size + 1
 ```
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230318171121983.png" alt="image-20230318171121983" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146750.png" alt="image-20230318171121983" style="zoom:50%;" />
 
 图 7-4 在单向链表的头部插入一个元素
 
@@ -75,7 +75,7 @@ Algorithm add last(L,e):
   L.size = L.size+1 {increment the node count}
 ```
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230318171358128.png" alt="image-20230318171358128" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146751.png" alt="image-20230318171358128" style="zoom:50%;" />
 
 图 7-5 在单向链表的尾部插入一个元素
 
@@ -91,13 +91,13 @@ Algorithm remove first(L):
   L.size = L.size−1 {decrement the node count}
 ```
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230318171622500.png" alt="image-20230318171622500" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146752.png" alt="image-20230318171622500" style="zoom:50%;" />
 
 图 7-6 在单向链表的头部删除一个节点
 
 不幸的是， 即使保存了一个直接指向列表尾节点的尾指针，我们也不能轻易地删除单向链表的尾节点。**<u>为了删除链表的最后一个节点，我们必须能够访间尾节点之前的节点。但是 我们无法通过尾节点的 "next" 指针找到尾节点的前一个节点</u>**，访问此节点的唯一方法是从链表的头部开始遍历整个链表。但是这样序列遍历的操作需要花费很长的时间，如果想要有效地实现此操作，需要实现双向列表（见 7.3 节） 。
 
-> ![image-20230319194828472](C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230319194828472.png)
+> ![image-20230319194828472](https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146753.png)
 >
 > 可以看到，我们构建 Node 类的实例变量 Tr 储存的实际上是该变量的地址，因此在借助链表构建一些数据结构的过程中，可以让 next 方法直接 = 实例
 >
@@ -193,7 +193,7 @@ class LinkedStack:
 
 表 7-1 给出了 LinkedStack 操作的分析。可以看到，所有方法在最坏情况下都是在常数时间内完成的。这与表 6-2 给出的数组栈的摊销边界形成了对比
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230318194104134.png" alt="image-20230318194104134" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146754.png" alt="image-20230318194104134" style="zoom:50%;" />
 
 #### 7.1.2 用单向链表实现队列
 
@@ -275,11 +275,11 @@ class LinkedQueue:
 
 在链表中，**<u>我们可以使链表的尾部节点的 " next " 指针指向链表的头部，由此来获得一 个更切实际的循环链表的概念。我们称这种结构为循环链表</u>**，如图 7-7 所示。
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230318194721340.png" alt="image-20230318194721340" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146755.png" alt="image-20230318194721340" style="zoom:50%;" />
 
 **<u>与标准的链表相比，循环链表为循环数据集提供了一个更通用的模型，即标准链表的开始和结束没有任何特定的概念。</u>**图 7-8 给出了一个相对图 7 -7 中循环列表的结构更对称的示意图。
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230318194811634.png" alt="image-20230318194811634" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146756.png" alt="image-20230318194811634" style="zoom:50%;" />
 
 我们也可以使用其他类似于图 7-8 所示的环形视图，例如，描述美国芝加哥环线上的火车站点顺序或选手在比赛中的轮流顺序。**<u>虽然一个循环链表可能并没有开始或者结束节点， 但是必须为一个特定的节点维护一个引用，这样才能使用该链表。</u>**我们采用 “current" 标识 符来表示一个指定的节点。通过设置 `current = current.next` , 我们可以有效地遍历链表中的各 个节点。
 
@@ -294,7 +294,7 @@ class LinkedQueue:
 2. Service element e
 3. Q.enqueue(e)
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230318195151970.png" alt="image-20230318195151970" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146757.png" alt="image-20230318195151970" style="zoom:50%;" />
 
 如果用 7.1.2 节介绍的 LinkedQueue 类来实现这个应用程序，则没有必要急于对那种在结束不久后就将同一元素插入队列的出队列操作进行合并处理。从列表中删除一个节点，相应地要适当调整列表的头并缩减列表的大小；对应地，当创建一个新的节点时，应将其插入 列表的尾部并且增加列表的大小。
 
@@ -397,7 +397,7 @@ class CircularQueue:
 
 图 7-10 中给出了一个带哨兵的双向链表。
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230318201150297.png" alt="image-20230318201150297" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146758.png" alt="image-20230318201150297" style="zoom:50%;" />
 
 **<u>当使用哨兵节点时， 一个空链表需要初始化，使头节点的 " next " 域指向尾节点，并令尾节点的 " prev " 域指向头节点</u>**。哨兵节点的剩余域是无关紧要的。对于一个非空的列表， **<u>头节点的 " next " 域将指向一个序列中第一个真正包含元素的节点，对应的尾节点的 " prev " 域指向这个序列中最后一个包含元素的节点</u>**
 
@@ -411,13 +411,13 @@ class CircularQueue:
 
 向双向链表插入节点的每个操作都将发生在两个已有节点之间，如图 7-11 所示。例如， 当一个新元素被插在序列的前面时，我们可以简单地将这个新节点插入头节点和当前位于头节点之后的节点之间，如图 7-12 所示。
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230318201806511.png" alt="image-20230318201806511" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146759.png" alt="image-20230318201806511" style="zoom:50%;" />
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230318201822365.png" alt="image-20230318201822365" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146760.png" alt="image-20230318201822365" style="zoom:50%;" />
 
 图 7-13 所示的是和插入相反的过程——删除节点。**<u>被删除节点的两个邻居直接相互连接起来，从而绕过被删节点。这样一来，该节点将不再被视作列表的一部分，它也可以被系统收回。由于用了哨兵、可以使用相同的方法实现删除序列中的第一个或最后一个元素</u>**． 因为一个元素必然存储在位于某两个已知节点之间的节点上。
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230318201729549.png" alt="image-20230318201729549" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146761.png" alt="image-20230318201729549" style="zoom:50%;" />
 
 #### 7.3.1 双向链表的基本实现
 
@@ -558,7 +558,7 @@ class LinkedDeque(_DoublyLinkedBase):         # note the use of inheritance
 
 **<u>此外，在描述某些应用程序中的本地位置时，索引并非好的抽象，因为序列中不停地发生插入或删除操作，条目的索引值会随着时间的推移发生变化</u>**。例如， 一个排队者的具体位置并不能通过精确地知道队列中在他之前到底有多少人而很容易地描述出来。我们提出一个抽象， 如图 7-14 所示，用一些其他方法描述位置。然后我们希望给一些情况建模，例如，当一个指定的排队者在到达队首之前离开队列，或立即在队列中一个指定的排队者之后增加一个新人。
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230318211138535.png" alt="image-20230318211138535" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146762.png" alt="image-20230318211138535" style="zoom:50%;" />
 
 再如，一个文本文档可以被视为一个长的字符序列。文字处理器使用**<u>游标</u>**这一抽象类型来描述文档中的一个位置，而没有明确地使用整数索引，支持如＂删除此游标处的字符 ” 或者 ” 在当前游标之后插入新的字符 ” 这样的操作。此外，我们可以引用文档中一个固有的位置，比如一个特定章节的开始，但不能依赖于一个字符索引（甚至一个章节编号），因为这个索引可能会随着文档的演化而改变
 
@@ -636,7 +636,7 @@ for e in data:
 
 例题 7-1 :下表显示了一个初始化为空的位置列表 L 上的一些列操作。为了区分位置实例，我们使用了变量 p 和 q 。为了便于展示，当展示列表内容时，我们使用下标符号来表示它的位置。
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230319212440687.png" alt="image-20230319212440687" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146763.png" alt="image-20230319212440687" style="zoom:50%;" />
 
 #### 7.4.2 双向链表实现
 
@@ -931,7 +931,7 @@ class PositionalList(_DoublyLinkedBase):
 
 我们维护一个名为 marker 的变量， 这个变量表示一个列表当前排序部分最右边的位置。我们每次考虑用 pivot 标记 marker 刚过去的位置和 pivot 的元素属于相对排序的部分。我们使用另一个被命名为 walk 的变量，从 marker 向左移动，只要还有一个前驱元素的值大于 pivot 元素的值，就一直移动。这些变量的典型配置如图 7-15 所示。采用 python 对这个策略的实现如代码段 7-17 所示。
 
-<img src="C:\Users\12902\AppData\Roaming\Typora\typora-user-images\image-20230319214539601.png" alt="image-20230319214539601" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146764.png" alt="image-20230319214539601" style="zoom:50%;" />
 
 图 7-15 插入排序中一个步骤的示意图。阴影部分的元素（一直到 marker ) 已经排好序。在这一步中． pivot 的元素应该在 walk 位置之前被立即重新定位
 
