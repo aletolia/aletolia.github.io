@@ -1,25 +1,40 @@
 site_name: One Last Kiss
-site_url: https://james-willett.github.io/mkdocs-material-youtube-tutorial/
+site_dir: 'site'
+site_url: https://localhost:8000/
 theme:
   # logo: assets\saber.ico
   favicon: img/favicon.ico
   logo: img/icon.png
   name: material
+  custom_dir: custom
   features:
-    - navigation.tabs
-    - navigation.sections
-    - toc.integrate
-    - navigation.top
-    - search.suggest
-    - search.highlight
-    - content.tabs.link
-    - content.code.annotation
-    - content.code.copy
-    - navigation.instant  #即时加载
-    - navigation.tracking  #锚点跟踪
-    - search.share   #搜索共享
-    - header.autohide  #标题自动隐藏
-  language: zh
+    - announce.dismiss # 可以叉掉公告的功能
+    - content.action.edit # 编辑按钮，似乎没啥用
+    - content.action.view # 查看按钮，似乎没啥用
+    - content.code.annotate # 代码注释，具体不清楚
+    - content.code.copy # 复制代码按钮
+    # - content.code.select # 选择代码按钮
+    # - content.tabs.link # 链接标签
+    - content.tooltips # 不太清楚呢这个
+    # - header.autohide # 自动隐藏header
+    - navigation.expand # 默认展开导航栏
+    - navigation.footer # 底部导航栏
+    - navigation.indexes # 索引按钮可以直接触发文件，而不是只能点击其下属选项浏览，这个功能可以给对应的section提供很好的预览和导航功能
+    # - navigation.instant # 瞬间加载 最好注释掉，多语言切换这个会导致跳回首页
+    - navigation.instant.prefetch # 预加载
+    - navigation.instant.progress # 进度条
+    - navigation.path # 导航路径， 目前好像没啥用
+    # - navigation.prune # 只构建可见的页面
+    - navigation.sections # 导航栏的section
+    - navigation.tabs # 顶级索引被作为tab
+    - navigation.tabs.sticky # tab始终可见
+    - navigation.top # 开启顶部导航栏
+    - navigation.tracking # 导航栏跟踪
+    - search.highlight # 搜索高亮
+    - search.share # 搜索分享
+    - search.suggest # 搜索建议
+    - toc.follow # 目录跟踪-页面右侧的小目录
+  language: en
   palette:
     - scheme: default
       toggle:
@@ -83,46 +98,26 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.arithmatex:
       generic: true
+  - admonition
+  - pymdownx.details
+  #- mkautodoc
   - attr_list
-  - admonition  # 提示块
-  - pymdownx.snippets  #片段，将任意文件或部分内容嵌入到文档中  
-  - pymdownx.details  #细节折叠
-  - pymdownx.superfences  #超级围栏
-  - attr_list   #属性列表（按钮-颜色图标）
-  - def_list   #定义列表
-  - footnotes  #行内脚注
-  - meta   #元数据
-  - md_in_html  #HTML 中的 Markdown
-  - toc:  #目录
-      toc_depth: 3 #目录深度，默认6，0则隐藏
-  - tables #表格（未推荐）
-  - pymdownx.arithmatex:  #数学公式
-      generic: true  
-  - pymdownx.betterem:   #粗体斜体
-      smart_enable: all
-  - pymdownx.caret  #插入角标符号(`^`)
-  - pymdownx.mark  #双等号(`==`)
-  - pymdownx.tilde  #波浪号(`~`)
-  - pymdownx.critic:  #评论家(突出显示建议更改)，未推荐
-#      mode: reject #应如何解析标记，默认view查看更改，accept是接受更改，reject是拒绝更改
-  - pymdownx.keys   #键盘键和组合  
-  - pymdownx.emoji:  #表情符号
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg  
-  # - pymdownx.smartsymbols  #智能符号
-  - mkdocs-jupyter
-  - glightbox
-  - gen-files:
-      scripts:
-      - docs/gen_ref_pages.py
-  - mkdocstrings:
-      enabled: !ENV [ENABLE_MKDOCSTRINGS, true]
-      custom_templates: templates
-      default_handler: python
-      handlers:
-        python:
-          options:
-            show_source: false
+  - md_in_html
+  - toc:
+      permalink: true
+
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      linenums: true
+      linenums_style: pymdownx-inline
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.inlinehilite
+  - pymdownx.arithmatex
 
 
 
@@ -142,9 +137,7 @@ markdown_extensions:
 
 # other settings ...
 
-markdown_extensions:
-   # other extensions ...
-   - pymdownx.arithmatex
+
 
 # other settings ...
 
@@ -153,8 +146,11 @@ extra_javascript:
   - mathjax-config.js
   - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
   - extra.js  
+  - js/toggle_sidebar.js
 
 extra_css: 
   - extra.css
 
 # other settings ...
+
+
