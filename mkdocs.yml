@@ -1,6 +1,7 @@
 site_name: One Last Kiss
 site_url: https://james-willett.github.io/mkdocs-material-youtube-tutorial/
 theme:
+  logo: assets\saber.ico
   name: material
   features:
     - navigation.tabs
