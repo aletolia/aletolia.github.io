@@ -21,8 +21,6 @@ theme:
     - navigation.sections  #次级目录在侧边栏中呈现为组，与tabs同存则有2级导航
 #    - navigation.expand  #左侧边栏全展开，取消则折叠其他只展开当选
     - navigation.indexes  #次级索引页，直接将文档附加到章节，提供概览页面，在相应文件夹中创建index.md添加到导航nav开头。不兼容toc.integrate。
-    - toc.follow   #锚跟随，文章小标题目录侧边栏自动滚动，以便活动锚点始终可见（付费功能）
-#    - toc.integrate  #导航集成，文章小标题目录是左侧边栏的一部分
     - navigation.top  #返回顶端
     - search.suggest  #搜索建议，省略回车
     - search.highlight  #搜索词高亮突出显示
@@ -143,6 +141,19 @@ markdown_extensions:
   - pymdownx.highlight  #代码高亮，对代码块（SuperFences）和行内代码块（InlineHilite）的语法突出显示
   - pymdownx.inlinehilite  #行内高亮
   - pymdownx.smartsymbols  #智能符号
+  - mkdocs-jupyter
+  - glightbox
+  - gen-files:
+      scripts:
+      - docs/gen_ref_pages.py
+  - mkdocstrings:
+      enabled: !ENV [ENABLE_MKDOCSTRINGS, true]
+      custom_templates: templates
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_source: false
 
 
 
