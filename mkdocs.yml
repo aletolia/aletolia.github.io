@@ -3,6 +3,7 @@ site_url: https://james-willett.github.io/mkdocs-material-youtube-tutorial/
 theme:
   # logo: assets\saber.ico
   favicon: img/favicon.ico
+  logo: img/icon.png
   name: material
   features:
     - navigation.tabs
