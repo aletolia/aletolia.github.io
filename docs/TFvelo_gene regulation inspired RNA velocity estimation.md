@@ -277,10 +277,7 @@ $$
 1. **相位图上的类间距离**：这个指标测量相位图上不同细胞类型的分布中心之间的归一化距离，定义为：
 
 $$
-
 \text{Dist} = \sum\_{k_1 \neq k_2} \left[\left(\frac{u_c^{k_1}-u_c^{k_2}}{\operatorname{std}(u)}\right)^2 + \left(\frac{s_c^{k_1}-s_c^{k_2}}{\operatorname{std}(s)}\right)^2\right]
-
-
 $$
 
 这反映了不同类型的细胞在相位图上是否被良好地分离，越高越好。
@@ -288,19 +285,13 @@ $$
 1. **相位图上的拟合误差**：这个指标测量每个细胞与构建的模型在相位图上的归一化距离。这反映了拟合的准确性，计算方式如下。在每个选定基因的相位图上，计算每个细胞与推断模型曲线之间的距离的归一化均方误差。对于 TFvelo 数据，误差为：
 
 $$
-
 \text{Err} = \sum*{j=1}^N \left[\left(\frac{\mathbf{W X}*{\mathbf{j}} - \mathbf{W X}\left(t_j\right)}{\operatorname{std}(\mathbf{W X})}\right)^2 + \left(\frac{y_j - y\left(t_j\right)}{\operatorname{std}(y)}\right)^2\right]
-
-
 $$
 
 其中 $j$ 表示细胞的索引，$t_j$ 表示为细胞 $j$ 建模的潜在时间，$N$ 是细胞总数。$\mathbf{W X}_j$ 和 $y_j$ 指的是细胞在相位图上的位置。$\mathbf{W X}\left(t_j\right)$ 和 $y\left(t_j\right)$ 指的是 TFvelo 给出的模型。类似地，基于未剪接/剪接数据的方法的误差定义为：
 
 $$
-
 \text{Err} = \sum\_{j=1}^N \left[\left(\frac{u_j-u\left(t_j\right)}{\operatorname{std}(u)}\right)^2 + \left(\frac{s_j-s\left(t_j\right)}{\operatorname{std}(s)}\right)^2\right]
-
-
 $$
 
 ### **数据可用性**
