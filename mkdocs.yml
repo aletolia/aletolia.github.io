@@ -80,9 +80,9 @@ nav:
       - A visual-language foundation model for computational pathology.md
       - Recurrent memory with optimal polynomial projections..md
     - Re:0 CPath:
-      - Session 1 -- Intro to QuPath and OpenSlide.ipynb
-      - Session 2 -- Multiple Instance Learning.ipynb
-      - Session 3 -- Interpretability of MIL.ipynb
+      - Session 1.ipynb
+      - Session 2.ipynb
+      - Session 3.ipynb
 
    
 
