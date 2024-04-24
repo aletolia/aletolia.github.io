@@ -76,6 +76,8 @@ nav:
       - PORPOISE.md
       - HIPT.md
       - Data-efficient and weakly supervised computational pathology on whole-slide images(CLAM).md
+      - Towards a general-purpose foundation model for computational pathology.md
+      - A visual-language foundation model for computational pathology.md
     - Recurrent memory with optimal polynomial projections..md
 
   - scRNA Analysis:
@@ -91,6 +93,7 @@ nav:
       - ScRNA-seq of gastric cancer tissues reveals differences in the immune microenvironment of primary tumors and metastases.md
       - Blimp-1 and c-Maf regulate immune gene networks to protect against distinct pathways of pathobiont-induced colitis.md
       - Single cell analysis unveils B cell-dominated immune subtypes in HNSCC for enhanced prognostic and therapeutic stratification.md
+      - Single-cell spatial multi-omics and deep learning dissect enhancer-driven gene regulatory networks in liver zonation.md
 
   - Data Structures:
     - 第 1 章 python 入门.md

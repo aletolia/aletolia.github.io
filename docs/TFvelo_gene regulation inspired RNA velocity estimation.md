@@ -272,7 +272,7 @@ $$
    \text{Dist} = \sum_k \sum_{j \in \text{type}_k} \left[\left(\frac{u_j-u_c^k}{\operatorname{std}(u)}\right)^2 + \left(\frac{s_j-s_c^k}{\operatorname{std}(s)}\right)^2\right]
    $$
 
-   其中 $(u_c^k, s_c^k)$ 表示细胞类型 $k$ 的中心，$\operatorname{std}(\cdot)$ 表示标准差，$j$ 表示细胞的索引。对于 TFvelo，距离可以通过将 $u$ 替换为 $W X$ 和 $s$ 替换为 $y$ 来定义。
+其中 $(u_c^k, s_c^k)$ 表示细胞类型 $k$ 的中心，$\operatorname{std}(\cdot)$ 表示标准差，$j$ 表示细胞的索引。对于 TFvelo，距离可以通过将 $u$ 替换为 $W X$ 和 $s$ 替换为 $y$ 来定义。
 
 1. **相位图上的类间距离**：这个指标测量相位图上不同细胞类型的分布中心之间的归一化距离，定义为：
 
