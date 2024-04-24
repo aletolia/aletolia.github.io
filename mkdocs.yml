@@ -112,9 +112,6 @@ nav:
     - 第 8 章 树 ★.md
     - 第 9 章 优先级队列.md
 
-# plugins:
-#   - social
-#   - search
 
 # extra:
 #   social:
@@ -126,6 +123,7 @@ nav:
 #       link: https://www.linkedin.com/in/willettjames/
 
 markdown_extensions:
+  
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
@@ -151,6 +149,8 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.inlinehilite
   - pymdownx.arithmatex
+
+plugins: 
   - mkdocs-jupyter
 
 
