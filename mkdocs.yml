@@ -78,11 +78,13 @@ nav:
       - Data-efficient and weakly supervised computational pathology on whole-slide images(CLAM).md
       - Towards a general-purpose foundation model for computational pathology.md
       - A visual-language foundation model for computational pathology.md
+      - Recurrent memory with optimal polynomial projections..md
     - Re:0 CPath:
       - Session 1 -- Intro to QuPath and OpenSlide.ipynb
       - Session 2 -- Multiple Instance Learning.ipynb
       - Session 3 -- Interpretability of MIL.ipynb
-    - Recurrent memory with optimal polynomial projections..md
+
+   
 
   - scRNA Analysis:
     - Using Python:
@@ -149,6 +151,7 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.inlinehilite
   - pymdownx.arithmatex
+  - mkdocs-jupyter
 
 
 
