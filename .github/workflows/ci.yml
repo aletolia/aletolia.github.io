@@ -20,5 +20,5 @@ jobs:
           path: .cache
       - run: pip install mkdocs-material
       - run: pip install pillow cairosvg
-      - run: pip install mkdocs-jupyter
+      - run: pip install mkdocs-jupyter==0.24.0
       - run: mkdocs gh-deploy --force
