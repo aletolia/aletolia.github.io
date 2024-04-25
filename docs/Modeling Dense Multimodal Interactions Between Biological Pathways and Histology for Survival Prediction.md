@@ -18,7 +18,7 @@
 虽然组织学提供了有关细胞类型及其在组织中的组织方式的表型信息，但其他模态可以提供可能独立与预后相关的互补信号。例如，整体转录组学代表组织中的平均基因表达，可以揭示更丰富的全局细胞类型和细胞状态，并已被证实是患者生存的强预测因子。通过结合这两种模态，我们可以将整体转录组学提供的全局信息与全幅切片图像的空间信息整合起来。虽然大多数现有方法采用后期融合机制（即，融合模态级表示），但我们设计了**一种早期融合方法，可以明确模拟局部形态模式和转录组学之间的精细交叉模态关系**。与广泛使用的视觉 - 语言模型相比，转录组学和组织学的多模态融合呈现出两个关键技术挑战：
 
 1. 转录组学模态的标记化：基于图像和文本的模态可以明确地标记化为对象区域和词汇标记，然而，**以语义上有意义且可解释的方式标记化转录组学是具有挑战性的。由于转录组学数据已自然呈现为特征向量，许多先前研究忽略了标记化，并直接将整个特征与其他模态连接**，这限制了多模态学习仅至后期融合操作。另一种方法是，可以将基因划分为代表不同基因家族的粗糙功能集（例如，肿瘤抑制基因和致癌基因），并将其用作标记。然而，这种集合提供的细胞内互动的描述是粗糙且不完整的，因为一个基因家族可以涉及不同的细胞功能。因此，它们可能缺乏与精细形态的语义对应。相反，**我们提议根据已建立的生物途径对基因进行标记。途径是具有已知相互作用的基因集，与特定的细胞功能相关，例如 TGF-β 信号级联**，它有助于乳腺癌中的上皮 - 间充质转化。与粗糙集相比（例如，我们工作中的 $N_{\mathcal{P}}=331$），**基于途径的基因分组可以产生代表独特分子过程的数百到数千个标记，我们假设这些标记是与组织学多模态融合更合适的表示**。此外，由于途径代表独特的细胞功能，它们构成了适合解释性的基本推理单元（见图 1）。
-2. 捕获密集多模态交互：利用 Transformer 通过自注意机制捕获所有标记之间的成对相似性，可以实现组织学和途径标记的早期融合。然而，模拟大量组织学 patches 标记（例如 $\left.N_{\mathscr{H}}=15,000\right)$ 和途径标记 $\left(N_{\mathcal{P}}=331\right)$ 之间的成对互动带来了可扩展性挑战。由于 Transformer 注意力的二次复杂性，模拟所有可能的互动需要大量的计算和内存资源。为解决这一问题，我们引入了一种**新的统一的、内存高效的注意力机制，能够模拟 patches 到途径、途径到 patches 以及途径之间的互动**。通过以下方式实现这三种互动的建模：（1）设计查询、键和值以跨标记类型共享参数，并（2）简化注意力层以忽略 patches 之间的互动，我们通过实验发现这对生存分析的效果不太有效。
+2. 捕获密集多模态交互：利用 Transformer 通过自注意机制捕获所有标记之间的成对相似性，可以实现组织学和途径标记的早期融合。然而，模拟大量组织学 patches 标记（例如 $\left.N_{\mathscr{H}}=15,000\mathbb{R}ight)$ 和途径标记 $\left(N_{\mathcal{P}}=331\mathbb{R}ight)$ 之间的成对互动带来了可扩展性挑战。由于 Transformer 注意力的二次复杂性，模拟所有可能的互动需要大量的计算和内存资源。为解决这一问题，我们引入了一种**新的统一的、内存高效的注意力机制，能够模拟 patches 到途径、途径到 patches 以及途径之间的互动**。通过以下方式实现这三种互动的建模：（1）设计查询、键和值以跨标记类型共享参数，并（2）简化注意力层以忽略 patches 之间的互动，我们通过实验发现这对生存分析的效果不太有效。
 
 总结来说，我们的贡献包括：
 
@@ -59,48 +59,48 @@
 
 在此，我们介绍 SurvPath，这是我们提出的基于组织学和转录组学的多模态生存预测方法。第 3.1 节展示了如何构建生物途径标记的转录组学编码器，第 3.2 节展示了如何构建 patches 标记的组织学编码器，第 3.3 节展示了我们基于 Transformer 的多模态聚合，第 3.4 节展示了其在生存预测中的应用（参见图 2）。最后，第 3.5 节介绍了我们的多层次可解释性框架。
 
-给定一组 $N_{\mathcal{G}}$ 基因的转录组学测量值，记为 $\mathbf{g} \in{\R }^{N_{\mathcal{G}}}$，以及每个途径的组成，我们的目标是构建途径级标记 $\mathbf{X}^{(\mathcal{P})} \in{\R}^{N_{\mathcal{P}} \times d}$，其中 $d$ 表示标记的维度。转录组学可以视为表格数据，可以通过多层感知器（MLPs）有效编码。具体来说，我们正在学习特定途径的权重 $\phi_i$，即 $\mathbf{x}_i^{(\mathcal{P})}=\phi_i\left(\mathbf{g}_{\mathcal{P}_i}\right)$，其中 $\mathbf{g}_{\mathcal{P}_i}$ 是途径 $\mathcal{P}_i$ 中存在的基因集。这可以视为学习一个稀疏多层感知器（S-MLP），将转录组学 $\mathbf{g} \in{\R}^{N_{\mathcal{G}}}$ 映射到标记 $\mathbf{x}^{(\mathcal{P})} \in{\R}^{N_{\mathcal{P}} d}$。网络的稀疏性由嵌入在 S-MLP 权重中的基因到途径的连接性控制。通过简单地将 $\mathbf{x}^{(\mathcal{P})} \in{ \R}^{N_{\mathcal{P}} d}$ 重塑为 $\mathbf{X}^{(\mathcal{P})} \in{\R }^{N_{\mathcal{P}} \times d}$，我们定义了 Transformer 可以使用的途径标记。每个途径标记对应于构成其的基因级转录组学的深层表示，这既（1）可解释，因为它编码了特定的生物功能；也（2）可在端到端的预测任务中学习。
+给定一组 $N_{\mathcal{G}}$ 基因的转录组学测量值，记为 $\mathbf{g} \in{\mathbb{R} }^{N_{\mathcal{G}}}$，以及每个途径的组成，我们的目标是构建途径级标记 $\mathbf{X}^{(\mathcal{P})} \in{\mathbb{R}}^{N_{\mathcal{P}} \times d}$，其中 $d$ 表示标记的维度。转录组学可以视为表格数据，可以通过多层感知器（MLPs）有效编码。具体来说，我们正在学习特定途径的权重 $\phi_i$，即 $\mathbf{x}_i^{(\mathcal{P})}=\phi_i\left(\mathbf{g}_{\mathcal{P}_i}\mathbb{R}ight)$，其中 $\mathbf{g}_{\mathcal{P}_i}$ 是途径 $\mathcal{P}_i$ 中存在的基因集。这可以视为学习一个稀疏多层感知器（S-MLP），将转录组学 $\mathbf{g} \in{\mathbb{R}}^{N_{\mathcal{G}}}$ 映射到标记 $\mathbf{x}^{(\mathcal{P})} \in{\mathbb{R}}^{N_{\mathcal{P}} d}$。网络的稀疏性由嵌入在 S-MLP 权重中的基因到途径的连接性控制。通过简单地将 $\mathbf{x}^{(\mathcal{P})} \in{ \mathbb{R}}^{N_{\mathcal{P}} d}$ 重塑为 $\mathbf{X}^{(\mathcal{P})} \in{\mathbb{R} }^{N_{\mathcal{P}} \times d}$，我们定义了 Transformer 可以使用的途径标记。每个途径标记对应于构成其的基因级转录组学的深层表示，这既（1）可解释，因为它编码了特定的生物功能；也（2）可在端到端的预测任务中学习。
 
 ### 3.2 从全幅切片图像到组织学 patches 标记器
 
-给定输入的全幅切片图像（WSI），我们的目标是衍生出定义 patches 标记的低维 patches 级嵌入。我们首先识别组织区域，以确保被忽略的背景不携带生物意义。然后，我们将识别的组织区域分解为一组 $N_{\mathscr{H}}$ 非重叠 patches，放大倍数为 20 倍（或分辨率约为 0.5 微米/像素），记为 $\mathbf{H}=\left\{\mathbf{h}_1, \ldots, \mathbf{h}_{N_{\mathfrak{H}}}\right\}$。由于每个 WSI 的 patches 数量可能非常大（例如，可能超过 50,000 个 patches 或 78GB 的浮点数），因此需要在模型训练前提取 patches 嵌入，以减少总体内存需求。正式地，我们使用预训练的特征提取器 $f(\cdot)$ 将每个 patches $\mathbf{h}_i$ 映射到 patches 嵌入 $\mathbf{x}_i^{(\mathscr{H})}=f\left(\mathbf{h}_i\right)$。在本工作中，我们使用了一个通过对超过 1500 万个泛癌症病理学 patches 的对比学习预训练的 Swin Transformer 编码器。所得的 patches 嵌入代表了 patches 的压缩表达（压缩比为 256），我们进一步通过一个可学习的线性变换将其传递，以匹配标记维度 $d$，从而生成 patches 标记 $\mathbf{X}^{(\mathscr{H})} \in{\R}^{N_{\mathscr{H}} \times d}$。
+给定输入的全幅切片图像（WSI），我们的目标是衍生出定义 patches 标记的低维 patches 级嵌入。我们首先识别组织区域，以确保被忽略的背景不携带生物意义。然后，我们将识别的组织区域分解为一组 $N_{\mathscr{H}}$ 非重叠 patches，放大倍数为 20 倍（或分辨率约为 0.5 微米/像素），记为 $\mathbf{H}=\left\{\mathbf{h}_1, \ldots, \mathbf{h}_{N_{\mathfrak{H}}}\mathbb{R}ight\}$。由于每个 WSI 的 patches 数量可能非常大（例如，可能超过 50,000 个 patches 或 78GB 的浮点数），因此需要在模型训练前提取 patches 嵌入，以减少总体内存需求。正式地，我们使用预训练的特征提取器 $f(\cdot)$ 将每个 patches $\mathbf{h}_i$ 映射到 patches 嵌入 $\mathbf{x}_i^{(\mathscr{H})}=f\left(\mathbf{h}_i\mathbb{R}ight)$。在本工作中，我们使用了一个通过对超过 1500 万个泛癌症病理学 patches 的对比学习预训练的 Swin Transformer 编码器。所得的 patches 嵌入代表了 patches 的压缩表达（压缩比为 256），我们进一步通过一个可学习的线性变换将其传递，以匹配标记维度 $d$，从而生成 patches 标记 $\mathbf{X}^{(\mathscr{H})} \in{\mathbb{R}}^{N_{\mathscr{H}} \times d}$。
 
 ### 3.3 多模态融合
 
-我们的目标是设计一种早期融合机制，以模拟途径和 patches 标记之间的密集多模态交互。我们使用 Transformer 注意力 [72] 来测量和聚合多模态标记之间的成对交互。具体来说，我们通过连接途径和 patches 标记来定义一个多模态序列，产生 $\left(N_{\mathscr{H}}+N_{\mathcal{P}}\right)$ 维度为 $d$ 的标记，记为 $\mathbf{X} \in\left(N_{\mathcal{P}}+N_{\mathscr{H}}\right) \times d$。遵循自我注意术语 [72]，我们定义三个线性投影使用可学习矩阵来提取查询 $(\mathbf{Q})$、键 $(\mathbf{K})$ 和值 $(\mathbf{V})$ 及自注意力 $\mathbf{A}$，设置 $d=d_k=d_q=d_v$。然后定义 Transformer 注意力为：
+我们的目标是设计一种早期融合机制，以模拟途径和 patches 标记之间的密集多模态交互。我们使用 Transformer 注意力 [72] 来测量和聚合多模态标记之间的成对交互。具体来说，我们通过连接途径和 patches 标记来定义一个多模态序列，产生 $\left(N_{\mathscr{H}}+N_{\mathcal{P}}\mathbb{R}ight)$ 维度为 $d$ 的标记，记为 $\mathbf{X} \in\left(N_{\mathcal{P}}+N_{\mathscr{H}}\mathbb{R}ight) \times d$。遵循自我注意术语 [72]，我们定义三个线性投影使用可学习矩阵来提取查询 $(\mathbf{Q})$、键 $(\mathbf{K})$ 和值 $(\mathbf{V})$ 及自注意力 $\mathbf{A}$，设置 $d=d_k=d_q=d_v$。然后定义 Transformer 注意力为：
 
 $$
-\mathbf{X}_{\mathrm{Att}}=\sigma\left(\frac{\mathbf{Q K}^T}{\sqrt{d}}\right) \mathbf{V}=\left(\begin{array}{cc}
-\mathbf{A}_{\mathcal{P}} \rightarrow \mathcal{P} & \mathbf{A}_{\mathcal{P}} \rightarrow \mathscr{H} \\
-\mathbf{A}_{\mathscr{H}} \rightarrow \mathcal{P} & \mathbf{A}_{\mathscr{H} \rightarrow \mathscr{H}}
-\end{array}\right)\left(\begin{array}{c}
+\mathbf{X}_{\mathrm{Att}}=\sigma\left(\frac{\mathbf{Q K}^T}{\sqrt{d}}\mathbb{R}ight) \mathbf{V}=\left(\begin{array}{cc}
+\mathbf{A}_{\mathcal{P}} \mathbb{R}ightarrow \mathcal{P} & \mathbf{A}_{\mathcal{P}} \mathbb{R}ightarrow \mathscr{H} \\
+\mathbf{A}_{\mathscr{H}} \mathbb{R}ightarrow \mathcal{P} & \mathbf{A}_{\mathscr{H} \mathbb{R}ightarrow \mathscr{H}}
+\end{array}\mathbb{R}ight)\left(\begin{array}{c}
 \mathbf{V}_{\mathcal{P}} \\
 \mathbf{V}_{\mathscr{H}}
-\end{array}\right)\tag{1}
+\end{array}\mathbb{R}ight)\tag{1}
 $$
 
 
-其中，$\sigma$ 是按行的 softmax。项 $\mathbf{QK}^T$ 的内存需求为 $\mathcal{O}\left(\left(N_{\mathcal{H}}+N_{\mathcal{P}}\right)^2\right)$，对于长序列来说，计算成本会变得很高。这构成了一个主要瓶颈，因为一个全扫描图像（WSI）可能有超过50,000个补丁，这使得在大多数硬件上进行这种计算变得具有挑战性。相反，我们提议将多模态 Transformer 注意力分解为四个内部和跨模态项：（1）内模态路径自注意力编码路径到路径的相互作用 $\mathbf{A}_{\mathcal{P} \rightarrow \mathcal{P}} \in \mathbb{R}^{N_{\mathcal{P}} \times N_{\mathcal{P}}}$；（2）跨模态路径引导的交叉注意力编码路径到补丁的相互作用 $\mathbf{A}_{\mathcal{P} \rightarrow \mathcal{H}} \in \mathbb{R}^{N_{\mathcal{P}} \times N_{\mathcal{H}}}$；（3）跨模态组织学引导的交叉注意力编码补丁到路径的相互作用 $\mathbf{A}_{\mathcal{H} \rightarrow \mathcal{P}} \in \mathbb{R}^{N_{\mathcal{H}} \times N_{\mathcal{P}}}$；以及（4）内模态完全组织学自注意力编码补丁到补丁的相互作用 $\mathbf{A}_{\mathcal{H} \rightarrow \mathcal{H}} \in \mathbb{R}^{N_{\mathcal{H}} \times N_{\mathcal{H}}}$。
+其中，$\sigma$ 是按行的 softmax。项 $\mathbf{QK}^T$ 的内存需求为 $\mathcal{O}\left(\left(N_{\mathcal{H}}+N_{\mathcal{P}}\mathbb{R}ight)^2\mathbb{R}ight)$，对于长序列来说，计算成本会变得很高。这构成了一个主要瓶颈，因为一个全扫描图像（WSI）可能有超过50,000个补丁，这使得在大多数硬件上进行这种计算变得具有挑战性。相反，我们提议将多模态 Transformer 注意力分解为四个内部和跨模态项：（1）内模态路径自注意力编码路径到路径的相互作用 $\mathbf{A}_{\mathcal{P} \mathbb{R}ightarrow \mathcal{P}} \in \mathbb{R}^{N_{\mathcal{P}} \times N_{\mathcal{P}}}$；（2）跨模态路径引导的交叉注意力编码路径到补丁的相互作用 $\mathbf{A}_{\mathcal{P} \mathbb{R}ightarrow \mathcal{H}} \in \mathbb{R}^{N_{\mathcal{P}} \times N_{\mathcal{H}}}$；（3）跨模态组织学引导的交叉注意力编码补丁到路径的相互作用 $\mathbf{A}_{\mathcal{H} \mathbb{R}ightarrow \mathcal{P}} \in \mathbb{R}^{N_{\mathcal{H}} \times N_{\mathcal{P}}}$；以及（4）内模态完全组织学自注意力编码补丁到补丁的相互作用 $\mathbf{A}_{\mathcal{H} \mathbb{R}ightarrow \mathcal{H}} \in \mathbb{R}^{N_{\mathcal{H}} \times N_{\mathcal{H}}}$。
 
-由于 patches token 的数量远大于路径的数量，即 $N_{\mathcal{H}} \gg N_{\mathcal{P}}$，大部分的内存需求来自于计算和存储 $\mathbf{A}_{\mathcal{H} \rightarrow \mathcal{H}}$。为了解决这个瓶颈，我们将 Transformer 注意力近似为：
+由于 patches token 的数量远大于路径的数量，即 $N_{\mathcal{H}} \gg N_{\mathcal{P}}$，大部分的内存需求来自于计算和存储 $\mathbf{A}_{\mathcal{H} \mathbb{R}ightarrow \mathcal{H}}$。为了解决这个瓶颈，我们将 Transformer 注意力近似为：
 
 $$
 \hat{\mathbf{X}}_{\mathrm{Att}}=\left(\begin{array}{c}
 \mathbf{x}_{\mathrm{Att}}^{(\mathcal{P})} \\
 \hat{\mathbf{X}}_{\mathrm{Att}}^{(\mathscr{H})}
-\end{array}\right)=\sigma\left[\frac{1}{\sqrt{d}}\left(\begin{array}{cc}
+\end{array}\mathbb{R}ight)=\sigma\left[\frac{1}{\sqrt{d}}\left(\begin{array}{cc}
 \mathbf{Q}_{\mathcal{P}} \mathbf{K}_{\mathcal{P}}^T & \mathbf{Q}_{\mathcal{P}} \mathbf{K}_{\mathscr{H}}^T \\
 \mathbf{Q}_{\mathscr{H}} \mathbf{K}_{\mathcal{P}}^T & -\infty
-\end{array}\right)\right] \mathbf{V}\tag{2}
+\end{array}\mathbb{R}ight)\mathbb{R}ight] \mathbf{V}\tag{2}
 $$
 
-其中 $\mathbf{Q}_{\mathcal{P}}$（分别为 $\mathbf{K}_{\mathcal{P}}$）和 $\mathbf{Q}_{\mathscr{H}}$（分别为 $\mathbf{K}_{\mathscr{H}}$）表示途径和组织学查询和键的子集。将 softmax 前的 patches 到 patches 交互设置为 $-\infty$ 相当于忽略这些交互。展开方程 10，我们得到 $\mathbf{X}_{\text {Att}}^{(\mathcal{P})}=\sigma\left(\frac{\mathbf{Q}_{\mathcal{P}} \mathbf{K}^T}{\sqrt{d}}\right) \mathbf{V}_{\mathcal{P}}$，和 $\hat{\mathbf{X}}_{\text {Att}}^{(\mathscr{H})}=\sigma\left(\frac{\mathbf{Q}_{\mathscr{H}} \mathbf{K}_{\mathcal{P}}^T}{\sqrt{d}}\right) \mathbf{V}_{\mathscr{H}}$。交互的数量显著减少，使得计算 $\hat{\mathbf{A}}$ 的内存需求有限。这种表述可以视为多模态序列上的稀疏注意模式 [4]，其中稀疏性是在 patches 标记之间强加的。这种表述在参数效率上也很高，因为为编码两种模态学习了一套独特的键、查询和值。此外，这种表述类似于图神经网络，在这个网络上，途径相互连接，并且每个途径都与所有 patches 连接。
+其中 $\mathbf{Q}_{\mathcal{P}}$（分别为 $\mathbf{K}_{\mathcal{P}}$）和 $\mathbf{Q}_{\mathscr{H}}$（分别为 $\mathbf{K}_{\mathscr{H}}$）表示途径和组织学查询和键的子集。将 softmax 前的 patches 到 patches 交互设置为 $-\infty$ 相当于忽略这些交互。展开方程 10，我们得到 $\mathbf{X}_{\text {Att}}^{(\mathcal{P})}=\sigma\left(\frac{\mathbf{Q}_{\mathcal{P}} \mathbf{K}^T}{\sqrt{d}}\mathbb{R}ight) \mathbf{V}_{\mathcal{P}}$，和 $\hat{\mathbf{X}}_{\text {Att}}^{(\mathscr{H})}=\sigma\left(\frac{\mathbf{Q}_{\mathscr{H}} \mathbf{K}_{\mathcal{P}}^T}{\sqrt{d}}\mathbb{R}ight) \mathbf{V}_{\mathscr{H}}$。交互的数量显著减少，使得计算 $\hat{\mathbf{A}}$ 的内存需求有限。这种表述可以视为多模态序列上的稀疏注意模式 [4]，其中稀疏性是在 patches 标记之间强加的。这种表述在参数效率上也很高，因为为编码两种模态学习了一套独特的键、查询和值。此外，这种表述类似于图神经网络，在这个网络上，途径相互连接，并且每个途径都与所有 patches 连接。
 
 通过将 $\hat{\mathbf{x}}_{\text {Att}}$ 通过一个带有层归一化的前馈层后，我们取得了注意力后途径和 patches 标记的平均表征，分别记为 $\overline{\mathbf{x}}_{\mathrm{Att}}^{\mathcal{P}}$ 和 $\overline{\mathbf{x}}_{\mathrm{Att}}^{\mathfrak{H}}$。最终的表征 $\overline{\mathbf{x}}_{\mathrm{Att}}$，然后通过连接 $\overline{\mathbf{x}}_{\mathrm{Att}}^{\mathcal{P}}$ 和 $\overline{\mathbf{x}}_{\mathrm{Att}}^{\mathcal{H}}$ 来定义。
 
 ### 3.4 生存预测
 
-使用多模态嵌入 $\overline{\mathbf{x}}_{\text {Att }} \in{\R}^{2d}$，我们的监督目标是预测患者的生存期。根据先前的工作【90】，我们通过以下方式定义患者的生存状态：(1) 审查状态 $c$，其中 $c=0$ 表示观察到的患者死亡，$c=1$ 对应于患者的最后已知随访；(2) 事件发生时间 $t_i$，如果 $c=0$，则对应于患者诊断和观察到的死亡之间的时间，如果 $c=1$，则对应于最后一次随访。我们不直接预测事件的观测时间 $t$，而是通过定义基于生存时间值四分位数的非重叠时间间隔 $\left(t_{j-1}, t_j\right), j \in[1, \ldots, n]$ 并表示为 $y_j$ 来近似它。问题简化为分类，每个患者现在由 $\left(\overline{\mathbf{x}}_{\text {Att }}, y_j, c\right)$ 定义。我们定义的分类器使得每个输出逻辑（经 sigmoid 激活后）$\sigma\left(\hat{y}_j\right)$ 表示患者在时间间隔 $\left(t_{j-1}, t_j\right)$ 内死亡的概率。我们进一步采取逻辑的累积乘积 $\prod_{k=1}^j\left(1-\sigma\left(\hat{y}_k\right)\right)$ 来表示患者在时间间隔 $\left(t_{j-1}, t_j\right)$ 内生存的概率。最后，通过取所有逻辑之和的负值，我们可以定义用于训练网络的患者级风险。更多信息请参见补充材料。
+使用多模态嵌入 $\overline{\mathbf{x}}_{\text {Att }} \in{\mathbb{R}}^{2d}$，我们的监督目标是预测患者的生存期。根据先前的工作【90】，我们通过以下方式定义患者的生存状态：(1) 审查状态 $c$，其中 $c=0$ 表示观察到的患者死亡，$c=1$ 对应于患者的最后已知随访；(2) 事件发生时间 $t_i$，如果 $c=0$，则对应于患者诊断和观察到的死亡之间的时间，如果 $c=1$，则对应于最后一次随访。我们不直接预测事件的观测时间 $t$，而是通过定义基于生存时间值四分位数的非重叠时间间隔 $\left(t_{j-1}, t_j\mathbb{R}ight), j \in[1, \ldots, n]$ 并表示为 $y_j$ 来近似它。问题简化为分类，每个患者现在由 $\left(\overline{\mathbf{x}}_{\text {Att }}, y_j, c\mathbb{R}ight)$ 定义。我们定义的分类器使得每个输出逻辑（经 sigmoid 激活后）$\sigma\left(\hat{y}_j\mathbb{R}ight)$ 表示患者在时间间隔 $\left(t_{j-1}, t_j\mathbb{R}ight)$ 内死亡的概率。我们进一步采取逻辑的累积乘积 $\prod_{k=1}^j\left(1-\sigma\left(\hat{y}_k\mathbb{R}ight)\mathbb{R}ight)$ 来表示患者在时间间隔 $\left(t_{j-1}, t_j\mathbb{R}ight)$ 内生存的概率。最后，通过取所有逻辑之和的负值，我们可以定义用于训练网络的患者级风险。更多信息请参见补充材料。
 
 ### 3.5 多层次可解释性
 
@@ -160,7 +160,7 @@ $$
 
 **标记器：** SURVPATH 采用 Reactome 和 Hallmarks 数据库作为生物途径的来源。我们评估了仅使用其中每个数据库的模型性能，以及将所有基因分配给一个标记（单一）和在【10】中使用的基因家族。随着转录组学标记的粒度增加，整体性能提高，表明构建具有语义的标记带来了可解释性属性并提高了性能。我们将这一观察归因于每个标记编码了越来越具体的生物功能，从而更好地实现了跨模态建模。
 
-**融合：** 我们通过进一步简化 Transformer 注意力，只考虑其左部分 $A_{\mathcal{P}} \rightarrow \mathcal{P}$ 和 $A_{\mathscr{H} \rightarrow \mathcal{P}}$，以及其顶部部分 $A_{\mathcal{P} \rightarrow \mathcal{P}}$ 和 $A_{\mathcal{P} \rightarrow \mathscr{H}}$（这种设计类似于 MCAT【10】中学习的单一共享多模态注意力层）来对 SURVPATH 进行消融。两个分支带来了互补信息（观察到 c 指数的下降分别为 -5.6% 和 -7.5%），这证明了需要模拟途径到 patches 和 patches 到途径的交互。我们进一步将 SURVPATH 适配为 Nyström 注意力，该注意力通过使用低秩近似简化自注意力，使得在非常长的序列上进行训练成为可能。这导致了性能显著下降 -6.9%。我们假设“真正的全注意力”具有低熵，使其更难通过低秩方法近似【8】，并且稀疏注意力模式提供了更好的近似。
+**融合：** 我们通过进一步简化 Transformer 注意力，只考虑其左部分 $A_{\mathcal{P}} \mathbb{R}ightarrow \mathcal{P}$ 和 $A_{\mathscr{H} \mathbb{R}ightarrow \mathcal{P}}$，以及其顶部部分 $A_{\mathcal{P} \mathbb{R}ightarrow \mathcal{P}}$ 和 $A_{\mathcal{P} \mathbb{R}ightarrow \mathscr{H}}$（这种设计类似于 MCAT【10】中学习的单一共享多模态注意力层）来对 SURVPATH 进行消融。两个分支带来了互补信息（观察到 c 指数的下降分别为 -5.6% 和 -7.5%），这证明了需要模拟途径到 patches 和 patches 到途径的交互。我们进一步将 SURVPATH 适配为 Nyström 注意力，该注意力通过使用低秩近似简化自注意力，使得在非常长的序列上进行训练成为可能。这导致了性能显著下降 -6.9%。我们假设“真正的全注意力”具有低熵，使其更难通过低秩方法近似【8】，并且稀疏注意力模式提供了更好的近似。
 
 ![](https://arxiv.org/html/2304.06819v2/x3.png)
 
@@ -183,14 +183,14 @@ $$
 
 ### 1. 生存预测
 
-根据前面引入的符号，我们的目标是通过多模态嵌入 $\overline{\mathrm{x}}_{\mathrm{Att}} \in \mathbb{R}^{2d}$ 来预测患者的生存情况。与之前的工作【90】一致，我们通过以下方式定义患者的生存状态：(1) 审查状态 $c$，其中 $c=0$ 表示观测到的患者死亡，$c=1$ 对应于患者的最后已知随访；(2) 事件到发生时间 $t_i$，如果 $c=0$，对应于患者诊断和观测到的死亡之间的时间，如果 $c=1$，则对应于最后一次随访。我们没有直接预测事件发生的观测时间 $t$，而是通过定义基于生存时间值四分位数的非重叠时间间隔 $\left(t_{j-1}, t_j\right)，j \in[1, \ldots, n]$ 并表示为 $y_j$ 来近似它。这个问题简化为带有审查信息的分类问题，每个患者现在由 $\left(\overline{\mathrm{x}}_{\mathrm{Att}}, y_j, c\right)$ 定义。我们构建了一个分类器，网络预测的每个输出逻辑 $\hat{y}_j$ 对应一个时间间隔。由此，我们定义离散危险函数 $f_{\text {hazard }}\left(y_j \mid \overline{\mathrm{x}}_{\mathrm{Att}}\right)=S\left(\hat{y}_j\right)$，其中 $S$ 是 sigmoid 激活函数。直观上，$f_{\text {hazard }}\left(y_j \mid \overline{\mathrm{x}}_{\text {Att }}\right)$ 表示患者在时间间隔 $\left(t_{j-1}, t_j\right)$ 内死亡的概率。此外，我们定义了离散生存函数 $f_{\text {surv }}\left(y_j \mid \overline{\mathrm{x}}_{\text {Att }}\right) = \prod_{k=1}^j\left(1-f_{\text {hazard }}\left(y_k \mid \overline{\mathrm{x}}_{\text {Att }}\right)\right)$，表示患者在时间间隔 $\left(t_{j-1}, t_j\right)$ 内生存的概率。这使我们能够定义负对数似然（NLL）生存损失【90】，将 NLL 推广到具有审查的数据。正式地，我们表示为：
+根据前面引入的符号，我们的目标是通过多模态嵌入 $\overline{\mathrm{x}}_{\mathrm{Att}} \in \mathbb{R}^{2d}$ 来预测患者的生存情况。与之前的工作【90】一致，我们通过以下方式定义患者的生存状态：(1) 审查状态 $c$，其中 $c=0$ 表示观测到的患者死亡，$c=1$ 对应于患者的最后已知随访；(2) 事件到发生时间 $t_i$，如果 $c=0$，对应于患者诊断和观测到的死亡之间的时间，如果 $c=1$，则对应于最后一次随访。我们没有直接预测事件发生的观测时间 $t$，而是通过定义基于生存时间值四分位数的非重叠时间间隔 $\left(t_{j-1}, t_j\mathbb{R}ight)，j \in[1, \ldots, n]$ 并表示为 $y_j$ 来近似它。这个问题简化为带有审查信息的分类问题，每个患者现在由 $\left(\overline{\mathrm{x}}_{\mathrm{Att}}, y_j, c\mathbb{R}ight)$ 定义。我们构建了一个分类器，网络预测的每个输出逻辑 $\hat{y}_j$ 对应一个时间间隔。由此，我们定义离散危险函数 $f_{\text {hazard }}\left(y_j \mid \overline{\mathrm{x}}_{\mathrm{Att}}\mathbb{R}ight)=S\left(\hat{y}_j\mathbb{R}ight)$，其中 $S$ 是 sigmoid 激活函数。直观上，$f_{\text {hazard }}\left(y_j \mid \overline{\mathrm{x}}_{\text {Att }}\mathbb{R}ight)$ 表示患者在时间间隔 $\left(t_{j-1}, t_j\mathbb{R}ight)$ 内死亡的概率。此外，我们定义了离散生存函数 $f_{\text {surv }}\left(y_j \mid \overline{\mathrm{x}}_{\text {Att }}\mathbb{R}ight) = \prod_{k=1}^j\left(1-f_{\text {hazard }}\left(y_k \mid \overline{\mathrm{x}}_{\text {Att }}\mathbb{R}ight)\mathbb{R}ight)$，表示患者在时间间隔 $\left(t_{j-1}, t_j\mathbb{R}ight)$ 内生存的概率。这使我们能够定义负对数似然（NLL）生存损失【90】，将 NLL 推广到具有审查的数据。正式地，我们表示为：
 
 $$
 \begin{aligned}
-& \mathcal{L}\left(\left\{\overline{\mathrm{x}}_{\text {Att }}^{(i)}, y_j^{(i)}, c^{(i)}\right\}_{i=1}^{N_{\mathcal{D}}}\right)= \\
-& \quad \sum_{i=1}^{N_{\mathcal{D}}}-c^{(i)} \log \left(f_{\text {surv }}\left(y_j^{(i)} \mid \overline{\mathrm{x}}_{\text {Att }}^{(i)}\right)\right) \\
-& \quad+\left(1-c^{(i)}\right) \log \left(f_{\text {surv }}\left(y_j^{(i)}-1 \mid \overline{\mathrm{x}}_{\text {Att }}^{(i)}\right)\right) \\
-& \quad+\left(1-c^{(i)}\right) \log \left(f_{\text {hazard }}\left(y_j^{(i)} \mid \overline{\mathrm{x}}_{\text {Att }}^{(i)}\right)\right)
+& \mathcal{L}\left(\left\{\overline{\mathrm{x}}_{\text {Att }}^{(i)}, y_j^{(i)}, c^{(i)}\mathbb{R}ight\}_{i=1}^{N_{\mathcal{D}}}\mathbb{R}ight)= \\
+& \quad \sum_{i=1}^{N_{\mathcal{D}}}-c^{(i)} \log \left(f_{\text {surv }}\left(y_j^{(i)} \mid \overline{\mathrm{x}}_{\text {Att }}^{(i)}\mathbb{R}ight)\mathbb{R}ight) \\
+& \quad+\left(1-c^{(i)}\mathbb{R}ight) \log \left(f_{\text {surv }}\left(y_j^{(i)}-1 \mid \overline{\mathrm{x}}_{\text {Att }}^{(i)}\mathbb{R}ight)\mathbb{R}ight) \\
+& \quad+\left(1-c^{(i)}\mathbb{R}ight) \log \left(f_{\text {hazard }}\left(y_j^{(i)} \mid \overline{\mathrm{x}}_{\text {Att }}^{(i)}\mathbb{R}ight)\mathbb{R}ight)
 \end{aligned}\tag{(1)(2)(3)(4)}
 $$
 
