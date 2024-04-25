@@ -3,7 +3,6 @@
 整合全幅切片图像（WSIs）和整体转录组学以预测患者生存情况，可以增进我们对患者预后的理解。然而，这一多模态任务因数据性质不同而尤为具有挑战性：**全幅切片图像为肿瘤提供了一种非常高维的空间描述，而整体转录组学则描述了该肿瘤内的全局基因表达水平**。在这一背景下，我们的工作旨在解决两个关键挑战：
 
 - （1）我们如何以一种语义上有意义且可解释的方式对转录组学数据进行标记化处理？及
-
 - （2）我们如何捕捉这两种模态之间的密集多模态交互？
 
 在此，我们提出**从转录组学中学习生物途径标记，这些标记能够编码特定的细胞功能**。结合编码切片形态的组织学 patches 标记，我们认为这些标记构成了适合解释性分析的基本单元。**我们使用一种内存高效的多模态 Transformer 融合这两种模态，该 Transformer 能够模拟生物途径与组织学 patches 标记之间的互动**。我们的模型 SurvPath 在五个来自癌症基因组图谱的数据集上的评估中达到了最新的水平，并且与单模态和多模态 baseline 相比，显示出卓越的性能。我们的解释框架确定了关键的多模态预后因素，并因此可以提供有关基因型与表型相互作用的宝贵见解。代码可在以下网址获取：https://github.com/mahmoodlab/SurvPath。
@@ -60,15 +59,15 @@
 
 在此，我们介绍 SurvPath，这是我们提出的基于组织学和转录组学的多模态生存预测方法。第 3.1 节展示了如何构建生物途径标记的转录组学编码器，第 3.2 节展示了如何构建 patches 标记的组织学编码器，第 3.3 节展示了我们基于 Transformer 的多模态聚合，第 3.4 节展示了其在生存预测中的应用（参见图 2）。最后，第 3.5 节介绍了我们的多层次可解释性框架。
 
-给定一组 $N_{\mathcal{G}}$ 基因的转录组学测量值，记为 $\mathbf{g} \in{ }^{N_{\mathcal{G}}}$，以及每个途径的组成，我们的目标是构建途径级标记 $\mathbf{X}^{(\mathcal{P})} \in{ }^{N_{\mathcal{P}} \times d}$，其中 $d$ 表示标记的维度。转录组学可以视为表格数据，可以通过多层感知器（MLPs）有效编码。具体来说，我们正在学习特定途径的权重 $\phi_i$，即 $\mathbf{x}_i^{(\mathcal{P})}=\phi_i\left(\mathbf{g}_{\mathcal{P}_i}\right)$，其中 $\mathbf{g}_{\mathcal{P}_i}$ 是途径 $\mathcal{P}_i$ 中存在的基因集。这可以视为学习一个稀疏多层感知器（S-MLP），将转录组学 $\mathbf{g} \in{ }^{N_{\mathcal{G}}}$ 映射到标记 $\mathbf{x}^{(\mathcal{P})} \in{ }^{N_{\mathcal{P}} d}$。网络的稀疏性由嵌入在 S-MLP 权重中的基因到途径的连接性控制。通过简单地将 $\mathbf{x}^{(\mathcal{P})} \in{ }^{N_{\mathcal{P}} d}$ 重塑为 $\mathbf{X}^{(\mathcal{P})} \in{ }^{N_{\mathcal{P}} \times d}$，我们定义了 Transformer 可以使用的途径标记。每个途径标记对应于构成其的基因级转录组学的深层表示，这既（1）可解释，因为它编码了特定的生物功能；也（2）可在端到端的预测任务中学习。
+给定一组 $N_{\mathcal{G}}$ 基因的转录组学测量值，记为 $\mathbf{g} \in{\R }^{N_{\mathcal{G}}}$，以及每个途径的组成，我们的目标是构建途径级标记 $\mathbf{X}^{(\mathcal{P})} \in{\R}^{N_{\mathcal{P}} \times d}$，其中 $d$ 表示标记的维度。转录组学可以视为表格数据，可以通过多层感知器（MLPs）有效编码。具体来说，我们正在学习特定途径的权重 $\phi_i$，即 $\mathbf{x}_i^{(\mathcal{P})}=\phi_i\left(\mathbf{g}_{\mathcal{P}_i}\right)$，其中 $\mathbf{g}_{\mathcal{P}_i}$ 是途径 $\mathcal{P}_i$ 中存在的基因集。这可以视为学习一个稀疏多层感知器（S-MLP），将转录组学 $\mathbf{g} \in{\R}^{N_{\mathcal{G}}}$ 映射到标记 $\mathbf{x}^{(\mathcal{P})} \in{\R}^{N_{\mathcal{P}} d}$。网络的稀疏性由嵌入在 S-MLP 权重中的基因到途径的连接性控制。通过简单地将 $\mathbf{x}^{(\mathcal{P})} \in{ \R}^{N_{\mathcal{P}} d}$ 重塑为 $\mathbf{X}^{(\mathcal{P})} \in{\R }^{N_{\mathcal{P}} \times d}$，我们定义了 Transformer 可以使用的途径标记。每个途径标记对应于构成其的基因级转录组学的深层表示，这既（1）可解释，因为它编码了特定的生物功能；也（2）可在端到端的预测任务中学习。
 
 ### 3.2 从全幅切片图像到组织学 patches 标记器
 
-给定输入的全幅切片图像（WSI），我们的目标是衍生出定义 patches 标记的低维 patches 级嵌入。我们首先识别组织区域，以确保被忽略的背景不携带生物意义。然后，我们将识别的组织区域分解为一组 $N_{\mathscr{H}}$ 非重叠 patches，放大倍数为 20 倍（或分辨率约为 0.5 微米/像素），记为 $\mathbf{H}=\left\{\mathbf{h}_1, \ldots, \mathbf{h}_{N_{\mathfrak{H}}}\right\}$。由于每个 WSI 的 patches 数量可能非常大（例如，可能超过 50,000 个 patches 或 78GB 的浮点数），因此需要在模型训练前提取 patches 嵌入，以减少总体内存需求。正式地，我们使用预训练的特征提取器 $f(\cdot)$ 将每个 patches $\mathbf{h}_i$ 映射到 patches 嵌入 $\mathbf{x}_i^{(\mathscr{H})}=f\left(\mathbf{h}_i\right)$。在本工作中，我们使用了一个通过对超过 1500 万个泛癌症病理学 patches 的对比学习预训练的 Swin Transformer 编码器。所得的 patches 嵌入代表了 patches 的压缩表达（压缩比为 256），我们进一步通过一个可学习的线性变换将其传递，以匹配标记维度 $d$，从而生成 patches 标记 $\mathbf{X}^{(\mathscr{H})} \in{ }^{N_{\mathscr{H}}} \times d$。
+给定输入的全幅切片图像（WSI），我们的目标是衍生出定义 patches 标记的低维 patches 级嵌入。我们首先识别组织区域，以确保被忽略的背景不携带生物意义。然后，我们将识别的组织区域分解为一组 $N_{\mathscr{H}}$ 非重叠 patches，放大倍数为 20 倍（或分辨率约为 0.5 微米/像素），记为 $\mathbf{H}=\left\{\mathbf{h}_1, \ldots, \mathbf{h}_{N_{\mathfrak{H}}}\right\}$。由于每个 WSI 的 patches 数量可能非常大（例如，可能超过 50,000 个 patches 或 78GB 的浮点数），因此需要在模型训练前提取 patches 嵌入，以减少总体内存需求。正式地，我们使用预训练的特征提取器 $f(\cdot)$ 将每个 patches $\mathbf{h}_i$ 映射到 patches 嵌入 $\mathbf{x}_i^{(\mathscr{H})}=f\left(\mathbf{h}_i\right)$。在本工作中，我们使用了一个通过对超过 1500 万个泛癌症病理学 patches 的对比学习预训练的 Swin Transformer 编码器。所得的 patches 嵌入代表了 patches 的压缩表达（压缩比为 256），我们进一步通过一个可学习的线性变换将其传递，以匹配标记维度 $d$，从而生成 patches 标记 $\mathbf{X}^{(\mathscr{H})} \in{\R}^{N_{\mathscr{H}} \times d}$。
 
 ### 3.3 多模态融合
 
-我们的目标是设计一种早期融合机制，以模拟途径和 patches 标记之间的密集多模态交互。我们使用 Transformer 注意力 [72] 来测量和聚合多模态标记之间的成对交互。具体来说，我们通过连接途径和 patches 标记来定义一个多模态序列，产生 $\left(N_{\mathscr{H}}+N_{\mathcal{P}}\right)$ 维度为 $d$ 的标记，记为 $\mathbf{X} \in\left(N_{\mathcal{P}}+N_{\mathscr{H}}\right) \times d$。遵循自我注意术语 [72]，我们定义三个线性投影使用可学习矩阵来提取查询 $(\mathbf{Q})$、键 $(\mathbf{K})$ 和值 $(\mathbf{V})$ 及自我注意 $\mathbf{A}$，设置 $d=d_k=d_q=d_v$。然后定义 Transformer 注意力为：
+我们的目标是设计一种早期融合机制，以模拟途径和 patches 标记之间的密集多模态交互。我们使用 Transformer 注意力 [72] 来测量和聚合多模态标记之间的成对交互。具体来说，我们通过连接途径和 patches 标记来定义一个多模态序列，产生 $\left(N_{\mathscr{H}}+N_{\mathcal{P}}\right)$ 维度为 $d$ 的标记，记为 $\mathbf{X} \in\left(N_{\mathcal{P}}+N_{\mathscr{H}}\right) \times d$。遵循自我注意术语 [72]，我们定义三个线性投影使用可学习矩阵来提取查询 $(\mathbf{Q})$、键 $(\mathbf{K})$ 和值 $(\mathbf{V})$ 及自注意力 $\mathbf{A}$，设置 $d=d_k=d_q=d_v$。然后定义 Transformer 注意力为：
 
 $$
 \mathbf{X}_{\mathrm{Att}}=\sigma\left(\frac{\mathbf{Q K}^T}{\sqrt{d}}\right) \mathbf{V}=\left(\begin{array}{cc}
@@ -77,10 +76,13 @@ $$
 \end{array}\right)\left(\begin{array}{c}
 \mathbf{V}_{\mathcal{P}} \\
 \mathbf{V}_{\mathscr{H}}
-\end{array}\right)
+\end{array}\right)\tag{1}
 $$
 
-由于 patches 标记的数量远大于途径的数量，即 $N_{\mathscr{H}} > N_{\mathcal{P}}$，因此大部分内存需求来自于计算和存储 $\mathbf{A}_{\mathscr{H}} \rightarrow \mathscr{H}$。为了解决这个瓶颈，我们对 Transformer 注意力进行了近似：
+
+其中，$\sigma$ 是按行的 softmax。项 $\mathbf{QK}^T$ 的内存需求为 $\mathcal{O}\left(\left(N_{\mathcal{H}}+N_{\mathcal{P}}\right)^2\right)$，对于长序列来说，计算成本会变得很高。这构成了一个主要瓶颈，因为一个全扫描图像（WSI）可能有超过50,000个补丁，这使得在大多数硬件上进行这种计算变得具有挑战性。相反，我们提议将多模态 Transformer 注意力分解为四个内部和跨模态项：（1）内模态路径自注意力编码路径到路径的相互作用 $\mathbf{A}_{\mathcal{P} \rightarrow \mathcal{P}} \in \mathbb{R}^{N_{\mathcal{P}} \times N_{\mathcal{P}}}$；（2）跨模态路径引导的交叉注意力编码路径到补丁的相互作用 $\mathbf{A}_{\mathcal{P} \rightarrow \mathcal{H}} \in \mathbb{R}^{N_{\mathcal{P}} \times N_{\mathcal{H}}}$；（3）跨模态组织学引导的交叉注意力编码补丁到路径的相互作用 $\mathbf{A}_{\mathcal{H} \rightarrow \mathcal{P}} \in \mathbb{R}^{N_{\mathcal{H}} \times N_{\mathcal{P}}}$；以及（4）内模态完全组织学自注意力编码补丁到补丁的相互作用 $\mathbf{A}_{\mathcal{H} \rightarrow \mathcal{H}} \in \mathbb{R}^{N_{\mathcal{H}} \times N_{\mathcal{H}}}$。
+
+由于 patches token 的数量远大于路径的数量，即 $N_{\mathcal{H}} \gg N_{\mathcal{P}}$，大部分的内存需求来自于计算和存储 $\mathbf{A}_{\mathcal{H} \rightarrow \mathcal{H}}$。为了解决这个瓶颈，我们将 Transformer 注意力近似为：
 
 $$
 \hat{\mathbf{X}}_{\mathrm{Att}}=\left(\begin{array}{c}
@@ -89,7 +91,7 @@ $$
 \end{array}\right)=\sigma\left[\frac{1}{\sqrt{d}}\left(\begin{array}{cc}
 \mathbf{Q}_{\mathcal{P}} \mathbf{K}_{\mathcal{P}}^T & \mathbf{Q}_{\mathcal{P}} \mathbf{K}_{\mathscr{H}}^T \\
 \mathbf{Q}_{\mathscr{H}} \mathbf{K}_{\mathcal{P}}^T & -\infty
-\end{array}\right)\right] \mathbf{V}
+\end{array}\right)\right] \mathbf{V}\tag{2}
 $$
 
 其中 $\mathbf{Q}_{\mathcal{P}}$（分别为 $\mathbf{K}_{\mathcal{P}}$）和 $\mathbf{Q}_{\mathscr{H}}$（分别为 $\mathbf{K}_{\mathscr{H}}$）表示途径和组织学查询和键的子集。将 softmax 前的 patches 到 patches 交互设置为 $-\infty$ 相当于忽略这些交互。展开方程 10，我们得到 $\mathbf{X}_{\text {Att}}^{(\mathcal{P})}=\sigma\left(\frac{\mathbf{Q}_{\mathcal{P}} \mathbf{K}^T}{\sqrt{d}}\right) \mathbf{V}_{\mathcal{P}}$，和 $\hat{\mathbf{X}}_{\text {Att}}^{(\mathscr{H})}=\sigma\left(\frac{\mathbf{Q}_{\mathscr{H}} \mathbf{K}_{\mathcal{P}}^T}{\sqrt{d}}\right) \mathbf{V}_{\mathscr{H}}$。交互的数量显著减少，使得计算 $\hat{\mathbf{A}}$ 的内存需求有限。这种表述可以视为多模态序列上的稀疏注意模式 [4]，其中稀疏性是在 patches 标记之间强加的。这种表述在参数效率上也很高，因为为编码两种模态学习了一套独特的键、查询和值。此外，这种表述类似于图神经网络，在这个网络上，途径相互连接，并且每个途径都与所有 patches 连接。
@@ -98,7 +100,7 @@ $$
 
 ### 3.4 生存预测
 
-使用多模态嵌入 $\overline{\mathbf{x}}_{\text {Att }} \in{ }^{2d}$，我们的监督目标是预测患者的生存期。根据先前的工作【90】，我们通过以下方式定义患者的生存状态：(1) 审查状态 $c$，其中 $c=0$ 表示观察到的患者死亡，$c=1$ 对应于患者的最后已知随访；(2) 事件发生时间 $t_i$，如果 $c=0$，则对应于患者诊断和观察到的死亡之间的时间，如果 $c=1$，则对应于最后一次随访。我们不直接预测事件的观测时间 $t$，而是通过定义基于生存时间值四分位数的非重叠时间间隔 $\left(t_{j-1}, t_j\right), j \in[1, \ldots, n]$ 并表示为 $y_j$ 来近似它。问题简化为分类，每个患者现在由 $\left(\overline{\mathbf{x}}_{\text {Att }}, y_j, c\right)$ 定义。我们定义的分类器使得每个输出逻辑（经 sigmoid 激活后）$\sigma\left(\hat{y}_j\right)$ 表示患者在时间间隔 $\left(t_{j-1}, t_j\right)$ 内死亡的概率。我们进一步采取逻辑的累积乘积 $\prod_{k=1}^j\left(1-\sigma\left(\hat{y}_k\right)\right)$ 来表示患者在时间间隔 $\left(t_{j-1}, t_j\right)$ 内生存的概率。最后，通过取所有逻辑之和的负值，我们可以定义用于训练网络的患者级风险。更多信息请参见补充材料。
+使用多模态嵌入 $\overline{\mathbf{x}}_{\text {Att }} \in{\R}^{2d}$，我们的监督目标是预测患者的生存期。根据先前的工作【90】，我们通过以下方式定义患者的生存状态：(1) 审查状态 $c$，其中 $c=0$ 表示观察到的患者死亡，$c=1$ 对应于患者的最后已知随访；(2) 事件发生时间 $t_i$，如果 $c=0$，则对应于患者诊断和观察到的死亡之间的时间，如果 $c=1$，则对应于最后一次随访。我们不直接预测事件的观测时间 $t$，而是通过定义基于生存时间值四分位数的非重叠时间间隔 $\left(t_{j-1}, t_j\right), j \in[1, \ldots, n]$ 并表示为 $y_j$ 来近似它。问题简化为分类，每个患者现在由 $\left(\overline{\mathbf{x}}_{\text {Att }}, y_j, c\right)$ 定义。我们定义的分类器使得每个输出逻辑（经 sigmoid 激活后）$\sigma\left(\hat{y}_j\right)$ 表示患者在时间间隔 $\left(t_{j-1}, t_j\right)$ 内死亡的概率。我们进一步采取逻辑的累积乘积 $\prod_{k=1}^j\left(1-\sigma\left(\hat{y}_k\right)\right)$ 来表示患者在时间间隔 $\left(t_{j-1}, t_j\right)$ 内生存的概率。最后，通过取所有逻辑之和的负值，我们可以定义用于训练网络的患者级风险。更多信息请参见补充材料。
 
 ### 3.5 多层次可解释性
 
@@ -162,7 +164,7 @@ $$
 
 ![](https://arxiv.org/html/2304.06819v2/x3.png)
 
-> **图 3：乳腺癌患者多层次可解释性可视化**  
+> **图 3：乳腺癌患者多层次可解释性可视化**
 > 顶部：低风险患者。底部：高风险患者。红色的基因和途径表示增加风险，蓝色的基因和途径表示降低风险。热图颜色表示重要性，红色表示高重要性，蓝色表示低重要性。在这些案例中识别为重要的途径和形态学通常与先前在侵袭性乳腺癌中描述的模式（例如，晚期雌激素反应）相符。
 
 ### 4.5 可解释性
@@ -238,5 +240,5 @@ $$
 
 ![](https://arxiv.org/html/2304.06819v2/x5.png)
 
-> **图 2：膀胱癌患者的多层次可解释性可视化**  
+> **图 2：膀胱癌患者的多层次可解释性可视化**
 > 顶部：低风险患者。底部：高风险患者。红色的基因和途径表示增加风险，蓝色的基因和途径表示降低风险。热图颜色表示重要性，红色表示高重要性，蓝色表示低重要性。在这些案例中识别为重要的途径和形态通常与先前在膀胱尿路上皮癌中描述的模式相符（例如，G2M 检查点）。
