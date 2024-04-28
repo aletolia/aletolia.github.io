@@ -71,6 +71,7 @@ nav:
     - Vision Transformer (知识蒸馏 预训练）.md
     - Vision Transformer (PyramidTNT).md
     - 傅里叶级数和傅里叶变换专题.md
+    - Python 存储与读取 HDF5 文件.md
     
     - 医学影像相关:
       - PORPOISE.md
@@ -86,6 +87,7 @@ nav:
       - Session 3.ipynb
       - How to visualize Attention.md
       - AttentionViz A Global View of Transformer Attention.md
+      - Transformer Interpretability Beyond Attention Visualization.md
       
 
   - scRNA Analysis:
