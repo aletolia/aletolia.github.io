@@ -81,13 +81,14 @@ nav:
       - A visual-language foundation model for computational pathology.md
       - Recurrent memory with optimal polynomial projections..md
       - Modeling Dense Multimodal Interactions Between Biological Pathways and Histology for Survival Prediction.md
-    - Re:0 Road to CPath & Visualization:
-      - Session 1.ipynb
-      - Session 2.ipynb
-      - Session 3.ipynb
-      - How to visualize Attention.md
-      - AttentionViz A Global View of Transformer Attention.md
-      - Transformer Interpretability Beyond Attention Visualization.md
+  - Re:0 Road to CPath & Visualization:
+    - Session 1.ipynb
+    - Session 2.ipynb
+    - Session 3.ipynb
+    - How to visualize Attention.md
+    - AttentionViz A Global View of Transformer Attention.md
+    - Transformer Interpretability Beyond Attention Visualization.md
+    - Visualization Work Flow.md
       
 
   - scRNA Analysis:
