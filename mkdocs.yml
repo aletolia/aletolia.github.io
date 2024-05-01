@@ -191,7 +191,7 @@ extra_javascript:
 
 extra_css: 
   - extra.css
-
+  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
 # other settings ...
 # Hello World
 
