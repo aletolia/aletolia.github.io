@@ -68,12 +68,14 @@ class Attn_Net_Gated(nn.Module):
 ```
 
 这里的 `Attn_Net_Gate` 实际上实现了下面的式子
+
 $$
 \begin{gathered}
 a_i, k=\frac{\exp \left\{W_{\mathrm{a}, i}\left(\tanh \left(V_{\mathrm{a}} \mathbf{h}_k\right) \odot \operatorname{sigm}\left(U_{\mathrm{a}} \mathbf{h}_k\right)\right)\right\}}{\sum_{j=1}^K \exp \left\{W_{\mathrm{a}, i}\left(\tanh \left(V_{\mathrm{a}} \mathbf{h}_j\right) \odot \operatorname{sigm}\left(U_{\mathrm{a}} \mathbf{h}_j\right)\right)\right\}} \\
 \mathbf{h}_{\mathrm{slide}, i}=\sum_{k=1}^K a_{i, k} \mathbf{h}_k
 \end{gathered}
 $$
+
 如原文所述：注意网络由若干堆叠的完全连接层组成；如果我们将注意网络的前两层 $U_{\mathrm{a}} \in \mathbb{R}^{256 \times 512}$ 和 $V_{\mathrm{a}} \in \mathbb{R}^{256 \times 512}$ 以及 $W_1$ 一起视为所有类共享的注意力骨干的一部分，那么注意网络将分为 $N$ 个并行的注意力分支 $W_{\mathrm{a}, 1}, \ldots, W_{\mathrm{a}, \mathrm{N}} \in \mathbb{R}^{1 \times 256}$。
 
 ## CLAM_SB 架构的定义
