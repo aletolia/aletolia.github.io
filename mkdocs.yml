@@ -44,7 +44,7 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline 
         name: Switch to dark mode
-      primary: indigo
+      primary: black
       accent: indigo 
     - scheme: slate 
       toggle:
