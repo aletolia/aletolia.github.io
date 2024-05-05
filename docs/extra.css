@@ -44,4 +44,8 @@
     /* Screen version */
     /* font-family: "LXGW WenKai Screen", sans-serif; */
   }
-  
+  /* 隐藏主页的侧边导航栏，仅在首页起效 */
+/* 默认隐藏导航栏 */
+.hide-nav .md-sidebar--secondary {
+  display: none;
+}

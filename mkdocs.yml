@@ -55,6 +55,8 @@ theme:
 
 nav:
   - 🏠 Home: 
+
+  
     - index.md
   - ⛏️ CV and Multimodels:
     - Mygo.md

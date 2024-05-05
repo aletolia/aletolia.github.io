@@ -231,3 +231,9 @@ window.addEventListener('keydown', e => {
 
 requestFrame();
 //雪花
+// 仅在首页隐藏导航栏
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
+      document.body.classList.add('hide-nav');
+  }
+});
