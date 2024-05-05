@@ -1,10 +1,12 @@
 {% extends "main.html" %}
+
+<!-- Render hero under tabs -->
 {% block tabs %}
 {{ super() }}
-{% endblock %}
 
-{% block content %}
-<!-- 引用 Dancing Script 字体 -->
+<!-- Hero for landing page -->
+
+<!--binbash leverage documetation-->
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
@@ -70,8 +72,4 @@
     <div class="typed-out">You stole my heart so long ago</div>
 </div>
 
-{% endblock %}
-
-{% block footer %}
-{{ super() }}
 {% endblock %}

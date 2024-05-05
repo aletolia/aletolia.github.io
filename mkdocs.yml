@@ -38,6 +38,7 @@ theme:
     - search.share # 搜索分享
     - search.suggest # 搜索建议
     - toc.follow # 目录跟踪-页面右侧的小目录
+    - header.autohide
   language: en
   palette:
     - scheme: default
