@@ -10,7 +10,7 @@ theme:
   favicon: img/favicon.ico
   logo: img/icon.png
   name: material
-  custom_dir: custom
+  custom_dir: docs/assets
   features:
     - announce.dismiss # 可以叉掉公告的功能
     - content.action.edit # 编辑按钮，似乎没啥用

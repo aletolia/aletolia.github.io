@@ -1,0 +1,76 @@
+{% extends "main.html" %}
+{% block tabs %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<!-- 引用 Dancing Script 字体 -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+    /* 使用自定义背景图片 */
+    body {
+        background-image: url('104263819_p0_master1200.jpg'); /* 使用实际图片路径替换 */
+        background-size: cover; /* 确保图片覆盖整个画布 */
+        background-position: center; /* 居中对齐背景图像 */
+        font-family: 'Dancing Script', cursive; /* 确保字体引用 */
+        margin: 0;
+        text-align: center;
+        color: white; /* 设置默认字体颜色 */
+    }
+
+    /* 打字效果样式 */
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60vh; /* 上移内容 */
+        margin-top: -10vh;
+    }
+
+    .typed-out {
+        overflow: hidden;
+        white-space: nowrap;
+        animation: typing 2s steps(18, end) forwards, glow 1.5s alternate infinite ease-in-out;
+        font-size: 2.5rem;
+        width: 0;
+        text-shadow: 0 0 8px rgba(255, 165, 0, 0.8), /* 第一层光晕 */
+                     0 0 16px rgba(255, 165, 0, 0.6), /* 第二层光晕 */
+                     0 0 24px rgba(255, 165, 0, 0.4); /* 第三层光晕 */
+        color: #FFE4E1; /* 打字效果文本颜色 */
+        font-family: 'Dancing Script', sans-serif; /* 使用 Dancing Script 字体 */
+    }
+
+    /* 主标题样式 */
+    h1 {
+        font-size: 10rem; /* 设置主标题字体大小 */
+        font-family: 'Dancing Script', cursive;
+        text-shadow: 0 0 12px rgba(255, 165, 0, 0.8), /* 第一层光晕 */
+                     0 0 24px rgba(255, 165, 0, 0.6), /* 第二层光晕 */
+                     0 0 36px rgba(255, 165, 0, 0.4); /* 第三层光晕 */
+    }
+
+    /* 打字动画关键帧 */
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    /* 发光效果动画关键帧 */
+    @keyframes glow {
+        from { text-shadow: 0 0 10px orange; }
+        to { text-shadow: 0 0 20px orange; }
+    }
+
+</style>
+
+<h1>One Last Kiss</h1>
+<div class="container">
+    <div class="typed-out">You stole my heart so long ago</div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

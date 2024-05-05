@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>OneLastKiss</title>
+    <!-- 引用 Dancing Script 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 引用 Roboto 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 使用自定义图片作为背景 */
+        body {
+            background-image: url('1714907815312.png'); 
+            background-size: cover; /* 使图像适应整个画布 */
+            background-position: center; /* 居中对齐背景图像 */
+            font-family: 'Dancing Script', cursive; /* 全局默认使用 Dancing Script */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: black; /* 将默认文本颜色设为黑色 */
+        }
+
+        /* 容器样式 */
+        .container {
+            display: inline-block;
+        }
+
+        /* 打字效果样式，使用 Roboto */
+        .typed-out {
+            overflow: hidden;
+            border-right: .15em solid orange; /* 可以将此颜色改为其他颜色 */
+            white-space: nowrap;
+            animation: typing 2s steps(20, end) forwards;
+            font-size: 2.5rem;
+            width: 0;
+            color: black; /* 打字效果中的文本变成黑色 */
+            font-family: 'Dancing Script', sans-serif; /* 使用 Roboto 字体 */
+        }
+
+        /* 主标题样式 - 使用 Dancing Script */
+        h1 {
+            font-size: 4rem;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* 打字动画关键帧 */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+    </style>
+</head>
+<body>
+    <h1>One Last Kiss</h1>
+    <div class="container">
+        <div class="typed-out">You stole my heart so long ago</div>
+    </div>
+    <div id="rcorners2">
+        <div id="rcorners1">
+            <p class="p1"></p>
+        </div>
+    </div>
+
+</body>
+</html>
