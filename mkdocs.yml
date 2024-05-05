@@ -162,7 +162,7 @@ markdown_extensions:
 plugins: 
   - mkdocs-jupyter
   - search
-  - statistics
+
 
 
 
