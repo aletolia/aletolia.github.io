@@ -105,6 +105,7 @@ nav:
       - scBERT as a large-scale pretrained deep language model for cell type annotation of single-cell RNA-seq data.md
       - RNA velocity of single cells.md
       - TFvelo_gene regulation inspired RNA velocity estimation.md
+      - Disentanglement of single-cell data with biolord.md
     - 📔 文献:
       - scRNA-seq of gastric tumor shows complex intercellular interaction with an alternative T cell exhaustion trajectory（参考）.md
       - Single-cell analysis reveals new evolutionary complexity in uveal melanoma（参考 2）.md
@@ -113,6 +114,7 @@ nav:
       - Blimp-1 and c-Maf regulate immune gene networks to protect against distinct pathways of pathobiont-induced colitis.md
       - Single cell analysis unveils B cell-dominated immune subtypes in HNSCC for enhanced prognostic and therapeutic stratification.md
       - Single-cell spatial multi-omics and deep learning dissect enhancer-driven gene regulatory networks in liver zonation.md
+      - Neutrophil profiling illuminates anti-tumor antigen presenting potency.md
 
   - 📐 Data Structures:
     - 第 1 章 python 入门.md
