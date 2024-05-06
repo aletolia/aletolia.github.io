@@ -96,7 +96,7 @@ nav:
     - Attention Generation Work Flow.md
     - 🪛 PyTorch:
       - Autograd mechanics — PyTorch 2_3 documentation.md
-      - docs\PyTorch Autograd Explained - In-depth Tutorial.md
+      - PyTorch Autograd Explained - In-depth Tutorial.md
       
 
   - 🧬 scRNA Analysis:
