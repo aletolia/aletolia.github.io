@@ -27,9 +27,9 @@ class Attn_Net(nn.Module):
             self.module.append(nn.Dropout(0.25))  # 如果启用dropout，添加一个dropout层，丢弃率为0.25。
 
         self.module.append(nn.Linear(D, n_classes))  # 添加第二个全连接层，从隐藏层维度D到输出类别数n_classes。
-        
+      
         self.module = nn.Sequential(*self.module)  # 将定义的层组合成一个顺序模型。
-    
+  
     def forward(self, x):
         return self.module(x), x  # 前向传播函数，返回注意力网络的输出和原始输入x。返回形式为N x n_classes。
 ```
@@ -56,7 +56,7 @@ class Attn_Net_Gated(nn.Module):
 
         self.attention_a = nn.Sequential(*self.attention_a)  # 将第一组层组合成顺序模型。
         self.attention_b = nn.Sequential(*self.attention_b)  # 将第二组层组合成顺序模型。
-        
+      
         self.attention_c = nn.Linear(D, n_classes)  # 定义第三个全连接层，用于将经过门控的特征映射到类别数。
 
     def forward(self, x):
@@ -91,7 +91,7 @@ class CLAM_SB(nn.Module):
         self.size_dict = {"small": [embed_dim, 512, 256], "big": [embed_dim, 512, 384]}
         size = self.size_dict[size_arg]  # 根据网络尺寸配置获取维度参数。
         fc = [nn.Linear(size[0], size[1]), nn.ReLU(), nn.Dropout(dropout)]  # 定义全连接层序列。
-        
+      
         # 根据是否使用门控选择相应的注意力网络。
         if gate:
             attention_net = Attn_Net_Gated(L=size[1], D=size[2], dropout=dropout, n_classes=1)
@@ -111,16 +111,16 @@ class CLAM_SB(nn.Module):
 - `attention_net`：由门控注意力层和一层全连接层构成
 - `classifiers`：一个分类头
 
-前向传播中，即通过了一次 `attention_net`，返回注意力分数 A 后对 A 进行 `softmax` 
+前向传播中，即通过了一次 `attention_net`，返回注意力分数 A 后对 A 进行 `softmax`
 
 ```python
 def forward(self, h, label=None, instance_eval=False, return_features=False, attention_only=False):
         A, h = self.attention_net(h)  # 通过注意力网络处理输入h，得到注意力得分A和更新后的特征h，NxK。
         A = torch.transpose(A, 1, 0)  # 转置A以匹配后续操作的维度要求，KxN。
-        
+      
         if attention_only:
             return A  # 如果仅需要注意力得分，则直接返回A。
-    
+  
         A_raw = A  # 保存原始的注意力得分。
         A = F.softmax(A, dim=1)  # 对N维进行softmax操作，归一化注意力得分
 ```
@@ -194,7 +194,6 @@ all_preds = torch.topk(logits, 1, dim=1)[1].squeeze(1)
 ```
 
 - `logits = classifier(all_instances)`: 将所有样本实例 (`all_instances`) 送入分类器 (`classifier`) 进行分类，得到 logits (未归一化的类别概率)
-
 - `torch.topk(logits, 1, dim=1)`: 该部分使用 `torch.topk` 函数找到 logits 中每个样本得分最高的元素 (top 1) 的索引，并将其存储在张量中
 - `[1]`: 取 `torch.topk` 函数返回结果的第二个元素，即包含每个样本得分最高元素的索引张量。
 - `.squeeze(1)`: 去除索引张量的第二维 (因为我们只关心每个样本的单一预测类别)。 这将得到一个包含所有样本预测类别的张量 `all_preds`
@@ -648,7 +647,7 @@ class VisionTransformer(nn.Module):
         super().__init__()
         self.num_classes = num_classes  # 类别数
         self.num_features = self.embed_dim = embed_dim  # 特征数，与嵌入维度相同，用于与其他模型保持一致
-        
+      
         # 初始化补丁嵌入模块
         self.patch_embed = PatchEmbed(
                 img_size=img_size, patch_size=patch_size, in_chans=in_chans, embed_dim=embed_dim)
@@ -762,7 +761,7 @@ def relprop(self, cam=None, method="transformer_attribution", is_ablation=False,
         return cam
 ```
 
-书接上文，在定义了 `vit_LRP` 之后，定义了函数 `generate_visualization` 
+书接上文，在定义了 `vit_LRP` 之后，定义了函数 `generate_visualization`
 
 ```python
 def generate_visualization(original_image, class_index=None):
@@ -832,4 +831,98 @@ class LRP:
     # 返回最终的可视化图像
     return vis
 ```
+这个方法的在整体的构建上是和 ViT 的模型构建一起建立的，众所周知，在建立 ViT 模型时，一般会分成下面几个模块来分别定义
 
+1. 分类投影器
+
+```python
+class Mlp(nn.Module)
+```
+2. 注意力模块
+
+```python
+class Attention(nn.Module)
+```
+3. 组装模块
+
+```python
+class Block(nn.Module)
+```
+4. 图像编码模块
+
+```python
+class PatchEmbed(nn.Module)
+```
+
+最后整合成完整的 ViT
+
+```python
+class VisionTransforme(nn.Module)
+```
+
+因此在进行相关性传播时也是如此，以 `Attention` 模块为例，首先定义了在前向传播和反向传播中的 hook
+
+```python
+def forward_hook(self, input, output):
+    if type(input[0]) in (list, tuple):
+        self.X = []
+        for i in input[0]:
+            x = i.detach()
+            x.requires_grad = True
+            self.X.append(x)
+    else:
+        self.X = input[0].detach()
+        self.X.requires_grad = True
+
+    self.Y = output
+
+
+def backward_hook(self, grad_input, grad_output):
+    self.grad_input = grad_input
+    self.grad_output = grad_output
+
+
+class RelProp(nn.Module):
+    def __init__(self):
+        super(RelProp, self).__init__()
+        # if not self.training:
+        self.register_forward_hook(forward_hook)
+
+    def gradprop(self, Z, X, S):
+        C = torch.autograd.grad(Z, X, S, retain_graph=True)
+        return C
+
+    def relprop(self, R, alpha):
+        return R
+```
+
+接着在每个模块中都重载这个函数，使得相关性传播同样会随着网络深度的加深而加深
+
+```python
+def relprop(self, cam, **kwargs):
+    # 通过投影下降层传播相关性
+    cam = self.proj_drop.relprop(cam, **kwargs)
+    # 通过投影层传播相关性
+    cam = self.proj.relprop(cam, **kwargs)
+    # 重新排列 cam 张量，从 (batch, num_patches, num_heads*depth) 格式变为 (batch, heads, num_patches, depth)
+    cam = rearrange(cam, 'b n (h d) -> b h n d', h=self.num_heads)
+    # attn = A*V，计算注意力得分与值的相关性
+    (cam1, cam_v) = self.matmul2.relprop(cam, **kwargs)
+    cam1 /= 2  # 将 cam1 的相关性除以 2
+    cam_v /= 2  # 将 cam_v 的相关性除以 2
+    # 存储 V 和注意力得分的相关性图
+    self.save_v_cam(cam_v)
+    self.save_attn_cam(cam1)
+    # 通过注意力下降层进一步传播 cam1 的相关性
+    cam1 = self.attn_drop.relprop(cam1, **kwargs)
+    # 通过 softmax 层传播相关性
+    cam1 = self.softmax.relprop(cam1, **kwargs)
+    # A = Q*K^T，计算查询和键的相关性
+    (cam_q, cam_k) = self.matmul1.relprop(cam1, **kwargs)
+    cam_q /= 2  # 将 cam_q 的相关性除以 2
+    cam_k /= 2  # 将 cam_k 的相关性除以 2
+    # 将查询、键和值的相关性图重新排列为原始的 QKV 格式
+    cam_qkv = rearrange([cam_q, cam_k, cam_v], 'qkv b h n d -> b n (qkv h d)', qkv=3, h=self.num_heads)
+    # 返回通过 QKV 层传播的相关性
+    return self.qkv.relprop(cam_qkv, **kwargs)
+```
