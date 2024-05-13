@@ -75,6 +75,7 @@ nav:
     - Vision Transformer (PyramidTNT).md
     - 傅里叶级数和傅里叶变换专题.md
     - Python 存储与读取 HDF5 文件.md
+    - Mamba.md
     
     - 🚑 医学影像相关:
       - PORPOISE.md
