@@ -117,6 +117,9 @@ nav:
       - Single-cell spatial multi-omics and deep learning dissect enhancer-driven gene regulatory networks in liver zonation.md
       - Neutrophil profiling illuminates anti-tumor antigen presenting potency.md
       - A blueprint for tumor-infiltrating B cells across human cancers.md
+      - Single-cell transcriptomic analyses reveal distinct immune cell contributions to epithelial barrier dysfunction in checkpoint inhibitor colitis.md
+      - Systematic dissection of tumor-normal single-cell ecosystems across a thousand tumors of 30 cancer types.md
+      - The aged tumor microenvironment limits T cell control of cancer.md
 
   - 📐 Data Structures:
     - 第 1 章 python 入门.md
