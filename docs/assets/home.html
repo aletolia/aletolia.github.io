@@ -4,72 +4,86 @@
 {% block tabs %}
 {{ super() }}
 
-<!-- Hero for landing page -->
-
-<!--binbash leverage documetation-->
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-    /* 使用自定义背景图片 */
+<!-- 自定义内容开始 -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
     body {
-        background-image: url('favimg.jpg'); /* 使用实际图片路径替换 */
-        background-size: cover; /* 确保图片覆盖整个画布 */
-        background-position: center; /* 居中对齐背景图像 */
-        font-family: 'Dancing Script', cursive; /* 确保字体引用 */
-        margin: 0;
-        text-align: center;
-        color: white; /* 设置默认字体颜色 */
+      margin: 0;
+      background-color: #ffffff;
     }
-
-    /* 打字效果样式 */
-    .container {
-        display: flex;
-        justify-content: center; /* 内容仍然保持居中对齐 */
-        align-items: center;
-        height: 90vh; /* 上移内容 */
-        margin-top: -10vh;
-        transform: translateX(-10%); /* 向左移动 5%，可以根据需要调整 */
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: calc(100vh - 64px); 
     }
-
-    .typed-out {
-        overflow: hidden;
-        white-space: nowrap;
-        animation: typing 2s steps(18, end) forwards, glow 1.5s alternate infinite ease-in-out;
-        font-size: 2.5rem;
-        width: 0;
-        text-shadow: 0 0 8px rgba(255, 165, 0, 0.8), /* 第一层光晕 */
-                     0 0 16px rgba(255, 165, 0, 0.6), /* 第二层光晕 */
-                     0 0 24px rgba(255, 165, 0, 0.4); /* 第三层光晕 */
-        color: #FFE4E1; /* 打字效果文本颜色 */
-        font-family: 'Dancing Script', sans-serif; /* 使用 Dancing Script 字体 */
+    .image-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-image: url('favimg1.jpg'); 
+      background-size: cover; 
+      background-position: center; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-
-    /* 主标题样式 */
-    h1 {
-        font-size: 10rem; /* 设置主标题字体大小 */
-        font-family: 'Dancing Script', cursive;
-        text-shadow: 0 0 12px rgba(255, 165, 0, 0.8), /* 第一层光晕 */
-                     0 0 24px rgba(255, 165, 0, 0.6), /* 第二层光晕 */
-                     0 0 36px rgba(255, 165, 0, 0.4); /* 第三层光晕 */
+    .typed-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: 48px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 0.15em solid rgb(20, 59, 95); /* 光标 */
+      padding-right: 0.1em;
+      color: rgb(25, 36, 97); /* 设置字体颜色 */
+      text-align: center;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 添加光晕效果 */
+      position: absolute;
+      top: 40%; /* 调整此值以向上移动 */
+      transform: translateY(-50%);
     }
-
-    /* 打字动画关键帧 */
-    @keyframes typing {
-        from { width: 0; }
-        to { width: 100%; }
+    .typed-text.typing::after {
+      content: "|";
+      animation: blink 1s infinite;
     }
-
-    /* 发光效果动画关键帧 */
-    @keyframes glow {
-        from { text-shadow: 0 0 10px orange; }
-        to { text-shadow: 0 0 20px orange; }
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
     }
+  </style>
+</head>
+<body>
+  <div class="content-wrapper">
+    <div class="image-container">
+      <div class="typed-text typing"></div>
+    </div>
+  </div>
 
-</style>
-
-<h1></h1>
-<div class="container">
-    <div class="typed-out">You stole my heart so long ago</div>
-</div>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const typed = new Typed('.typed-text', {
+        strings: ["You stole my heart so long ago"],
+        typeSpeed: 50,
+        backSpeed: 25,
+        loop: false,
+        onComplete: () => {
+          // Remove the cursor
+          const typedText = document.querySelector('.typed-text');
+          typedText.classList.remove('typing');
+          typedText.style.borderRight = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+<!-- 自定义内容结束 -->
 
 {% endblock %}
