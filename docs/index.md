@@ -110,9 +110,3 @@ hide:
     - [:octicons-arrow-right-24:解释与可视化](Session 3.ipynb)
 
 </div> -->
-
-<div class="grid">
-  <a href="#" class="card">Foo</a>
-  <a href="#" class="card">Bar</a>
-  <a href="#" class="card">Baz</a>
-</div>
