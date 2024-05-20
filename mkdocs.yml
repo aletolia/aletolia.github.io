@@ -61,12 +61,11 @@ nav:
     - index.md
   - ⛏️ CV and Multimodels:
     - Mygo.md
-    - Segment Anything in Medical Images.md
-    - Vision Mamba Efficient Visual Representation Learning with Bidirectional State Space Model.md
     - DINO.md
+    - Mamba.md
+    - ViT.md
     - Self-Supervised Learning MoCo.md
     - Self-Supervised Learning MoCoV2,3.md
-    - ViT.md
     - Vision Transformer (一).md
     - Vision Transformer  (二).md
     - Vision Transformer (三).md
@@ -75,7 +74,8 @@ nav:
     - Vision Transformer (PyramidTNT).md
     - 傅里叶级数和傅里叶变换专题.md
     - Python 存储与读取 HDF5 文件.md
-    - Mamba.md
+    - Segment Anything in Medical Images.md
+    - Vision Mamba Efficient Visual Representation Learning with Bidirectional State Space Model.md
     
     - 🚑 医学影像相关:
       - PORPOISE.md
@@ -152,6 +152,8 @@ markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
+  - attr_list
+  - md_in_html
   - pymdownx.arithmatex:
       generic: true
   - admonition
@@ -178,6 +180,11 @@ markdown_extensions:
 plugins: 
   - mkdocs-jupyter
   - search
+  - blog:
+      post_date_format: full #时间
+      post_readtime: true
+      post_readtime_words_per_minute: 265  #计算帖子的阅读时间时读者每分钟预计阅读的字数
+      post_url_format: "{date}/{slug}"
 
 
 

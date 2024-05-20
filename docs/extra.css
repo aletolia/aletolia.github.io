@@ -49,3 +49,15 @@
 .hide-nav .md-sidebar--secondary {
   display: none;
 }
+
+.repo-card {
+  min-height: 130px;
+}
+
+.portfolio-section {
+  padding-bottom: 1rem;
+}
+
+.md-typeset h1 {
+  margin: 0 0 0.75rem;
+}
