@@ -69,3 +69,47 @@ title: Home
     </body>
 
 此网站主要做储存资料用，包括单细胞，计算机视觉以及多模态方面的文献，也包含以往的教材翻译
+
+<div class="grid cards" markdown>
+
+-   :octicons-bookmark-16:{ .lg .middle } __scRNA-seq__
+
+    ---
+
+    - [scGPT](scGPT toward building a foundation model for single-cell multi-omics using generative AI.md)
+    - [泛癌B细胞建模](A blueprint for tumor-infiltrating B cells across human cancers.md)
+    - [泛癌中性粒细胞建模](Neutrophil profiling illuminates anti-tumor antigen presenting potency.md) 
+    
+
+-   :simple-materialformkdocs:{ .lg .middle } __CV&CPath__
+
+    ---
+
+    - [ViT原理以及代码实现](Vision Transformer (一).md)
+    - [下一代计算病理学编码框架](Towards a general-purpose foundation model for computational pathology.md)   
+    - [MyGo](Mygo.md)
+    - [使用多种模态数据进行预后预测](Modeling Dense Multimodal Interactions Between Biological Pathways and Histology for Survival Prediction.md)
+
+    
+
+-   :material-format-font:{ .lg .middle } __结果可视化__
+
+    ---
+
+    
+    - [可视化范例：以CLAM为例](Visualization Work Flow.md)
+    - [不止于注意力分数](Transformer Interpretability Beyond Attention Visualization.md)
+    - [代码解读](Attention Generation Work Flow.md)
+    
+
+    
+
+-   :simple-aboutdotme:{ .lg .middle } __Re:0 WSI processing&visualization__
+
+    ---
+
+    - [预处理](Session 1.ipynb)
+    - [A toy model infer](Session 2.ipynb)   
+    - [解释与可视化](Session 3.ipynb)
+
+</div>
