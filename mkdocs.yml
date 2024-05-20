@@ -180,16 +180,7 @@ markdown_extensions:
 plugins: 
   - mkdocs-jupyter
   - search
-  - glightbox
-  - social:
-      cards_layout_options:
-        background_color: "#0085A1" 
-        color: "#FFFFFF"
-        font_family: Noto Sans TC
-  - git-revision-date-localized:
-      enabled: !ENV [CI, false]
-      enable_creation_date: true
-      fallback_to_build_date: true
+
 
 
 # 下面是提示块语法
