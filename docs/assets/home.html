@@ -88,51 +88,37 @@
 </body>
 <section class="mdx-container portfolio-section">
     <div class="md-grid md-typeset">
-        <div class="text-center">
-            <h1>MkDocs Plugin</h1>
-        </div>
-        <div class="grid">
-            <p class="card repo-card" data-repo="blueswen/mkdocs-glightbox"></p>
-            <p class="card repo-card" data-repo="blueswen/mkdocs-swagger-ui-tag"></p>
-            <p class="card repo-card" data-repo="blueswen/mkdocs-redoc-tag"></p>
-        </div>
-        <div class="text-center">
-            <h1>Observability</h1>
-        </div>
-        <div class="grid">
-            <p class="card repo-card" data-repo="blueswen/fastapi-observability"></p>
-            <p class="card repo-card" data-repo="blueswen/spring-boot-observability"></p>
-            <p class="card repo-card" data-repo="blueswen/opentelemetry-apm"></p>
-            <p class="card repo-card" data-repo="blueswen/fastapi-jaeger"></p>
-            <p class="card repo-card" data-repo="blueswen/observability-ironman30-lab"></p>
-            <p class="card repo-card" data-repo="blueswen/observability-workshop-101"></p>
-            <p class="card repo-card" data-repo="blueswen/gunicorn-monitoring"></p>
-            <p class="card repo-card" data-repo="blueswen/flask-monitoring"></p>
-        </div>
-        <div class="text-center">
-            <h1>Miscellaneous</h1>
-        </div>
-        <div class="grid">
-            <p class="card repo-card" data-repo="blueswen/jasperreports-with-spring-boot"></p>
-            <p class="card repo-card" data-repo="blueswen/another-repo"></p>
-            <p class="card repo-card" data-repo="blueswen/some-other-repo"></p>
-        </div>
+      <div class="text-center">
+        <h1>MkDocs Plugin</h1>
+      </div>
+      <div class="grid">
+        <p class="card repo-card" data-repo="blueswen/mkdocs-glightbox"></p>
+        <p class="card repo-card" data-repo="blueswen/mkdocs-swagger-ui-tag"></p>
+        <p class="card repo-card" data-repo="blueswen/mkdocs-redoc-tag"></p>
+      </div>
+      <div class="text-center">
+        <h1>Observability</h1>
+      </div>
+      <div class="grid">
+        <p class="card repo-card" data-repo="blueswen/fastapi-observability"></p>
+        <p class="card repo-card" data-repo="blueswen/spring-boot-observability"></p>
+        <p class="card repo-card" data-repo="blueswen/opentelemetry-apm"></p>
+        <p class="card repo-card" data-repo="blueswen/fastapi-jaeger"></p>
+        <p class="card repo-card" data-repo="blueswen/observability-ironman30-lab"></p>
+        <p class="card repo-card" data-repo="blueswen/observability-workshop-101"></p>
+        <p class="card repo-card" data-repo="blueswen/gunicorn-monitoring"></p>
+        <p class="card repo-card" data-repo="blueswen/flask-monitoring"></p>
+      </div>
+      <div class="text-center">
+        <h1>Miscellaneous</h1>
+      </div>
+      <div class="grid">
+        <p class="card repo-card" data-repo="blueswen/jasperreports-with-spring-boot"></p>
+        <p></p>
+        <p></p>
+      </div>
     </div>
-</section>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const repoCards = document.querySelectorAll('.repo-card');
-        repoCards.forEach(card => {
-            const repo = card.getAttribute('data-repo');
-            if (repo) {
-                const repoLink = `https://github.com/${repo}`;
-                card.innerHTML = `<a href="${repoLink}" target="_blank">${repo}</a>`;
-            }
-        });
-    });
-</script>
-
+  </section>
 <!-- 自定义内容结束 -->
 
 {% endblock %}
