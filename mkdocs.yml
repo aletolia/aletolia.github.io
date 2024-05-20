@@ -180,13 +180,16 @@ markdown_extensions:
 plugins: 
   - mkdocs-jupyter
   - search
-  - blog:
-      post_date_format: full #时间
-      post_readtime: true
-      post_readtime_words_per_minute: 265  #计算帖子的阅读时间时读者每分钟预计阅读的字数
-      post_url_format: "{date}/{slug}"
-
-
+  - glightbox
+  - social:
+      cards_layout_options:
+        background_color: "#0085A1" 
+        color: "#FFFFFF"
+        font_family: Noto Sans TC
+  - git-revision-date-localized:
+      enabled: !ENV [CI, false]
+      enable_creation_date: true
+      fallback_to_build_date: true
 
 
 # 下面是提示块语法
