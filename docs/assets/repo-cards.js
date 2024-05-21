@@ -65,7 +65,7 @@ window.addEventListener('DOMContentLoaded', async function () {
           `;
   }
 
-  function promiseGet(url, retries = 100) {
+  function promiseGet(url, retries = 10) {
       return new Promise((resolve, reject) => {
           const now = new Date().getTime();
           const prevResp = JSON.parse(localStorage.getItem(url));
