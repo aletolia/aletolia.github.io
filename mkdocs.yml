@@ -83,6 +83,8 @@ nav:
       - A visual-language foundation model for computational pathology.md
       - Recurrent memory with optimal polynomial projections..md
       - Modeling Dense Multimodal Interactions Between Biological Pathways and Histology for Survival Prediction.md
+      - Inferring super-resolution tissue architecture by integrating spatial transcriptomics with histology.md
+      - Prediction of recurrence risk in endometrial cancer with multimodal deep learning.md
 
   - 🚀 Re:0 Road to CPath & Visualization:
     - Session 1.ipynb
@@ -123,6 +125,7 @@ nav:
       - A human omentum-specific mesothelial-like stromal population inhibits adipogenesis through IGFBP2 secretion.md
       - Interferon-stimulated neutrophils as a predictor of immunotherapy response.md
       - Repression of latent NF-κB enhancers by PDX1 regulates β cell functional heterogeneity.md
+      - A systematic pan-cancer study on deep learning-based prediction of multi-omic biomarkers from routine pathology images.md
 
   - 📐 Data Structures:
     - 第 1 章 python 入门.md
