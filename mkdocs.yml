@@ -107,6 +107,8 @@ nav:
       - RNA velocity of single cells.md
       - TFvelo_gene regulation inspired RNA velocity estimation.md
       - Disentanglement of single-cell data with biolord.md
+      - ⭐⭐⭐C5aR1 inhibition reprograms tumor associated macrophages and reverses PARP inhibitor resistance in breast cancer.md
+      - Spatial transition tensor of single cells.md
     - 📔 文献:
       - scRNA-seq of gastric tumor shows complex intercellular interaction with an alternative T cell exhaustion trajectory（参考）.md
       - Single-cell analysis reveals new evolutionary complexity in uveal melanoma（参考 2）.md
@@ -126,6 +128,9 @@ nav:
       - Interferon-stimulated neutrophils as a predictor of immunotherapy response.md
       - Repression of latent NF-κB enhancers by PDX1 regulates β cell functional heterogeneity.md
       - A systematic pan-cancer study on deep learning-based prediction of multi-omic biomarkers from routine pathology images.md
+      - Single-cell and spatial transcriptomics analysis of non-small cell lung cancer.md
+      - Seeing data as t-SNE and UMAP do.md
+      - Statistical method scDEED for detecting dubious 2D single-cell embeddings and optimizing t-SNE and UMAP hyperparameters.md
 
   - 📐 Data Structures:
     - 第 1 章 python 入门.md
