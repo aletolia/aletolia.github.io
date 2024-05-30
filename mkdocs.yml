@@ -80,6 +80,7 @@ nav:
       - HIPT.md
       - Data-efficient and weakly supervised computational pathology on whole-slide images(CLAM).md
       - Towards a general-purpose foundation model for computational pathology.md
+      - A whole-slide foundation model for digital pathology from real-world data.md
       - A visual-language foundation model for computational pathology.md
       - Recurrent memory with optimal polynomial projections..md
       - Modeling Dense Multimodal Interactions Between Biological Pathways and Histology for Survival Prediction.md
@@ -109,6 +110,8 @@ nav:
       - Disentanglement of single-cell data with biolord.md
       - ⭐⭐⭐C5aR1 inhibition reprograms tumor associated macrophages and reverses PARP inhibitor resistance in breast cancer.md
       - Spatial transition tensor of single cells.md
+      - Statistical method scDEED for detecting dubious 2D single-cell embeddings and optimizing t-SNE and UMAP hyperparameters.md
+      - scRank infers drug-responsive cell types from untreated scRNA-seq data using a target-perturbed gene regulatory network.md
     - 📔 文献:
       - scRNA-seq of gastric tumor shows complex intercellular interaction with an alternative T cell exhaustion trajectory（参考）.md
       - Single-cell analysis reveals new evolutionary complexity in uveal melanoma（参考 2）.md
@@ -129,8 +132,8 @@ nav:
       - Repression of latent NF-κB enhancers by PDX1 regulates β cell functional heterogeneity.md
       - A systematic pan-cancer study on deep learning-based prediction of multi-omic biomarkers from routine pathology images.md
       - Single-cell and spatial transcriptomics analysis of non-small cell lung cancer.md
-      - Seeing data as t-SNE and UMAP do.md
-      - Statistical method scDEED for detecting dubious 2D single-cell embeddings and optimizing t-SNE and UMAP hyperparameters.md
+      - Seeing data as t-SNE and UMAP do.md      
+      - Mapping the cellular biogeography of human bone marrow niches using single-cell transcriptomics and proteomic imaging.md
 
   - 📐 Data Structures:
     - 第 1 章 python 入门.md
