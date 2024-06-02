@@ -1,62 +1,40 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Example</title>
     <style>
-        body {
-            background-color: #2f3b4a;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
+        .profile-container {
             text-align: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        .profile {
-            background-color: #2f3b4a;
-            border-radius: 10px;
             padding: 20px;
         }
-        .profile img {
-            border-radius: 50%;
+        .profile-pic {
             width: 150px;
             height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ccc;
         }
-        .username {
-            font-size: 24px;
-            margin-top: 10px;
+        .contact-info {
+            margin-top: 20px;
+            font-size: 18px;
         }
-        .description {
+        .custom-message {
+            margin-top: 20px;
             font-size: 16px;
-            margin: 10px 0;
-        }
-        .social-icons {
-            margin-top: 10px;
-        }
-        .social-icons a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 24px;
+            color: #555;
         }
     </style>
+    <title>Profile</title>
 </head>
 <body>
-    <div class="profile">
-        <img src="profile-picture-url" alt="Profile Picture">
-        <div class="username">xkww3n</div>
-        <div class="description">いつかあなたのように　誰かのことを　照らせる人になりたいだけ</div>
-        <div class="social-icons">
-            <a href="https://t.me/username" target="_blank">🟢</a>
-            <a href="mailto:username@example.com" target="_blank">✉️</a>
-            <a href="https://github.com/username" target="_blank">🐱</a>
-            <a href="https://twitter.com/username" target="_blank">🐦</a>
+    <div class="profile-container">
+        <img src="path_to_your_profile_picture.jpg" alt="Profile Picture" class="profile-pic">
+        <div class="contact-info">
+            <p>Email: your.email@example.com</p>
+        </div>
+        <div class="custom-message">
+            <p>Your custom message goes here. It can be anything you want to share with your visitors.</p>
         </div>
     </div>
 </body>

@@ -146,6 +146,14 @@ nav:
     - 第 8 章 树 ★.md
     - 第 9 章 优先级队列.md
 
+  - 💡 综述:
+    - 🧭 scRNA analysis:
+      - Best practices for single-cell analysis across modalities.md
+    - 🦠 Metabolism:
+      - Metabolic analysis as a driver for discovery, diagnosis, and therapy.md
+      - Metabolic heterogeneity in cancer.md
+      - Toward modeling metabolic state from single-cell transcriptomics.md
+
 
 # extra:
 #   social:
