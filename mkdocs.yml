@@ -99,8 +99,13 @@ nav:
     - 🪛 PyTorch:
       - Autograd mechanics — PyTorch 2_3 documentation.md
       - PyTorch Autograd Explained - In-depth Tutorial.md
-      
 
+  - 💤 Re:0 Road to Single Cell RNA Analysis:
+    - scRNA_tutorial\2.1_quality_control.md
+    - scRNA_tutorial\2.2_normalization.md
+    - scRNA_tutorial\2.3_feature_selection.md
+    - scRNA_tutorial\2.4_dimensionality_reduction.md
+      
   - 🧬 scRNA Analysis:
     - 🐍 Using Python:
       - scGPT toward building a foundation model for single-cell multi-omics using generative AI.md
