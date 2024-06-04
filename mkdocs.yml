@@ -101,10 +101,10 @@ nav:
       - PyTorch Autograd Explained - In-depth Tutorial.md
 
   - 💤 Re:0 Road to scRNA-seq Analysis:
-    - scRNA_tutorial\2.1_quality_control.md
-    - scRNA_tutorial\2.2_normalization.md
-    - scRNA_tutorial\2.3_feature_selection.md
-    - scRNA_tutorial\2.4_dimensionality_reduction.md
+    - 2.1_quality_control.md
+    - 2.2_normalization.md
+    - 2.3_feature_selection.md
+    - 2.4_dimensionality_reduction.md
       
   - 🧬 scRNA Analysis:
     - 🐍 Using Python:
