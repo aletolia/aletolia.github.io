@@ -100,7 +100,7 @@ nav:
       - Autograd mechanics — PyTorch 2_3 documentation.md
       - PyTorch Autograd Explained - In-depth Tutorial.md
 
-  - 💤 Re:0 Road to Single Cell RNA Analysis:
+  - 💤 Re:0 Road to scRNA-seq Analysis:
     - scRNA_tutorial\2.1_quality_control.md
     - scRNA_tutorial\2.2_normalization.md
     - scRNA_tutorial\2.3_feature_selection.md
