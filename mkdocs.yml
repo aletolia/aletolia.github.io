@@ -111,7 +111,12 @@ nav:
       - 3.1clustering.ipynb
       - 3.2annotation.ipynb
       - 3.3integration.ipynb
-      
+    - ⏱️ CHAPTER 4 推断细胞轨迹:
+      - pseudotemporal.ipynb
+      - rna_velocity.ipynb
+      - lineage_tracing.ipynb
+    - 🎁 CHAPTER 5 应对特殊情况:
+      - differential_gene_expression.ipynb
   - 🧬 scRNA Analysis:
     - 🐍 Using Python:
       - scGPT toward building a foundation model for single-cell multi-omics using generative AI.md
