@@ -101,11 +101,16 @@ nav:
       - PyTorch Autograd Explained - In-depth Tutorial.md
 
   - 💤 Re:0 Road to scRNA-seq Analysis:
-    - 2.1_quality_control.md
-    - 2.2_normalization.md
-    - 2.3_feature_selection.md
-    - 2.4_dimensionality_reduction.md
-    - 3.3integration.ipynb
+
+    - CHAPTER 2 数据准备与可视化:
+      - 2.1 quality_control.ipynb
+      - 2.2 normalization.ipynb
+      - 2.3_feature_selection.ipynb
+      - 2.4_dimensionality_reduction.ipynb
+    - CHAPTER 3 识别细胞结构:
+      - 3.1clustering.ipynb
+      - 3.2annotation.ipynb
+      - 3.3integration.ipynb
       
   - 🧬 scRNA Analysis:
     - 🐍 Using Python:
