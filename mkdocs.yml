@@ -105,6 +105,7 @@ nav:
     - 2.2_normalization.md
     - 2.3_feature_selection.md
     - 2.4_dimensionality_reduction.md
+    - 3.3integration.ipynb
       
   - 🧬 scRNA Analysis:
     - 🐍 Using Python:
