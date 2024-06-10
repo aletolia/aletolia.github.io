@@ -13,6 +13,7 @@
         body {
             margin: 0;
             background-color: #ffffff;
+            font-family: 'Noto Sans JP', sans-serif; /* 使用默认的日文字体 */
         }
         .content-wrapper {
             display: flex;
@@ -79,8 +80,8 @@
         }
     </style>
 </head>
-    <body>
-      <div class="content-wrapper">
+<body>
+    <div class="content-wrapper">
         <div class="image-container">
             <div class="typed-text typing"></div>
         </div>
@@ -107,7 +108,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const typed = new Typed('.typed-text', {
-                    strings: ["You stole my heart so long ago"],
+                    strings: ["思いは火の中に沈む"],
                     typeSpeed: 50,
                     backSpeed: 25,
                     loop: false,
@@ -115,7 +116,10 @@
                         const typedText = document.querySelector('.typed-text');
                         typedText.classList.remove('typing');
                         typedText.style.borderRight = 'none';
-                        typedText.style.height = '120px';
+                        
+                        // Measure and set the final height of the text
+                        const finalHeight = typedText.offsetHeight;
+                        typedText.style.height = finalHeight + 'px';
                     }
                 });
             }, 1000); 
@@ -362,6 +366,4 @@
         </div>
     </div>
 </section>
-
 {% endblock %}
-
