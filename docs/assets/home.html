@@ -3,7 +3,7 @@
 {% block tabs %}
 {{ super() }}
 <script src="./repo-cards.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Satisfy:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;700&family=Satisfy:wght@400;700&display=swap" rel="stylesheet">
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,6 @@
         body {
             margin: 0;
             background-color: #ffffff;
-            font-family: 'Noto Sans JP', sans-serif; /* 使用默认的日文字体 */
         }
         .content-wrapper {
             display: flex;
@@ -35,8 +34,9 @@
             align-items: center;
         }
         .typed-text {
-            font-family: 'Dancing Script', cursive;
-            font-size: 48px;
+            font-family: 'M PLUS 1p', cursive;
+            font-size: 40px;
+            font-weight: Medium;
             white-space: nowrap;
             overflow: hidden;
             border-right: 0.15em solid rgb(20, 59, 95);
@@ -109,7 +109,7 @@
             setTimeout(() => {
                 const typed = new Typed('.typed-text', {
                     strings: ["思いは火の中に沈む"],
-                    typeSpeed: 50,
+                    typeSpeed: 150,
                     backSpeed: 25,
                     loop: false,
                     onComplete: () => {
@@ -122,7 +122,7 @@
                         typedText.style.height = finalHeight + 'px';
                     }
                 });
-            }, 1000); 
+            }, 2000); 
         });
 
         function clickEffect() {
