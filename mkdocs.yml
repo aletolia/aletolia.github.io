@@ -76,6 +76,7 @@ nav:
     - Vision Mamba Efficient Visual Representation Learning with Bidirectional State Space Model.md
     
     - 🚑 医学影像相关:
+      - Why is the winner the best.md
       - PORPOISE.md
       - HIPT.md
       - Data-efficient and weakly supervised computational pathology on whole-slide images(CLAM).md
@@ -117,6 +118,7 @@ nav:
       - lineage_tracing.ipynb
     - 🎁 CHAPTER 5 应对特殊情况:
       - differential_gene_expression.ipynb
+
   - 🧬 scRNA Analysis:
     - 🐍 Using Python:
       - scGPT toward building a foundation model for single-cell multi-omics using generative AI.md
@@ -150,6 +152,7 @@ nav:
       - Single-cell and spatial transcriptomics analysis of non-small cell lung cancer.md
       - Seeing data as t-SNE and UMAP do.md      
       - Mapping the cellular biogeography of human bone marrow niches using single-cell transcriptomics and proteomic imaging.md
+      - Onco-fetal Reprogramming of Endothelial Cells Drives Immunosuppressive Macrophages in Hepatocellular Carcinoma.md
 
   - 📐 Data Structures:
     - 第 1 章 python 入门.md
