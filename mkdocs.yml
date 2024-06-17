@@ -132,7 +132,7 @@ nav:
       - bulk_deconvolution.ipynb
 
   - 🧬 scRNA Analysis:
-  
+
     - 🐍 Using Python:
       - Large-scale foundation model on single-cell transcriptomics.md
       - scGPT toward building a foundation model for single-cell multi-omics using generative AI.md
@@ -276,5 +276,10 @@ extra_css:
   - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
 # other settings ...
 # Hello World
+
+extra:
+  analytics:
+    provider: google
+    property: G-M0R7V8QGQ7
 
 
