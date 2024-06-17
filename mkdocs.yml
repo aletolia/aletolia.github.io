@@ -120,7 +120,8 @@ nav:
       - differential_gene_expression.ipynb
 
   - 🧬 scRNA Analysis:
-    - 🐍 Using Python:
+    - 🐍 Using Python:、
+      - Large-scale foundation model on single-cell transcriptomics.md
       - scGPT toward building a foundation model for single-cell multi-omics using generative AI.md
       - scBERT as a large-scale pretrained deep language model for cell type annotation of single-cell RNA-seq data.md
       - RNA velocity of single cells.md
@@ -153,6 +154,10 @@ nav:
       - Seeing data as t-SNE and UMAP do.md      
       - Mapping the cellular biogeography of human bone marrow niches using single-cell transcriptomics and proteomic imaging.md
       - Onco-fetal Reprogramming of Endothelial Cells Drives Immunosuppressive Macrophages in Hepatocellular Carcinoma.md
+      - Single-cell analysis of anti-BCMA CAR T cell therapy in patients with central nervous system autoimmunity.md
+      - Single-cell sequencing depicts tumor architecture and empowers clinical decision in metastatic conjunctival melanoma.md
+      - PR-SET7 epigenetically restrains uterine interferon response and cell death governing proper postnatal stromal development.md
+      - Clonal associations between lymphocyte subsets and functional states in rheumatoid arthritis synovium.md
 
   - 📐 Data Structures:
     - 第 1 章 python 入门.md
@@ -170,6 +175,7 @@ nav:
       - Best practices for single-cell analysis across modalities.md
       - Multi-omics integration in biomedical research – A metabolomics-centric review.md
       - Museum of spatial transcriptomics.md
+      - A guide to artificial intelligence for cancer researchers.md
     - 🦠 Metabolism:
       - Metabolic analysis as a driver for discovery, diagnosis, and therapy.md
       - Metabolic heterogeneity in cancer.md
