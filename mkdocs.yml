@@ -132,7 +132,7 @@ nav:
       - bulk_deconvolution.ipynb
 
   - 🧬 scRNA Analysis:
-    - 🐍 Using Python:、
+    - 🐍 Using Python:
       - Large-scale foundation model on single-cell transcriptomics.md
       - scGPT toward building a foundation model for single-cell multi-omics using generative AI.md
       - scBERT as a large-scale pretrained deep language model for cell type annotation of single-cell RNA-seq data.md
