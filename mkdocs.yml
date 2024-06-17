@@ -118,6 +118,14 @@ nav:
       - lineage_tracing.ipynb
     - 🎁 CHAPTER 5 应对特殊情况:
       - differential_gene_expression.ipynb
+      - compositional.ipynb
+      - gsea_pathway.ipynb
+      - perturbation_modeling.ipynb
+    - ⚙️ CHAPTER 6 机制建模:
+      - gene_regulatory_networks.ipynb
+      - cell_cell_communication.ipynb
+    - 🔓 CHAPTER 7 反卷积:
+      - bulk_deconvolution.ipynb
 
   - 🧬 scRNA Analysis:
     - 🐍 Using Python:、
