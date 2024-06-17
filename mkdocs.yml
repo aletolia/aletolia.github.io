@@ -198,14 +198,10 @@ nav:
       - Proteomic and interactomic insights into the molecular basis of cell functional diversity.md
 
 
-# extra:
-#   social:
-#     - icon: fontawesome/brands/github-alt
-#       link: https://github.com/james-willett
-#     - icon: fontawesome/brands/twitter
-#       link: https://twitter.com/TheJamesWillett
-#     - icon: fontawesome/brands/linkedin
-#       link: https://www.linkedin.com/in/willettjames/
+extra:
+  analytics:
+    provider: google
+    property: G-M0R7V8QGQ7
 
 markdown_extensions:
   
@@ -277,9 +273,6 @@ extra_css:
 # other settings ...
 # Hello World
 
-extra:
-  analytics:
-    provider: google
-    property: G-M0R7V8QGQ7
+
 
 
