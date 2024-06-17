@@ -103,6 +103,10 @@ nav:
 
   - 💤 Re:0 Road to scRNA-seq Analysis:
 
+    - ⏳ CHAPTER 1 简介:
+      - 1.1 Single-cell RNA sequencing.md
+      - 1.2 Raw Data Processing.md
+      - 1.3 Analysis frameworks and tools.md
     - 🌏 CHAPTER 2 数据准备与可视化:
       - 2.1 quality_control.ipynb
       - 2.2 normalization.ipynb
