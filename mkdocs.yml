@@ -204,7 +204,7 @@ extra:
     property: G-M0R7V8QGQ7
 
 markdown_extensions:
-  
+  - pymdownx.betterem
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
