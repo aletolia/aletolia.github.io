@@ -243,9 +243,9 @@ markdown_extensions:
 plugins: 
   - mkdocs-jupyter
   - search
-  - statistics: # 数据统计插件（pip install mkdocs-statistics-plugin）
-      codelines_per_minute: 15 # 每分钟可看的代码行数
-      words_per_minute: 150 # 每分钟可看的文本数
+  # - statistics: # 数据统计插件（pip install mkdocs-statistics-plugin）
+  #     codelines_per_minute: 15 # 每分钟可看的代码行数
+  #     words_per_minute: 150 # 每分钟可看的文本数
 
 
 
