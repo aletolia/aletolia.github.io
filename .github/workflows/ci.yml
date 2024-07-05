@@ -18,9 +18,9 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: pip install mkdocs-material
+      - run: pip install mkdocs-material==9.5.12
       - run: pip install pillow cairosvg
       - run: pip install mkdocs-jupyter
-      - run: pip install mkdocs-statistics-plugin
+      - run: pip install mkdocs-statistics-plugin==0.1.2
       - run: pip install pymdown-extensions
       - run: mkdocs gh-deploy --force

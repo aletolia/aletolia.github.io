@@ -232,6 +232,13 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.inlinehilite
   - pymdownx.arithmatex
+  - pymdownx.keys # 按键高亮，类似于行内代码那种，如 <kbd>Ctrl</kbd>，或者带图标的格式（强制小写）++ctrl++，也可组合 ++ctrl+s++（推荐第二种方式，第二种自带图标）
+  - pymdownx.mark # 允许文本下划线，即 ^^Text^^
+  - pymdownx.caret # 允许文本高亮，即 ==Text==
+  - pymdownx.tilde
+  - pymdownx.tasklist: # 允许 Todo 列表清单
+      custom_checkbox: true # 允许修改其样式，不然用默认样式就很丑
+      clickable_checkbox: true # 是否可通过点击切换状态（但无实际更改，只有视觉效果）
 
 plugins: 
   - mkdocs-jupyter
