@@ -103,33 +103,65 @@ nav:
 
   - 💤 Re:0 Road to scRNA-seq Analysis:
 
-    - ⏳ CHAPTER 1 简介:
-      - 1.1 Single-cell RNA sequencing.md
-      - 1.2 Raw Data Processing.md
-      - 1.3 Analysis frameworks and tools.md
-    - 🌏 CHAPTER 2 数据准备与可视化:
-      - 2.1 quality_control.ipynb
-      - 2.2 normalization.ipynb
-      - 2.3_feature_selection.ipynb
-      - 2.4_dimensionality_reduction.ipynb
-    - 🍀 CHAPTER 3 识别细胞结构:
-      - 3.1clustering.ipynb
-      - 3.2annotation.ipynb
-      - 3.3integration.ipynb
-    - ⏱️ CHAPTER 4 推断细胞轨迹:
-      - pseudotemporal.ipynb
-      - rna_velocity.ipynb
-      - lineage_tracing.ipynb
-    - 🎁 CHAPTER 5 应对特殊情况:
-      - differential_gene_expression.ipynb
-      - compositional.ipynb
-      - gsea_pathway.ipynb
-      - perturbation_modeling.ipynb
-    - ⚙️ CHAPTER 6 机制建模:
-      - gene_regulatory_networks.ipynb
-      - cell_cell_communication.ipynb
-    - 🔓 CHAPTER 7 反卷积:
-      - bulk_deconvolution.ipynb
+    - Using Python:
+      - ⏳ CHAPTER 1 简介:
+        - 1.1 Single-cell RNA sequencing.md
+        - 1.2 Raw Data Processing.md
+        - 1.3 Analysis frameworks and tools.md
+      - 🌏 CHAPTER 2 数据准备与可视化:
+        - 2.1 quality_control.ipynb
+        - 2.2 normalization.ipynb
+        - 2.3_feature_selection.ipynb
+        - 2.4_dimensionality_reduction.ipynb
+      - 🍀 CHAPTER 3 识别细胞结构:
+        - 3.1clustering.ipynb
+        - 3.2annotation.ipynb
+        - 3.3integration.ipynb
+      - ⏱️ CHAPTER 4 推断细胞轨迹:
+        - pseudotemporal.ipynb
+        - rna_velocity.ipynb
+        - lineage_tracing.ipynb
+      - 🎁 CHAPTER 5 应对特殊情况:
+        - differential_gene_expression.ipynb
+        - compositional.ipynb
+        - gsea_pathway.ipynb
+        - perturbation_modeling.ipynb
+      - ⚙️ CHAPTER 6 机制建模:
+        - gene_regulatory_networks.ipynb
+        - cell_cell_communication.ipynb
+      - 🔓 CHAPTER 7 反卷积:
+        - bulk_deconvolution.ipynb
+    - 简明易懂的单细胞分析流程（使用 R 语言）:
+        - 前言.md
+        - 环境配置.md
+        - 1.1 构建单细胞 RNA-seq 分析环境.md
+        - 1.2 R 环境安装.md
+        - 1.3 Docker 安装.md
+        - 1.4 在 Docker 中启动 Rstudio.md
+        - 1.5 有关 Bioconductor.md
+        - 2.1 R 的基本用法.md
+        - 2.2 如何处理 DataFrame？.md
+        - 2.3 使用 ggplot2 可视化数据.md
+        - 3.1 PCA.md
+        - 3.2 使用 clusterPlofiler 进行富集分析.md
+        - 3.3 基因本体（GO）中各 BP、MF 和 CC 的富集分析.md
+        - 3.3 使用 DEseq2 提取 RNA-seq 分析数据中的 DEG.md
+        - 3.4 使用其他数据库（KEGG、Reactome 等）进行富集分析.md
+        - 4.1 scRNA-seq 概要.md
+        - 4.2 准备使用 Seurat 进行分析.md
+        - 4.3 使用 Seurat 进行数据预处理.md
+        - 4.4 使用 Seurat 进行数据分析的一般顺序.md
+        - 5.1 如何查找单细胞 RNA-seq 数据.md
+        - 5.2 为每个簇自动添加细胞注释标签.md
+        - 5.3 使用 FeaturePlot 检查基因表达.md
+        - 5.4 将单细胞 RNA-seq 数据集相互结合.md
+        - 5.5 纠正批次效应，比较对照组和刺激组.md
+        - 5.6 确定每个群组的标记基因.md
+        - 6.1 如何使用 Cell Ranger 统计 scRNA-seq 数据中的基因表达水平.md
+        - 6.2 使用 Cell Ranger 处理 NCBI Sequence Read Archive (SRA) 数据.md
+        - 7.1 关于 scRNA-seq 数据的质量控制.md
+        - 7.2 使用 DoubleFinder 检测双重细胞.md
+        - 7.3 用 CellBender 去除背景 RNA.md
 
   - 🧬 scRNA Analysis:
 
