@@ -59,6 +59,7 @@ nav:
     - index.md
   - ⛏️ CV and Multimodels:
     - Mygo.md
+    - GMM.md
     - DINO.md
     - Mamba.md
     - ViT.md
