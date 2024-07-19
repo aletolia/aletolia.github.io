@@ -178,6 +178,7 @@ nav:
       - Statistical method scDEED for detecting dubious 2D single-cell embeddings and optimizing t-SNE and UMAP hyperparameters.md
       - scRank infers drug-responsive cell types from untreated scRNA-seq data using a target-perturbed gene regulatory network.md
     - 📔 文献:
+      - Tumour vasculature at single-cell resolution.md
       - scRNA-seq of gastric tumor shows complex intercellular interaction with an alternative T cell exhaustion trajectory（参考）.md
       - Single-cell analysis reveals new evolutionary complexity in uveal melanoma（参考 2）.md
       - Single-cell characterization of macrophages in uveal melanoma uncovers transcriptionally heterogeneous subsets conferring poor prognosis and aggressive behavior（范例 1）.md
