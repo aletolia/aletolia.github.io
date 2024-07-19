@@ -1,0 +1,6318 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://localhost:8000/%E7%AC%AC%204%20%E7%AB%A0%20%E9%80%92%E5%BD%92/">
+      
+      
+        <link rel="prev" href="../%E7%AC%AC%203%20%E7%AB%A0%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/">
+      
+      
+        <link rel="next" href="../%E7%AC%AC%205%20%E7%AB%A0%20%E5%9F%BA%E4%BA%8E%E6%95%B0%E7%BB%84%E7%9A%84%E5%BA%8F%E5%88%97/">
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
+    
+    
+      
+        <title>第 4 章 递归 - One Last Kiss</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.76a95c52.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-M0R7V8QGQ7"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-M0R7V8QGQ7",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-M0R7V8QGQ7",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#41" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="One Last Kiss" class="md-header__button md-logo" aria-label="One Last Kiss" data-md-component="logo">
+      
+  <img src="../img/icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            One Last Kiss
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第 4 章 递归
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aletolia/aletolia.github.io.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aletolia/aletolia.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+    
+  
+  🏠 Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Mygo/" class="md-tabs__link">
+          
+  
+    
+  
+  ⛏️ CV and Multimodels
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Session%201/" class="md-tabs__link">
+          
+  
+    
+  
+  🚀 Re:0 Road to CPath & Visualization
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../1.1%20Single-cell%20RNA%20sequencing/" class="md-tabs__link">
+          
+  
+    
+  
+  💤 Re:0 Road to scRNA-seq Analysis
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Large-scale%20foundation%20model%20on%20single-cell%20transcriptomics/" class="md-tabs__link">
+          
+  
+    
+  
+  🧬 scRNA Analysis
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../%E7%AC%AC%201%20%E7%AB%A0%20python%20%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+          
+  
+    
+  
+  📐 Data Structures
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Best%20practices%20for%20single-cell%20analysis%20across%20modalities/" class="md-tabs__link">
+          
+  
+    
+  
+  💡 Reviews
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="One Last Kiss" class="md-nav__button md-logo" aria-label="One Last Kiss" data-md-component="logo">
+      
+  <img src="../img/icon.png" alt="logo">
+
+    </a>
+    One Last Kiss
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aletolia/aletolia.github.io.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aletolia/aletolia.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href=".." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    🏠 Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            🏠 Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⛏️ CV and Multimodels
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ⛏️ CV and Multimodels
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mygo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MyGO: Discrete Modality Information as Fine-Grained Tokens for Multi-modal Knowledge Graph Completion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GMM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GMM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DINO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mamba/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mamba
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ViT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Self-Supervised%20Learning%20MoCo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MoCo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Self-Supervised%20Learning%20MoCoV2%2C3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MoCo V2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E4%B8%80%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer  (一)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%20%28%E4%BA%8C%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (二)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E4%B8%89%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer  (三)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E5%9B%9B%29%20%28TNT%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (四)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%20%E9%A2%84%E8%AE%AD%E7%BB%83%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (知识蒸馏 预训练）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28PyramidTNT%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer(Pyramid TNT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E5%92%8C%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%93%E9%A2%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    傅里叶级数和傅里叶变换专题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%20%E5%AD%98%E5%82%A8%E4%B8%8E%E8%AF%BB%E5%8F%96%20HDF5%20%E6%96%87%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python 存储与读取 HDF5 文件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Segment%20Anything%20in%20Medical%20Images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Segment Anything in Medical Images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Mamba%20Efficient%20Visual%20Representation%20Learning%20with%20Bidirectional%20State%20Space%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Mamba Efficient Visual Representation Learning with Bidirectional State Space Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_18" id="__nav_2_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🚑 医学影像相关
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_18">
+            <span class="md-nav__icon md-icon"></span>
+            🚑 医学影像相关
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Why%20is%20the%20winner%20the%20best/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why is the winner the best
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PORPOISE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PORPOISE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HIPT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scaling Vision Transformers to Gigapixel Images via Hierarchical Self-Supervised Learning(HIPT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data-efficient%20and%20weakly%20supervised%20computational%20pathology%20on%20whole-slide%20images%28CLAM%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data efficient and weakly supervised computational pathology on whole slide images(CLAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Towards%20a%20general-purpose%20foundation%20model%20for%20computational%20pathology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Towards a general purpose foundation model for computational pathology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20whole-slide%20foundation%20model%20for%20digital%20pathology%20from%20real-world%20data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A whole slide foundation model for digital pathology from real world data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20visual-language%20foundation%20model%20for%20computational%20pathology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A visual language foundation model for computational pathology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Recurrent%20memory%20with%20optimal%20polynomial%20projections./" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recurrent memory with optimal polynomial projections.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modeling%20Dense%20Multimodal%20Interactions%20Between%20Biological%20Pathways%20and%20Histology%20for%20Survival%20Prediction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modeling Dense Multimodal Interactions Between Biological Pathways and Histology for Survival Prediction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inferring%20super-resolution%20tissue%20architecture%20by%20integrating%20spatial%20transcriptomics%20with%20histology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inferring super resolution tissue architecture by integrating spatial transcriptomics with histology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prediction%20of%20recurrence%20risk%20in%20endometrial%20cancer%20with%20multimodal%20deep%20learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prediction of recurrence risk in endometrial cancer with multimodal deep learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🚀 Re:0 Road to CPath & Visualization
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            🚀 Re:0 Road to CPath & Visualization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    理解全幅切片图像
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    在计算病理学中用于癌症诊断的弱监督深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基于注意力的多示例学习可解释性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How%20to%20visualize%20Attention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to visualize Attention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AttentionViz%20A%20Global%20View%20of%20Transformer%20Attention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AttentionViz A Global View of Transformer Attention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transformer%20Interpretability%20Beyond%20Attention%20Visualization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformer Interpretability Beyond Attention Visualization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visualization%20Work%20Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visualization Work Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Attention%20Generation%20Work%20Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Attention Generation Work Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🪛 PyTorch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            🪛 PyTorch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Autograd%20mechanics%20%E2%80%94%20PyTorch%202_3%20documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Autograd mechanics — PyTorch 2 3 documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PyTorch%20Autograd%20Explained%20-%20In-depth%20Tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch Autograd Explained   In depth Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    💤 Re:0 Road to scRNA-seq Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            💤 Re:0 Road to scRNA-seq Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Using Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Using Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_1" id="__nav_4_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⏳ CHAPTER 1 简介
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            ⏳ CHAPTER 1 简介
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1%20Single-cell%20RNA%20sequencing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1.The building block of life
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2%20Raw%20Data%20Processing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 Raw data processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3%20Analysis%20frameworks%20and%20tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 Analysis frameworks and tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🌏 CHAPTER 2 数据准备与可视化
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            🌏 CHAPTER 2 数据准备与可视化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1%20quality_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 Quality Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2%20normalization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 Normalization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.3_feature_selection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 Feature selection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.4_dimensionality_reduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.4 Dimensionality Reduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🍀 CHAPTER 3 识别细胞结构
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            🍀 CHAPTER 3 识别细胞结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1clustering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 Clustering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.2annotation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 Annotation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 Data integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_4" id="__nav_4_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⏱️ CHAPTER 4 推断细胞轨迹
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            ⏱️ CHAPTER 4 推断细胞轨迹
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pseudotemporal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 Pseudotemporal ordering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rna_velocity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 RNA velocity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lineage_tracing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.3 Lineage tracing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_5" id="__nav_4_1_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🎁 CHAPTER 5 应对特殊情况
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            🎁 CHAPTER 5 应对特殊情况
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../differential_gene_expression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 Differential gene expression analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compositional/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 Compositional analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gsea_pathway/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.3 Gene set enrichment and pathway analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../perturbation_modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.4 Perturbation modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⚙️ CHAPTER 6 机制建模
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            ⚙️ CHAPTER 6 机制建模
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gene_regulatory_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1 Gene regulatory networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cell_cell_communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2 Cell-cell communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_7" id="__nav_4_1_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🔓 CHAPTER 7 反卷积
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            🔓 CHAPTER 7 反卷积
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bulk_deconvolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 Bulk deconvolution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    简明易懂的单细胞分析流程（使用 R 语言）
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            简明易懂的单细胞分析流程（使用 R 语言）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    环境配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1%20%E6%9E%84%E5%BB%BA%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E5%88%86%E6%9E%90%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1 构建单细胞 RNA seq 分析环境
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2%20R%20%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 R 环境安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3%20Docker%20%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 Docker 安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.4%20%E5%9C%A8%20Docker%20%E4%B8%AD%E5%90%AF%E5%8A%A8%20Rstudio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.4 在 Docker 中启动 Rstudio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.5%20%E6%9C%89%E5%85%B3%20Bioconductor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.5 有关 Bioconductor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1%20R%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 R 的基本用法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2%20%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%20DataFrame%EF%BC%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 如何处理 DataFrame？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.3%20%E4%BD%BF%E7%94%A8%20ggplot2%20%E5%8F%AF%E8%A7%86%E5%8C%96%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 使用 ggplot2 可视化数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1%20PCA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 PCA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.2%20%E4%BD%BF%E7%94%A8%20clusterPlofiler%20%E8%BF%9B%E8%A1%8C%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 使用 clusterPlofiler 进行富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3%20%E5%9F%BA%E5%9B%A0%E6%9C%AC%E4%BD%93%EF%BC%88GO%EF%BC%89%E4%B8%AD%E5%90%84%20BP%E3%80%81MF%20%E5%92%8C%20CC%20%E7%9A%84%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 基因本体（GO）中各 BP、MF 和 CC 的富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3%20%E4%BD%BF%E7%94%A8%20DEseq2%20%E6%8F%90%E5%8F%96%20RNA-seq%20%E5%88%86%E6%9E%90%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%20DEG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 使用 DEseq2 提取 RNA seq 分析数据中的 DEG
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.4%20%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88KEGG%E3%80%81Reactome%20%E7%AD%89%EF%BC%89%E8%BF%9B%E8%A1%8C%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.4 使用其他数据库（KEGG、Reactome 等）进行富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1%20scRNA-seq%20%E6%A6%82%E8%A6%81/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 scRNA seq 概要
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.2%20%E5%87%86%E5%A4%87%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 准备使用 Seurat 进行分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.3%20%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.3 使用 Seurat 进行数据预处理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.4%20%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E8%88%AC%E9%A1%BA%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.4 使用 Seurat 进行数据分析的一般顺序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.1%20%E5%A6%82%E4%BD%95%E6%9F%A5%E6%89%BE%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 如何查找单细胞 RNA seq 数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.2%20%E4%B8%BA%E6%AF%8F%E4%B8%AA%E7%B0%87%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E7%BB%86%E8%83%9E%E6%B3%A8%E9%87%8A%E6%A0%87%E7%AD%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 为每个簇自动添加细胞注释标签
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.3%20%E4%BD%BF%E7%94%A8%20FeaturePlot%20%E6%A3%80%E6%9F%A5%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.3 使用 FeaturePlot 检查基因表达
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.4%20%E5%B0%86%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9B%B8%E4%BA%92%E7%BB%93%E5%90%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.4 将单细胞 RNA seq 数据集相互结合
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.5%20%E7%BA%A0%E6%AD%A3%E6%89%B9%E6%AC%A1%E6%95%88%E5%BA%94%EF%BC%8C%E6%AF%94%E8%BE%83%E5%AF%B9%E7%85%A7%E7%BB%84%E5%92%8C%E5%88%BA%E6%BF%80%E7%BB%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.5 纠正批次效应，比较对照组和刺激组
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.6%20%E7%A1%AE%E5%AE%9A%E6%AF%8F%E4%B8%AA%E7%BE%A4%E7%BB%84%E7%9A%84%E6%A0%87%E8%AE%B0%E5%9F%BA%E5%9B%A0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.6 确定每个群组的标记基因
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.1%20%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Cell%20Ranger%20%E7%BB%9F%E8%AE%A1%20scRNA-seq%20%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE%E6%B0%B4%E5%B9%B3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1 如何使用 Cell Ranger 统计 scRNA seq 数据中的基因表达水平
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.2%20%E4%BD%BF%E7%94%A8%20Cell%20Ranger%20%E5%A4%84%E7%90%86%20NCBI%20Sequence%20Read%20Archive%20%28SRA%29%20%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2 使用 Cell Ranger 处理 NCBI Sequence Read Archive (SRA) 数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.1%20%E5%85%B3%E4%BA%8E%20scRNA-seq%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%B4%A8%E9%87%8F%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 关于 scRNA seq 数据的质量控制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.2%20%E4%BD%BF%E7%94%A8%20DoubleFinder%20%E6%A3%80%E6%B5%8B%E5%8F%8C%E9%87%8D%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.2 使用 DoubleFinder 检测双重细胞
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.3%20%E7%94%A8%20CellBender%20%E5%8E%BB%E9%99%A4%E8%83%8C%E6%99%AF%20RNA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.3 用 CellBender 去除背景 RNA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🧬 scRNA Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            🧬 scRNA Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🐍 Using Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            🐍 Using Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Large-scale%20foundation%20model%20on%20single-cell%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Large scale foundation model on single cell transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scGPT%20toward%20building%20a%20foundation%20model%20for%20single-cell%20multi-omics%20using%20generative%20AI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scGPT toward building a foundation model for single cell multi omics using generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scBERT%20as%20a%20large-scale%20pretrained%20deep%20language%20model%20for%20cell%20type%20annotation%20of%20single-cell%20RNA-seq%20data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scBERT as a large scale pretrained deep language model for cell type annotation of single cell RNA seq data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RNA%20velocity%20of%20single%20cells/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RNA velocity of single cells
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TFvelo_gene%20regulation%20inspired%20RNA%20velocity%20estimation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TFvelo gene regulation inspired RNA velocity estimation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Disentanglement%20of%20single-cell%20data%20with%20biolord/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Disentanglement of single cell data with biolord
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%AD%90%E2%AD%90%E2%AD%90C5aR1%20inhibition%20reprograms%20tumor%20associated%20macrophages%20and%20reverses%20PARP%20inhibitor%20resistance%20in%20breast%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⭐⭐⭐C5aR1 inhibition reprograms tumor associated macrophages and reverses PARP inhibitor resistance in breast cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spatial%20transition%20tensor%20of%20single%20cells/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial transition tensor of single cells
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Statistical%20method%20scDEED%20for%20detecting%20dubious%202D%20single-cell%20embeddings%20and%20optimizing%20t-SNE%20and%20UMAP%20hyperparameters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistical method scDEED for detecting dubious 2D single cell embeddings and optimizing t SNE and UMAP hyperparameters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scRank%20infers%20drug-responsive%20cell%20types%20from%20untreated%20scRNA-seq%20data%20using%20a%20target-perturbed%20gene%20regulatory%20network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scRank infers drug responsive cell types from untreated scRNA seq data using a target perturbed gene regulatory network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📔 文献
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            📔 文献
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tumour%20vasculature%20at%20single-cell%20resolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    摘要
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scRNA-seq%20of%20gastric%20tumor%20shows%20complex%20intercellular%20interaction%20with%20an%20alternative%20T%20cell%20exhaustion%20trajectory%EF%BC%88%E5%8F%82%E8%80%83%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scRNA seq of gastric tumor shows complex intercellular interaction with an alternative T cell exhaustion trajectory（参考）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20analysis%20reveals%20new%20evolutionary%20complexity%20in%20uveal%20melanoma%EF%BC%88%E5%8F%82%E8%80%83%202%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis reveals new evolutionary complexity in uveal melanoma（参考 2）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20characterization%20of%20macrophages%20in%20uveal%20melanoma%20uncovers%20transcriptionally%20heterogeneous%20subsets%20conferring%20poor%20prognosis%20and%20aggressive%20behavior%EF%BC%88%E8%8C%83%E4%BE%8B%201%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell characterization of macrophages in uveal melanoma uncovers transcriptionally heterogeneous subsets conferring poor prognosis and aggressive behavior（范例 1）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ScRNA-seq%20of%20gastric%20cancer%20tissues%20reveals%20differences%20in%20the%20immune%20microenvironment%20of%20primary%20tumors%20and%20metastases/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ScRNA seq of gastric cancer tissues reveals differences in the immune microenvironment of primary tumors and metastases
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Blimp-1%20and%20c-Maf%20regulate%20immune%20gene%20networks%20to%20protect%20against%20distinct%20pathways%20of%20pathobiont-induced%20colitis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blimp 1 and c Maf regulate immune gene networks to protect against distinct pathways of pathobiont induced colitis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single%20cell%20analysis%20unveils%20B%20cell-dominated%20immune%20subtypes%20in%20HNSCC%20for%20enhanced%20prognostic%20and%20therapeutic%20stratification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis unveils B cell dominated immune subtypes in HNSCC for enhanced prognostic and therapeutic stratification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20spatial%20multi-omics%20and%20deep%20learning%20dissect%20enhancer-driven%20gene%20regulatory%20networks%20in%20liver%20zonation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell spatial multi omics and deep learning dissect enhancer driven gene regulatory networks in liver zonation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Neutrophil%20profiling%20illuminates%20anti-tumor%20antigen%20presenting%20potency/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neutrophil profiling illuminates anti tumor antigen presenting potency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20blueprint%20for%20tumor-infiltrating%20B%20cells%20across%20human%20cancers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A blueprint for tumor infiltrating B cells across human cancers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20transcriptomic%20analyses%20reveal%20distinct%20immune%20cell%20contributions%20to%20epithelial%20barrier%20dysfunction%20in%20checkpoint%20inhibitor%20colitis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell transcriptomic analyses reveal distinct immune cell contributions to epithelial barrier dysfunction in checkpoint inhibitor colitis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Systematic%20dissection%20of%20tumor-normal%20single-cell%20ecosystems%20across%20a%20thousand%20tumors%20of%2030%20cancer%20types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systematic dissection of tumor normal single cell ecosystems across a thousand tumors of 30 cancer types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../The%20aged%20tumor%20microenvironment%20limits%20T%20cell%20control%20of%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The aged tumor microenvironment limits T cell control of cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TIM-3%2B%20CD8%20T%20cells%20with%20a%20terminally%20exhausted%20phenotype%20retain%20functional%20capacity%20in%20hematological%20malignancies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TIM 3+ CD8 T cells with a terminally exhausted phenotype retain functional capacity in hematological malignancies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20lactate-SREBP2%20signaling%20axis%20drives%20tolerogenic%20dendritic%20cell%20maturation%20and%20promotes%20cancer%20progression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A lactate SREBP2 signaling axis drives tolerogenic dendritic cell maturation and promotes cancer progression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20human%20omentum-specific%20mesothelial-like%20stromal%20population%20inhibits%20adipogenesis%20through%20IGFBP2%20secretion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A human omentum specific mesothelial like stromal population inhibits adipogenesis through IGFBP2 secretion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Interferon-stimulated%20neutrophils%20as%20a%20predictor%20of%20immunotherapy%20response/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interferon stimulated neutrophils as a predictor of immunotherapy response
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Repression%20of%20latent%20NF-%CE%BAB%20enhancers%20by%20PDX1%20regulates%20%CE%B2%20cell%20functional%20heterogeneity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Repression of latent NF κB enhancers by PDX1 regulates β cell functional heterogeneity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20systematic%20pan-cancer%20study%20on%20deep%20learning-based%20prediction%20of%20multi-omic%20biomarkers%20from%20routine%20pathology%20images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A systematic pan cancer study on deep learning based prediction of multi omic biomarkers from routine pathology images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20and%20spatial%20transcriptomics%20analysis%20of%20non-small%20cell%20lung%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell and spatial transcriptomics analysis of non small cell lung cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seeing%20data%20as%20t-SNE%20and%20UMAP%20do/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Seeing data as t SNE and UMAP do
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping%20the%20cellular%20biogeography%20of%20human%20bone%20marrow%20niches%20using%20single-cell%20transcriptomics%20and%20proteomic%20imaging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapping the cellular biogeography of human bone marrow niches using single cell transcriptomics and proteomic imaging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Onco-fetal%20Reprogramming%20of%20Endothelial%20Cells%20Drives%20Immunosuppressive%20Macrophages%20in%20Hepatocellular%20Carcinoma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Onco fetal Reprogramming of Endothelial Cells Drives Immunosuppressive Macrophages in Hepatocellular Carcinoma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20analysis%20of%20anti-BCMA%20CAR%20T%20cell%20therapy%20in%20patients%20with%20central%20nervous%20system%20autoimmunity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis of anti BCMA CAR T cell therapy in patients with central nervous system autoimmunity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20sequencing%20depicts%20tumor%20architecture%20and%20empowers%20clinical%20decision%20in%20metastatic%20conjunctival%20melanoma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell sequencing depicts tumor architecture and empowers clinical decision in metastatic conjunctival melanoma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PR-SET7%20epigenetically%20restrains%20uterine%20interferon%20response%20and%20cell%20death%20governing%20proper%20postnatal%20stromal%20development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PR SET7 epigenetically restrains uterine interferon response and cell death governing proper postnatal stromal development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Clonal%20associations%20between%20lymphocyte%20subsets%20and%20functional%20states%20in%20rheumatoid%20arthritis%20synovium/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clonal associations between lymphocyte subsets and functional states in rheumatoid arthritis synovium
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    📐 Data Structures
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            📐 Data Structures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%201%20%E7%AB%A0%20python%20%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 1 章 python 入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%202%20%E7%AB%A0%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 2 章 面向对象编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%203%20%E7%AB%A0%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 3 章 算法分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    第 4 章 递归
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    第 4 章 递归
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 说明性的例子
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 说明性的例子">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.1 阶乘函数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1.1 阶乘函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      阶乘函数的递归实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.2 绘制英式标尺
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1.2 绘制英式标尺">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      绘制标尺的递归方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      用递归追踪说明标尺的绘制
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.3 二分查找
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#414" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.4 文件系统
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1.4 文件系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      python 的操作系统模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归追踪
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 分析递归算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 分析递归算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算阶乘
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      绘制一个英式标尺
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      执行二分查找
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算磁盘空间使用情况
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 递归算法的不足
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 递归算法的不足">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      一个低效的计算斐波那契数的递归算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      一个高效的计算斐波那契数列的递归算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      python 中的最大递归深度
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 递归的其他例子
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 递归的其他例子">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#441" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4.1 线性递归
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4.1 线性递归">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      元素序列的递归求和
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      用于计算幂的递归算法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#442" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4.2 二路递归
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#443" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4.3 多重递归
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 设计递归算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 设计递归算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      参数化递归
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6 消除尾递归
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      对双路递归的理解：汉诺塔问题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      小结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%205%20%E7%AB%A0%20%E5%9F%BA%E4%BA%8E%E6%95%B0%E7%BB%84%E7%9A%84%E5%BA%8F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 5 章 基于数组的序列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%206%20%E7%AB%A0%20%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E5%92%8C%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 6 章 栈、队列和双端队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%207%20%E7%AB%A0%20%E9%93%BE%E8%A1%A8%28Linked%20Lists%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 7 章 链表(Linked Lists)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%208%20%E7%AB%A0%20%E6%A0%91%20%E2%98%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 8 章 树 ★
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%209%20%E7%AB%A0%20%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 9 章 优先级队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    💡 Reviews
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            💡 Reviews
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🧭 scRNA analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            🧭 scRNA analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Best%20practices%20for%20single-cell%20analysis%20across%20modalities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best practices for single cell analysis across modalities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Multi-omics%20integration%20in%20biomedical%20research%20%E2%80%93%20A%20metabolomics-centric%20review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multi omics integration in biomedical research – A metabolomics centric review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Museum%20of%20spatial%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Museum of spatial transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20guide%20to%20artificial%20intelligence%20for%20cancer%20researchers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A guide to artificial intelligence for cancer researchers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🦠 Metabolism
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            🦠 Metabolism
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20analysis%20as%20a%20driver%20for%20discovery%2C%20diagnosis%2C%20and%20therapy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic analysis as a driver for discovery, diagnosis, and therapy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20heterogeneity%20in%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic heterogeneity in cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Toward%20modeling%20metabolic%20state%20from%20single-cell%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Toward modeling metabolic state from single cell transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20reprogramming%20and%20cancer%20progression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic reprogramming and cancer progression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Protein
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Protein
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Proteomic%20and%20interactomic%20insights%20into%20the%20molecular%20basis%20of%20cell%20functional%20diversity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proteomic and interactomic insights into the molecular basis of cell functional diversity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 说明性的例子
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 说明性的例子">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.1 阶乘函数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1.1 阶乘函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      阶乘函数的递归实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.2 绘制英式标尺
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1.2 绘制英式标尺">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      绘制标尺的递归方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      用递归追踪说明标尺的绘制
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.3 二分查找
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#414" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.4 文件系统
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1.4 文件系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      python 的操作系统模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归追踪
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 分析递归算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 分析递归算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算阶乘
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      绘制一个英式标尺
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      执行二分查找
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算磁盘空间使用情况
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 递归算法的不足
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 递归算法的不足">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      一个低效的计算斐波那契数的递归算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      一个高效的计算斐波那契数列的递归算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      python 中的最大递归深度
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 递归的其他例子
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 递归的其他例子">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#441" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4.1 线性递归
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4.1 线性递归">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      元素序列的递归求和
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      用于计算幂的递归算法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#442" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4.2 二路递归
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#443" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4.3 多重递归
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 设计递归算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 设计递归算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      参数化递归
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6 消除尾递归
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      对双路递归的理解：汉诺塔问题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      小结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/aletolia/aletolia.github.io.git/edit/master/docs/第 4 章 递归.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/aletolia/aletolia.github.io.git/raw/master/docs/第 4 章 递归.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+  <h1>第 4 章 递归</h1>
+
+<p>在计算机程序中，描述迭代的一种方法是使用循环，比如在 1.4.2 节中描述的 python 语言的 while 循环和 for 循环。另一种完全不同的迭代实现方法就是递归。</p>
+<p>递归是一种技术，<strong><u>这种技术通过一个函数在执行过程中一次或者多次调用其本身</u></strong>，或者通过一种数据结构在其表示中依赖于相同类型的结构更小的实例。在艺术和自然界中有很多递归的例子。例如分形图是自然方面的递归。一个在艺术中应用递归的例子是俄罗斯套娃。每个娃娃要么是实木的，要么是空心的，并且空心的娃娃里面包含了另一个俄罗斯套娃。</p>
+<p>在计算中，递归提供了用于执行迭代任务的优雅并且强大的替代方案。事实上，一些编程语言（例如 Scheme 、Smalltalk) 不明确支持循环结构，而是直接依靠递归来表示迭代。大多数现代编程语言都通过和传统函数调用相同的机制支持函数的递归调用。当函数的一次调用需要进行递归调用时，该调用被挂起，直到递归调用完成</p>
+<p>在数据结构和算法的研究中，递归是一种重要的技术。我们将在本书的后面几个章节中多次使用递归（尤其是第 8 章和第 12 章） 。在本章中，我们将从以下四个递归使用例证开始，并给出了每个例证的 python 实现。</p>
+<ul>
+<li>阶乘函数（通常表示为 <span class="arithmatex">\(n!\)</span> ）是一个经典的数学函数，它有一个固有的递归定义</li>
+<li>英式标尺具有的递归模式是分形结构的一个简单例子。</li>
+<li>二分查找是最重要的计算机算法之一。在一个拥有数十亿以上条目的数据集中，它能让我们有效地定位所需的某个值。</li>
+<li>计算机的文件系统有一个递归结构，在该结构中，目录能够以任意深度嵌套在其他目录上。递归算法被广泛用千探索和管理这些文件系统。</li>
+</ul>
+<p>我们接下来讨论如何进行一个递归算法的运行时间的形式化分析，并且讨论在定义递归时一些潜在的缺陷。在内容的选择上，我们提供了更多的递归算法的例子，强调了一些常见的设计形式。</p>
+<h3 id="41">4.1 说明性的例子<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<h4 id="411">4.1.1 阶乘函数<a class="headerlink" href="#411" title="Permanent link">&para;</a></h4>
+<p>为了说明递归的机制，我们首先介绍一个计算阶乘函数的值的简单数学示例。一个正整数 <span class="arithmatex">\(n\)</span> 的阶乘表示为 <span class="arithmatex">\(n!\)</span> ，它被定义为整数从 1 到 n 的乘积。如果 <span class="arithmatex">\(n = 0\)</span>, 那么按照惯例 n！被定义为 1 。更正式的定义是，对于任何整数 <span class="arithmatex">\(n \ge 0\)</span></p>
+<div class="arithmatex">\[
+n!=\begin{cases}1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n=0\\n\times(n-1)\times(n-2)...3\times2\times1\ \ n\ge1\end{cases}
+\]</div>
+<p>例如， 5! = 5 X 4 X 3 X 2 X 1 = 120 。阶乘函数很重要，其结果等于 n 个元素全排列的个数。例如， 三个字符 a 、b 和 c 有 3! =3 X 2 X 1 =6 种不同的排列方式： abc 、acb 、bac 、bca 、cab 和 cba 。</p>
+<p>阶乘函数有一个固有的递归定义。通常，对于一个正整数 n, 我们可以定义 <span class="arithmatex">\(n! = n \times (n - 1) !\)</span> 。这个递归定义可以形式化为</p>
+<div class="arithmatex">\[
+n!=\begin{cases}1&amp;n=0\\n\times(n-1)!&amp;n\ge1\end{cases}
+\]</div>
+<p>在许多递归定义中，这个定义是很典型的。首先，它包含一个或多个基本情况，根据定量，这些基本情况通常被直接定义。在这个定义中， n = 0 是一个基本情况。<strong><u>它还包含一个或多个递归情况，这些情况的定义服从被定义函数的定义</u></strong></p>
+<h5 id="_1">阶乘函数的递归实现<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h5>
+<p>递归不仅是一个数学符号，也可以用于设计一个阶乘函数，如代码段 4-1 所示。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span>  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">return</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="4 "></span>  <span class="k">else</span><span class="p">:</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>这个函数<strong><u>不使用任何显式循环。迭代是通过函数的重复递归调用来实现的</u></strong>。在这个定义中没有循环，因为函数每被调用一次，它的参数就会变小一次，<strong><u>当达到基本情况的时候，递归调用就会停止</u></strong></p>
+<p>我们用递归跟踪的形式来说明一个递归函数的执行过程。跟踪的每个条目代表着一个递归调用。每一个新的递归函数调用用一个向下的箭头指向新的调用来表示。函数返回时，用一个弯曲的箭头表示，并将返回值标在箭头的旁边。图 4 - 1 所示为一个对阶乘函数进行跟踪的示例。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146535.png" alt="image-20230315163657094" style="zoom:33%;" /></p>
+<p><strong>递归跟踪密切反映了编程语言对于递归的执行</strong>。在 python 中，<strong><u>每当一个函数（递归或其他方式）被调用时，都会创建一个被称为活动记录或框架的结构来存储信息</u></strong>，这些信息是关于函数调用的过程的。这个活动记录<strong><u>包含一个用来存储函数调用的参数和局部变量的命名空间</u></strong>（参见 1.1 0 节命名空间的讨论），以及关于在这个函数体中当前正在执行的命令的信息。</p>
+<p><strong><u>如果一个函数的执行导致嵌套函数的调用，那么前者调用的执行将被挂起，其活动记录将存储源代码中的位置，这个位置是被调用函数返回后将继续执行的控制流</u></strong>。该过程可以用在标准情况下一个函数调用另一个不同的函数，或用在一个函数调用自身的递归情况下。关键的一点是对于每个有效的调用都有一个不同的活动记录。</p>
+<h4 id="412">4.1.2 绘制英式标尺<a class="headerlink" href="#412" title="Permanent link">&para;</a></h4>
+<p>在计算阶乘的情况下，也可以采用循环来实现迭代，不一定必须采用递归的方法。举一个更复杂的使用递归的例子，考虑如何绘制出一个典型的英式标尺的刻度。对于每一英寸 ( in , lin = 2.54cm) ，我们用一个数字标签做上刻度标记。我们表示刻度的长度并且指定一个英寸作为主刻度线的长度。在整个英寸刻度之间，标尺包含一系列较小的刻度线，如 1/2 英寸、1/4 英寸，等等。当间隔的大小减少了一半时，刻度线的长度也减 1 。图 4-2 展示了几个这样的具有不同主刻度长度的标尺（虽然不是按比例绘制） 。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146536.png" alt="image-20230315163737053" style="zoom: 33%;" /></p>
+<h5 id="_2">绘制标尺的递归方法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h5>
+<p>英式标尺模式是分形的一个简单示例，也就是具有在各级放大的自递归结构的形状。考虑在图 4 -2 b 中所示的刻度线长度为 5 的标尺，忽略包含 0 和 1 的刻度线， 考虑如何绘制这些刻度线之间的刻度序列。中央刻度线（在 1/2 英寸处）的长度为 4 。观察中央刻度线上面和下面两个部分的刻度，发现它们是相同的，并且每部分有一个长度为 3 的中央刻度线。</p>
+<p>一般情况下，中央刻度线长度 <span class="arithmatex">\(L \ge 1\)</span> 的刻度间隔的组成如下：</p>
+<ul>
+<li>一个中央刻度线长度为 <span class="arithmatex">\(L-1\)</span> 的刻度间隔</li>
+<li>一个长度为 <span class="arithmatex">\(L\)</span> 的单独的刻度线</li>
+<li>一个中央刻度线长度 <span class="arithmatex">\(L - 1\)</span> 的刻度间隔</li>
+</ul>
+<p>虽然可以使用一个迭代过程绘制这样的标尺（参见练习 P-4.25) ，但是这个任务用递归完成更加容易。如代码段 4-2 所示，代码实现包括三个函数。主函数 <code>draw_ruler</code> 管理整个标尺的构建。它的参数指定标尺的总长度以及主刻度线的长度。功能函数 <code>draw_line</code> 用指定数量的破折号绘制一个单独的刻度线（并且在刻度线之后打印一个可选的字符串标签） 。</p>
+<p>最重要的工作是由递归函数 <code>draw_interval</code> 来完成的。这个函数根据刻度间隔中中央刻度线的长度来绘制刻度间隔之间副刻度线的序列。根据本节开始时列出的 <span class="arithmatex">\(L \ge 1\)</span> 的规律，当出现 <span class="arithmatex">\(L=0\)</span> 这个基本情况，不再绘制任何东西。对于 <span class="arithmatex">\(L \ge 1\)</span>, 第一步和最后一步都是通过递归调用 <code>draw_interval (L-1)</code> 进行的，中间的步骤是通过递归调用函数 <code>draw_interval(L)</code> 进行的。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">def</span> <span class="nf">draw_line</span><span class="p">(</span><span class="n">tick_length</span><span class="p">,</span> <span class="n">tick_label</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Draw one line with given tick length (followed by optional label).&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 3 "></span>  <span class="n">line</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="n">tick_length</span>
+<span class="linenos" data-linenos=" 4 "></span>  <span class="k">if</span> <span class="n">tick_label</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="n">line</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">tick_label</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">def</span> <span class="nf">draw_interval</span><span class="p">(</span><span class="n">center_length</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Draw tick interval based upon a central tick length.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="k">if</span> <span class="n">center_length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>                   <span class="c1"># stop when length drops to 0</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="n">draw_interval</span><span class="p">(</span><span class="n">center_length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>      <span class="c1"># recursively draw top ticks</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="n">draw_line</span><span class="p">(</span><span class="n">center_length</span><span class="p">)</span>              <span class="c1"># draw center tick</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="n">draw_interval</span><span class="p">(</span><span class="n">center_length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>      <span class="c1"># recursively draw bottom ticks</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="k">def</span> <span class="nf">draw_ruler</span><span class="p">(</span><span class="n">num_inches</span><span class="p">,</span> <span class="n">major_length</span><span class="p">):</span>
+<span class="linenos" data-linenos="16 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Draw English ruler with given number of inches and major tick length.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="17 "></span>  <span class="n">draw_line</span><span class="p">(</span><span class="n">major_length</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>            <span class="c1"># draw inch 0 line</span>
+<span class="linenos" data-linenos="18 "></span>  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">num_inches</span><span class="p">):</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="n">draw_interval</span><span class="p">(</span><span class="n">major_length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>       <span class="c1"># draw interior ticks for inch</span>
+<span class="linenos" data-linenos="20 "></span>    <span class="n">draw_line</span><span class="p">(</span><span class="n">major_length</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>       <span class="c1"># draw inch j line and label</span>
+</code></pre></div>
+<h5 id="_3">用递归追踪说明标尺的绘制<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
+<p>用一个递归追踪可以使递归函数 <code>draw_interval</code> 的执行变得可视化。然而， <code>draw_ interval</code> 的追踪比阶乘函数追踪的例子更复杂，因为<strong><u>每个实例进行了两次递归调用</u></strong>。为了说明这一点，我们将以排列的形式展示递归跟踪，这个形式非常类似一个文档大纲，如图 4-3 所示</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146537.png" alt="image-20230315163832292" style="zoom:33%;" /></p>
+<p><img alt="image-20230314143502780" src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146538.png" /></p>
+<p><img alt="image-20230314143755237" src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146539.png" /></p>
+<p>可以看到，递归在 python 中的执行仍然是按照“顺序”进行的</p>
+<h4 id="413">4.1.3 二分查找<a class="headerlink" href="#413" title="Permanent link">&para;</a></h4>
+<p>本节将介绍一个典型的递归算法——二分查找。该算法用于在一个含有 n 个元素的<strong><u>有序序列</u></strong>中有效地定位目标值。这是最重要的计算机算法之一，也是我们经常顺序存储数据（见图 4-4) 的原因</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146540.png" alt="image-20230315163941622" style="zoom:33%;" /></p>
+<p>当序列无序时，寻找一个目标值的标准方法是使用循环来检查每一个元素， 直至找到目标值或检查完数据集的每个元素。这就是所谓的顺序查找算法。因为最坏的情况下每个元素都需要检查，这个算法的时间复杂度是 O(n) （即线性的时间） 。</p>
+<p>当序列有序并且可通过索引访问时，有一个更有效的算法（直觉上，想想你如何手工完成这个任务！） 。对于任意索引 <span class="arithmatex">\(j\)</span>, 我们知道在索引 <span class="arithmatex">\(0, … ,j-1\)</span> 上存储的所有值都小于索引 j 上的值， 并且在索引 <span class="arithmatex">\(j + 1, …,n - 1\)</span> 上存储的所有值都大于或等于索引 j 上的值。在搜索
+目标时，这种观察使我们能够迅速定位目标值。<strong><u>在查找时，如果不能排除一个元素与目标值相匹配，那么称序列的这个元素为候选项</u></strong>。该算法维持两个参数 low 和 high, 这样可使所有候选条目的索引位于 low 和 high 之间。首先， low = 0 和 high= n - 1 。然后我们比较目标值和中间值候选项，即索引项 [mid] 的数据</p>
+<div class="arithmatex">\[
+\text{mid = }\left \lfloor\text{(low+high)/2} \right \rfloor
+\]</div>
+<p>考虑以下三种情况：</p>
+<ul>
+<li>如果目标值等于 [mid] 的数据，然后找到正在寻找的值，则查找成功并且终止。</li>
+<li>如果目标值 &lt; [mid] 的数据，对前半部分序列重复这一过程， 即索引的范围从 low 到 mid- 1 。</li>
+<li>如果目标值＞[mid] 的数据，对后半部分序列重复这一过程，即索引的范围从 mid + 1 到 high 。</li>
+</ul>
+<p>如果 low &gt; high , 说明索引范围 [low, high] 为空， 则查找不成功。</p>
+<p>该算法被称为二分查找。代码段 4-3 给出了一个 python 实例，其算法执行过程的说明如图 4-5 所示。而顺序查找的时间复杂度是 O(n) ，更为高效的二分查找的时间复杂度是 O(log n) 。这是一个显著的改进，因为假设 n 是十亿， log n 仅为 30 。（对于二分查找运行时间的问题， 我们将在 4.2 节命题 4-2 做正式的分析。）</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Return True if target is found in indicated portion of a python list.</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="sd">  The search only considers the portion from data[low] to data[high] inclusive.</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="sd">  &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="k">if</span> <span class="n">low</span> <span class="o">&gt;</span> <span class="n">high</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">return</span> <span class="kc">False</span>                    <span class="c1"># interval is empty; no match</span>
+<span class="linenos" data-linenos=" 8 "></span>  <span class="k">else</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="n">data</span><span class="p">[</span><span class="n">mid</span><span class="p">]:</span>         <span class="c1"># found a match</span>
+<span class="linenos" data-linenos="11 "></span>      <span class="k">return</span> <span class="kc">True</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="k">elif</span> <span class="n">target</span> <span class="o">&lt;</span> <span class="n">data</span><span class="p">[</span><span class="n">mid</span><span class="p">]:</span>
+<span class="linenos" data-linenos="13 "></span>      <span class="c1"># recur on the portion left of the middle</span>
+<span class="linenos" data-linenos="14 "></span>      <span class="k">return</span> <span class="n">binary_search</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos" data-linenos="16 "></span>      <span class="c1"># recur on the portion right of the middle</span>
+<span class="linenos" data-linenos="17 "></span>      <span class="k">return</span> <span class="n">binary_search</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span>
+</code></pre></div>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146541.png" alt="image-20230315164100993" style="zoom: 33%;" /></p>
+<h4 id="414">4.1.4 文件系统<a class="headerlink" href="#414" title="Permanent link">&para;</a></h4>
+<p>现代操作系统用递归的方式来定义文件系统目录（有时也称为“文件夹＂） 。也就是说，<strong><u>一个文件系统包括一个顶级目录，这个目录的内容包括文件和其他目录，其他目录又可以包含文件和其他目录</u></strong>，以此类推。虽然必定会有一些基本的目录只包含文件而没有下一级子目录，但是操作系统允许嵌套任意深度的目录（只要在内存中有足够的空间） 。图 4-6 所示即为此类文件系统的一部分。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146543.png" alt="image-20230315164124866" style="zoom: 33%;" /></p>
+<p>考虑到文件系统表示的递归特性，操作系统中许多常见的行为，比如目录的复制或删除，都可以很方便地用递归算法来实现。在本节中，我们考虑这样一个算法： 计算嵌套在一个特定目录中的所有文件和目录的总磁盘使用情况。</p>
+<p>为了说明空间的使用情况，图 4-7 显示了样例文件系统中所有条目使用的磁盘空间。我们对每个条目所使用的即时磁盘空间以及由该条目和所有嵌套目录所使用的累计磁盘空间加以区分。例如，目录 cs016 仅仅使用了 2K 的即时空间，但使用了 249K 的累计磁盘空间。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146544.png" alt="image-20230315164210451" style="zoom:33%;" /></p>
+<p>一个条目的累计磁盘空间可以用简单的递归算法来计算。它等于<strong>条目使用的直接磁盘空间加上直接存储在该条目中所有条目使用的累计磁盘空间之和</strong>。例如， cs016 的累计磁盘空间是 249K, 因为它本身使 用 2K 的磁盘空间， grades 使用 8K 的累计磁盘空间， homeworks 使用 10K 的累计磁盘空间， programs 使用 229K 的累计磁盘空间。代码段 4-4 给出了这个算法的伪代码。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Algorithm DiskUsage(path):
+<span class="linenos" data-linenos="2 "></span>  Input: A string designating a path to a file-system entry
+<span class="linenos" data-linenos="3 "></span>  Output: The cumulative disk space used by that entry and any nested entries
+<span class="linenos" data-linenos="4 "></span>   total = size{path) {immediate disk space used by the entry}
+<span class="linenos" data-linenos="5 "></span>   if path represents a directory then
+<span class="linenos" data-linenos="6 "></span>     for each child entry stored within directory path do
+<span class="linenos" data-linenos="7 "></span>       total = tota l+ DiskUsage(child) { recursive call }
+<span class="linenos" data-linenos="8 "></span>   return total
+</code></pre></div>
+<h5 id="python">python 的操作系统模块<a class="headerlink" href="#python" title="Permanent link">&para;</a></h5>
+<p>为了给出一个计算磁盘使用情况的递归算法 python 实例，我们需要借助 python 的操作系统模块， 在程序执行的过程中， 该模块提供了强大的与操作系统交互的工具。这是一个丰富的函数库，但我们只需要以下四个函数：</p>
+<ul>
+<li><code>os.path.getsize(path)</code></li>
+</ul>
+<p>返回由字符串路径（例如： user/rt/courses) 标识的文件或者目录使用的即时磁盘空间大小（单位是字节） 。</p>
+<ul>
+<li><code>os.path.isdir(path)</code></li>
+</ul>
+<p>如果字符串路径指定的条目是一个目录，则返回 True; 否则， 返回 false</p>
+<ul>
+<li><code>os.listdir(path)</code></li>
+</ul>
+<p>返回一个字符串列表，它是字符串路径指定的目录中所有条目的名称。在样例文件系统中， 如果参数是 /user/rt/courses, 那么返回字符串列表['cs016' , 'cs252'］</p>
+<ul>
+<li><code>os.path.join(path, filename)</code></li>
+</ul>
+<p>生成路径字符串和文件名字符串，并使用一个适当的操作系统分隔符在两者之间分隔（例如： Unix/Linux 系统中的 '/' 字符和 Windows 系统中的 '\' 字符） 。返回表示文件完整路径的字符串</p>
+<p>通过使用 OS 模块， 现在我们把代码段 4-4 中的算法转换成代码段 4-5 中的 python 实例。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">def</span> <span class="nf">disk_usage</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Return the number of bytes used by a file/folder and any descendents.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="n">total</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>                  <span class="c1"># account for direct usage</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>                        <span class="c1"># if this is a directory,</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>            <span class="c1"># then for each child:</span>
+<span class="linenos" data-linenos=" 8 "></span>      <span class="n">childpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>   <span class="c1"># compose full path to child</span>
+<span class="linenos" data-linenos=" 9 "></span>      <span class="n">total</span> <span class="o">+=</span> <span class="n">disk_usage</span><span class="p">(</span><span class="n">childpath</span><span class="p">)</span>             <span class="c1"># add child&#39;s usage to total</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>  <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{0:&lt;7}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">total</span><span class="p">),</span> <span class="n">path</span><span class="p">)</span>           <span class="c1"># descriptive output (optional)</span>
+<span class="linenos" data-linenos="12 "></span>  <span class="k">return</span> <span class="n">total</span>                                   <span class="c1"># return the grand total</span>
+</code></pre></div>
+<h5 id="_4">递归追踪<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
+<p>为了产生另一种格式的递归跟踪，我们在 python 实例加入了额外的 print 语句（ 代码段 4-5 的第 11 行） 。该输出的准确格式有意模仿由一个名为 du 的典型的 Unix/Linux 实用程序（对于“ disk usage") 生成的输出。如图 4-8 所示，它报告一个目录及其中嵌套的所有内容使用的磁盘空间的总盘，并能生成详细的报告。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146545.png" alt="image-20230315164252652" style="zoom:33%;" /></p>
+<p>在图 4- 7 所示的样例文件系统上执行时， disk_usage 函数的实例产生一个相同的结果。在算法执行期间，对于文件系统的每一个条目，正好使用一次递归调用。因为 print 语句是在递归调用之前执行的，所以图 4- 8 所示的输出反映了递归调用完成的顺序。需要特别强调的是，<strong><u>在可以计算和报告所有包含的条目的累计磁盘空间之前，我们==必须完成嵌套在该条目之下的所有条目的递归调用==。例如，我们在计算包含 grades 、homeworks 和 programs 条目的递归调用完成后，才知道条目 user/rt/courses/cs016 的累计磁盘空间大小</u></strong></p>
+<h3 id="42">4.2 分析递归算法<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p>在第 3 章中，我们介绍了一种分析算法效率的数学方法，该方法<strong>基于算法执行的基本操作次数的估计值</strong>。我们使用符号（比如 big-Oh) 来概括操作次数和问题输入大小之间的关系。本节将演示如何执行这种类型的递归算法的时间复杂度分析。</p>
+<p>对于递归算法，我们将解释基于函数的特殊激活并且被执行的每个操作，该函数在被执行期间管理控制流。换句话说，对于每次函数调用，我们<strong><u>只解释被调用的主体内执行的操作的数目</u></strong>。然后，<strong><u>通过在每个单独调用过程中执行的操作数的总和，即所有调用次数，我们可以解释被作为递归算法的一部分而执行的操作的总数</u></strong>。（顺便说一句，这也是我们分析非递归函数的方式。这些非递归函数从它们的函数体中调用其他函数）</p>
+<p>为了说明这种分析的模式，我们回顾一下 4.1.1 ~ 4.1.4 节介绍的四个递归算法：阶乘函数、绘制一个英式标尺、二分查找以及文件系统累计磁盘空间大小的计算。一般来说，在识别有多少递归调用发生，以及每个调用的参数化可以用来估计其调用的主体内发生的基本操作次数方面，我们可以借助于递归追踪提供的客观事实。但是，每一个递归算法都具有独特的结构和形式</p>
+<h5 id="_5">计算阶乘<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
+<p>正如 4.1.1 节所描述的，分析计算阶乘的函数的效率是比较容易的。图 4-1 给出了阶乘函数的一个示例递归追踪。为了计算 factorial(n) ，共执行了 n + 1 次函数调用。<strong><u>参数从第一次调用时的 n 下降到第二次调用时的 n - 1, 以此类推，直至达到参数为 0 时的基本情况</u></strong>。代码段 4-1 给出了函数体的检测，同样清楚的是，阶乘的每个调用执行了一个常数级别的运算。因此，我们得出这样的结论：<strong><u>计算 factorial(n) 的操作总次数是 O(n) ，因为有 n + 1 次函数的调用，所以每次调用占的操作次数为 O(1) 。</u></strong></p>
+<h5 id="_6">绘制一个英式标尺<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
+<p>在 4.1.2 节分析英式标尺的应用程序中，我们考虑共有多少行输出这一基本问题。该输出是通过初始调用 draw<em>interval(c) 产生的，其中 c 表示中央刻度线长度。这是该算法的整体效率的合理基准，因为输出的每一行是基于一个对 draw_line 函数的调用，以及对 draw</em>
+interval 的每次非零参数递归调用恰好产生一个对 draw_line 的直接调用。</p>
+<p>通过检验源代码和递归追踪可以获得直观认识。我们知道对 draw_interval(c) (c &gt; 0) 的一个调用产生两个对 draw_interval(c - 1) 的调用和一个单独的 draw_line 的调用。我们将依赖这些客观事实来证明以下的声明</p>
+<p><strong>命题 4-1</strong>: 对于 <span class="arithmatex">\(c\ge 0\)</span>, 调用 draw_interval(c) 函数刚好产生 <span class="arithmatex">\(2^c - 1\)</span> 行输出</p>
+<p>证明：通过归纳法（参见 3.4.3 节），我们给出了这种声明的正式证明。事实上，归纳法是用于证明递归过程正确性和有效性的自然数学技术。在标尺的这个例子中，<strong>我们注意到，draw_ interval(0) 的应用程序没有输出， 并以此作为证明的基本情况</strong>。</p>
+<p>更一般的是，通过调用 draw_interval(c) 函数打印的行数比通过调用 draw_interval(c - 1)函数产生的行数的两倍还多 1——因为在两个这样的递归调用之间会打印一个中心线。通过归纳法，我们计算出行数 <span class="arithmatex">\(1 + 2(2^{c - 1} - 1) = 1+ 2^c - 2 = 2^c - 1\)</span> 。</p>
+<p>这个证明表明， 一个更严格的被称为递归方程的数学工具可用于分析递归算法的运行时间。在 12.2.4 节对递归排序算法的分析中，我们会讨论这种技术。</p>
+<h5 id="_7">执行二分查找<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h5>
+<p>如在 4.1.3 节提到的，考虑到二分查找算法的运行时间，我们观察到<strong>二分查找方法的每次递归调用中被执行的基本操作次数是恒定的</strong>。因此，<strong><u>运行时间与执行递归调用的数量成正比</u></strong>。我们会证明在对含有 n 个元素的队列进行二分查找过程中至多进行 <span class="arithmatex">\(\left\lfloor\log n\right\rfloor+ 1\)</span> 次递归调用，并且得出以下声明。</p>
+<p><strong>命题 4-2</strong>: 对于含有 n 个元素的有序序列， 二分查找算法的时间复杂度是 <span class="arithmatex">\(O(\log n)\)</span></p>
+<p>证明： 为了证明这一命题， 一个重要的事实是：在每次递归调用中，需要被查找的候选条目的数量是由一个值给出的。这个值为</p>
+<div class="arithmatex">\[
+\text{high - low + 1}
+\]</div>
+<p>此外，每次递归调用之后，剩下的候选条目的数量至少减少一半。具体来讲，从 mid 的定义可知，剩下的候选条目的数量是</p>
+<div class="arithmatex">\[
+(\text{mid} - 1) - \text{low} + 1 = \left\lfloor\frac{\mathrm{low+high}}2\right\rfloor-\mathrm{low}\le \frac{\mathrm{high-low+1}}2
+\]</div>
+<p>或者是</p>
+<div class="arithmatex">\[
+\mathrm{high - (mid + 1)+ 1} = \mathrm{high - \left\lfloor\frac{low+high}2\right\rfloor} \le \frac{\mathrm{high-low+1}}2
+\]</div>
+<p>候选条目最初为 n ; 在进行一次二分查找调用之后，它至多是 n/2 ; 在进行第二次调用后，它至多为 n/4; 以此类推。一般情况下，在进行第 j 次二分查找调用之后，剩下的候选条目的数量至多是 <span class="arithmatex">\(n/2^j\)</span> 在最坏的情况下（ 一次不成功的查找）， 当没有更多的候选条目时递归调
+用停止。因此，进行递归调用的最大次数，有最小整数 r, 使得</p>
+<div class="arithmatex">\[
+\frac n{2^r}&lt;1
+\]</div>
+<p>换言之（回想一下， 当对数底数是 2 时，省略对数底数）， <span class="arithmatex">\(r &gt; \log n\)</span> 。因此，有 <span class="arithmatex">\(r = \left\lfloor\log n\right\rfloor+ 1\)</span> ,这意味着二分查找的时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span></p>
+<h5 id="_8">计算磁盘空间使用情况<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h5>
+<p>4.1 节最后一个递归算法是计算在文件系统的特定部分整体磁盘空间使用情况。为了描述所分析的”问题大小＂，我们用 n 表示所考虑文件系统的特定部分的文件系统条目的数量。（例如，图 4-6 所示的文件系统有 n(n = 19) 个条目）</p>
+<p>为了描述 disk_usage 函数初始调用的累计时间开销，我们必须<strong><u>分析所执行的递归调用的总数以及在这些调用中执行的操作次数</u></strong>。</p>
+<p>首先显示刚好有 n 次函数调用的递归过程，尤其是文件系统的相关部分的每个条目对应一次递归调用的过程。直观来讲，这是因为对于文件系统的特定条目 e 仅进行一次 disk_ usage 调用，在代码段 4-5 的 for 循环中处理包含 e 的父目录时，将只检索一次该条目。</p>
+<p>为了形式化地证明上述论证，我们可以<strong><u>定义每个条目的嵌套级别，比如定义起始条目的嵌套级别为 0, 定义直接存储在该条目中所有条目的嵌套级别为 1</u></strong> , 定义存储在这些条目中所有条目的嵌套级别为 2, 以此类推。我们可以通过归纳法证明在嵌套等级为 K 的各条目上恰好有一个对 disk_usage 函数的递归调用。作为一种基本情况， 当 k = 0 时，唯一进行的递归调用是初始调用。就归纳步骤来说， <strong>一旦知道在嵌套级别为 k 的每个条目上恰好只有一次递归调用，我们可以证明对于嵌套级别为 k 的条目下的条目 e, 仅从处理包含 e 的 k + 1 级条目的 for 循环中调用一次</strong></p>
+<p>确定文件系统的每个条目都有一个递归调用后，我们回到算法的总计算时间问题。如果我们可以证明我们在函数的任何一次调用中花费了 O(1) 时间，那就太好了，<strong><u>但事实并非如此。 虽然在对 <code>os.path.getsize</code> 的调用中仅有恒定数量的步骤来计算该条目的磁盘使用情况，但当条目是一个目录时，<code>disk_usage</code> 函数的主体包括一个遍历所有该目录中包含的条目的 for 循环 。 在最坏的情况下，一个条目可能包含 n-1 个其他条目</u></strong></p>
+<p>基于这种推理，我们可以得出这样的结论： <strong>有 O(n) 个递归调用， 并且每个调用运行的时间为 O(n)(这指的均是“最坏情况”，与 n 的多少并无关系）</strong> ，从而导致总的运行时间为 <span class="arithmatex">\(O(n^2)\)</span> 。虽然这个时间上限在技术上是正确的， 但它不是一个严格意义上的上限。值得注意的是，我们可以证明更强的约束：对于 disk_ usage 函数的递归算法可以在 O(n) 的时间内完成！<strong>较弱的约束是悲观的， 因为它假设了每个目录所有条目在最坏情况下的数量。虽然可能一些目录包含的条目数量与 n 成正比</strong>， 但它们不可能每个都含有那么多的条目。为了证明这个更有力的声明，我们选择考虑在所有递归调用中 for 循环迭代的总数。<strong><u>我们断言刚好有 n - 1 个该循环的这种迭代。这一声明基于这样一个事实，即该循环的每次迭代进行一次对 disk_usage 函数的递归调用，并且已经得出结论，即对 disk_usage 函数共进行了 n 次调用（包括最初的调用） 。因此，我们得出这样的结论：有 O(n) 次递归调用，每次递归调用==在循环外部使用 O(1) 的时间，并且循环操作的总数是 O(n)==</u></strong> 。总结所有这些限制条件，操作的总数是 O(n)</p>
+<p>我们已经得出的观点比前面递归的例子更先进。<strong><u>有时可以通过考虑累积效应获得一系列操作更严格的约束，而不是假设每个操作都是最坏的情况，这种思想就是被叫作分期偿还的技术</u></strong>（在 5.3 节我们会看到更多的例子） 。此外，文件系统是隐式地使用“树”这一数据结构的例子，磁盘使用(disk usage ) 算法实际是树遍历算法的一种表现。树是第八章的重点，并且关于磁盘使用( disk usage ) 算法时间复杂度是 O(n) 这一论证将在 8.4 节中树的遍历中加以推广。</p>
+<h3 id="43">4.3 递归算法的不足<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<p>虽然递归是一种非常强大的工具，但它也很容易被误用。在本节中， 我们检查了几个问题，其中一个糟糕的递归实现导致严重的效率低下，并讨论了一些用于识别和避免这种陷阱的策略。</p>
+<p>我们首先重新审视第 3.3.3 节定义的元素唯一性问题。 我们可以使用以下递归公式来确定序列的所有 n 个元素是否都是唯一的。 作为基本情况，当 n = 1 时，该元素显然是唯一的。 对于 n ≥ 2，元素是唯一的当且仅当该集合的前 n−1 个元素是唯一的，并且该集合的最后 n−1 个元素是唯一的（因为这是唯一一对子情况中没有被检查的元素） 。代码段 4-6 给出了基于这种思想的递归实例，称其为 unique3 （与第 3 章的 unique1 和 unique2 区分开来） 。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">unique3</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Return True if there are no duplicate elements in slice S[start:stop].&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="3 "></span>  <span class="k">if</span> <span class="n">stop</span> <span class="o">-</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="kc">True</span>                <span class="c1"># at most one item</span>
+<span class="linenos" data-linenos="4 "></span>  <span class="k">elif</span> <span class="ow">not</span> <span class="n">unique3</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span> <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># first part has duplicate</span>
+<span class="linenos" data-linenos="5 "></span>  <span class="k">elif</span> <span class="ow">not</span> <span class="n">unique3</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">start</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="p">):</span> <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># second part has duplicate</span>
+<span class="linenos" data-linenos="6 "></span>  <span class="k">else</span><span class="p">:</span> <span class="k">return</span> <span class="n">S</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">!=</span> <span class="n">S</span><span class="p">[</span><span class="n">stop</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>               <span class="c1"># do first and last differ?</span>
+</code></pre></div>
+<p>不幸的是，这是一个效率非常低的递归使用。非递归部分的每次调用所使用的时间为 O(1), 所以总的运行时间将正比于递归调用的总数。为了分析这个问题，我们用 n 表示所考虑的条目总数，即 n = stop - start</p>
+<p>如果 n = 1, 则 unique3 的运行时间为 O(1)，因为在这种情况下，不进行递归调用。一般情况下，最重要的发现是，对于一个大小为 n 的问题，对 unique3 函数的单一调用可能导致对两个大小为 n-1 的问题的 unique3 函数调用。反过来，这两个大小为 n - 1 的调用可能又产生 4 个大小为 n -2 的调用（各两个），然后是 8 个大小为 n-3 的调用，以此类推。因此在最坏的情况下，函数调用的总数由如下几何求和公式给出</p>
+<div class="arithmatex">\[
+1+2+4+ · · +2^{n−1}
+\]</div>
+<p>这等于是由命题 3-5 给出的。因此函数 unique3 的时间复杂度为 <span class="arithmatex">\(O(2^n)\)</span> 。难以置信，这个函数解决元素唯一性问题的效率如此低下。<strong><u>其低效率不是因为使用递归，而是缘于所使用的递归不佳这样一个事实</u></strong>，这是我们在练习 C-4 .11 中要解决的问题</p>
+<h5 id="_9">一个低效的计算斐波那契数的递归算法<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h5>
+<p>在 1.8 节中，我们介绍了生成斐波纳契数的过程，可以递归地定义如下：</p>
+<div class="arithmatex">\[
+F_0=0\\F_1=1\\F_n=F_{n-2}+F_{n-1}\ for\ n&gt;1
+\]</div>
+<p>恰巧， 基于上述定义的直接实现就是代码段 4-7 中所示的函数 <code>bad_fibonacci</code>, 该函数通 过执行两个非基本情况的递归悯用来计算斐波纳契数。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">bad_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Return the nth Fibonacci number.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="3 "></span>  <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">return</span> <span class="n">n</span>
+<span class="linenos" data-linenos="5 "></span>  <span class="k">else</span><span class="p">:</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">return</span> <span class="n">bad_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">bad_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>不幸的是，这样的斐波那契数公式的直接实现会导致函数的效率非常低。以这种方式计算第 n 个斐波纳契数需要对这个函数进行指数级别的调用。具体来说，用 <span class="arithmatex">\(C_n\)</span> 表示在 <code>bad fibonacci(n)</code> 执行中进行的调用次数。然后，我们可以得到以下的一系列值：</p>
+<div class="arithmatex">\[
+\begin{aligned}c_0 &amp;= 1 \\ c_1 &amp;= 1 \\ c_2 &amp;= 1+c_0+c_1 = 1+1+1 = 3 \\c_3 &amp;= 1+c_1+c_2 = 1+1+3 = 5\\ c_4 &amp;= 1+c_2+c_3 = 1+3+5 = 9\\ c_5 &amp;= 1+c_3+c_4 = 1+5+9 = 15\\ c_6 &amp;= 1+c_4+c_5 = 1+9+15 = 25\\ c_7 &amp;= 1+c_5+c_6 = 1+15+25 = 41\\ c_8 &amp;= 1+ c_6+c_7 = 1+25+41 = 67\end{aligned}
+\]</div>
+<p>如果遵循这个模式继续下去，我们可以看到，对于每两个连续的指标， 后者调用的数量将是前者的 2 倍以上。也就是说， <span class="arithmatex">\(c_4\)</span> 是 <span class="arithmatex">\(c_2\)</span> 的两倍以上， <span class="arithmatex">\(c_5\)</span> 是 <span class="arithmatex">\(c_3\)</span> 的两倍以上， <span class="arithmatex">\(c_6\)</span> 是 <span class="arithmatex">\(c_4\)</span> 的两倍 以上，以此类推。因此 <span class="arithmatex">\(c_n &gt; 2^{n/2}\)</span> 意味着 bad_fibonacci(n) 使得调用的总数是 n 的指数级</p>
+<h5 id="_10">一个高效的计算斐波那契数列的递归算法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h5>
+<p>我们之所以尝试使用这个不好的递归公式， 是因为第 n 个斐波那契数取决于前两个值，即 <span class="arithmatex">\(F_{n -2}\)</span> 和 <span class="arithmatex">\(F_{n - 1}\)</span> 。但是请注意，计算出 <span class="arithmatex">\(F_{n-2}\)</span> 之后，计算 <span class="arithmatex">\(F_{n-1}\)</span> 的调用需要其自身递归调用以计算 <span class="arithmatex">\(F_{n-2}\)</span> , 因为它不知道先前级别的调用中被计算的 <span class="arithmatex">\(F_{n - 2}\)</span> 的值。这是一个重复的操作。更 糟的是，这两个调用都需要（重新）计算 <span class="arithmatex">\(F_{n - 3}\)</span> 的值， <span class="arithmatex">\(F_{n-1}\)</span> 的计算也一样。正是这种滚雪球效应，导致 bad_fibonacci 函数有指数倍的运行时间。</p>
+<p>我们可以更有效地使用递归来计算 <span class="arithmatex">\(F_n\)</span>，这种递归的每次调用只进行一次递归调用。要做到这一点． 我们需要重新定义函数的期望值。我们定义了一个递归函数，该函数返回一对连续的斐波那契数列 <span class="arithmatex">\((F_n, F_{n-1})\)</span> ，并且使用约定 <span class="arithmatex">\(F_{n - 1 }= 0\)</span>, 而不是让函数返回第 n 个斐波那契数这一单一数值。用返回一对连续的斐波那契数列代替返回一个值，虽然这似乎是一个更大 的负担，但从递归这一级来看，通过这个额外的信息之后使得递归更容易继续这一进程（它可以让我们避免再计算第二个值，这个值在递归中是已知的） 。代码段 4-8 给出了基于这种策略的一个实例。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">good_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Return pair of Fibonacci numbers, F(n) and F(n-1).&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="3 "></span>  <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">return</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span>  <span class="k">else</span><span class="p">:</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">good_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</code></pre></div>
+<p>就效率而言，对于这个问题，效率低的递归和效率高的递归之间的区别就像黑夜和白天。bad_fibonacci 函数使用指数数量级的时间。我们认为函数 good_fibonacci (n) 使用的时间为 O(n) 。每次对 good_fibonacci(n) 函数的递归询用都使参数 n 减小 1 因此，递归追踪包括一系列的 n 个函数调用。因为每个调用的非递归工作使用固定的时间，所以整体的运算执行在 O(n) 的时间内完成。</p>
+<h5 id="python_1">python 中的最大递归深度<a class="headerlink" href="#python_1" title="Permanent link">&para;</a></h5>
+<p>在递归的误用中，另一个危险就是所谓的无限递归。如果每个递归调用都执行另一个递归调用，而最终没有达到一个基本情况，那我们就有一个无穷级数的此类调用。这是一个致命的错误。无限递归会迅速耗尽计算资源，这不仅是因为 CPU 的快速使用，而且是由于每个连续的调用会创建需要额外内存的活动记录。一个明显不合语法的递归示例如下：</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span> <span class="n">n</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span>  <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># fib(n) equals fib(n)</span>
+</code></pre></div>
+<p>然而，还有更微小的错误会导致无限递归。回顾我们在代码段 4-3 中二分查找的实现，在最后的情况下（ 第 17 行），我们在序列的右半部分，特别是索引从 mid + 1 到 high 这部分，进行一个递归调用。那一行反而被写成</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">return</span> <span class="n">binary_search</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span> <span class="c1"># 注意 mid 的使用</span>
+</code></pre></div>
+<p>这可能导致一个无限递归。尤其是在搜索范围内的两个元素时，有可能在同一范围内进行递归调用。</p>
+<p>程序员应该确保每个递归调用以某种方式逐步向基本情况发展（例如，通过使用随每次调用减少的参数值） 。然而，为了避免无限递归， python 的设计者做了一个有意的决定来限制可以同时有效激活的函数的总数。这个极限的精确值取决于 python 分配，但典型的默认值是 1000 。如果达到这个限制， python 解释器就生成了一个 RuntimeError 消息：超过最大递归深度(maximum recursion depth exceeded )</p>
+<p>对于许多合法的递归应用， 1000 层嵌套函数的限制调用足够了。例如， binary_search 函数（ 见 4.1.3 节）的递归深度为 O(log n) ，所以要达到默认递归的限制， 需要有 <span class="arithmatex">\(2^{1000}\)</span> 个元 素（远远超过宇宙中原子数最的估计值） 。然而，在下一节中，我们将讨论一些递归深度与 n 成正比的算法。python 在递归深度上的人为限制可能会破坏这些其他的合法计算。</p>
+<p>幸运的是， python 解释器可以动态地重置，以更改默认的递归限制。这是用一个名为 sys 的模块来实现的，该模块支持<code>getrecursionlimit</code> 函数和 <code>setrecursionlimit</code> 函数。这些函数的使用示例如下：</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">old</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getrecursionlimit</span><span class="p">()</span> <span class="c1"># perhaps 1000 is typical</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="n">lOOOOOO</span><span class="p">)</span> <span class="c1"># change to allow 1 million nested calls</span>
+</code></pre></div>
+<h3 id="44">4.4 递归的其他例子<a class="headerlink" href="#44" title="Permanent link">&para;</a></h3>
+<p>本章的剩余部分将给出使用递归的其他例子。我们通过考虑<strong><u>在一个激活的函数体内开始的递归调用的最大数量</u></strong>来组织我们的介绍</p>
+<ul>
+<li>如果一个递归调用最多开始一个其他递归调用，我们称之为线性递归(linear recursion) 。</li>
+<li>如果一个递归调用可以开始两个其他递归调用， 我们称之为二路递归(binary recursion ) 。</li>
+<li>如果一个递归调用可以开始三个或者更多其他递归调用，我们称之为多重递归 ( multiple recursion) 。</li>
+</ul>
+<h4 id="441">4.4.1 线性递归<a class="headerlink" href="#441" title="Permanent link">&para;</a></h4>
+<p>如果一个递归函数被设计成使得所述主体的每个调用至多执行一个新的递归调用，这被称为线性递归。到目前为止，在我们已经看到的递归函数中，阶乘函数的实现（见 4.1.1 节） 和 good_fibonacci 函数（见 4.3 节）是线性递归鲜明的例子。更有趣的是，尽管在名称中有 " binary ", 二分查找算法（见 4.1.3 节）也是线性递归的一个例子。二分查找的代码（见代码段 4-3) 包括一个具有两个分支的情况分析，这两个分支产生递归调用，但在函数体的一个具体执行期间只有其中一个调用可以被执行。</p>
+<p>正如在 4.1.1 节描绘的阶乘函数（见图 4 -1 ) 一样，<strong><u>线性递归定义的一个结果是任何递归追踪将表现为一个单一的调用序列</u></strong>。注意，线性递归术语反映递归追踪的结构，而不是运行时间的渐近分析，例如，我们已经看到二分查找的时间复杂度为 O(log n) 。</p>
+<h5 id="_11">元素序列的递归求和<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h5>
+<p>线性递归可以作为一个有用的工具来处理数据序列，例如 python 列表。例如，假设想要计算一个含有 n 个整数的序列 S 的和。我们可以使用线性递归解决这个求和问题。通过观察发现，如果 n = 0 , S 中所有 n 个整数的总和是 0; 否则，序列 S 的和应为 S 中的前 n - 1 个整数的总和加上 S 中最后一个元素（见图 4-9) 。</p>
+<p><img alt="image-20230314201319455" src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146546.png" /></p>
+<p>基于这个客观事实，代码段 4-9 实现了计算数字序列和的递归算法</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">linear_sum</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Return the sum of the first n numbers of sequence S.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="3 "></span>  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">return</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="5 "></span>  <span class="k">else</span><span class="p">:</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">return</span> <span class="n">linear_sum</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">S</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<p>图 4-10 给出了 <code>linear_sum</code> 函数递归追踪的一个小例子。对于大小为 n 的输入， linear_sum 算法执行了 n + 1 次函数调用。因此， 这将需要 O(n) 的时间， 因为它花费恒定的时间执行每次调用的非递归部分。此外， 我们还可以看到，这个算法使用的内存空间 （除了序列 S ) 也是 O(n) ，正如在做出最后一 次的递归调用（当 n = 0 ) 时的递归追踪中， 对 n + 1 个活动记录的任何一个我们都使用固定数量的内存空间</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146547.png" alt="image-20230315132024703" style="zoom: 33%;" /></p>
+<p>接下来，让我们考虑逆置含有 n 个元素 的序列 S 的问题，即第一个元素成为最后一 个元素，第二个元素成为倒数第二个元素， 以此类推。我们可以使用线性递归解决这个问题，通过观察，可以通过对调第一个元素和最后一个元素，之后递归地反置剩余元组，这样就可以完成序列的逆置。按照约定，我们把第一次调用的算法记作 <code>reverse(S, 0 , len(S))</code> 。代码段 4-10 给出了这个算法的一个实现。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Reverse elements in implicit slice S[start:stop].&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="3 "></span>  <span class="k">if</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">stop</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>                         <span class="c1"># if at least 2 elements:</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="n">S</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="n">S</span><span class="p">[</span><span class="n">stop</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">stop</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">S</span><span class="p">[</span><span class="n">start</span><span class="p">]</span>  <span class="c1"># swap first and last</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="n">reverse</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">start</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>                <span class="c1"># recur on rest</span>
+</code></pre></div>
+<p>需要注意的是，有两个隐含的基本情况场景： start == stop 时，这个隐含的范围是空的； 当 start == stop - 1 时，这个隐含的范围仅含有一个元素。这两种情况中的任何一个，都不需要再执行任何操作，因为含有零个或者一个元素的序列与它的逆置序列是完全相等的。当 其他情况调用递归时，我们都保证使过程朝着一个基本情况发展，不同的是， stop - start 每次调用减小两个值 （见图 4-11 ) 。如果 n 是偶数，最终将达到 start == stop 这 种情况；如果 n 是奇数，最终会达到 start == stop - 1 这 种情况。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146548.png" alt="image-20230315132048255" style="zoom: 33%;" /></p>
+<p>上面的观点意味着代码段 4-10 的递归算法确保在进行 <span class="arithmatex">\(1+\left\lfloor\frac n2\right\rfloor\)</span> 次递归调用后递归终止。因为每次调用包含固定数量的工作，所以整个过程运行时间为 O(n) 。</p>
+<h5 id="_12">用于计算幂的递归算法<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h5>
+<p>再举一个线性递归应用的例子，即数 x 的 n 次幂问题，其中 n 是任意的非负整数。也就 是说，我们希望计算幂函数( power function) ，其定义为 <span class="arithmatex">\(power(x, n) = x^n\)</span>（我们在此讨论中使用名称 “<code>power</code>”，以区别于提供此类功能的内置函数 <code>pow</code>。）对于这个问题，我们将考虑两个不同的递归公式，这两个公式会导致算法有不同的性能。</p>
+<p>一个简单的递归定义来自 <span class="arithmatex">\(x^n = x · x^{n−1}\)</span> 对于 n &gt; 0 的事实。</p>
+<div class="arithmatex">\[
+power(x,n)=\begin{cases}1&amp;\text{if}\ n=0\\x\cdot power(x,n-1)&amp;\text{otherwise}\end{cases}
+\]</div>
+<p>代码段 4-11 给出了这个定义产生的一个递归算法。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Compute the value x**n for integer n.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="3 "></span>  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">return</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="5 "></span>  <span class="k">else</span><span class="p">:</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>这个版本的 power(x, n) 函数递归调用的时间复杂度为 O(n) 。它的递归追踪和图 4-1 中阶乘函数的递归追踪的结构非常相似，都是每次调用参数减 1，并且每 n + 1 层执行固定数量的工作。</p>
+<p>但是，采用平方技术的替代定义可以更快地计算幂函数。 令 <span class="arithmatex">\(k =\left\lfloor\frac n2\right\rfloor\)</span> 表示递归的层数（在 python 中表示为 n // 2）。 <strong><u>我们考虑表达式 <span class="arithmatex">\(\left(x^k\right)^ 2\)</span>。当 n 为偶数时，<span class="arithmatex">\(\left\lfloor\frac n2\right\rfloor =\frac n2\)</span>，因此 <span class="arithmatex">\(\left(x^k\right)^ 2 = \left(x^{\frac n 2}\right)^ 2 = x^n\)</span>。 当 n 为奇数时，<span class="arithmatex">\(\left\lfloor\frac n2\right\rfloor = \frac{n−1} 2\)</span> 且 <span class="arithmatex">\(\left(x^k\right)^ 2 = x^{n−1}\)</span>，因此 <span class="arithmatex">\(x^n = x · \left(x^k\right)^ 2\)</span></u></strong>，正如 213 = 2 · 26 · 26。通过这个分析，我们可以得出如下的递归定义：</p>
+<div class="arithmatex">\[
+\text{Power}(x,n)=\begin{cases}1&amp;n=0\\x\cdot\left(\text{power}\left(x,\left\lfloor\frac n2\right\rfloor\right)\right)^2&amp;n&gt;0\ \text{并且是奇数}\\\left(\text{power}\left(x,\left\lfloor\frac n2\right\rfloor\right)\right)^2&amp;n&gt;0\ \text{并且是偶数}\end{cases}
+\]</div>
+<p>如果要执行两个递归调用来计算 <span class="arithmatex">\(\text{power}\left(x,\left\lfloor\frac n2\right\rfloor\right)\cdot \text{power}\left(x,\left\lfloor\frac n2\right\rfloor\right)\)</span>，那么实现这个递归的追踪表示要进行 O(n) 次调用。我们可以通过计算 <span class="arithmatex">\(\text{power}\left(x,\left\lfloor\frac n2\right\rfloor\right)\)</span>作为部分结果，然后乘以它本身来显着地减少执行的操作。代码段 4-12 给出了基于这种递归定义的一个示例。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Compute the value x**n for integer n.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 3 "></span>  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">return</span> <span class="mi">1</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="k">else</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="n">partial</span> <span class="o">=</span> <span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>          <span class="c1"># rely on truncated division</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="n">result</span> <span class="o">=</span> <span class="n">partial</span> <span class="o">*</span> <span class="n">partial</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>                      <span class="c1"># if n odd, include extra factor of x</span>
+<span class="linenos" data-linenos=" 9 "></span>      <span class="n">result</span> <span class="o">*=</span> <span class="n">x</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+<p>为了说明改进算法的执行，图 4-12 给出了 计算 power(2, 13) 函数的递归追踪。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146549.png" alt="image-20230315141126837" style="zoom: 33%;" /></p>
+<p>为了分析修正算法的运行时间，我们观察到函数 power(x, n) 每个递归调用中的指数最多是之前调用的一半。 如我们在二分查找的分析中 所看到的，在变成 1 或者更少之前，我们可以用 2 除 n 的时间的数量级是 O(log n) 。 因此，新构想的幂函数产生 O(log n) 次递归调用。 每个单独的函数的激活执行 O(1) 个操作（不包括递归调用），所以计算函数 power(x, n) 操作的总数是 O(log n) 。 在原始的时间复杂度为 O(n) 的算法上这是一个显着的改进。</p>
+<p>在减少内存使用方面，改进版本显着节约了内存。 第一个版本的递归深度为 O(n) ，因此 O(n) 个激活记录同时被存储在内存中。 因为改进版本的递归深度是 O(log n) ， 其所用内存也是 O(log n) 。</p>
+<h4 id="442">4.4.2 二路递归<a class="headerlink" href="#442" title="Permanent link">&para;</a></h4>
+<p><strong><u>当一个函数执行两个递归调用时，我们就说它使用了二路递归</u></strong>。我们已经列举了二路递归的几个例子，最具代表性的是绘制一个英式标尺（见 4 .1.2 节），或者是 4.3 节的 bad* fibonacci 函数。作为二路递归的另一个应用，让我们回顾一下计算序列 S 的 n 个元素之和问题。计算一个或零个元素的总和是微不足道的。<strong><u>在有两个或者更多元素的情况下，我们可以递归地计算前一半元素的总和和后一半元素的总和，然后把这两个和加在一起</u></strong>。在代码段 4-13 中，对于这样一个算法，实现最初是以 <code>binary* sum(A, 0, len (A))</code> 而被调用的。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">binary_sum</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Return the sum of the numbers in implicit slice S[start:stop].&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="3 "></span>  <span class="k">if</span> <span class="n">start</span> <span class="o">&gt;=</span> <span class="n">stop</span><span class="p">:</span>                      <span class="c1"># zero elements in slice</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">return</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="5 "></span>  <span class="k">elif</span> <span class="n">start</span> <span class="o">==</span> <span class="n">stop</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>                  <span class="c1"># one element in slice</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">return</span> <span class="n">S</span><span class="p">[</span><span class="n">start</span><span class="p">]</span>
+<span class="linenos" data-linenos="7 "></span>  <span class="k">else</span><span class="p">:</span>                                  <span class="c1"># two or more elements in slice</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">stop</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="linenos" data-linenos="9 "></span>    <span class="k">return</span> <span class="n">binary_sum</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">mid</span><span class="p">)</span> <span class="o">+</span> <span class="n">binary_sum</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">stop</span><span class="p">)</span>
+</code></pre></div>
+<p>为了分析算法 binary_sum, 且为了方便起见，我们考虑当 n 为 2 的整数次幂的情况。图 4- 13 显示了 <code>binary_sum(0, 8)</code> 函数执行的递归追踪。我们在每个圆角矩形中添加一个标签，这个标签是所调用的参数 start : stop 的值。<strong><u>每次递归调用后，范围的尺寸减小一半，因 此递归的深度为 <span class="arithmatex">\(1 + \log_2 n\)</span></u></strong> 。因此， <code>binary_sum</code> 函数使用 O(log n) 数量级的额外空间．与代码段 4-9 中 <code>linear_sum</code> 函数使用 O(n) 数量级的空间相比，这是一个巨大的进步。然而， binary_sum 函数的时间复杂度是 O(n) ， 因为有 2n - 1 函数次调用，每次都需要恒定的时间。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146550.png" alt="image-20230315142506289" style="zoom:33%;" /></p>
+<h4 id="443">4.4.3 多重递归<a class="headerlink" href="#443" title="Permanent link">&para;</a></h4>
+<p><strong><u>从二路递归可知，我们将多重递归定义为一个过程，在这个过程中， 一个函数可能会执行多于两次的递归调用</u></strong>。对于一个文件系统磁盘空间使用状况分析的递归（见 4.1.4 节） 是 多重递归的一个例子，因为<strong><u>在一个调用期间， 递归调用执行的次数等于在文件系统给定目录 中条目的数量。</u></strong></p>
+<p>另一个多重递归的常见应用是<strong><u>通过枚举各种配置来解决组合谜题的情况</u></strong>。例如，以下是 所谓的求和谜题的所有实例：</p>
+<div class="arithmatex">\[
+\begin{aligned}pot + pan &amp;= bib\\ dog + cat &amp;= pig\\ boy+ girl &amp;= baby\end{aligned}
+\]</div>
+<p>为了解决这样的谜题，我们需要<strong><u>分配唯一的数字（即 0 , 1 , … ， 9) 给方程中的每个字母</u></strong>， 以便使方程为真。 通常情况下，我们通过人工对特殊问题的观察解决这样一个谜题，这个特殊问题即解决并测试每个配置的正确性以消除配置（也就是数字与字母的可能部分分配）， 直到可以得出可行的配置。</p>
+<p>但是，如果可能配置的数量不是太大，我们可以用计算机简单地<strong>列举所有可能性，并测试每一个可能</strong>， 而不需要任何人工的观察。 此外，这种算法可以以一种系统的方式使用多重递归得出正确的配置。 代码段 4- 14 给出了这样一个算法的伪代码。 为了确保描述足以被其他问题使用，这个算法<strong><u>枚举并测试所有长度为 k 的序列，而且不与给定全集 <span class="arithmatex">\(U\)</span> 的元素重复</u></strong>。</p>
+<p>我们通过以下步骤创建含有 k 个元素的序列：</p>
+<ol>
+<li>递归生成含有 k - 1 个元素的序列</li>
+<li>附加一个元素到每个这样的未包含该元素的序列中</li>
+</ol>
+<p>在算法执行的整个过程中，我们<strong>使用一个集合 <span class="arithmatex">\(U\)</span> 来跟踪不包含在当前序列中的元素， 从而当且仅当元素 e 在 <span class="arithmatex">\(U\)</span> 中时， 它还未被使用</strong>。</p>
+<p>看待代码段 4-14 中算法的另一种方式是它列举 <span class="arithmatex">\(U\)</span> 所有可能大小为 k 的子集， 并且测试每个子集， 这些子集是问题的可能解决方案之一。</p>
+<p>对于求和问题， <span class="arithmatex">\(U = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}\)</span> ，并且序列中的每个位置对应一个给定的字母。例如，第一个位置可以代表 b , 第二个位置代表 o, 第三个位置代表 y , 以此类推。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>Algorithm PuzzleSolve(k,S,U):
+<span class="linenos" data-linenos=" 2 "></span>  Input: An integer k, sequence S, and set U
+<span class="linenos" data-linenos=" 3 "></span>  Output: An enumeration of all k-length extensions to S using elements in U
+<span class="linenos" data-linenos=" 4 "></span>    without repetitions
+<span class="linenos" data-linenos=" 5 "></span>  for each e in U do
+<span class="linenos" data-linenos=" 6 "></span>    Add e to the end of S
+<span class="linenos" data-linenos=" 7 "></span>    Remove e from U {e is now being used}
+<span class="linenos" data-linenos=" 8 "></span>    if k == 1 then
+<span class="linenos" data-linenos=" 9 "></span>      Test whether S is a configuration that solves the puzzle
+<span class="linenos" data-linenos="10 "></span>      if S solves the puzzle then
+<span class="linenos" data-linenos="11 "></span>        return “Solution found: ” S
+<span class="linenos" data-linenos="12 "></span>    else
+<span class="linenos" data-linenos="13 "></span>      PuzzleSolve(k−1,S,U) {a recursive call}
+<span class="linenos" data-linenos="14 "></span>    Remove e from the end of S
+<span class="linenos" data-linenos="15 "></span>    Add e back to U {e is now considered as unused}
+</code></pre></div>
+<p>图 4-14 显示了 PuzzlSolve(3, S , U) 函数调用的递归追踪，其中 S 为空并且 U = {a, b, c} 。这个执行<strong>生成并测试了 a, b, c 三个字符的所有排列</strong>。注意初始调用进行三次递归调用，其中每一个调用又进行两次甚至更多次调用。在一个包含四个元素的集合 U 上， <strong><u>如果已经执行 了 PuzzleSolve(3, S, U) ，那么初始调用可能已经进行了四项递归调用</u></strong>，其中每一个调用将有一个追踪——类似于图 4-14 描述的一样</p>
+<p><img alt="image-20230315144104717" src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146551.png" /></p>
+<h3 id="45">4.5 设计递归算法<a class="headerlink" href="#45" title="Permanent link">&para;</a></h3>
+<p>一般来说，使用递归的算法通常具有以下形式：</p>
+<ul>
+<li><strong><u>对于基本情况的测试</u></strong>。首先测试一组基本情况（至少应该有一个） 。这些基本情况应该被定义，以便每个可能的递归调用链最终会达到一种基本情况，并且每个基本情况的处理不应使用递归。</li>
+<li>递归。如果不是一种基本情况， 则执行一个或多个递归调用。这个递归步骤可能包括一个测试，该测试决定执行哪几种可能的递归调用。我们应该定义每个可能的递归调用，以便使调用向一种基本情况靠近。</li>
+</ul>
+<h5 id="_13">参数化递归<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h5>
+<p>要为一个给定的问题设计递归算法，<strong><u>考虑我们可以定义的子问题的不同方式</u></strong>是非常有用的，<strong><u>该子问题与原始问题有相同的总体结构</u></strong>。如果很难找到需要设计递归算法的重复结构， 解决一些具体问题有时是有用的，这样可以看出子问题应该如何定义。</p>
+<p>一个成功的递归设计有时需要<strong><u>重新定义原来的问题，以便找到看起来相似的子问题</u></strong>。这通常涉及参数化函数的特征码。例如，在一个序列中执行二分查找算法时，对调用者的自然函数特征码将显示为 <code>binary_search(data, target)</code> 。不过，在 4.1.3 节中，我们调用特征码 <code>binary_search(data, target, low, high)</code> 定义函数，并且<strong><u>使用额外的参数说明子列表作为递归过程</u></strong>。对于二分查找来说， 在参数化方面的这个改变是至关重要的。如果坚持简便的特征值 <code>binary_search(data, target)</code> ， 在列表的一半进行搜索的唯一方法可能是<strong><u>建立一个只含有这些元素的新列表并且把它作为第一个参数</u></strong>。然而，复制列表的一半已经需要 O(n) 的时间，这就否定了二分查找算法全部的优点。</p>
+<p>如果希望给一个像二分查找这样的算法提供一个简洁的公共接口，而不会干扰用户的其他参数， 那么标准的技术是<strong><u>创建一个有简洁接口的公共函数，比如 <code>binary_search(data, target)</code> ， 然后让它的函数体调用一个非公共的效用函数</u></strong>，这个效用函数含有我们所希望的递归参数。</p>
+<p>你会发现我们对本章其他几个例子的递归类似地进行了重新参数化（ 例如， <code>reverse</code> 、<code>linear_sum</code> 及 <code>binary_sum</code> ) 。在 <code>good_fibonacci</code> 函数的实现中，<strong><u>通过有意加强返回的期望（在这种情况下，返回的是一对数字而不是一个数字）</u></strong> ，我们看到了一种用以重新定义递归的不同方法。</p>
+<h3 id="46">4.6 消除尾递归<a class="headerlink" href="#46" title="Permanent link">&para;</a></h3>
+<p>算法设计的递归方法的主要优点是，它使我们能够简洁地利用重复结构呈现诸多问题。通过使算法描述以递归的方式利用重复结构， 我们经常可以避开复杂的案例分析和嵌套循环。这种方法会得出可读性更强的算法描述，而且十分有效。</p>
+<p>然而，递归的可用性要基于合适的成本。特别是， pythontbon 解释器必须保持跟踪每个嵌套调用的状态的活动记录。当计算机内存价格昂贵时，在某些情况下，能够从那些递归算法得到非递归算法是很有用的。</p>
+<p>在一般情况下，我们可以使用堆栈数据结构，堆栈结构将在 6.1 节介绍，<strong><u>通过管理递归，结构自身的嵌套，而不是依赖于解释器，从而把递归算法转换成非递归算法</u></strong>。虽然这只是把内存使用从解释器变换到堆栈，但是也许能够通过只存储最小限度的必要信息来减少内存使用。</p>
+<p>更好的情况是，递归的某些形式可以在不使用任何辅助存储空间的情况下被消除。<strong><u>其中一种著名的形式被称为尾递归(tail recursion ) 。如果执行的任何递归调用是在这种情况下的最后操作，而且通过封闭递归，递归调用的返回值（ 如果有的话）立即返回，那么这个递归是一个尾递归</u></strong>。根据需要， 一个尾递归必须是线性递归（因为如果必须立即返回第一个递归调用的结果，那么将无法进行第二次递归调用） 。</p>
+<p>在本章给出的递归函数中，代码段 4-3 的 <code>binary_search</code> 函数和代码段 4-10 的 <code>reverse</code> 函数均是尾递归的例子。虽然其他几个线性递归很像尾递归，但技术上并不是如此。例如，代 码段 4 - 1 中的阶乘函数不是一个尾递归。它最后的命令：</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>这不是一个尾递归，因为递归调用完成之后进行了额外的乘法运算。出于类似的原因，代码段 4-9 的 <code>linear_sum</code> 函数和代码段 4-7 的<code>good_fibonacci</code> 函数也不是尾递归</p>
+<p><strong><u>在重复循环中，通过封闭函数体， 并且通过重新分配现存参数的这些值以及用新的参数来代替一个递归调用，任何尾递归都可以被非递归地重新实现</u></strong>。举一个实例，如代码段 4- 15 所示， <code>binary_search</code> 函数可以被重新实现，仅需要在 <code>while</code> 循环之前， 初始化变量 low 和 high 来表示序列的完整的程度。然后，经过每次的循环找到目标值或者缩小候选子序列的范围。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">def</span> <span class="nf">binary_search_iterative</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Return True if target is found in the given python list.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 3 "></span>  <span class="n">low</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos" data-linenos=" 4 "></span>  <span class="n">high</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="k">while</span> <span class="n">low</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="n">data</span><span class="p">[</span><span class="n">mid</span><span class="p">]:</span>         <span class="c1"># found a match</span>
+<span class="linenos" data-linenos=" 8 "></span>      <span class="k">return</span> <span class="kc">True</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">elif</span> <span class="n">target</span> <span class="o">&lt;</span> <span class="n">data</span><span class="p">[</span><span class="n">mid</span><span class="p">]:</span>
+<span class="linenos" data-linenos="10 "></span>      <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>                <span class="c1"># only consider values left of mid</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos" data-linenos="12 "></span>      <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>                 <span class="c1"># only consider values right of mid</span>
+<span class="linenos" data-linenos="13 "></span>  <span class="k">return</span> <span class="kc">False</span>                      <span class="c1"># loop ended without success</span>
+</code></pre></div>
+<p>在最初版本中进行递归调用 <code>binary_search(data, target, low, mid - 1)</code> 函数的地方，仅用 <code>high = mid - 1</code> 进行替换，然后继续下一个循环的迭代。最初的基本情况的条件 low &gt; high 只被相反的循环条件 while low &lt;= high 所取代。在新的实现中，如果 while 循环结束，则用返回 False 来特指查找失败（也就是说，没有从内部返回 True) 。</p>
+<p>我们同样可以实现代码段 4-10 原始递归逆置( reverse ) 方法的非递归实现，如代码段 4-16 所示。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">reverse_iterative</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Reverse elements in sequence S.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="3 "></span>  <span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>  <span class="k">while</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">stop</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="n">S</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="n">S</span><span class="p">[</span><span class="n">stop</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">stop</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">S</span><span class="p">[</span><span class="n">start</span><span class="p">]</span>  <span class="c1"># swap first and last</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stop</span> <span class="o">-</span> <span class="mi">1</span>          <span class="c1"># narrow the range</span>
+</code></pre></div>
+<p>在新版本中，在每个循环期间，更新 start 和 stop 的值。一旦在这个范围内只有一个或者更少的元素，即退出。</p>
+<p>即使许多其他线性递归不是正式的尾递归，它们也可以非常有效地用迭代来表达。例 如，对于计算阶乘、求序列元素的和或者有效地计算斐波纳契数，都有简单的非递归实现。事实上，从 1. 8 节可以看出， 斐波那契数生成器的实现使用 O(1) 的时间产生每个子序列的 值，因此需要 O(n) 的时间来产生该系列中的第 n 个条目。</p>
+<h3 id="_14">对双路递归的理解：汉诺塔问题<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>汉诺塔（Tower of Hanoi）是根据一个传说形成的数学问题：</p>
+<p>有三根杆子 A，B，C。A 杆上有 N 个 (N&gt;1) 穿孔圆盘，盘的尺寸由下到上依次变小。要求按下列规则将所有圆盘移至 B 杆：</p>
+<ol>
+<li>
+<p>每次只能移动一个圆盘；</p>
+</li>
+<li>
+<p>大盘不能叠在小盘上面。</p>
+</li>
+</ol>
+<p>提示：可将圆盘临时置于 C 杆，也可将从 A 杆移出的圆盘重新移回 A 杆，但都必须遵循上述两条规则。</p>
+<p>问：如何移？最少要移动多少次？</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146552.png" alt="image-20230315160605538" style="zoom:33%;" /></p>
+<p>要完成这个问题，不应该直接考虑一般情况下（即 n 个圆盘时的情况）如何移动圆盘，这会使问题变得无比复杂——在我们这一章——递归的主题下，我们应该首先考虑基本情况——仅有一个圆盘的情况（记较小者为 1，较大者为 2，其他情况则类似，如对于标记 1、2、3 而言，圆盘 1 小于圆盘 2，圆盘 2 则小于圆盘 3）</p>
+<ol>
+<li>将 1 移动至 b</li>
+</ol>
+<p>接着考虑需要进行一次递归的情况</p>
+<ol>
+<li>将 1 移动至 c</li>
+<li>将 2 移动至 b</li>
+<li>将 1 移动至 b</li>
+</ol>
+<p>因此整个递归的流程是</p>
+<ol>
+<li>先将（n - 1）个盘子移动到 c</li>
+<li>将第 n 个盘子移动到 b</li>
+<li>将（n - 1）个盘子移动到 b</li>
+</ol>
+<p>要注意的是，在得出这个算法的过程中，我们并未考虑我们应该按照如何的顺序来挪动这（n - 1）个盘子，因此显然这是一个二路递归</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">def</span> <span class="nf">hanoi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;--&gt;&#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="n">hanoi</span><span class="p">(</span><span class="mi">1</span>    <span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="c1"># 调用</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="n">hanoi</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>从而我们能够在不知道具体如何移动的情况下得出具体需要几步才能完成这一谜题——<span class="arithmatex">\(2^n-1\)</span> 次（基于对基本情况的调用次数，或者说，该递归函数的调用次数）</p>
+<h3 id="_15">小结<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>递归算法的精髓在于——虽然我们在编写程序时是以自上而下的顺序（即 n → 1）来调用递归函数，但在实际执行程序时，计算机会以自下而上的顺序（即 1 → n）来进行计算——这就是说计算机是以基本情况出发来得到最终的结果的</p>
+<p>这也为我们在设计算法时提供了巨大的便利——我们不需要直接考虑在某种可能十分复杂的适用于一般情况的算法，而是反过来，从一个比较简单的基本情况出发，通过对基本情况的不断重复来完善算法。上面的汉诺塔问题就是一个比较好的例子，直接考虑如何移动盘子这个十分细节并且具有一般性的问题十分复杂，但从基本情况出发，通过不断调用递归函数，我们就能在不求甚解的情况下得到整个过程</p>
+<p>另一个例子是二分法查找数字，该递归的基本情况其实并不需要 mid 这一参数。我们可以如此描述这一算法的大致轮廓：</p>
+<ol>
+<li>算法的目的是要找到某一个值 <span class="arithmatex">\(n\)</span>，那么如果我们可以使用某种方法使我们的搜索区间最终限定在区间 <span class="arithmatex">\([n,n]\)</span> 上，那么也就相当于完成了算法的任务，从而我们得到了该递归算法的基本情况：区间 <span class="arithmatex">\([n,n]\)</span></li>
+<li>接下来的问题就比较简单，如何让搜索区间在不断变小的同时不断趋向区间 <span class="arithmatex">\([n,n]\)</span> 变化？事实上，想怎么分都可以，不过二分可以证明是期望用时最短的方法（见概率论），最终我们使得搜索区间变为区间 <span class="arithmatex">\([n,n]\)</span></li>
+</ol>
+<p>从上面的思路中我们也可以看出来尾递归和一般递归之间的不同之处：通俗的讲，尾递归无论调用了几次递归函数，基本情况只执行了一次（比如对一般的二路递归来说，基本情况会被实现 <span class="arithmatex">\(2^n\)</span> 次），这也是尾递归仅能出现在线性递归中的原因——虽然某些二路或者多路递归也仅仅返回了一个值，但是基本情况执行了许多次——用一种不太准确的话来说，对于一种尾递归算法而言，其在一次运行过程所调用的所有递归函数都是同一个值，即对应的基本情况——这也是阶乘算法不属于尾递归的原因，其在一次运行中每次调用的递归函数的值不一样：这是因为其每次递归调用返回的值都要乘上 n</p>
+<p>再举一个例子：使用二分法来计算一个序列中所包含的值，其实二分法不是重点，重点是基本情况——<span class="arithmatex">\(a +b\)</span>——它是构成递归这个分型的一个小元素；换句话说，整个序列中的元素之和其实是许多这样的基本情况之和，而二分法仅仅只是我们得到基本情况的手段</p>
+<ul>
+<li>需要注意的是，所谓的基本情况并非是可以随便定义的，其应该是符合算法目的的最简情况——比如在求和算法中，它是符合求和这一目的的最简单的情况 <span class="arithmatex">\(a+b\)</span> 而非 <span class="arithmatex">\(a+b+c\)</span>，即该基本情况必须“相似”于整体</li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../%E7%AC%AC%203%20%E7%AB%A0%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 第 3 章 算法分析">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                第 3 章 算法分析
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../%E7%AC%AC%205%20%E7%AB%A0%20%E5%9F%BA%E4%BA%8E%E6%95%B0%E7%BB%84%E7%9A%84%E5%BA%8F%E5%88%97/" class="md-footer__link md-footer__link--next" aria-label="Next: 第 5 章 基于数组的序列">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                第 5 章 基于数组的序列
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "header.autohide"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../mathjax-config.js"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../extra.js"></script>
+      
+        <script src="../js/toggle_sidebar.js"></script>
+      
+    
+  </body>
+</html>

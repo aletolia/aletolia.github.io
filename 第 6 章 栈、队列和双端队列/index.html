@@ -1,0 +1,6142 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://localhost:8000/%E7%AC%AC%206%20%E7%AB%A0%20%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E5%92%8C%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/">
+      
+      
+        <link rel="prev" href="../%E7%AC%AC%205%20%E7%AB%A0%20%E5%9F%BA%E4%BA%8E%E6%95%B0%E7%BB%84%E7%9A%84%E5%BA%8F%E5%88%97/">
+      
+      
+        <link rel="next" href="../%E7%AC%AC%207%20%E7%AB%A0%20%E9%93%BE%E8%A1%A8%28Linked%20Lists%29/">
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
+    
+    
+      
+        <title>第 6 章 栈、队列和双端队列 - One Last Kiss</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.76a95c52.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-M0R7V8QGQ7"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-M0R7V8QGQ7",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-M0R7V8QGQ7",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#61" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="One Last Kiss" class="md-header__button md-logo" aria-label="One Last Kiss" data-md-component="logo">
+      
+  <img src="../img/icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            One Last Kiss
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第 6 章 栈、队列和双端队列
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aletolia/aletolia.github.io.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aletolia/aletolia.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+    
+  
+  🏠 Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Mygo/" class="md-tabs__link">
+          
+  
+    
+  
+  ⛏️ CV and Multimodels
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Session%201/" class="md-tabs__link">
+          
+  
+    
+  
+  🚀 Re:0 Road to CPath & Visualization
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../1.1%20Single-cell%20RNA%20sequencing/" class="md-tabs__link">
+          
+  
+    
+  
+  💤 Re:0 Road to scRNA-seq Analysis
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Large-scale%20foundation%20model%20on%20single-cell%20transcriptomics/" class="md-tabs__link">
+          
+  
+    
+  
+  🧬 scRNA Analysis
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../%E7%AC%AC%201%20%E7%AB%A0%20python%20%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+          
+  
+    
+  
+  📐 Data Structures
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Best%20practices%20for%20single-cell%20analysis%20across%20modalities/" class="md-tabs__link">
+          
+  
+    
+  
+  💡 Reviews
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="One Last Kiss" class="md-nav__button md-logo" aria-label="One Last Kiss" data-md-component="logo">
+      
+  <img src="../img/icon.png" alt="logo">
+
+    </a>
+    One Last Kiss
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aletolia/aletolia.github.io.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aletolia/aletolia.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href=".." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    🏠 Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            🏠 Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⛏️ CV and Multimodels
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ⛏️ CV and Multimodels
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mygo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MyGO: Discrete Modality Information as Fine-Grained Tokens for Multi-modal Knowledge Graph Completion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GMM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GMM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DINO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mamba/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mamba
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ViT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Self-Supervised%20Learning%20MoCo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MoCo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Self-Supervised%20Learning%20MoCoV2%2C3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MoCo V2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E4%B8%80%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer  (一)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%20%28%E4%BA%8C%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (二)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E4%B8%89%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer  (三)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E5%9B%9B%29%20%28TNT%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (四)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%20%E9%A2%84%E8%AE%AD%E7%BB%83%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (知识蒸馏 预训练）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28PyramidTNT%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer(Pyramid TNT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E5%92%8C%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%93%E9%A2%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    傅里叶级数和傅里叶变换专题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%20%E5%AD%98%E5%82%A8%E4%B8%8E%E8%AF%BB%E5%8F%96%20HDF5%20%E6%96%87%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python 存储与读取 HDF5 文件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Segment%20Anything%20in%20Medical%20Images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Segment Anything in Medical Images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Mamba%20Efficient%20Visual%20Representation%20Learning%20with%20Bidirectional%20State%20Space%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Mamba Efficient Visual Representation Learning with Bidirectional State Space Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_18" id="__nav_2_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🚑 医学影像相关
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_18">
+            <span class="md-nav__icon md-icon"></span>
+            🚑 医学影像相关
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Why%20is%20the%20winner%20the%20best/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why is the winner the best
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PORPOISE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PORPOISE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HIPT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scaling Vision Transformers to Gigapixel Images via Hierarchical Self-Supervised Learning(HIPT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data-efficient%20and%20weakly%20supervised%20computational%20pathology%20on%20whole-slide%20images%28CLAM%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data efficient and weakly supervised computational pathology on whole slide images(CLAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Towards%20a%20general-purpose%20foundation%20model%20for%20computational%20pathology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Towards a general purpose foundation model for computational pathology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20whole-slide%20foundation%20model%20for%20digital%20pathology%20from%20real-world%20data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A whole slide foundation model for digital pathology from real world data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20visual-language%20foundation%20model%20for%20computational%20pathology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A visual language foundation model for computational pathology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Recurrent%20memory%20with%20optimal%20polynomial%20projections./" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recurrent memory with optimal polynomial projections.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modeling%20Dense%20Multimodal%20Interactions%20Between%20Biological%20Pathways%20and%20Histology%20for%20Survival%20Prediction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modeling Dense Multimodal Interactions Between Biological Pathways and Histology for Survival Prediction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inferring%20super-resolution%20tissue%20architecture%20by%20integrating%20spatial%20transcriptomics%20with%20histology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inferring super resolution tissue architecture by integrating spatial transcriptomics with histology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prediction%20of%20recurrence%20risk%20in%20endometrial%20cancer%20with%20multimodal%20deep%20learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prediction of recurrence risk in endometrial cancer with multimodal deep learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🚀 Re:0 Road to CPath & Visualization
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            🚀 Re:0 Road to CPath & Visualization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    理解全幅切片图像
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    在计算病理学中用于癌症诊断的弱监督深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基于注意力的多示例学习可解释性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How%20to%20visualize%20Attention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to visualize Attention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AttentionViz%20A%20Global%20View%20of%20Transformer%20Attention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AttentionViz A Global View of Transformer Attention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transformer%20Interpretability%20Beyond%20Attention%20Visualization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformer Interpretability Beyond Attention Visualization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visualization%20Work%20Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visualization Work Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Attention%20Generation%20Work%20Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Attention Generation Work Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🪛 PyTorch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            🪛 PyTorch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Autograd%20mechanics%20%E2%80%94%20PyTorch%202_3%20documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Autograd mechanics — PyTorch 2 3 documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PyTorch%20Autograd%20Explained%20-%20In-depth%20Tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch Autograd Explained   In depth Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    💤 Re:0 Road to scRNA-seq Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            💤 Re:0 Road to scRNA-seq Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Using Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Using Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_1" id="__nav_4_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⏳ CHAPTER 1 简介
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            ⏳ CHAPTER 1 简介
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1%20Single-cell%20RNA%20sequencing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1.The building block of life
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2%20Raw%20Data%20Processing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 Raw data processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3%20Analysis%20frameworks%20and%20tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 Analysis frameworks and tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🌏 CHAPTER 2 数据准备与可视化
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            🌏 CHAPTER 2 数据准备与可视化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1%20quality_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 Quality Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2%20normalization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 Normalization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.3_feature_selection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 Feature selection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.4_dimensionality_reduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.4 Dimensionality Reduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🍀 CHAPTER 3 识别细胞结构
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            🍀 CHAPTER 3 识别细胞结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1clustering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 Clustering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.2annotation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 Annotation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 Data integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_4" id="__nav_4_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⏱️ CHAPTER 4 推断细胞轨迹
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            ⏱️ CHAPTER 4 推断细胞轨迹
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pseudotemporal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 Pseudotemporal ordering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rna_velocity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 RNA velocity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lineage_tracing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.3 Lineage tracing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_5" id="__nav_4_1_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🎁 CHAPTER 5 应对特殊情况
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            🎁 CHAPTER 5 应对特殊情况
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../differential_gene_expression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 Differential gene expression analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compositional/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 Compositional analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gsea_pathway/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.3 Gene set enrichment and pathway analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../perturbation_modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.4 Perturbation modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⚙️ CHAPTER 6 机制建模
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            ⚙️ CHAPTER 6 机制建模
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gene_regulatory_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1 Gene regulatory networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cell_cell_communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2 Cell-cell communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_7" id="__nav_4_1_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🔓 CHAPTER 7 反卷积
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            🔓 CHAPTER 7 反卷积
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bulk_deconvolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 Bulk deconvolution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    简明易懂的单细胞分析流程（使用 R 语言）
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            简明易懂的单细胞分析流程（使用 R 语言）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    环境配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1%20%E6%9E%84%E5%BB%BA%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E5%88%86%E6%9E%90%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1 构建单细胞 RNA seq 分析环境
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2%20R%20%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 R 环境安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3%20Docker%20%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 Docker 安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.4%20%E5%9C%A8%20Docker%20%E4%B8%AD%E5%90%AF%E5%8A%A8%20Rstudio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.4 在 Docker 中启动 Rstudio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.5%20%E6%9C%89%E5%85%B3%20Bioconductor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.5 有关 Bioconductor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1%20R%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 R 的基本用法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2%20%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%20DataFrame%EF%BC%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 如何处理 DataFrame？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.3%20%E4%BD%BF%E7%94%A8%20ggplot2%20%E5%8F%AF%E8%A7%86%E5%8C%96%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 使用 ggplot2 可视化数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1%20PCA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 PCA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.2%20%E4%BD%BF%E7%94%A8%20clusterPlofiler%20%E8%BF%9B%E8%A1%8C%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 使用 clusterPlofiler 进行富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3%20%E5%9F%BA%E5%9B%A0%E6%9C%AC%E4%BD%93%EF%BC%88GO%EF%BC%89%E4%B8%AD%E5%90%84%20BP%E3%80%81MF%20%E5%92%8C%20CC%20%E7%9A%84%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 基因本体（GO）中各 BP、MF 和 CC 的富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3%20%E4%BD%BF%E7%94%A8%20DEseq2%20%E6%8F%90%E5%8F%96%20RNA-seq%20%E5%88%86%E6%9E%90%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%20DEG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 使用 DEseq2 提取 RNA seq 分析数据中的 DEG
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.4%20%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88KEGG%E3%80%81Reactome%20%E7%AD%89%EF%BC%89%E8%BF%9B%E8%A1%8C%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.4 使用其他数据库（KEGG、Reactome 等）进行富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1%20scRNA-seq%20%E6%A6%82%E8%A6%81/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 scRNA seq 概要
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.2%20%E5%87%86%E5%A4%87%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 准备使用 Seurat 进行分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.3%20%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.3 使用 Seurat 进行数据预处理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.4%20%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E8%88%AC%E9%A1%BA%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.4 使用 Seurat 进行数据分析的一般顺序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.1%20%E5%A6%82%E4%BD%95%E6%9F%A5%E6%89%BE%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 如何查找单细胞 RNA seq 数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.2%20%E4%B8%BA%E6%AF%8F%E4%B8%AA%E7%B0%87%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E7%BB%86%E8%83%9E%E6%B3%A8%E9%87%8A%E6%A0%87%E7%AD%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 为每个簇自动添加细胞注释标签
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.3%20%E4%BD%BF%E7%94%A8%20FeaturePlot%20%E6%A3%80%E6%9F%A5%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.3 使用 FeaturePlot 检查基因表达
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.4%20%E5%B0%86%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9B%B8%E4%BA%92%E7%BB%93%E5%90%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.4 将单细胞 RNA seq 数据集相互结合
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.5%20%E7%BA%A0%E6%AD%A3%E6%89%B9%E6%AC%A1%E6%95%88%E5%BA%94%EF%BC%8C%E6%AF%94%E8%BE%83%E5%AF%B9%E7%85%A7%E7%BB%84%E5%92%8C%E5%88%BA%E6%BF%80%E7%BB%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.5 纠正批次效应，比较对照组和刺激组
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.6%20%E7%A1%AE%E5%AE%9A%E6%AF%8F%E4%B8%AA%E7%BE%A4%E7%BB%84%E7%9A%84%E6%A0%87%E8%AE%B0%E5%9F%BA%E5%9B%A0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.6 确定每个群组的标记基因
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.1%20%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Cell%20Ranger%20%E7%BB%9F%E8%AE%A1%20scRNA-seq%20%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE%E6%B0%B4%E5%B9%B3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1 如何使用 Cell Ranger 统计 scRNA seq 数据中的基因表达水平
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.2%20%E4%BD%BF%E7%94%A8%20Cell%20Ranger%20%E5%A4%84%E7%90%86%20NCBI%20Sequence%20Read%20Archive%20%28SRA%29%20%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2 使用 Cell Ranger 处理 NCBI Sequence Read Archive (SRA) 数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.1%20%E5%85%B3%E4%BA%8E%20scRNA-seq%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%B4%A8%E9%87%8F%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 关于 scRNA seq 数据的质量控制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.2%20%E4%BD%BF%E7%94%A8%20DoubleFinder%20%E6%A3%80%E6%B5%8B%E5%8F%8C%E9%87%8D%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.2 使用 DoubleFinder 检测双重细胞
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.3%20%E7%94%A8%20CellBender%20%E5%8E%BB%E9%99%A4%E8%83%8C%E6%99%AF%20RNA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.3 用 CellBender 去除背景 RNA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🧬 scRNA Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            🧬 scRNA Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🐍 Using Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            🐍 Using Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Large-scale%20foundation%20model%20on%20single-cell%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Large scale foundation model on single cell transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scGPT%20toward%20building%20a%20foundation%20model%20for%20single-cell%20multi-omics%20using%20generative%20AI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scGPT toward building a foundation model for single cell multi omics using generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scBERT%20as%20a%20large-scale%20pretrained%20deep%20language%20model%20for%20cell%20type%20annotation%20of%20single-cell%20RNA-seq%20data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scBERT as a large scale pretrained deep language model for cell type annotation of single cell RNA seq data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RNA%20velocity%20of%20single%20cells/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RNA velocity of single cells
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TFvelo_gene%20regulation%20inspired%20RNA%20velocity%20estimation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TFvelo gene regulation inspired RNA velocity estimation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Disentanglement%20of%20single-cell%20data%20with%20biolord/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Disentanglement of single cell data with biolord
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%AD%90%E2%AD%90%E2%AD%90C5aR1%20inhibition%20reprograms%20tumor%20associated%20macrophages%20and%20reverses%20PARP%20inhibitor%20resistance%20in%20breast%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⭐⭐⭐C5aR1 inhibition reprograms tumor associated macrophages and reverses PARP inhibitor resistance in breast cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spatial%20transition%20tensor%20of%20single%20cells/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial transition tensor of single cells
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Statistical%20method%20scDEED%20for%20detecting%20dubious%202D%20single-cell%20embeddings%20and%20optimizing%20t-SNE%20and%20UMAP%20hyperparameters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistical method scDEED for detecting dubious 2D single cell embeddings and optimizing t SNE and UMAP hyperparameters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scRank%20infers%20drug-responsive%20cell%20types%20from%20untreated%20scRNA-seq%20data%20using%20a%20target-perturbed%20gene%20regulatory%20network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scRank infers drug responsive cell types from untreated scRNA seq data using a target perturbed gene regulatory network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📔 文献
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            📔 文献
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tumour%20vasculature%20at%20single-cell%20resolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    摘要
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scRNA-seq%20of%20gastric%20tumor%20shows%20complex%20intercellular%20interaction%20with%20an%20alternative%20T%20cell%20exhaustion%20trajectory%EF%BC%88%E5%8F%82%E8%80%83%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scRNA seq of gastric tumor shows complex intercellular interaction with an alternative T cell exhaustion trajectory（参考）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20analysis%20reveals%20new%20evolutionary%20complexity%20in%20uveal%20melanoma%EF%BC%88%E5%8F%82%E8%80%83%202%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis reveals new evolutionary complexity in uveal melanoma（参考 2）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20characterization%20of%20macrophages%20in%20uveal%20melanoma%20uncovers%20transcriptionally%20heterogeneous%20subsets%20conferring%20poor%20prognosis%20and%20aggressive%20behavior%EF%BC%88%E8%8C%83%E4%BE%8B%201%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell characterization of macrophages in uveal melanoma uncovers transcriptionally heterogeneous subsets conferring poor prognosis and aggressive behavior（范例 1）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ScRNA-seq%20of%20gastric%20cancer%20tissues%20reveals%20differences%20in%20the%20immune%20microenvironment%20of%20primary%20tumors%20and%20metastases/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ScRNA seq of gastric cancer tissues reveals differences in the immune microenvironment of primary tumors and metastases
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Blimp-1%20and%20c-Maf%20regulate%20immune%20gene%20networks%20to%20protect%20against%20distinct%20pathways%20of%20pathobiont-induced%20colitis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blimp 1 and c Maf regulate immune gene networks to protect against distinct pathways of pathobiont induced colitis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single%20cell%20analysis%20unveils%20B%20cell-dominated%20immune%20subtypes%20in%20HNSCC%20for%20enhanced%20prognostic%20and%20therapeutic%20stratification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis unveils B cell dominated immune subtypes in HNSCC for enhanced prognostic and therapeutic stratification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20spatial%20multi-omics%20and%20deep%20learning%20dissect%20enhancer-driven%20gene%20regulatory%20networks%20in%20liver%20zonation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell spatial multi omics and deep learning dissect enhancer driven gene regulatory networks in liver zonation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Neutrophil%20profiling%20illuminates%20anti-tumor%20antigen%20presenting%20potency/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neutrophil profiling illuminates anti tumor antigen presenting potency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20blueprint%20for%20tumor-infiltrating%20B%20cells%20across%20human%20cancers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A blueprint for tumor infiltrating B cells across human cancers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20transcriptomic%20analyses%20reveal%20distinct%20immune%20cell%20contributions%20to%20epithelial%20barrier%20dysfunction%20in%20checkpoint%20inhibitor%20colitis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell transcriptomic analyses reveal distinct immune cell contributions to epithelial barrier dysfunction in checkpoint inhibitor colitis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Systematic%20dissection%20of%20tumor-normal%20single-cell%20ecosystems%20across%20a%20thousand%20tumors%20of%2030%20cancer%20types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systematic dissection of tumor normal single cell ecosystems across a thousand tumors of 30 cancer types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../The%20aged%20tumor%20microenvironment%20limits%20T%20cell%20control%20of%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The aged tumor microenvironment limits T cell control of cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TIM-3%2B%20CD8%20T%20cells%20with%20a%20terminally%20exhausted%20phenotype%20retain%20functional%20capacity%20in%20hematological%20malignancies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TIM 3+ CD8 T cells with a terminally exhausted phenotype retain functional capacity in hematological malignancies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20lactate-SREBP2%20signaling%20axis%20drives%20tolerogenic%20dendritic%20cell%20maturation%20and%20promotes%20cancer%20progression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A lactate SREBP2 signaling axis drives tolerogenic dendritic cell maturation and promotes cancer progression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20human%20omentum-specific%20mesothelial-like%20stromal%20population%20inhibits%20adipogenesis%20through%20IGFBP2%20secretion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A human omentum specific mesothelial like stromal population inhibits adipogenesis through IGFBP2 secretion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Interferon-stimulated%20neutrophils%20as%20a%20predictor%20of%20immunotherapy%20response/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interferon stimulated neutrophils as a predictor of immunotherapy response
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Repression%20of%20latent%20NF-%CE%BAB%20enhancers%20by%20PDX1%20regulates%20%CE%B2%20cell%20functional%20heterogeneity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Repression of latent NF κB enhancers by PDX1 regulates β cell functional heterogeneity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20systematic%20pan-cancer%20study%20on%20deep%20learning-based%20prediction%20of%20multi-omic%20biomarkers%20from%20routine%20pathology%20images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A systematic pan cancer study on deep learning based prediction of multi omic biomarkers from routine pathology images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20and%20spatial%20transcriptomics%20analysis%20of%20non-small%20cell%20lung%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell and spatial transcriptomics analysis of non small cell lung cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seeing%20data%20as%20t-SNE%20and%20UMAP%20do/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Seeing data as t SNE and UMAP do
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping%20the%20cellular%20biogeography%20of%20human%20bone%20marrow%20niches%20using%20single-cell%20transcriptomics%20and%20proteomic%20imaging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapping the cellular biogeography of human bone marrow niches using single cell transcriptomics and proteomic imaging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Onco-fetal%20Reprogramming%20of%20Endothelial%20Cells%20Drives%20Immunosuppressive%20Macrophages%20in%20Hepatocellular%20Carcinoma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Onco fetal Reprogramming of Endothelial Cells Drives Immunosuppressive Macrophages in Hepatocellular Carcinoma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20analysis%20of%20anti-BCMA%20CAR%20T%20cell%20therapy%20in%20patients%20with%20central%20nervous%20system%20autoimmunity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis of anti BCMA CAR T cell therapy in patients with central nervous system autoimmunity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20sequencing%20depicts%20tumor%20architecture%20and%20empowers%20clinical%20decision%20in%20metastatic%20conjunctival%20melanoma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell sequencing depicts tumor architecture and empowers clinical decision in metastatic conjunctival melanoma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PR-SET7%20epigenetically%20restrains%20uterine%20interferon%20response%20and%20cell%20death%20governing%20proper%20postnatal%20stromal%20development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PR SET7 epigenetically restrains uterine interferon response and cell death governing proper postnatal stromal development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Clonal%20associations%20between%20lymphocyte%20subsets%20and%20functional%20states%20in%20rheumatoid%20arthritis%20synovium/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clonal associations between lymphocyte subsets and functional states in rheumatoid arthritis synovium
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    📐 Data Structures
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            📐 Data Structures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%201%20%E7%AB%A0%20python%20%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 1 章 python 入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%202%20%E7%AB%A0%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 2 章 面向对象编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%203%20%E7%AB%A0%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 3 章 算法分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%204%20%E7%AB%A0%20%E9%80%92%E5%BD%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 4 章 递归
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%205%20%E7%AB%A0%20%E5%9F%BA%E4%BA%8E%E6%95%B0%E7%BB%84%E7%9A%84%E5%BA%8F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 5 章 基于数组的序列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    第 6 章 栈、队列和双端队列
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    第 6 章 栈、队列和双端队列
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 栈
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 栈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1 栈的抽象数据类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2 简单的基于数组的栈实现
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1.2 简单的基于数组的栈实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      适配器模式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      用 python 的 list 类实现一个栈
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      分析基于数组的栈的实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      避免由于预留空间所导致的摊销
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.3 使用栈实现数据的逆置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#614-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.4 括号和 HTML 标记匹配
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1.4 括号和 HTML 标记匹配">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      分隔符的匹配算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      标记语言的标签匹配
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 队列
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.1 队列的抽象数据类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#622" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.2 基于数组的队列实现
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2.2 基于数组的队列实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      循环使用数组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      python 队列的实现方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      添加和删除元素
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      调整队列的大小
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      缩减底层数组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      对基于数组的队列实现的分析
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 双端队列
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 双端队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.1 双端队列的抽象数据类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.2 使用环形数组实现双端队列
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-python-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.3 python collections 模块中的双端队列
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 练习
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.4 练习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      巩固
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      创新
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      项目
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%207%20%E7%AB%A0%20%E9%93%BE%E8%A1%A8%28Linked%20Lists%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 7 章 链表(Linked Lists)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%208%20%E7%AB%A0%20%E6%A0%91%20%E2%98%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 8 章 树 ★
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%209%20%E7%AB%A0%20%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 9 章 优先级队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    💡 Reviews
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            💡 Reviews
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🧭 scRNA analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            🧭 scRNA analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Best%20practices%20for%20single-cell%20analysis%20across%20modalities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best practices for single cell analysis across modalities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Multi-omics%20integration%20in%20biomedical%20research%20%E2%80%93%20A%20metabolomics-centric%20review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multi omics integration in biomedical research – A metabolomics centric review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Museum%20of%20spatial%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Museum of spatial transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20guide%20to%20artificial%20intelligence%20for%20cancer%20researchers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A guide to artificial intelligence for cancer researchers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🦠 Metabolism
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            🦠 Metabolism
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20analysis%20as%20a%20driver%20for%20discovery%2C%20diagnosis%2C%20and%20therapy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic analysis as a driver for discovery, diagnosis, and therapy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20heterogeneity%20in%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic heterogeneity in cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Toward%20modeling%20metabolic%20state%20from%20single-cell%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Toward modeling metabolic state from single cell transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20reprogramming%20and%20cancer%20progression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic reprogramming and cancer progression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Protein
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Protein
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Proteomic%20and%20interactomic%20insights%20into%20the%20molecular%20basis%20of%20cell%20functional%20diversity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proteomic and interactomic insights into the molecular basis of cell functional diversity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 栈
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 栈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1 栈的抽象数据类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2 简单的基于数组的栈实现
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1.2 简单的基于数组的栈实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      适配器模式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      用 python 的 list 类实现一个栈
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      分析基于数组的栈的实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      避免由于预留空间所导致的摊销
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.3 使用栈实现数据的逆置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#614-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.4 括号和 HTML 标记匹配
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1.4 括号和 HTML 标记匹配">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      分隔符的匹配算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      标记语言的标签匹配
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 队列
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.1 队列的抽象数据类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#622" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.2 基于数组的队列实现
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2.2 基于数组的队列实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      循环使用数组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      python 队列的实现方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      添加和删除元素
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      调整队列的大小
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      缩减底层数组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      对基于数组的队列实现的分析
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 双端队列
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 双端队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.1 双端队列的抽象数据类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.2 使用环形数组实现双端队列
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-python-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.3 python collections 模块中的双端队列
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 练习
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.4 练习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      巩固
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      创新
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      项目
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/aletolia/aletolia.github.io.git/edit/master/docs/第 6 章 栈、队列和双端队列.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/aletolia/aletolia.github.io.git/raw/master/docs/第 6 章 栈、队列和双端队列.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+  <h1>第 6 章 栈、队列和双端队列</h1>
+
+<h3 id="61">6.1 栈<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<p><strong><u>栈是由一系列对象组成的一个集合，这些对象的插入和删除操作遵循==后进先出 ( LIFO )== 的原则</u></strong>。<strong>用户可以在任何时刻向栈中插入一个对象｀ 但只能取得或者删除最后一个插入的对象（即所谓的＂栈顶＂) 。</strong> "栈” 这个名字来源于自动售货机中用弹簧顶住的一堆盘子的隐喻。在这种情况下，其基本的操作只涉及向这个栈中取盘子或者放盘子。当需要从 这个自动售货机中取一个新盘子时，我们 ” 取 “ 出这个栈顶的盘子。当需要向其中添加一个盘子的时候， 我们将盘子＂压＂入栈顶， 使其成为新的栈顶。或许一个更加有趣的例子是 PEZ 糖果售卖器，当售卖器的顶部打开时， 它将存储在容器里面的糖果从顶部逐个弹出， 如图 6 - 1 所示。栈是一个基本的数据结构。很多应用程序都会用到栈，下面是一些使用堆栈的示例。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146040.png" alt="image-20230317202832592" style="zoom: 33%;" /></p>
+<p>例题 6-1 : 网络浏览器将最近浏览的网址存放在一个栈中。每次当访问者访问一个新网站时，这个新网站的网址就被压入栈顶。这样， 浏览器就可以在用户单击 “后退” 按钮时，弹出先前访问的网址，以回到其先前访问的 网页。</p>
+<p>例题 6-2: 文本编辑器通常提供一个 “撤销“ 机制以取消最近的编辑操作并返回到先前的文本状态。这个撤销操作就是通过将文本的变化状态保存在一个栈中得以实现的。</p>
+<h4 id="611">6.1.1 栈的抽象数据类型<a class="headerlink" href="#611" title="Permanent link">&para;</a></h4>
+<p>栈是最简单的数据结构，但它同样也是最重要的数据结构。它们被用在一系列不同的应用中，并且在许多更加复杂的数据结构和算法中充当工具。从形式上而言，栈是一种支待以下两种操作的抽象数据类型( ADT ) ，用 S 表示这一 ADT 实例：</p>
+<ul>
+<li><code>S.push(e)</code> ： 将一个元素 e 添加到栈 S 的栈顶。</li>
+<li><code>S.pop(e)</code> ：从栈 S 中移除并且返回栈顶的元素， 如果此时栈是空的，这个操作将出错。</li>
+</ul>
+<p>此外，为了方便， 我们定义了以下访问方法：</p>
+<ul>
+<li><code>S.top()</code> ： 在不移除栈顶元素的前提下，返回一个栈 S 的栈顶元素；若栈为空，这个操作会出错。</li>
+<li><code>S. is_empty()</code>： 如果栈中不包含任何元素， 则返回一个布尔值 " True " 。</li>
+<li><code>len(S)</code> ：返回栈 S 中元素的数量；在 python 中，我们用<code>__len__</code>这个特殊的方法实现它。</li>
+</ul>
+<p>按照惯例，我们假定一个新创建的栈是空的，并且其容量也没有预先的限制。添加进栈的元素可以是任何类型的。</p>
+<p>例题 6-3: 下表展示了在一个初始化为整数类型的空栈 S 中进行一系列操作的结果。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146041.png" alt="image-20230317203435292" style="zoom: 33%;" /></p>
+<h4 id="612">6.1.2 简单的基于数组的栈实现<a class="headerlink" href="#612" title="Permanent link">&para;</a></h4>
+<p>我们可以简单地通过在 python 列表中存储一些元素来实现一个栈。list 类已支持 append 方法，用于添加一个元素到列表尾部，并且支 持 pop 方法，用于移除列表中最后的元素，所以我们可以很自然地将一个列表的尾部与一个栈的顶部相对应起来，如图 6-2 所示。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146042.png" alt="image-20230317203545230" style="zoom:33%;" /></p>
+<p>虽然程序员可以直接用 list 类代替一个正式的 stack 类，但是列表还包括一些不符合这种抽象数据类型的方法（比如： 增加或者移除处于列表任何位置的元素） 。同时， list 类所使用的术语也不能与栈这种抽象数据类型的传统命名方法精确对应，特别是 append 方法和 push 方法之间的区别。相反，我们将强调如何使用一个列表实现栈元素的内部存储，并同时提供一个符合堆栈的公共接口。</p>
+<h5 id="_1">适配器模式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h5>
+<p>适配器设计模式适用于任何上下文，从而使我们可以有效地修改一个现有的类，<strong><u>以使它的方法能够与那些与其相关但又不同的类或接口相匹配</u></strong>。一个应用这种适配器模式的通用方法是以这样一种方式定义一个新类，<strong><u>这种方式以包含一个现存类的实例作为隐藏域，然后用这个隐藏实例变拯的方法实现这个新类的方法。以这种方式应用适配器模式，我们已经创建了一个新类，它可以执行一些与现有类相同的函数功能，却以一种更加方便的方式重新封 装</u></strong>。对于栈这种抽象数据类型结构，我们可以通过改编 python 的 list 类中相应的内容来实现，见表 6-1 。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146043.png" alt="image-20230317204018002" style="zoom:50%;" /></p>
+<h5 id="python-list">用 python 的 list 类实现一个栈<a class="headerlink" href="#python-list" title="Permanent link">&para;</a></h5>
+<p>我们用适配器设计模式定义了一个 ArrayStack 类，并且使用一个基本的 python 列表进行存储（之所以选择这个 ArrayStack 名字，是为了强调底层的存储是基于数组的） 。现在还有一个问题，那就是当这个栈是空的时候，如果一个用户调用 pop 或者 top 方法时，代码应 该怎样处理。ADT 给出的建议是触发一个错误，但是必须要决定这是一个什么类型的错误。</p>
+<p>当在一个空的 python 列表中调用 pop 方法时，正常情况下会触发一个 IndexError （请求的索引超出序列范围），因为列表是基于索引的序列。对于栈而言， 这个选择似乎并不恰当， 因 为这里并没有假定的索引。其实，定义一个新的异常类更为恰当。代码段 6-1 定义了这样一 个 Empty 类作为 python Exception 类的一个小的子类。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">Empty</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot; Error attempting to access an element from an empty container.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="3 "></span>  <span class="k">pass</span>
+</code></pre></div>
+<p>我们在代码段 6-2 中给出了 ArrayStack 类的正式定义。由于是内部存储，因此构造函数建立 self._data 数据成员作为一个初始化的空 python 列表。余下的公共栈方法将根据表 6-1 中对应的方法实现。</p>
+<p><strong>使用实例</strong></p>
+<p>下面展示了 ArrayStack 类的一个使用实例，映射了例题 6-3 一开始列出的操作。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146044.png" alt="image-20230317204417054" style="zoom:50%;" /></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">from</span> <span class="nn">..exceptions</span> <span class="kn">import</span> <span class="n">Empty</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">class</span> <span class="nc">ArrayStack</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;LIFO Stack implementation using a python list as underlying storage.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Create an empty stack.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="p">[]</span>                       <span class="c1"># nonpublic list instance</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>  <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the number of elements in the stack.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>  <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos" data-linenos="15 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return True if the stack is empty.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>  <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+<span class="linenos" data-linenos="19 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Add element e to the top of the stack.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="20 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>                  <span class="c1"># new item stored at end of list</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span>  <span class="k">def</span> <span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos" data-linenos="23 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return (but do not remove) the element at the top of the stack.</span>
+<span class="linenos" data-linenos="24 "></span>
+<span class="linenos" data-linenos="25 "></span><span class="sd">    Raise Empty exception if the stack is empty.</span>
+<span class="linenos" data-linenos="26 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+<span class="linenos" data-linenos="28 "></span>      <span class="k">raise</span> <span class="n">Empty</span><span class="p">(</span><span class="s1">&#39;Stack is empty&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="29 "></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>                 <span class="c1"># the last item in the list</span>
+<span class="linenos" data-linenos="30 "></span>
+<span class="linenos" data-linenos="31 "></span>  <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos" data-linenos="32 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Remove and return the element from the top of the stack (i.e., LIFO).</span>
+<span class="linenos" data-linenos="33 "></span>
+<span class="linenos" data-linenos="34 "></span><span class="sd">    Raise Empty exception if the stack is empty.</span>
+<span class="linenos" data-linenos="35 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="36 "></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+<span class="linenos" data-linenos="37 "></span>      <span class="k">raise</span> <span class="n">Empty</span><span class="p">(</span><span class="s1">&#39;Stack is empty&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="38 "></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>               <span class="c1"># remove last item from list</span>
+</code></pre></div>
+<h5 id="_2">分析基于数组的栈的实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h5>
+<p>表 6-2 展示了 Array Stack 方法的运行时间。这个分析直接与 5.3 节给出的 list 类的分析相对应。在最坏的情况下， top 、is_empty 和 len 方法均在常量时间内完成。对于 push 和 pop 操作的时间复杂度为 O(1) ， 指的是均摊计算的边界（参见 5.3.2 节）；对于这些方法中任何一个典型的调用都仅需要常量的时间， 但是当一个操作导致了列表重新调整其内部数组的大小时，偶尔在最坏的情况下也会要 O(n) 的时间开销，其中 n 是当前栈中元素的个数。对于栈的空间利用率是 O(n) 。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146045.png" alt="image-20230317210612924" style="zoom:50%;" /></p>
+<h5 id="_3">避免由于预留空间所导致的摊销<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
+<p>在某些情况下，会有额外的知识表明一个栈将会达到最大的尺寸。从代码段 6-2 看， ArrayStack 的实现开始于一个空的列表并且随着需要对它进行扩展。根据 5.4.1 节对列表的分析， 我们相信，在实际中构造一个最初长度为 n 的列表要比一开始就从一个空的列表开始逐步添加 n 项更加有效（即使两种方法均能在 O(n) 时间内运行完毕） 。</p>
+<p>作为一个栈的替代模型，我们可能希望构造函数接受一个用于指定一个堆栈的最大容量的参数并且初始化数据成员列表的长度。实现这样一个模型需要对代码段 6-2 做出大量改写。栈的长度将不再是列表的长度的同义词，并且对栈的 push 和 pop 操作也不再需要改变列表的长度。相反，我们建议单独维护一个整数作为实例变量以表示当前栈中元素的个数。这个实现过程的细节在课后练习 C-6.17 中展开讨论。</p>
+<h4 id="613">6.1.3 使用栈实现数据的逆置<a class="headerlink" href="#613" title="Permanent link">&para;</a></h4>
+<p>由于 LIFO 协议，栈可以用作一种通用的工具，用于实现一个数据序列的逆置。例如， 如果值 1 、2 、3 被顺序压入一个栈中，它们将会以 3 、2 、1 的顺序被逐个弹出。</p>
+<p>这一思想可以被应用在各种设置中。例如，我们希望逆序打印一个文件的各行，目的是以降序（而非升序）的方式显示一个数据集。我们可以通过先逐行读出数据，然后压入一个栈中，再按照从栈中弹出的顺序来写入。这个方法的实现过程在代码段 6-3 中给出。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">def</span> <span class="nf">reverse_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Overwrite given file with its contents line-by-line reversed.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 3 "></span>  <span class="n">S</span> <span class="o">=</span> <span class="n">ArrayStack</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 4 "></span>  <span class="n">original</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">original</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="n">S</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>     <span class="c1"># we will re-insert newlines when writing</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="n">original</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>  <span class="c1"># now we overwrite with contents in LIFO order</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="n">output</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>    <span class="c1"># reopening file overwrites original</span>
+<span class="linenos" data-linenos="11 "></span>  <span class="k">while</span> <span class="ow">not</span> <span class="n">S</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># re-insert newline characters</span>
+<span class="linenos" data-linenos="13 "></span>  <span class="n">output</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>一个值得注意的技术细节是我们在读取时故意将行中的换行符去掉，然后在写入结果文 件时重新在每一行中插入换行符。之所以这样做，是为了处理一种特殊的情况，这种特殊情 是在原始文件的最后一行并没有换行符。如果我们只是完全逆置地输出从文件中读取的每 一行，那么这个原始文件的最后一行后面将紧跟着倒数第二行而没有新的换行符。我们的实现方法确保了结果中有分离换行符。</p>
+<p>使用一个栈来实现数据集的逆置的思想也可以应用在其他类型的序列。例如，练习 R-6.5 就尝试使用栈来实现 python 列表内容逆置的另一个解决方案(4.4.1 节中讨论了一个 递归的解决方案） 。一个更具有挑战性的任务是如何将存储在一个栈中的元素逆置。如果将它们从一个栈移到另一个栈中，那么它们将会被逆置，但是如果再次将它们放回原来的栈， 那么它们将会再次被逆置，即又回到了最初的顺序。练习 C-6.18 对这个任务的解决方案进行了探索。</p>
+<h4 id="614-html">6.1.4 括号和 HTML 标记匹配<a class="headerlink" href="#614-html" title="Permanent link">&para;</a></h4>
+<p>在本节中，我们将探索两个栈的相关应用，这两个应用都涉及对一串匹配分隔符的测试。在第一个应用中，我们设想算数表达式可能包含几组不同的成对符号，如：</p>
+<ul>
+<li>括号：“（ ” 和 “ ）”</li>
+<li>大括号：“ { ” 和 “ } ”</li>
+<li>方括号：“ [ ” 和 “ ] ”</li>
+</ul>
+<p>每个开始符号必须与其对应的结束符号相匹配。 例如，左括号 “ [ ” 必须匹配相应的右括号 “ ] ”，如表达式 [(5+x)-(y+z)] 中所示。 下面的例子进一步说明了这个概念：</p>
+<ul>
+<li>正确的：（）（（ ））{（[（ ）]）}</li>
+<li>正确：((( )(( )){([( )])}))</li>
+<li>不正确：)(( )){([( )])}</li>
+<li>不正确：({[ ])}</li>
+<li>不正确：(</li>
+</ul>
+<p>我们将匹配符号组的精确定义留给练习 R-6.6</p>
+<h5 id="_4">分隔符的匹配算法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
+<p>在处理算术运算表达式时的一个重要任务是确保表达式中的分隔符匹配正确。代码段 6-4 给出了一个用 python 实现这一功能的算法。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">def</span> <span class="nf">is_matched</span><span class="p">(</span><span class="n">expr</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Return True if all delimiters are properly match; False otherwise.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 3 "></span>  <span class="n">lefty</span> <span class="o">=</span> <span class="s1">&#39;({[&#39;</span>                               <span class="c1"># opening delimiters</span>
+<span class="linenos" data-linenos=" 4 "></span>  <span class="n">righty</span> <span class="o">=</span> <span class="s1">&#39;)}]&#39;</span>                              <span class="c1"># respective closing delims</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="n">S</span> <span class="o">=</span> <span class="n">ArrayStack</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">expr</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">lefty</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 8 "></span>      <span class="n">S</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>                               <span class="c1"># push left delimiter on stack</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">elif</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">righty</span><span class="p">:</span>
+<span class="linenos" data-linenos="10 "></span>      <span class="k">if</span> <span class="n">S</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="k">return</span> <span class="kc">False</span>                          <span class="c1"># nothing to match with</span>
+<span class="linenos" data-linenos="12 "></span>      <span class="k">if</span> <span class="n">righty</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">!=</span> <span class="n">lefty</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">pop</span><span class="p">()):</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="k">return</span> <span class="kc">False</span>                          <span class="c1"># mismatched</span>
+<span class="linenos" data-linenos="14 "></span>  <span class="k">return</span> <span class="n">S</span><span class="o">.</span><span class="n">is_empty</span><span class="p">()</span>                         <span class="c1"># were all symbols matched?</span>
+</code></pre></div>
+<p>假定输入的是字符序列如 [(5 + x) - (y + z)］，对原始的序列从左到右进行扫描，<strong><u>使用栈匹配这一组分隔符。每次遇到开始符时，我们都将其压入栈中；每次遇到结束符时，我们从栈顶弹出一个分隔符</u></strong>（假定栈不为空），并检查这两个分隔符是否能够组成有效的一对。如果扫描到表达式的最后并且栈为空，则表明原来的算数表达式匹配正确； 否则，栈中一定存在一个开始分隔符没有被匹配。</p>
+<p>如果原始算数表达式的长度为 n, 这个算法将最多 n 次调用 push 和 n 次调用 pop 。即使假设这些询用的均摊复杂度边界 O(1) ，这些调用总运行时间仍为 O(n) 。对于给定的可能出 现的分隔符（｛［，其大小为常量，追加测试如 lefty 中的 c 和 <code>righty.index(c)</code> ， 其实际运行时间都在 O(1) 之内。结合这些操作，一个序列长度为 n 的匹配算法的运行时间为 O(n) 。</p>
+<h5 id="_5">标记语言的标签匹配<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
+<p>另一个分隔符匹配应用是在标记语言（如 HTML 或 XML) 的验证中。HTML 是互联网上超文本文档的标准格式， XML 是用于各种数据集的扩展标记语言。图 6-3 所示即为一个 HTML 文件实例和一个可能的对应的翻译</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146046.png" alt="image-20230317212407794" style="zoom: 33%;" /></p>
+<p>在一个 HTML 文本中，部分文本是由 HTML 标签分隔的。一个简单的 HTML 开始标 签的形式为 " <name> " ，相应的结束标签的则是"</name> " 的形式。例如，我们在图 6-3a 的第一行中看到了标签 <body> ，并在末尾看到了与其相匹配的标签 </body> 。在这个例子 中，其他一些经常使用的 HTML 标签如下：</p>
+<ul>
+<li>body : 文档内容</li>
+<li>hl: 节标题</li>
+<li>center: 居中对齐</li>
+<li>p: 段落</li>
+<li>ol: 编号（命令）列表</li>
+<li>Ii：表项</li>
+</ul>
+<p>理想情况下， 一个 HTML 文本应该有相匹配的标记，尽管大多数浏览器能够容忍一定数量的失配标签。代码段 6-5 给出了一个 python 函数，这个函数实现在一个代表 HTML 文 本的字符串中进行标签匹配。我们从左往右扫描原始字符串，用符号 j 来跟踪我们的进度， 并且用 str 类的 find 方法来定位定义了这个标签的 " <and> " 字符。开始标签被压入栈中， 当其从栈中弹出时，即与结束标签进行匹配。正如我们在代码段 6-4 中匹配分隔符所做的那 样。通过相似的分析，这个算法的运行时间为 O(n) ，其中 n 是这个原始 HTML 文本中字符的数量。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">def</span> <span class="nf">is_matched_html</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;Return True if all HTML tags are properly match; False otherwise.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 3 "></span>  <span class="n">S</span> <span class="o">=</span> <span class="n">ArrayStack</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 4 "></span>  <span class="n">j</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;&lt;&#39;</span><span class="p">)</span>               <span class="c1"># find first &#39;&lt;&#39; character (if any)</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="k">while</span> <span class="n">j</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="n">k</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>        <span class="c1"># find next &#39;&gt;&#39; character</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 8 "></span>      <span class="k">return</span> <span class="kc">False</span>                <span class="c1"># invalid tag</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="n">tag</span> <span class="o">=</span> <span class="n">raw</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">k</span><span class="p">]</span>              <span class="c1"># strip away &lt; &gt;</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">):</span>   <span class="c1"># this is opening tag</span>
+<span class="linenos" data-linenos="11 "></span>      <span class="n">S</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="k">else</span><span class="p">:</span>                         <span class="c1"># this is closing tag</span>
+<span class="linenos" data-linenos="13 "></span>      <span class="k">if</span> <span class="n">S</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="k">return</span> <span class="kc">False</span>              <span class="c1"># nothing to match with</span>
+<span class="linenos" data-linenos="15 "></span>      <span class="k">if</span> <span class="n">tag</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">!=</span> <span class="n">S</span><span class="o">.</span><span class="n">pop</span><span class="p">():</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="k">return</span> <span class="kc">False</span>              <span class="c1"># mismatched delimiter</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="n">j</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>        <span class="c1"># find next &#39;&lt;&#39; character (if any)</span>
+<span class="linenos" data-linenos="18 "></span>  <span class="k">return</span> <span class="n">S</span><span class="o">.</span><span class="n">is_empty</span><span class="p">()</span>             <span class="c1"># were all opening tags matched?</span>
+</code></pre></div>
+<h3 id="62">6.2 队列<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
+<p>队列是另一种基本的数据结构，它与栈互为 ”表亲“ 关系，<strong><u>队列是由一系列对象组成的集合，这些对象的插入和删除遵循先进先出(F irst in First out, FIFO) 的原则。也就是说， 元素可以在任何时刻进行插入，但是只有处在队列最前面的元素才能被删除</u></strong>。</p>
+<p><strong><u>我们通常将队列中允许插入的一端称为队尾， 将允许删除的一端则称为队头</u></strong>。对这个术语的一个形象比喻就是一队人在排队进入游乐场。人们从队尾插入排队等待进入游乐场，而 从这个队的队头进入游乐场。还有许多其他关于队列的应用，如图 6-4 所示。商店、影院 预订中心和其他类似的服务场所通常按照 “先进先出” 的原则处理客户的请求。对于顾客服务中心的电话呼叫或者餐厅的等候顾客而言，队列会成为一个合乎逻辑的选择。FIFO 队列还广泛应用于许多计算设备中，比如一个网络打印机或者一个响应请求的 Web 服务器。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146047.png" alt="image-20230317213134456" style="zoom:50%;" /></p>
+<h4 id="621">6.2.1 队列的抽象数据类型<a class="headerlink" href="#621" title="Permanent link">&para;</a></h4>
+<p>通常来说，队列的抽象数据类型定义了一个包含一系列对象的集合，<strong><u>其中元素的访问和删除被限制在队列的笫一个元素，而且元素的插入被限制在序列的尾部。这个限制根据先进先出原则执行元素的插入和删除操作</u></strong>。对于队列 Q 而言，队列的抽象数据类型( ADT ) 支持 如下两个基本方法：</p>
+<ul>
+<li><code>Q.enqueue(e)</code> ：向队列 Q 的队尾添加一个元素。</li>
+<li><code>Q.dequeue()</code> ：从队列 Q 中移除并返回第一个元素，如果队列为空，则触发一个错误。</li>
+</ul>
+<p>队列的抽象数据类型 (ADT) 还包括如下方法（第一个类似于堆栈的 pop 方法） ：</p>
+<ul>
+<li><code>Q.first()</code>：在不移除的前提下返回队列的第一个元素；如果队列为空，则触发一个错误。</li>
+<li><code>Q.is_empty()</code>：如果队列 Q 没有包含任何元素则返回布尔值 ” True” 。</li>
+<li><code>len(Q)</code> ：返回队列 Q 中元素的数量；在 python 中，我们通过<code>＿＿len_＿</code>这个特殊的方 法实现。</li>
+</ul>
+<p>按照惯例，假设一个新创建的队列为空，并且队列的容量没有先天的上限。添加进去的元素也没有任何类型限制。</p>
+<p>例题 6-4: 下表列出了一系列队列的操作和在最初为空的整数类型队列中实施这些操作后的效果。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146048.png" alt="image-20230317213500020" style="zoom:50%;" /></p>
+<h4 id="622">6.2.2 基于数组的队列实现<a class="headerlink" href="#622" title="Permanent link">&para;</a></h4>
+<p>对于栈这种抽象数据结构类型，我们用 python 列表作为底层存储创造了一个非常简单的适配器类，也可以使用类似的方法支持一个队列的抽象数据类型。我们可以通过调用 append(e) 方法将 e 加至列表的尾部。当一个元素退出队列时，我们可以使用 pop(0) 而不是 pop()从列表中来有意移除第一个元素。</p>
+<p><strong>由于这个实现很容易，因此它也最为低效</strong>。正如我们在 5.4.1 节讨论的，当 pop 操作在 一个列表中以非索引的方式调用时，可以通过执行一个循环将所有在特定索引另一边的元素转移到它的左边，目的是为了填补由 pop 操作给序列造成的“洞” 。因此， 一个 pop(0) 操作 的调用总是处于最坏的情况，耗时为 Θ(n) 。</p>
+<p>我们可以改进上面的策略，完全避免调用 pop(0) 。<strong><u>可以用一个指代为空的指针代替这个数组中离队的元素，并且保留一个显式的变量 f 来存储当前在最前面的元素的索引</u></strong>。这样一 个算法对于离队操作而言耗时为 O(1) 。几次离队操作后，这个方法可能会导致如图 6-5 所示的情景。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146049.png" alt="image-20230317213727817" style="zoom:33%;" /></p>
+<p>不幸的是，修改后的方法仍然有一个缺点。在一个栈的设计中，列表的长度就是栈的大小（甚至列表底层的存储数组略大） 。对于我们 正在考虑的队列的设计，情况更糟。例如，建立一个含有相对较少元素的队列时，系统可能让这些元素存储在一个任意大的列表中。如果<strong>不断重复地往一个队列中添加一个新的元素， 然后删除另一个（允许最前端向右漂移），就会发生这样的清况，即随着时间的推移，底层列表的大小将逐渐增长到 O(m) ，其中 m 值等于自队列创建以来对队列进行追加元素操作的数量总和，而不是当前队列中元素的数量</strong></p>
+<p>这种设计会在一些所需队列的大小相对稳定却被长时间使用的应用程序中产生不利的影响。例如，餐厅点餐队列的长度在某一个时刻基本上不可能超过 30 个，但是在一天（或者一周）， 排队的总长度将非常大</p>
+<h5 id="_6">循环使用数组<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
+<p>为了开发一种更加健壮的队列实现方法，<strong><u>我们让队列的前端趋向右端，并且让队列内的元素在底层数组的尾部 “ 循环＂</u></strong> 。假定<strong>底层数组的长度为固定值 N</strong>, 它比实际队列中元素的数量大。新的元素在当前队列的尾部利用入队列操作进入队列，逐步将排在队列前面的元素从队列的前面插入索引为 N - 1 的位置，然后紧接着是索引为 0 的位置，接下来是索引为 1 的位置。图 6-6 所示为一个第一个元素为 E 最后一个元素为 M 的队列，可用于说明这一过程。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146050.png" alt="image-20230317215453558" style="zoom: 33%;" /></p>
+<p>实现这种循环的方法并不困难。当从队列中删除一个元素并欲更新前面的索引时，我们可以使用算式 <span class="arithmatex">\(f=(f+ 1)\%N\)</span> 进行计算。回想一下在 python 中 ％ 操作指的是 “模” 运算操作，它是整数除法之后取余数的值。例如， 14 被 3 整除得到的商为 4 余数为 2, 即 <span class="arithmatex">\(\frac{14}4=4\frac23\)</span>。因 此， 在 python 中， 14 // 3 得到的结果为 4, 而 14 % 3 的结果为 2 。取模操作是处理一个循环数组的理想操作。举一个具体的例子，<strong><u>如果有一个长度为 10 的列表，并且一个索引为 7 的首部，我们可以通过计算 (7 + 1)%10 来更新首部</u></strong>，这很简单地就计算出是 8, 因为 8 除以 10 商为 0, 余数是 8 。同样，更新索引为 8 后将会进入索引为 9 的单元。但是当从索引为 9 （数组的最后一个单元）处更新时，需要计算 (9 + 1)%10, 其结果为得到索引为 0 的位置（因为 10 被 10 整除，余数为 0)</p>
+<h5 id="python">python 队列的实现方法<a class="headerlink" href="#python" title="Permanent link">&para;</a></h5>
+<p>在代码段 6-6 和代码段 6-7 中，我们给出了通过使用 python 列表以循环的方式来实现 一个队列的抽象数据类型的完整方法。其中，这个队列类维护如下 3 个实例变量：</p>
+<ul>
+<li><code>_data</code>: 指一个固定容量的列表实例。</li>
+<li><code>_size</code> :是一个整数，代表当前存储在队列内的元素的数量（与＿data 列表的长度正好相对） 。</li>
+<li><code>_front</code> ：是一个整数，代表＿data 实例队列中第一个元素的索引（假定这个队列不为空） 。</li>
+</ul>
+<p>尽管这个队列的大小通常为 0, 但我们还是初始化一个可以保存中等大小的列表用于存储数据。同时，我们还将这个队列<code>＿front</code> 索引初始化为 0 。</p>
+<p>当队列为空， front 或者 dequeue 操作被调用时，系统会抛出一个 Empty 异常实例， 在代码段 6-1 中，我们为栈定义了这个异常操作。</p>
+<p><strong><u>注：不要先入为主的认为基于数组定义的队列其头部一定位于数组的 0 索引处，这会对理解造成很大障碍，基于鸭子方法，我们使用数组所构造的队列类只要满足 FIFO 协议即可（即先出后进），而不是拘泥于队伍的头部在数组的哪个位置，数组只是实现队列的一个手段</u></strong></p>
+<ul>
+<li><strong>在几次队伍的进出后，后面进入队伍的元素可能甚至排在（在数组内位置的意义上）队伍头部的前面</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">from</span> <span class="nn">..exceptions</span> <span class="kn">import</span> <span class="n">Empty</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">class</span> <span class="nc">ArrayQueue</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">  </span><span class="sd">&quot;&quot;&quot;FIFO queue implementation using a python list as underlying storage.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="n">DEFAULT_CAPACITY</span> <span class="o">=</span> <span class="mi">10</span>          <span class="c1"># moderate capacity for all new queues</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Create an empty queue.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">ArrayQueue</span><span class="o">.</span><span class="n">DEFAULT_CAPACITY</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_front</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span>  <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the number of elements in the queue.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>  <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos" data-linenos="18 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return True if the queue is empty.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span>  <span class="k">def</span> <span class="nf">first</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos" data-linenos="22 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return (but do not remove) the element at the front of the queue.</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span><span class="sd">    Raise Empty exception if the queue is empty.</span>
+<span class="linenos" data-linenos="25 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="26 "></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+<span class="linenos" data-linenos="27 "></span>      <span class="k">raise</span> <span class="n">Empty</span><span class="p">(</span><span class="s1">&#39;Queue is empty&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="28 "></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_front</span><span class="p">]</span>
+<span class="linenos" data-linenos="29 "></span>
+<span class="linenos" data-linenos="30 "></span>  <span class="k">def</span> <span class="nf">dequeue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos" data-linenos="31 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Remove and return the first element of the queue (i.e., FIFO).</span>
+<span class="linenos" data-linenos="32 "></span>
+<span class="linenos" data-linenos="33 "></span><span class="sd">    Raise Empty exception if the queue is empty.</span>
+<span class="linenos" data-linenos="34 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="35 "></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+<span class="linenos" data-linenos="36 "></span>      <span class="k">raise</span> <span class="n">Empty</span><span class="p">(</span><span class="s1">&#39;Queue is empty&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="37 "></span>    <span class="n">answer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_front</span><span class="p">]</span>
+<span class="linenos" data-linenos="38 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_front</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>         <span class="c1"># help garbage collection使头部元素变为None（离队）</span>
+<span class="linenos" data-linenos="39 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_front</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_front</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
+<span class="linenos" data-linenos="40 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="41 "></span>    <span class="k">return</span> <span class="n">answer</span>
+<span class="linenos" data-linenos="42 "></span>
+<span class="linenos" data-linenos="43 "></span>  <span class="k">def</span> <span class="nf">enqueue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+<span class="linenos" data-linenos="44 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Add an element to the back of queue.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="45 "></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">):</span>
+<span class="linenos" data-linenos="46 "></span>      <span class="bp">self</span><span class="o">.</span><span class="n">_resize</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>     <span class="c1"># double the array size</span>
+<span class="linenos" data-linenos="47 "></span>    <span class="n">avail</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_front</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
+<span class="linenos" data-linenos="48 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">avail</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span>
+<span class="linenos" data-linenos="49 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="50 "></span>
+<span class="linenos" data-linenos="51 "></span>  <span class="k">def</span> <span class="nf">_resize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cap</span><span class="p">):</span>                  <span class="c1"># we assume cap &gt;= len(self)</span>
+<span class="linenos" data-linenos="52 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Resize to a new list of capacity &gt;= len(self).&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="53 "></span>    <span class="n">old</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>                       <span class="c1"># keep track of existing list</span>
+<span class="linenos" data-linenos="54 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">cap</span>              <span class="c1"># allocate list with new capacity</span>
+<span class="linenos" data-linenos="55 "></span>    <span class="n">walk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_front</span>
+<span class="linenos" data-linenos="56 "></span>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">):</span>            <span class="c1"># only consider existing elements</span>
+<span class="linenos" data-linenos="57 "></span>      <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">old</span><span class="p">[</span><span class="n">walk</span><span class="p">]</span>            <span class="c1"># intentionally shift indices</span>
+<span class="linenos" data-linenos="58 "></span>      <span class="n">walk</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">walk</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">old</span><span class="p">)</span>         <span class="c1"># use old size as modulus</span>
+<span class="linenos" data-linenos="59 "></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_front</span> <span class="o">=</span> <span class="mi">0</span>                        <span class="c1"># front has been realigned</span>
+</code></pre></div>
+<p>限于本书的篇幅，此处省略了<code>＿＿len_＿</code>和 <code>is_empty</code> 方法的具体实现。front 方法的实现也十分简单，因为当假定列表不为空时， front 索引能够精确地告诉我们目标元素在＿data 列表的什么位置。</p>
+<h5 id="_7">添加和删除元素<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h5>
+<p>入队方法的目的是在队列的尾部添加一个新的元素。我们需要确定适当的索引，并将新元素插入对应的位置中。虽然我们没有明确地为队列的尾部信息维护一个实例化变量，但是可以利用下面的公式计算下一个插入的位置：</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">avail</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_front</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
+</code></pre></div>
+<p>注意，在插入新元素时，要使用这个队列的大小。例如，考虑一个存储容量为 10 的队 列，当前的队列长度为 3，并且第一个元素所在的索引为 5, 这个队列中已有的 3 个元素的存储位置即为索引 5 、6 和 7, 因此，新的元素应该被放置在索引为 (front + size) = 8 的位置上。</p>
+<p>在一个首尾相连的循环队列实例中，利用模运算可以实现这种想要的循环语义。例如， <strong><u>如果假设的队列有 3 个元素并且第一个元素在索引 8 的位置上，我们通过计算 (8 + 3)%10 得到结果为 1, 这样的结果完全正确，因为 3 个现有的元素占据索引为 8 、9 和 0 对应的位置</u></strong>。</p>
+<p>当调用 dequeue 操作时， <code>self._front</code> 的当前值指明将要被删除和返回的值的索引。我们为将要返回的元素保存一个本地的引用，在从列表中删除该对象的引用之前，设 <code>answer = self._ data[self._front]</code> ，并设 <code>self._data[self._front] = None</code> 。设为 None 的原因与 python 回收未使用空间的机制有关。<strong><u>在内部， python 对已存的对象维护了一个对其的引用计数的计数器。如果计数变为 0, 这个对象实际上就无法访问，那么系统会回收这部分的内存以备将来使用（详细内容参见 15.1.2 节）</u></strong> 。由于我们不再负责存储一个已经离队元素，因此将从列表中删除该元素的引用以减少这个元素的引用计数。</p>
+<p>dequeue 操作的第二个重要任务是更新<code>＿front</code> 的值以反映元素的移除，并将第二个元素变成新的第一个元素。在大多数情况下，我们可以简单地通过让索引值加 “ 1 " 更新，但是由于存在环式处理的可能，我们通常是依靠模运算处理，这在本节前面已经有详细的 描述。</p>
+<h5 id="_8">调整队列的大小<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h5>
+<p>当依次调用 enqueue 操作，且队列的大小恰好和底层存储的列表大小相等时，我们可以使用倍增底层列表存储大小的标准技术。通过这种方式，我们可以用与 5.3.1 节实现 DynamicArray 方法类似的方式实现这个操作。</p>
+<p>然而，在队列中的<code>＿resize</code> 方法上，要比在实现 DynamicArray 类的相关方法上更加谨慎：在对这个旧列表创建一个临时的引用后，我们分配了一个是原来旧列表 2 倍大小的新列表，并且将引用信息从旧列表复制到新列表中。<strong><u>在传输内容的同时，我们故意在新的数组中将队列的首部索引调整为 0，如图 6-7 所示。这种调整并不单纯为了好看。由于这个模算法依赖于数组的大小，因此将每个元素转移到新的数组并维持与原来相同的索引时，状态将会存在问题。</u></strong></p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146051.png" alt="image-20230318143909396" style="zoom:50%;" /></p>
+<h5 id="_9">缩减底层数组<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h5>
+<p>队列实现过程中，理想的性能是有 O(n) 的空间复杂度，其中 n 指的是当前队列中元素的个数。正如代码段 6-6 和代码段 6-7 给出的， ArrayQueue 的实现并不具备这种属性。当在队列满的状态下调用 enqueue 操作时，底层的存储数组就要进行扩展，但是调用出队操作的时候却并不会进行缩减数组的大小的处理。<strong><u>这样处理的结果是，底层的存储数组的大小是队列曾存储的最多元素的个数，而不是当前元素的个数。</u></strong></p>
+<p>我们在 5.3.2 节的动态数组部分讨论过这个问题，在随后的练习 C- 5.16 ~ C-5.20 中将 继续讨论这个问题。无论什么时候，当所存储的元素降低到数组总存储能力的 1/4 时， 一个健壮的方法是将这个数组大小缩减到当前容量的一半。这一处理可以通过在 dequeu e 方法中 插入如下两行代码来实现，只需要追加在代码段 6 -6 的第 38 行减少 <code>self._size</code> 处理部分之后即可，用于反映一个元素的丢失。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">if</span> <span class="n">O</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span> <span class="o">//</span> <span class="mi">4</span>
+<span class="linenos" data-linenos="2 "></span>  <span class="bp">self</span><span class="o">.</span><span class="n">_resize</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<h5 id="_10">对基于数组的队列实现的分析<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h5>
+<p>在考虑利用上述改进方法来不时缩小数组的大小进行维护队列处理的前提下， 表 6-3 列出了基于数组实现队列抽象数据类型的性能。除了<code>＿resize</code> 程序，所有的方法都依赖于一个常数数量的算术操作、比较和赋值等语句。因此，除了 enqueue 和 dequeue 操作是具有均摊 复杂度边界为 O(1) ，其余的每一个方法在最坏的情况下运行时间为 O(1) ，其原因与 5.3 节 给出的相似。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146052.png" alt="image-20230318144354537" style="zoom:50%;" /></p>
+<h3 id="63">6.3 双端队列<a class="headerlink" href="#63" title="Permanent link">&para;</a></h3>
+<p>接下来考虑一个类队列数据结构，<strong><u>它支持在队列的头部和尾部都进行插入和删除操作</u></strong>。<strong><u>这样一种结构被称为双端队列( double-ended queue 或者 deque )</u></strong> ，它的发音通常为“deck", 以免与通常的队列抽象数据类型的方法 dequeue 相混淆，后者的发音类似于 “D.Q" 的缩写。</p>
+<p>双端队列的抽象数据类型比栈和队列的抽象数据类型要更普遍。在一些应用中，这些额外的普遍性是非常有用的， 例如使用一个队列来描述餐馆当中的等餐队列。一般情况下，第 一个人会在发现餐馆中没有空闲的桌子时从队列的前面离开，而这个时候餐馆会重新在队列 的前面插入一个人。同样，处于队列尾部的顾客也可能由于不耐烦而离开队伍。（如果想模拟顾客从其他位置离开，我们需要一个更加通用的数据结构）</p>
+<h4 id="631">6.3.1 双端队列的抽象数据类型<a class="headerlink" href="#631" title="Permanent link">&para;</a></h4>
+<p>为了提供一个相类似的抽象，可以定义双端队列的抽象数据类型 D , 这个 ADT 支持如下方法：</p>
+<ul>
+<li><code>D.add_first(e)</code> ：向双端队列的前面添加一个元素 e 。</li>
+<li><code>D.add_last(e)</code>：在双端队列的后面添加一个元素 e 。</li>
+<li><code>D.delete_first()</code>：从双端队列中移除并返回第一个元素。若双端队列为空， 则触发一个错误。</li>
+<li><code>D.delete_last()</code> ：从双端队列中移除并返回最后一个元素。若双端队列为空， 则触发一个错误。</li>
+</ul>
+<p>此外，双端队列的抽象数据类型还包括如下的方法：</p>
+<ul>
+<li><code>D.first()</code> ：返回（但不移除）双端队列的第一个元素。若双端队列为空， 则触发一个错误。</li>
+<li><code>D.last()</code>：返回（但不移除）双端队列的最后一个元素。若双端队列为空， 则触发一个错误。</li>
+<li><code>D.is_empty()</code>：如果双端队列不包含任何一个元素，则返回布尔值 "True” 。</li>
+<li><code>len(D)</code>：返回当前双端队列中的元素个数。在 python 中．我们用<code>＿＿len_＿</code> 这个特殊 的方法实现。</li>
+</ul>
+<p>例题 6-5: 下表展示了一系列双端队列的操作和它们在一个初始化为整数类型的空双端队列中的效果。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146053.png" alt="image-20230318154358929" style="zoom:50%;" /></p>
+<h4 id="632">6.3.2 使用环形数组实现双端队列<a class="headerlink" href="#632" title="Permanent link">&para;</a></h4>
+<p>我们可以使用与代码段 6-6 和代码段 6-7 提供的实现 ArrayQueue 类相同的方法来实现双端队列的抽象数据类型（我们把通过 ArrayQueue 实现双端队列的细节留在了练习 P-6.32 中） 。我们建议保持 3 个相同的实例变量： <code>＿data</code> 、<code>_size</code> 和<code>＿front</code> 。无论什么时候，只要想知道双端队列的尾部索引，或者超过队尾的第一个可用的位置，我们就可以通过模运算计算得 出。例如，方法 <code>last()</code>就是使用如下索引公式来实现的</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">back</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_front</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
+</code></pre></div>
+<p>对于方法 <code>ArrayDeque.add_last</code> , 我们采用了与方法 <code>ArrayQueue .add_last</code> 相同的实现方法，也利用了一个 <code>_resize</code> 程序。类似地，<code>ArrayDeque.delete_first</code> 方法的实现与 <code>ArrayQueue.dequeue</code> 方法相同。实现 <code>add_first</code> 与 <code>delete_last</code> 采用了相似的技术，其中的一处不同是，在调用 <code>add_first</code> 时需要循环处理数组起始位置，因此我们借助模（取余）运算来循环地计算索引值</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="bp">self</span><span class="o">.</span><span class="n">_front</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_front</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span> <span class="c1"># cyclic shift</span>
+</code></pre></div>
+<p>基于数组的双端队列 ArrayDeque 与基于数组的队列 ArrayQueue 的效率很相似，所有 操作都能在 O(1) 内能完成，但是由于有些操作的时间边界将会摊销，这可能会改变底层数组的大小。</p>
+<h4 id="633-python-collections">6.3.3 python collections 模块中的双端队列<a class="headerlink" href="#633-python-collections" title="Permanent link">&para;</a></h4>
+<p>python 的标准 <code>collections</code> 模块中包含对一个双端队列类的实现方法。表 6-4 给出了 <code>collections.deque</code> 类最常用的方法。这里使用了比之前的抽象数据类型更加不对称的命名。</p>
+<p><img src="https://raw.githubusercontent.com/aletolia/Pictures/main/202404192146054.png" alt="image-20230318155026943" style="zoom:50%;" /></p>
+<p>双端队列集合的接口选用与已经建立的 python 列表类命名约定一致，因为 <code>pop</code> 方法与 <code>append</code> 方法都被认为是在列表的尾部操作。因此， <code>appendleft</code> 和 <code>popleft</code> 都指的是在列表的首部操作。库双端队列同样也模仿了一个列表，因为它是一个带索引的序列，允许使用 D[j] 的语法任意访问和修改。</p>
+<p>库双端队列的构造函数同样支持一个可选的 maxlen 参数以建立一个固定长度的双端队列。然而，当<strong><u>双端队列满时，如果在队列的任意一端调用 append 方法，它并不会触发一个错误；相反，这会导致在相反一端移除一个元素。也就是说，当队列满时，调用 appendleft 方法会导致右端一个隐藏的 pop 调用发生，以便为新加入的元素腾出空间</u></strong>。</p>
+<p>当前 python 版本使用了一个混合的方法实现 collection.deque, 这种方法使用了循环数组，这些循环数组被组合到块中，而这些块本身又被组织进一个双向链表中（我们将在下一 章介绍这种数据结构） 。双端队列类保证在任何一端操作的耗时为 O(1) ，但在最坏的操作情 况下，当使用靠近双端队列中部附近的索引时，耗时将为 O(n) 。</p>
+<h3 id="64">6.4 练习<a class="headerlink" href="#64" title="Permanent link">&para;</a></h3>
+<h4 id="_11">巩固<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p>R-6.1 如果在一个初始化为空的栈上执行如下一系列操作，将返回什么值？push(5), push(3), pop(), push(2), push(8), pop(), pop(), push(9), push(1), pop(), push(7), push(6), pop(), pop(), push(4) pop(), pop() 。</p>
+<p>R-6.2 假设一初始化为空的栈 S 已经执行了 25 个 push 操作、12 个 top 操作和 10 个 pop 操作，其中 3 个触发了栈空错误。请问 S 目前的大小是多少？</p>
+<p>R-6.3 实现一个函数 transfer(S, T) 将栈 S 中的所有元素转移到栈 T 中，使位于 S 栈顶的元素被第一个插人栈 T 中， 使位于 S 栈底的元素最后被插入栈 T 的顶部。</p>
+<p>R-6.4 给出一个用于从栈中移除所有元素的递归实现方法。</p>
+<p>R-6.5 实现一个函数，通过将一个列表内的元素按顺序压入堆栈中，然后逆序把它们写回到列表中， 实现列表的逆置。</p>
+<p>R-6.6 给出一个算术表达式中分组符号匹配的精确而完整的定义。应保证定义可以是递归的。</p>
+<p>R-6.7 如果在一个初始化为空的队列上执行如下一系列操作后，返回值是什么？ enqueue(5), enqueue(3), dequeue(), enqueue(2), enqueue(8), dequeue(), dequeue(), enqueue(9),enqueue(1), dequeue(), enqueue(7), enqueue(6), dequeue(), dequeue(), enqueue(4), dequeue(), dequeue()</p>
+<p>R-6.8 假设一个初始化为空的队列 Q 巳经执行了共 32 次入队操作、10 次取首部元素操作和 15 次出队橾作，其中 5 次触发了队列为空的错误。队列 Q 目前的大小是什么？</p>
+<p>R-6.9 假定先前所述间题的队列是 ArrayQueue 的实例且初始化为 30, 并且假定它的大小不会超过 30, 那么 front 实例变量的最终值是多少？</p>
+<p>R-6.10 试想，如果代码段 6-7 ArrayQueue. Resize 方法中的第 53 ~ 55 行执行如下 loop 循环将会发生什么？ 给出错误的详细解释。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span>  <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">old</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+</code></pre></div>
+<p>R-6.11 给出一个简单的适配器实现队列 ADT, 其中采用一个 collections.deque 实例做存储。</p>
+<p>R-6.12 在一个初始化为空的双端队列中执行以下一系列操作，将会返回什么结果？ add<em>first(4), add_last(8), add last(9), add</em> first(5), back(), delete* first(), delete last(), add last(7), first(), last(),add last(6), delete* first(), deletefirst() 。</p>
+<p>R-6.13 假设有一个含有数字(1,2,3,4,5,6,7,8) 并按这一顺序排列的双端队列 D，并进一步假设有一个初始化为空的队列 Q 。给出一个只用 D 和 Q （不包含其他变量）实现的代码片段，将元素(1, 2, 3, 5, 4, 6, 7, 8) 按这一顺序存储在 D 中。</p>
+<p>R-6.14 使用双端队列 D 和一个初始化为空的栈 S 重复做上一问题</p>
+<h4 id="_12">创新<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>C-6.15 假设爱丽丝选择了 3 个不同的整数， 并将它们以随机顺序放置在栈 S 中。写一个简短的顺序型的伪代码（不包含循环或递归），其中只包含一次比较和一个变量 x, 使得爱丽丝的 3 个整数中最大的以 2/3 概率存储在变量 x 中，试说明你的方法为什么是正确的。</p>
+<p>C-6.16 修改基于数组的栈的实现方法，使栈的容量限制在最大元素数量 maxlen 之内。该最大数量对于构造函数（默认值为 none ) 是一个可选参数。如果 push 操作在栈满时被调用，则抛出一个“栈满“异常（与栈空异常定义类似） 。</p>
+<p>C-6.17 在之前实现栈的练习中，假设底层列表是空的。重做该练习，此时预分配一个长度等于堆栈 最大容量的底层列表。</p>
+<p>C-6.18 如何用练习 R-6.3 中描述的转换函数和两个临时栈来取代一个给定相同元素但顺序逆置的栈。</p>
+<p>C-6.19 在代码段 6-5 中，假设 HTML 的开始标签具有 <name> 与 <Li> 的形式。更普遍的是， HTML 允许可选的屈性作为开始标签的一部分。所用的一般格式是<name attribute1="value1" attribute2="value2"> ；例如，表可以通过使用开始标签 &lt;table border="3" cellpadding="5"＞被赋予一个边界和附加数据。修改代码段 6-5, 使得即使在一个开始标签包含一个或多个这样的属性时，也可以正确匹配标记。</p>
+<p>C-6.20 通过一个栈实现一个非递归算法来枚举 {1, 2, ··· , n} 所有排列数结果。</p>
+<p>C-6.21 演示如何使用栈 S 和队列 Q 非递归地生成一个含 n 个元素的集合所有可能的子集集合 T。</p>
+<p>C-6.22 后缀表示法是一种书写不带括号的算术表达式的简明方法。它是这样定义的： 如果” (exp1 ) OP(exp2 )" 是一个普通、完整的括号表达式，它的操作符是 OP, 那么它的后缀版本为 “pexp1 是 pexp2 OP" 、其中 pexp1 是 exp 1 的后缀表示形式， pexp2 是 exp2 的后缀表示形式。一个单一的数字或变址的后缀表示形式就是这个数字或变量。例如，” ((5 + 2)*(8 - 3))/4 " 的后缀版本为 “52 + 83 - *4/ ＂ 。写出一种非递归方式实现的后缀表达式转换算法。</p>
+<p>C-6.23 假设有 3 个非空栈 R 、S 、T。请通过一系列操作，将 S 中的元素以其原始的顺序存储到 T 中 原有元素的后面，最终 R 中元素的顺序不变。例如， R=[1, 2, 3], S=[4, 5], T=[6, 7, 8, 9] ，则最终的结果应为 R=[1,2, 3], S=[6, 7, 8, 9, 4, 5] 。</p>
+<p>C-6.24 描述如何用一个简单的队列作为实例变址实现堆栈 ADT , 在方法体中，只有常量占用本地内 存。在你所设计的方法中， push()、pop()、top()的运行时间分别是多少？</p>
+<p>C-6.25 描述如何用两个栈作为实例变量实现队列 ADT, 这样使得所有队列操作的平均时间开销为 O(1) 。给出一个正式的证明。</p>
+<p>C-6.26 描述如何使用一个双端队列作为实例变量实现队列 ADT。该方法的运行时间是多少？</p>
+<p>C-6.27 假设有一个包含 n 个元素的栈 S 和一个初始为空的队列 Q, 描述如何用 Q 扫描 S 来查看其中是否包含某一特定元素 x, 算法必须返回到元素在 S 中原来的位置。算法中只能使用 S 、Q 和 固定数量的变量。</p>
+<p>C-6.28 修改 ArrayQueue 实现方法，使队列的容量由 maxlen 限制， 其中该最大长度对于构造函数 （默认为 none ) 来说是一个可选参数。如果在栈满的时候调用 enqueue 操作，则触发一个队列满异常（与队列空异常定义类似） 。</p>
+<p>C-6.29 在队列 ADT 的某些特定应用中，以某种方式对一个元素反复执行入队出队操作是很常见的。改造基于数组的队列实现方法，加入一个 rotate()操作，这个操作与 Q.enqueue 和 Q.dequeue 的结合具有相同的语义特征。然而，它的执行效率应当比分别调用两个方法更有效（例如． 该方法中不需要修改队列的长度＿size) 。</p>
+<p>C-6.30 爱丽丝有两个用于存储整数的队列 Q 和 R 。鲍勃给了爱丽丝 50 个奇数和 50 个偶数，并坚待让她在队列 Q 和 R 存储所有 100 个整数。然后他们玩了一个游戏，鲍勃从队列 Q 和 R 中随机选择元素（采用在本章所描述的循环调度，其对于选择队列的次数是随机的） 。如果在游戏结束时被处理的最后一个数是奇数，则鲍勃胜。爱丽丝能如何分配整数到队列中来优化她获胜的机会？她获胜的机会是什么？</p>
+<h4 id="_13">项目<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>P-6.32 如 6.3.2 节描述的那样，给出一个完整的基于数组的双端队列 ADT 的队列实现方法。</p>
+<p>P-6.33 给定一个基于数组实现双端队列的实现方法、使其支持表 6-4 列出的 collection.deque 类的 所有公共操作，包括使用 maxlen 这个可选参数。当一个限制长度的队列已满时，提供与 collections.deque 类相似的语义， 使一个调用将一个元素插入双端队列的尾部时造成相反方向一个元素的丢失</p>
+<p>P-6.34 实现一个程序，可以输入以后缀形式表示的符数表达式（ 见练习 C-6 .22 ) 并且输出它的运算 结果。</p>
+<p>P-6.35 6.1 节的介绍表明，栈通常用于在应用程序中提供｀撤销＂支持，如网络浏览器或文本编辑器。虽然支持撤销可以用无界堆栈来实现，但许多应用程序只使用容量固定的堆栈提供有限步的撤销操作。当压栈操作在满栈时被调用，并不是抛出栈满异常，见练习 C-6.16) ， 一个更典型的语义是接受在顶部压栈的元素，同时在栈底部“漏出“最老的元素来腾出空间。</p>
+<p>P-6.36 当出售一支由若干家公司共享的公共股票时，共享售出价和原始买入价的资本收益（或者． 有时候亏损）是不同的。对于单一共享的股票这个规则很容易理解｀但如果出售的是一支已经购买了很久的共享股票时，我们必须鉴别这支共享股票是真的在出售。在这个例子中，对 于识别哪个共享股票被卖掉的问题， 一个标准的判断原则就是采用 FIFO 协议一一这支被共享出售的股票，往往是那些持有时间最长的（ 实际上，这种默认的方法已被封装到了几款个人投资软件包中） 。例如．假设买 100 股共享股票，第一天的价格为每股 20 美元，第二天有 20 股的价格是 24 美元．第三天有 200 股的价格为 36 美元，而在第四天以每股 30 美元的价格买出 150 股。根据 FIFO 的原则，意味着 150 股被卖掉． 第一天买了 100 股，第二天买了 20 股，第三天买了 30 股， 因此在这个例子中的资本收益就应该是： 100 x 10 + 20 x 6 + 30 x (- 6) 或者 940 美元。写一个程序，用于表示形如“以每股 y 美元的价格购买了 x 股 share (s) 股票” 或者”以每股 y 美元的价格卖出 x 股 share(s) 股票”的一组事务的序列，假定这些事务发生在连续的几天之内，同时 x 和 y 的值都是整数。当给定了一个输入序列． 运用 FIFO 协议来识别共享股票，对应的输出序列应该是整个序列总的资本收益的值（或者资本亏损的值） 。</p>
+<p>P-6.37 设计一个两色双向栈 ADT, 其中包含两个栈，即一个 “ 红＂栈和一个 “ 蓝＂栈， 并包含和常规栈操作一致的有颜色编码的栈操作。例如，在这个 ADT 中，支持一个 “ 红 ” 压栈操作和一 个 “ 蓝 ” 出栈操作。给出一种有效的实现方法，即采用一个限定容量为 N 的单个数组来实现这个 ADT, 假定 N 值始终大于单个的 “ 红＂栈与 “ 蓝＂栈大小之和</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../%E7%AC%AC%205%20%E7%AB%A0%20%E5%9F%BA%E4%BA%8E%E6%95%B0%E7%BB%84%E7%9A%84%E5%BA%8F%E5%88%97/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 第 5 章 基于数组的序列">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                第 5 章 基于数组的序列
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../%E7%AC%AC%207%20%E7%AB%A0%20%E9%93%BE%E8%A1%A8%28Linked%20Lists%29/" class="md-footer__link md-footer__link--next" aria-label="Next: 第 7 章 链表(Linked Lists)">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                第 7 章 链表(Linked Lists)
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "header.autohide"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../mathjax-config.js"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../extra.js"></script>
+      
+        <script src="../js/toggle_sidebar.js"></script>
+      
+    
+  </body>
+</html>

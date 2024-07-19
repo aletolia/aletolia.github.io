@@ -1,0 +1,5810 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://localhost:8000/Self-Supervised%20Learning%20MoCo/">
+      
+      
+        <link rel="prev" href="../ViT/">
+      
+      
+        <link rel="next" href="../Self-Supervised%20Learning%20MoCoV2%2C3/">
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
+    
+    
+      
+        <title>MoCo - One Last Kiss</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.76a95c52.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-M0R7V8QGQ7"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-M0R7V8QGQ7",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-M0R7V8QGQ7",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="One Last Kiss" class="md-header__button md-logo" aria-label="One Last Kiss" data-md-component="logo">
+      
+  <img src="../img/icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            One Last Kiss
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MoCo
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aletolia/aletolia.github.io.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aletolia/aletolia.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+    
+  
+  🏠 Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Mygo/" class="md-tabs__link">
+          
+  
+    
+  
+  ⛏️ CV and Multimodels
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Session%201/" class="md-tabs__link">
+          
+  
+    
+  
+  🚀 Re:0 Road to CPath & Visualization
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../1.1%20Single-cell%20RNA%20sequencing/" class="md-tabs__link">
+          
+  
+    
+  
+  💤 Re:0 Road to scRNA-seq Analysis
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Large-scale%20foundation%20model%20on%20single-cell%20transcriptomics/" class="md-tabs__link">
+          
+  
+    
+  
+  🧬 scRNA Analysis
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../%E7%AC%AC%201%20%E7%AB%A0%20python%20%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+          
+  
+    
+  
+  📐 Data Structures
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Best%20practices%20for%20single-cell%20analysis%20across%20modalities/" class="md-tabs__link">
+          
+  
+    
+  
+  💡 Reviews
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="One Last Kiss" class="md-nav__button md-logo" aria-label="One Last Kiss" data-md-component="logo">
+      
+  <img src="../img/icon.png" alt="logo">
+
+    </a>
+    One Last Kiss
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aletolia/aletolia.github.io.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aletolia/aletolia.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href=".." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    🏠 Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            🏠 Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ⛏️ CV and Multimodels
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ⛏️ CV and Multimodels
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mygo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MyGO: Discrete Modality Information as Fine-Grained Tokens for Multi-modal Knowledge Graph Completion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GMM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GMM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DINO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mamba/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mamba
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ViT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    MoCo
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    MoCo
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Self-Supervised%20Learning%20MoCoV2%2C3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MoCo V2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E4%B8%80%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer  (一)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%20%28%E4%BA%8C%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (二)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E4%B8%89%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer  (三)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E5%9B%9B%29%20%28TNT%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (四)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%20%E9%A2%84%E8%AE%AD%E7%BB%83%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (知识蒸馏 预训练）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28PyramidTNT%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer(Pyramid TNT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E5%92%8C%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%93%E9%A2%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    傅里叶级数和傅里叶变换专题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%20%E5%AD%98%E5%82%A8%E4%B8%8E%E8%AF%BB%E5%8F%96%20HDF5%20%E6%96%87%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python 存储与读取 HDF5 文件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Segment%20Anything%20in%20Medical%20Images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Segment Anything in Medical Images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Mamba%20Efficient%20Visual%20Representation%20Learning%20with%20Bidirectional%20State%20Space%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Mamba Efficient Visual Representation Learning with Bidirectional State Space Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_18" id="__nav_2_18_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    🚑 医学影像相关
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_18">
+            <span class="md-nav__icon md-icon"></span>
+            🚑 医学影像相关
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Why%20is%20the%20winner%20the%20best/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why is the winner the best
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PORPOISE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PORPOISE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HIPT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scaling Vision Transformers to Gigapixel Images via Hierarchical Self-Supervised Learning(HIPT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data-efficient%20and%20weakly%20supervised%20computational%20pathology%20on%20whole-slide%20images%28CLAM%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data efficient and weakly supervised computational pathology on whole slide images(CLAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Towards%20a%20general-purpose%20foundation%20model%20for%20computational%20pathology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Towards a general purpose foundation model for computational pathology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20whole-slide%20foundation%20model%20for%20digital%20pathology%20from%20real-world%20data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A whole slide foundation model for digital pathology from real world data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20visual-language%20foundation%20model%20for%20computational%20pathology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A visual language foundation model for computational pathology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Recurrent%20memory%20with%20optimal%20polynomial%20projections./" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recurrent memory with optimal polynomial projections.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modeling%20Dense%20Multimodal%20Interactions%20Between%20Biological%20Pathways%20and%20Histology%20for%20Survival%20Prediction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modeling Dense Multimodal Interactions Between Biological Pathways and Histology for Survival Prediction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inferring%20super-resolution%20tissue%20architecture%20by%20integrating%20spatial%20transcriptomics%20with%20histology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inferring super resolution tissue architecture by integrating spatial transcriptomics with histology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prediction%20of%20recurrence%20risk%20in%20endometrial%20cancer%20with%20multimodal%20deep%20learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prediction of recurrence risk in endometrial cancer with multimodal deep learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🚀 Re:0 Road to CPath & Visualization
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            🚀 Re:0 Road to CPath & Visualization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    理解全幅切片图像
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    在计算病理学中用于癌症诊断的弱监督深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基于注意力的多示例学习可解释性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How%20to%20visualize%20Attention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to visualize Attention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AttentionViz%20A%20Global%20View%20of%20Transformer%20Attention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AttentionViz A Global View of Transformer Attention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transformer%20Interpretability%20Beyond%20Attention%20Visualization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformer Interpretability Beyond Attention Visualization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visualization%20Work%20Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visualization Work Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Attention%20Generation%20Work%20Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Attention Generation Work Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🪛 PyTorch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            🪛 PyTorch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Autograd%20mechanics%20%E2%80%94%20PyTorch%202_3%20documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Autograd mechanics — PyTorch 2 3 documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PyTorch%20Autograd%20Explained%20-%20In-depth%20Tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch Autograd Explained   In depth Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    💤 Re:0 Road to scRNA-seq Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            💤 Re:0 Road to scRNA-seq Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Using Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Using Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_1" id="__nav_4_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⏳ CHAPTER 1 简介
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            ⏳ CHAPTER 1 简介
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1%20Single-cell%20RNA%20sequencing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1.The building block of life
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2%20Raw%20Data%20Processing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 Raw data processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3%20Analysis%20frameworks%20and%20tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 Analysis frameworks and tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🌏 CHAPTER 2 数据准备与可视化
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            🌏 CHAPTER 2 数据准备与可视化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1%20quality_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 Quality Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2%20normalization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 Normalization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.3_feature_selection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 Feature selection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.4_dimensionality_reduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.4 Dimensionality Reduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🍀 CHAPTER 3 识别细胞结构
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            🍀 CHAPTER 3 识别细胞结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1clustering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 Clustering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.2annotation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 Annotation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 Data integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_4" id="__nav_4_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⏱️ CHAPTER 4 推断细胞轨迹
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            ⏱️ CHAPTER 4 推断细胞轨迹
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pseudotemporal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 Pseudotemporal ordering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rna_velocity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 RNA velocity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lineage_tracing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.3 Lineage tracing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_5" id="__nav_4_1_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🎁 CHAPTER 5 应对特殊情况
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            🎁 CHAPTER 5 应对特殊情况
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../differential_gene_expression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 Differential gene expression analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compositional/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 Compositional analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gsea_pathway/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.3 Gene set enrichment and pathway analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../perturbation_modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.4 Perturbation modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⚙️ CHAPTER 6 机制建模
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            ⚙️ CHAPTER 6 机制建模
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gene_regulatory_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1 Gene regulatory networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cell_cell_communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2 Cell-cell communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_7" id="__nav_4_1_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🔓 CHAPTER 7 反卷积
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            🔓 CHAPTER 7 反卷积
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bulk_deconvolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 Bulk deconvolution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    简明易懂的单细胞分析流程（使用 R 语言）
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            简明易懂的单细胞分析流程（使用 R 语言）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    环境配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1%20%E6%9E%84%E5%BB%BA%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E5%88%86%E6%9E%90%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1 构建单细胞 RNA seq 分析环境
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2%20R%20%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 R 环境安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3%20Docker%20%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 Docker 安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.4%20%E5%9C%A8%20Docker%20%E4%B8%AD%E5%90%AF%E5%8A%A8%20Rstudio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.4 在 Docker 中启动 Rstudio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.5%20%E6%9C%89%E5%85%B3%20Bioconductor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.5 有关 Bioconductor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1%20R%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 R 的基本用法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2%20%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%20DataFrame%EF%BC%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 如何处理 DataFrame？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.3%20%E4%BD%BF%E7%94%A8%20ggplot2%20%E5%8F%AF%E8%A7%86%E5%8C%96%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 使用 ggplot2 可视化数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1%20PCA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 PCA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.2%20%E4%BD%BF%E7%94%A8%20clusterPlofiler%20%E8%BF%9B%E8%A1%8C%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 使用 clusterPlofiler 进行富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3%20%E5%9F%BA%E5%9B%A0%E6%9C%AC%E4%BD%93%EF%BC%88GO%EF%BC%89%E4%B8%AD%E5%90%84%20BP%E3%80%81MF%20%E5%92%8C%20CC%20%E7%9A%84%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 基因本体（GO）中各 BP、MF 和 CC 的富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3%20%E4%BD%BF%E7%94%A8%20DEseq2%20%E6%8F%90%E5%8F%96%20RNA-seq%20%E5%88%86%E6%9E%90%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%20DEG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 使用 DEseq2 提取 RNA seq 分析数据中的 DEG
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.4%20%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88KEGG%E3%80%81Reactome%20%E7%AD%89%EF%BC%89%E8%BF%9B%E8%A1%8C%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.4 使用其他数据库（KEGG、Reactome 等）进行富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1%20scRNA-seq%20%E6%A6%82%E8%A6%81/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 scRNA seq 概要
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.2%20%E5%87%86%E5%A4%87%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 准备使用 Seurat 进行分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.3%20%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.3 使用 Seurat 进行数据预处理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.4%20%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E8%88%AC%E9%A1%BA%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.4 使用 Seurat 进行数据分析的一般顺序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.1%20%E5%A6%82%E4%BD%95%E6%9F%A5%E6%89%BE%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 如何查找单细胞 RNA seq 数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.2%20%E4%B8%BA%E6%AF%8F%E4%B8%AA%E7%B0%87%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E7%BB%86%E8%83%9E%E6%B3%A8%E9%87%8A%E6%A0%87%E7%AD%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 为每个簇自动添加细胞注释标签
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.3%20%E4%BD%BF%E7%94%A8%20FeaturePlot%20%E6%A3%80%E6%9F%A5%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.3 使用 FeaturePlot 检查基因表达
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.4%20%E5%B0%86%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9B%B8%E4%BA%92%E7%BB%93%E5%90%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.4 将单细胞 RNA seq 数据集相互结合
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.5%20%E7%BA%A0%E6%AD%A3%E6%89%B9%E6%AC%A1%E6%95%88%E5%BA%94%EF%BC%8C%E6%AF%94%E8%BE%83%E5%AF%B9%E7%85%A7%E7%BB%84%E5%92%8C%E5%88%BA%E6%BF%80%E7%BB%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.5 纠正批次效应，比较对照组和刺激组
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.6%20%E7%A1%AE%E5%AE%9A%E6%AF%8F%E4%B8%AA%E7%BE%A4%E7%BB%84%E7%9A%84%E6%A0%87%E8%AE%B0%E5%9F%BA%E5%9B%A0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.6 确定每个群组的标记基因
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.1%20%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Cell%20Ranger%20%E7%BB%9F%E8%AE%A1%20scRNA-seq%20%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE%E6%B0%B4%E5%B9%B3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1 如何使用 Cell Ranger 统计 scRNA seq 数据中的基因表达水平
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.2%20%E4%BD%BF%E7%94%A8%20Cell%20Ranger%20%E5%A4%84%E7%90%86%20NCBI%20Sequence%20Read%20Archive%20%28SRA%29%20%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2 使用 Cell Ranger 处理 NCBI Sequence Read Archive (SRA) 数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.1%20%E5%85%B3%E4%BA%8E%20scRNA-seq%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%B4%A8%E9%87%8F%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 关于 scRNA seq 数据的质量控制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.2%20%E4%BD%BF%E7%94%A8%20DoubleFinder%20%E6%A3%80%E6%B5%8B%E5%8F%8C%E9%87%8D%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.2 使用 DoubleFinder 检测双重细胞
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.3%20%E7%94%A8%20CellBender%20%E5%8E%BB%E9%99%A4%E8%83%8C%E6%99%AF%20RNA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.3 用 CellBender 去除背景 RNA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🧬 scRNA Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            🧬 scRNA Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🐍 Using Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            🐍 Using Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Large-scale%20foundation%20model%20on%20single-cell%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Large scale foundation model on single cell transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scGPT%20toward%20building%20a%20foundation%20model%20for%20single-cell%20multi-omics%20using%20generative%20AI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scGPT toward building a foundation model for single cell multi omics using generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scBERT%20as%20a%20large-scale%20pretrained%20deep%20language%20model%20for%20cell%20type%20annotation%20of%20single-cell%20RNA-seq%20data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scBERT as a large scale pretrained deep language model for cell type annotation of single cell RNA seq data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RNA%20velocity%20of%20single%20cells/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RNA velocity of single cells
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TFvelo_gene%20regulation%20inspired%20RNA%20velocity%20estimation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TFvelo gene regulation inspired RNA velocity estimation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Disentanglement%20of%20single-cell%20data%20with%20biolord/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Disentanglement of single cell data with biolord
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%AD%90%E2%AD%90%E2%AD%90C5aR1%20inhibition%20reprograms%20tumor%20associated%20macrophages%20and%20reverses%20PARP%20inhibitor%20resistance%20in%20breast%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⭐⭐⭐C5aR1 inhibition reprograms tumor associated macrophages and reverses PARP inhibitor resistance in breast cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spatial%20transition%20tensor%20of%20single%20cells/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial transition tensor of single cells
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Statistical%20method%20scDEED%20for%20detecting%20dubious%202D%20single-cell%20embeddings%20and%20optimizing%20t-SNE%20and%20UMAP%20hyperparameters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistical method scDEED for detecting dubious 2D single cell embeddings and optimizing t SNE and UMAP hyperparameters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scRank%20infers%20drug-responsive%20cell%20types%20from%20untreated%20scRNA-seq%20data%20using%20a%20target-perturbed%20gene%20regulatory%20network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scRank infers drug responsive cell types from untreated scRNA seq data using a target perturbed gene regulatory network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📔 文献
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            📔 文献
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tumour%20vasculature%20at%20single-cell%20resolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    摘要
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scRNA-seq%20of%20gastric%20tumor%20shows%20complex%20intercellular%20interaction%20with%20an%20alternative%20T%20cell%20exhaustion%20trajectory%EF%BC%88%E5%8F%82%E8%80%83%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scRNA seq of gastric tumor shows complex intercellular interaction with an alternative T cell exhaustion trajectory（参考）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20analysis%20reveals%20new%20evolutionary%20complexity%20in%20uveal%20melanoma%EF%BC%88%E5%8F%82%E8%80%83%202%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis reveals new evolutionary complexity in uveal melanoma（参考 2）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20characterization%20of%20macrophages%20in%20uveal%20melanoma%20uncovers%20transcriptionally%20heterogeneous%20subsets%20conferring%20poor%20prognosis%20and%20aggressive%20behavior%EF%BC%88%E8%8C%83%E4%BE%8B%201%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell characterization of macrophages in uveal melanoma uncovers transcriptionally heterogeneous subsets conferring poor prognosis and aggressive behavior（范例 1）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ScRNA-seq%20of%20gastric%20cancer%20tissues%20reveals%20differences%20in%20the%20immune%20microenvironment%20of%20primary%20tumors%20and%20metastases/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ScRNA seq of gastric cancer tissues reveals differences in the immune microenvironment of primary tumors and metastases
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Blimp-1%20and%20c-Maf%20regulate%20immune%20gene%20networks%20to%20protect%20against%20distinct%20pathways%20of%20pathobiont-induced%20colitis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blimp 1 and c Maf regulate immune gene networks to protect against distinct pathways of pathobiont induced colitis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single%20cell%20analysis%20unveils%20B%20cell-dominated%20immune%20subtypes%20in%20HNSCC%20for%20enhanced%20prognostic%20and%20therapeutic%20stratification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis unveils B cell dominated immune subtypes in HNSCC for enhanced prognostic and therapeutic stratification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20spatial%20multi-omics%20and%20deep%20learning%20dissect%20enhancer-driven%20gene%20regulatory%20networks%20in%20liver%20zonation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell spatial multi omics and deep learning dissect enhancer driven gene regulatory networks in liver zonation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Neutrophil%20profiling%20illuminates%20anti-tumor%20antigen%20presenting%20potency/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neutrophil profiling illuminates anti tumor antigen presenting potency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20blueprint%20for%20tumor-infiltrating%20B%20cells%20across%20human%20cancers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A blueprint for tumor infiltrating B cells across human cancers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20transcriptomic%20analyses%20reveal%20distinct%20immune%20cell%20contributions%20to%20epithelial%20barrier%20dysfunction%20in%20checkpoint%20inhibitor%20colitis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell transcriptomic analyses reveal distinct immune cell contributions to epithelial barrier dysfunction in checkpoint inhibitor colitis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Systematic%20dissection%20of%20tumor-normal%20single-cell%20ecosystems%20across%20a%20thousand%20tumors%20of%2030%20cancer%20types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systematic dissection of tumor normal single cell ecosystems across a thousand tumors of 30 cancer types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../The%20aged%20tumor%20microenvironment%20limits%20T%20cell%20control%20of%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The aged tumor microenvironment limits T cell control of cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TIM-3%2B%20CD8%20T%20cells%20with%20a%20terminally%20exhausted%20phenotype%20retain%20functional%20capacity%20in%20hematological%20malignancies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TIM 3+ CD8 T cells with a terminally exhausted phenotype retain functional capacity in hematological malignancies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20lactate-SREBP2%20signaling%20axis%20drives%20tolerogenic%20dendritic%20cell%20maturation%20and%20promotes%20cancer%20progression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A lactate SREBP2 signaling axis drives tolerogenic dendritic cell maturation and promotes cancer progression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20human%20omentum-specific%20mesothelial-like%20stromal%20population%20inhibits%20adipogenesis%20through%20IGFBP2%20secretion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A human omentum specific mesothelial like stromal population inhibits adipogenesis through IGFBP2 secretion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Interferon-stimulated%20neutrophils%20as%20a%20predictor%20of%20immunotherapy%20response/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interferon stimulated neutrophils as a predictor of immunotherapy response
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Repression%20of%20latent%20NF-%CE%BAB%20enhancers%20by%20PDX1%20regulates%20%CE%B2%20cell%20functional%20heterogeneity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Repression of latent NF κB enhancers by PDX1 regulates β cell functional heterogeneity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20systematic%20pan-cancer%20study%20on%20deep%20learning-based%20prediction%20of%20multi-omic%20biomarkers%20from%20routine%20pathology%20images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A systematic pan cancer study on deep learning based prediction of multi omic biomarkers from routine pathology images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20and%20spatial%20transcriptomics%20analysis%20of%20non-small%20cell%20lung%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell and spatial transcriptomics analysis of non small cell lung cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seeing%20data%20as%20t-SNE%20and%20UMAP%20do/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Seeing data as t SNE and UMAP do
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping%20the%20cellular%20biogeography%20of%20human%20bone%20marrow%20niches%20using%20single-cell%20transcriptomics%20and%20proteomic%20imaging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapping the cellular biogeography of human bone marrow niches using single cell transcriptomics and proteomic imaging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Onco-fetal%20Reprogramming%20of%20Endothelial%20Cells%20Drives%20Immunosuppressive%20Macrophages%20in%20Hepatocellular%20Carcinoma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Onco fetal Reprogramming of Endothelial Cells Drives Immunosuppressive Macrophages in Hepatocellular Carcinoma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20analysis%20of%20anti-BCMA%20CAR%20T%20cell%20therapy%20in%20patients%20with%20central%20nervous%20system%20autoimmunity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis of anti BCMA CAR T cell therapy in patients with central nervous system autoimmunity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20sequencing%20depicts%20tumor%20architecture%20and%20empowers%20clinical%20decision%20in%20metastatic%20conjunctival%20melanoma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell sequencing depicts tumor architecture and empowers clinical decision in metastatic conjunctival melanoma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PR-SET7%20epigenetically%20restrains%20uterine%20interferon%20response%20and%20cell%20death%20governing%20proper%20postnatal%20stromal%20development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PR SET7 epigenetically restrains uterine interferon response and cell death governing proper postnatal stromal development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Clonal%20associations%20between%20lymphocyte%20subsets%20and%20functional%20states%20in%20rheumatoid%20arthritis%20synovium/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clonal associations between lymphocyte subsets and functional states in rheumatoid arthritis synovium
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📐 Data Structures
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            📐 Data Structures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%201%20%E7%AB%A0%20python%20%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 1 章 python 入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%202%20%E7%AB%A0%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 2 章 面向对象编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%203%20%E7%AB%A0%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 3 章 算法分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%204%20%E7%AB%A0%20%E9%80%92%E5%BD%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 4 章 递归
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%205%20%E7%AB%A0%20%E5%9F%BA%E4%BA%8E%E6%95%B0%E7%BB%84%E7%9A%84%E5%BA%8F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 5 章 基于数组的序列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%206%20%E7%AB%A0%20%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E5%92%8C%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 6 章 栈、队列和双端队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%207%20%E7%AB%A0%20%E9%93%BE%E8%A1%A8%28Linked%20Lists%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 7 章 链表(Linked Lists)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%208%20%E7%AB%A0%20%E6%A0%91%20%E2%98%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 8 章 树 ★
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%209%20%E7%AB%A0%20%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 9 章 优先级队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    💡 Reviews
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            💡 Reviews
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🧭 scRNA analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            🧭 scRNA analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Best%20practices%20for%20single-cell%20analysis%20across%20modalities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best practices for single cell analysis across modalities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Multi-omics%20integration%20in%20biomedical%20research%20%E2%80%93%20A%20metabolomics-centric%20review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multi omics integration in biomedical research – A metabolomics centric review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Museum%20of%20spatial%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Museum of spatial transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20guide%20to%20artificial%20intelligence%20for%20cancer%20researchers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A guide to artificial intelligence for cancer researchers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🦠 Metabolism
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            🦠 Metabolism
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20analysis%20as%20a%20driver%20for%20discovery%2C%20diagnosis%2C%20and%20therapy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic analysis as a driver for discovery, diagnosis, and therapy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20heterogeneity%20in%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic heterogeneity in cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Toward%20modeling%20metabolic%20state%20from%20single-cell%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Toward modeling metabolic state from single cell transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20reprogramming%20and%20cancer%20progression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic reprogramming and cancer progression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Protein
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Protein
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Proteomic%20and%20interactomic%20insights%20into%20the%20molecular%20basis%20of%20cell%20functional%20diversity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proteomic and interactomic insights into the molecular basis of cell functional diversity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/aletolia/aletolia.github.io.git/edit/master/docs/Self-Supervised Learning MoCo.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/aletolia/aletolia.github.io.git/raw/master/docs/Self-Supervised Learning MoCo.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+  <h1>MoCo</h1>
+
+<p><strong>Self-Supervised Learning</strong>，又称为自监督学习，我们知道一般机器学习分为有监督学习，无监督学习和强化学习。 而 Self-Supervised Learning 是无监督学习里面的一种，主要是希望能够学习到一种<strong>通用的特征表达</strong>用于<strong>下游任务 (Downstream Tasks)</strong>。 其主要的方式就是通过自己监督自己。作为代表作的 kaiming 的 MoCo 引发一波热议， Yann Lecun 也在 AAAI 上讲 Self-Supervised Learning 是未来的大势所趋。所以在这个系列中，我会系统地解读 Self-Supervised Learning 的经典工作。</p>
+<p>今天介绍的 MoCo 这个系列的第一版 MoCo v1 就是在 SimCLR 诞生之前的一种比较流行的无监督学习方法，这个系列的前 2 个工作 MoCo v1 和 v2 是针对 CNN 设计的，而 MoCo v3 是针对最近大火的 Transformer 模型设计的，反映了 MoCo 这类方法<strong>对视觉模型的普适性</strong>。MoCo 和 SimCLR 系列方法的共同特点是<strong>简单有效</strong>，关于 SimCLR 的详细解读欢迎参考下面的链接啊：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/378953015">科技猛兽：Self-Supervised Learning 超详细解读 (二)：SimCLR 系列</a></p>
+<p>总结下 Self-Supervised Learning 的方法，用 4 个英文单词概括一下就是：</p>
+<p><strong>Unsupervised Pre-train, Supervised Fine-tune.</strong></p>
+<p>在预训练阶段我们使用<strong>无标签的数据集 (unlabeled data)</strong>，因为有标签的数据集<strong>很贵</strong>，打标签得要多少人工劳力去标注，那成本是相当高的，所以这玩意太贵。相反，无标签的数据集网上随便到处爬，它<strong>便宜</strong>。在训练模型参数的时候，我们不追求把这个参数用带标签数据从<strong>初始化的一张白纸</strong>给一步训练到位，原因就是数据集太贵。于是 <strong>Self-Supervised Learning</strong> 就想先把参数从 <strong>一张白纸</strong> 训练到 <strong>初步成型</strong>，再从 <strong>初步成型</strong> 训练到 <strong>完全成型</strong>。注意这是 2 个阶段。这个<strong>训练到初步成型的东西</strong>，我们把它叫做 <strong>Visual Representation</strong>。预训练模型的时候，就是模型参数从 <strong>一张白纸</strong> 到 <strong>初步成型</strong> 的这个过程，还是用无标签数据集。等我把模型参数训练个八九不离十，这时候再根据你 <strong>下游任务 (Downstream Tasks)</strong> 的不同去用带标签的数据集把参数训练到 <strong>完全成型</strong>，那这时用的数据集量就不用太多了，因为参数经过了第 1 阶段就已经训练得差不多了。</p>
+<p>第 1 个阶段不涉及任何下游任务，就是拿着一堆无标签的数据去预训练，没有特定的任务，这个话用官方语言表达叫做：<strong>in a task-agnostic way</strong>。第 2 个阶段涉及下游任务，就是拿着一堆带标签的数据去在下游任务上 Fine-tune，这个话用官方语言表达叫做：<strong>in a task-specific way</strong></p>
+<p><strong>以上这些话就是 Self-Supervised Learning 的核心思想</strong>，如下图 1 所示。</p>
+<p><img alt="" src="https://pic1.zhimg.com/v2-4b4accbd1e92a3d7141f60772e06e90c_r.jpg" /></p>
+<ul>
+<li><strong>1 MoCo v1</strong></li>
+</ul>
+<p><strong>论文名称：Momentum Contrast for Unsupervised Visual Representation Learning</strong></p>
+<p><strong>论文地址：</strong></p>
+<p><a href="https://arxiv.org/pdf/1911.05722.pdf">https://arxiv.org/pdf/1911.05722.pdf</a></p>
+<p><strong>开源地址：</strong></p>
+<p><a href="https://github.com/facebookresearch/moco">facebookresearch/moco</a></p>
+<p>MoCo 系列也遵循这个思想，预训练的 MoCo 模型也会得到 Visual Representation，它们可以通过 Fine-tune 以适应各种各样的下游任务，比如检测和分割等等。MoCo 在 7 个检测 / 语义分割任务（PASCAL VOC, COCO, 其他的数据集）上可以超过他的有监督训练版本。有时会超出很多。这表明在有监督与无监督表示学习上的差距在许多视觉任务中已经变得非常近了。</p>
+<p>自监督学习的关键可以概括为两点：Pretext Task，Loss Function，在下面分别介绍。</p>
+<ul>
+<li><strong>1.1 自监督学习的 Pretext Task</strong></li>
+</ul>
+<p>Pretext Task 是无监督学习领域的一个常见的术语，其中 "Pretext" 翻译过来是 " 幌子，托词，借口 " 的意思。所以 Pretext Task 专指这样一种任务：这种任务并非我们所真正关心的，但是通过完成它们，我们能够学习到一种很好的表示，这种表示对下游任务很重要。</p>
+<blockquote>
+<p>The term "pretext" implies that the task being solved is not of genuine interest, but is solved only for the true purpose of learning a good data representation.</p>
+</blockquote>
+<p>我这里举几个例子：</p>
+<p><strong>(1) BERT 的 Pretext Task：</strong>在训练 BERT 的时候，我们曾经在预训练时让它作填空的任务，详见：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/378360224">科技猛兽：Self-Supervised Learning 超详细解读 (一)：大规模预训练模型 BERT</a></p>
+<p>如下图 2 所示，把这段输入文字里面的一部分随机盖住。就是直接用一个 Mask 把要盖住的 token (对中文来说就是一个字) 给 Mask 掉，具体是换成一个<strong>特殊的字符</strong>。接下来把这个盖住的 token 对应位置输出的向量做一个 Linear Transformation，再做 softmax 输出一个分布，这个分布是每一个字的概率。因为这时候 BERT 并不知道被 Mask 住的字是 " 湾 " ，但是我们知道啊，所以损失就是让这个输出和被盖住的 " 湾 " 越接近越好。</p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-fd9c8e1aa8858269634f0f99906c3357_r.jpg" /></p>
+<p>通过图 2 这种方式训练 BERT，得到的预训练模型在下游任务只要稍微做一点 Fine-tune，效果就会比以往有很大的提升。</p>
+<p>所以这里的 <strong>Pretext Task</strong> 就是<strong>填空的任务</strong>，这个任务和下游任务毫不相干，甚至看上去很笨，但是 BERT 就是通过这样的 Pretext Task 学习到了很好的 <strong>Language Representation</strong>，很好地适应了下游任务。</p>
+<p><strong>(2) SimCLR 的 Pretext Task：</strong>在训练 SimCLR 的时候，我们曾经在预训练时试图教模型区分相似和不相似的事物，详见：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/378953015">科技猛兽：Self-Supervised Learning 超详细解读 (二)：SimCLR 系列</a></p>
+<p>如下图 3 所示，假设现在有 <strong>1 张</strong>任意的图片 <span class="arithmatex">\(x\)</span> ，叫做 Original Image，先对它做数据增强，得到 2 张增强以后的图片 <span class="arithmatex">\(x_i,x_j\)</span> 。接下来把增强后的图片 <span class="arithmatex">\(x_i,x_j\)</span> 输入到 Encoder 里面，注意这 2 个 Encoder 是共享参数的，得到 representation <span class="arithmatex">\(h_i,h_j\)</span> ，再把 <span class="arithmatex">\(h_i,h_j\)</span> 继续通过 Projection head 得到 representation <span class="arithmatex">\(z_i,z_j\)</span> ，这里的 2 个 Projection head 依旧是共享参数的，且其具体的结构表达式是：</p>
+<div class="arithmatex">\[
+z_i=g(h_i)=W^{(2)}\sigma (W^{(1)}h_i)\tag{1}
+\]</div>
+<p>接下来的目标就是最大化同一张图片得到的 <span class="arithmatex">\(z_i^1,z_j^1\)</span> ，最小化不同张图片得到的 <span class="arithmatex">\(z_i^1,z_i^2,z_j^2,z_i^3,z_j^3,z_i^4,z_j^4,z_i^5,z_j^5,...\)</span> 。</p>
+<p><img alt="" src="https://pic3.zhimg.com/v2-aeed95c198c2683dc98c83af0b33c596_r.jpg" /></p>
+<p>通过图 3 这种方式训练 SimCLR，得到的预训练模型在下游任务只要稍微做一点 Fine-tune，效果就会比以往有很大的提升。</p>
+<p>所以这里的 <strong>Pretext Task</strong> 就是<strong>试图教模型区分相似和不相似的事物</strong>，这个任务和下游任务毫不相干，甚至看上去很笨，但是 SimCLR 就是通过这样的 Pretext Task 学习到了很好的 <strong>Image Representation</strong>，很好地适应了下游任务。</p>
+<p>还有一些常见的 Pretext Task 诸如 denoising auto-encoders，context autoencoders，cross-channel auto-encoders 等等，这里就不一一介绍了。</p>
+<ul>
+<li><strong>1.2 自监督学习的 Contrastive loss</strong></li>
+</ul>
+<p>Contrastive loss 来自于下面这篇 Yann LeCun 组的工作，如何理解这个对比损失呢？</p>
+<p><a href="http://yann.lecun.com/exdb/publis/pdf/hadsell-chopra-lecun-06.pdf">http://yann.lecun.com/exdb/publis/pdf/hadsell-chopra-lecun-06.pdf</a></p>
+<p>常见的损失函数是 cross entropy loss，它适合于数据的 label 是 one-hot 向量的形式。此时网络结构的最后一层是 softmax，输出得到各个类的预测值。比如现在有 3 个类：dog, cat, horse，它们的 label 分别对应着 (1,0,0), (0,1,0), (0,0,1)，cross entropy loss 会让 dog 图片的输出尽量接近 (1,0,0)，让 cat 图片的输出尽量接近 (0,1,0)，让 horse 图片的输出尽量接近 (0,0,1)。但是这也存在一个问题，就是假设再来 3 个类，分别是 sky，car 和 bus。那么按道理 <strong>dog 与 horse 的距离 应该比 dog 与 sky 的距离近， 因为 dog 与 horse 都属于动物；</strong> car 与 bus 的距离 应该也比 car 与 cat 的距离近，因为 car 与 bus 都属于车类。但是 cross entropy loss 确是一视同仁地把 dog 与 horse 的距离 和 dog 与 sky 的距离 看作是一样的。</p>
+<p><strong>Contrastive loss 的初衷</strong>是想让：1 相近的样本之间的距离越小越好。2 相远的样本之间的距离越大越好。</p>
+<p>如果神经网络的损失函数只满足条件 1，那么网络会让任何的输入都输出相同的值，不论输入是 dog, cat, horse 还是 sky，car, bus，输出都是一样的，这确实满足了相近的样本之间的距离越小越好，但是却使得网络丧失了分类能力。</p>
+<p>如果神经网络的损失函数只满足条件 1 和 2，是不是就完善了呢？</p>
+<p>实际上如果想让相远的样本之间的距离越大越好，就需要一个边界，否则如果 dog 是 (1,0,0)，那么 假设第 1 轮训练网络输出 cat 是 (0,1,0)，第 2 轮训练网络输出 cat 是 (0,5,0)... 这样下去 dog 与 cat 之间的距离越来越大，网络却没法收敛。</p>
+<p><strong>Contrastive loss 改进的思路</strong>就是让相远的样本之间的距离越大越好，但是这个距离要有边界，即要求：<strong>1 相近的样本之间的距离越小越好。2 相远的样本之间的距离越大越好，这个距离最大是</strong> <span class="arithmatex">\(m\)</span> <strong>。</strong> 如下图 4 弹簧图所示：黑色实心球代表与蓝色球相近的样本，白色空心球代表与蓝色球相远的样本，蓝色箭头的长度代表力的大小，方向代表力的方向。</p>
+<p>(a)：Contrastive loss 使得相近的样本接近。</p>
+<p>(b)：横轴代表样本之间的距离，纵轴代表 loss 值。Contrastive loss 使得相近的样本距离越小，loss 值越低。</p>
+<p>(c)：Contrastive loss 使得相远的样本疏远。</p>
+<p>(d)：横轴代表样本之间的距离，纵轴代表 loss 值。Contrastive loss 使得相远的样本距离越大，loss 值越低，但距离存在上界，就是红线与 x 轴的交点 <span class="arithmatex">\(m\)</span> ，代表距离的最大值。</p>
+<p>(e)：一个样本受到其他各个独立样本的作用，各个方向的力处于平衡状态，代表模型参数在 Contrastive loss 的作用下训练到收敛。</p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-71c4b9cb6c99bf6534afc76442d09ac7_r.jpg" /></p>
+<p>Contrastive loss 用公式表示为：</p>
+<div class="arithmatex">\[
+\begin{align} &amp;L(W,Y,\vec{X_1},\vec{X_2})=(1-Y)\frac{1}{2}(D_W)^2+(Y)\frac{1}{2}\left\{ \max(0,m-D_W) \right\}^2\\ &amp;D_W(\vec{X_1},\vec{X_2})=||G_W(\vec{X_1})-G_W(\vec{X_2})||_2 \end{align} \tag{2}
+\]</div>
+<p>式中， <span class="arithmatex">\(\vec{X_1},\vec{X_2}\)</span> 是 2 个样本， <span class="arithmatex">\(D_W\)</span> 是 <span class="arithmatex">\(\vec{X_1}\)</span> 与 <span class="arithmatex">\(\vec{X_2}\)</span> 在潜变量空间的欧几里德距离， <span class="arithmatex">\(Y=0\)</span> 代表是相近的样本，此时要求 <span class="arithmatex">\(D_W\)</span> 尽量接近 0。 <span class="arithmatex">\(Y=1\)</span> 代表是相远的样本，此时要求 <span class="arithmatex">\(D_W&lt;m\)</span> 时与 <span class="arithmatex">\(m\)</span> 越接近越好，但是距离一旦超过 <span class="arithmatex">\(m\)</span> 即失效，不会再接着更新参数使得距离越来越大。</p>
+<p>有意思的是那些属于不同类，但两两距离天生大于 m 的样本对。 LeCun 的对比损失完全忽视这些样本对，大大减少了计算量。此外，Contrastive loss 提供了一个不同类别样本点之间距离的下界 <span class="arithmatex">\(m\)</span> 。</p>
+<ul>
+<li><strong>1.3 MoCo v1 之前的做法</strong></li>
+</ul>
+<p>了解了 Pretext Task 和 Contrastive loss，接下来就要正式介绍 MoCo v1 的原理了。</p>
+<p><img alt="" src="https://pic2.zhimg.com/v2-1b88c744eb6a339ddfb960d1fc770695_r.jpg" /></p>
+<p>如上图 5 所示，输入 <span class="arithmatex">\(x^q\)</span> 通过编码器 Encoder 得到 query <span class="arithmatex">\(q\)</span> ，还有几个输入 <span class="arithmatex">\(x^{k_0},x^{k_1},x^{k_2}\)</span> 通过编码器 Encoder 得到 key <span class="arithmatex">\(k_0,k_1,k_2\)</span> 。假设只有一个 key <span class="arithmatex">\(k_{+}\)</span> 和 <span class="arithmatex">\(q\)</span> 是匹配的。根据上面的 Contrastive loss 的性质，只有当 <span class="arithmatex">\(q\)</span> 和相匹配的 <span class="arithmatex">\(k_{+}\)</span> 相近，且与其他不匹配的 <span class="arithmatex">\(k_0,k_1,k_2\)</span> 相远时， Contrastive loss 的值才会最小。这个工作使用点积作为相似度的度量，且使用 InfoNCE 作为 Contrastive loss，则有：</p>
+<div class="arithmatex">\[
+\mathcal{L}_q=-\log \frac{\exp \left(q \cdot k_{+} / \tau\right)}{\sum_{i=0}^K \exp \left(q \cdot k_i / \tau\right)}
+\]</div>
+<p>式中， <span class="arithmatex">\(\tau\)</span> 是超参数，这个式子其实非常像把 <span class="arithmatex">\(q\)</span> 分类成第 <span class="arithmatex">\(k_{+}\)</span> 类的 cross entropy loss。</p>
+<p>这里的 <span class="arithmatex">\(x^q,x^k\)</span> 可以是 image，可以是 image patches 等等， <span class="arithmatex">\(q=f_\textrm{q}(x^q),k=f_\textrm{k}(x^k)\)</span> ， <span class="arithmatex">\(f_\textrm{q},f_\textrm{k}\)</span> 是 Encoder，也可以是很多种架构。</p>
+<p><strong>[1 原始的端到端自监督学习方法]：</strong>对于给定的一个样本 <span class="arithmatex">\(x^q\)</span> ， 选择一个正样本 <span class="arithmatex">\(x^{k_{+}}\)</span> (这里正样本的对于图像上的理解就是 <span class="arithmatex">\(x^q\)</span> 的 data augmentation 版本)。然后选择<strong>一批负样本</strong> (对于图像来说，就是除了 <span class="arithmatex">\(x^q\)</span> 之外的图像)，然后使用 loss function <span class="arithmatex">\(\mathcal{L}_q\)</span> 来将 <span class="arithmatex">\(x^q\)</span> 与正样本之间的距离拉近，负样本之间的距离推开。样本 <span class="arithmatex">\(x^q\)</span> 输入给 Encoder <span class="arithmatex">\(f_\textrm{q}\)</span> ，正样本和负样本都输入给 Encoder <span class="arithmatex">\(f_\textrm{k}\)</span> 。</p>
+<p>这样其实就可以做自监督了，就可以进行端到端的训练了。实际上这就是最<strong>原始的图像领域的自监督学习方法</strong>，如下图 6 所示，方法如上面那一段所描述的那样，通过 loss function <span class="arithmatex">\(\mathcal{L}_q\)</span> 来更新 2 个 Encoder <span class="arithmatex">\(f_\textrm{q},f_\textrm{k}\)</span> 的参数。</p>
+<p>原始的自监督学习方法里面的这<strong>一批负样本</strong>就相当于是有个<strong>字典 (Dictionary)</strong>，字典的 key 就是负样本，字典的 value 就是负样本通过 Encoder <span class="arithmatex">\(f_\textrm{k}\)</span> 之后的东西。那么现在问题来了：</p>
+<p><strong>问：这一批负样本，即字典的大小是多大呢？</strong></p>
+<p><strong>答：</strong>负样本的规模就是 batch size，即字典的大小就是 batch size。</p>
+<p>举个例子，<strong>假设 batch size = 256</strong>，那么对于给定的一个样本 <span class="arithmatex">\(x^q\)</span> ， 选择一个正样本 <span class="arithmatex">\(x^{k_{+}}\)</span> (这里正样本的对于图像上的理解就是 <span class="arithmatex">\(x^q\)</span> 的 data augmentation 版本)。然后选择 <strong>256 个负样本</strong> (对于图像来说，就是除了 <span class="arithmatex">\(x^q\)</span> 之外的图像)，然后使用 loss function <span class="arithmatex">\(\mathcal{L}_q\)</span> 来将 <span class="arithmatex">\(x^q\)</span> 与正样本之间的距离拉近，负样本之间的距离推开。</p>
+<p>毫无疑问是 batch size 越大效果越好的，这一点在 SimCLR 中也得到了证明。但是，由于算力的影响 batch size 不能设置过大，因此很难应用大量的负样本。因此效率较低。</p>
+<p><img alt="" src="https://pic1.zhimg.com/v2-fcce1d06cf3ca759dac77c8b05292d94_r.jpg" /></p>
+<p><img alt="" src="https://pic2.zhimg.com/v2-6a069d5cb6d5152513b91dd023cb7e11_b.jpg" /></p>
+<p>针对很难应用大量的负样本的问题，有没有其他的解决方案呢？下面给出了一种方案，如下图 7 所示。</p>
+<p><strong>[2 采用一个较大的 memory bank 存储较大的字典]：</strong> 对于给定的一个样本 <span class="arithmatex">\(x^q\)</span> ， 选择一个正样本 <span class="arithmatex">\(x^{k_{+}}\)</span> (这里正样本的对于图像上的理解就是 <span class="arithmatex">\(x^q\)</span> 的 data augmentation 版本)。采用一个较大的 memory bank 存储较大的字典，这个 memory bank 具体存储的是所有样本的 representation。(涵盖所有的样本，比如样本一共有 60000 个，那么 memory bank 大小就是 60000，字典大小也是 60000)，采样其中的<strong>一部分负样本</strong> <span class="arithmatex">\(k^{sample}\)</span> ，然后使用 loss function <span class="arithmatex">\(\mathcal{L}_q\)</span> 来将 <span class="arithmatex">\(x^q\)</span> 与正样本之间的距离拉近，负样本之间的距离推开。这次只更新 Encoder <span class="arithmatex">\(f_\textrm{q}\)</span> 的参数，和几个采样的 key 值 <span class="arithmatex">\(k^{sample}\)</span> 。因为这时候没有了 Encoder <span class="arithmatex">\(f_\textrm{k}\)</span> 的反向传播，所以支持 memory bank 容量很大。</p>
+<p>但是，你这一个 step 更新的是 Encoder <span class="arithmatex">\(f_\textrm{q}\)</span> 的参数，和几个采样的 key 值 <span class="arithmatex">\(\color{purple}{k^{sample_1}}\)</span>，下个 step 更新的是 Encoder <span class="arithmatex">\(f_\textrm{q}\)</span> 的参数，和几个采样的 key 值 <span class="arithmatex">\(\color{crimson}{k^{sample_2}}\)</span>，问题是 <span class="arithmatex">\(\color{purple}{k^{sample_1}}\ne \color{crimson}{k^{sample_2}}\)</span> ，也就是：Encoder <span class="arithmatex">\(f_\textrm{q}\)</span> 的参数每个 step 都更新，但是某一个 <span class="arithmatex">\(k_i\)</span> 可能很多个 step 才被采样到更新一次，而且一个 epoch 只会更新一次。这就出现了一个问题，即：每个 step 编码器都会进行更新，这样最新的 query 采样得到的 key 可能是好多个 step 之前的编码器编码得到的 key，因此丧失了一致性。</p>
+<p><img alt="" src="https://pic1.zhimg.com/v2-05b73c45c1db77ff7022e59499cfb62c_b.jpg" /></p>
+<p>从这一点来看，[1 原始的端到端自监督学习方法] 的一致性最好，但是受限于 batchsize 的影响。而 [2 采用一个较大的 memory bank 存储较大的字典] 的字典可以设置很大，但是一致性却较差，这看起来似乎是一个不可调和的矛盾。</p>
+<ul>
+<li><strong>1.4 MoCo v1 的做法</strong></li>
+</ul>
+<p><strong>[3 MoCo 方法]：</strong></p>
+<p>kaiming 大神利用 momentum (移动平均更新模型权重) 与 queue (字典) 轻松的解决这个问题。为了便于读者理解，这里结合 kaiming 大神提供的伪代码一起讲解 (下面加粗的黑体字母是代码中的变量)。</p>
+<p><img alt="" src="https://pic2.zhimg.com/v2-413229578583cf29b1e592fb513d6399_r.jpg" /></p>
+<p><img alt="" src="https://pic3.zhimg.com/v2-35428f2dd8a11823d853b207c871157e_r.jpg" /></p>
+<p>首先我们假设 Batch size 的大小是 <span class="arithmatex">\(N\)</span> ，然后现在有个队列 Queue，这个队列的大小是 <span class="arithmatex">\(K(K&gt;N)\)</span> ，注意这里 <span class="arithmatex">\(K\)</span> 一般是 <span class="arithmatex">\(N\)</span> 的数倍，比如 <span class="arithmatex">\(K=3N,K=5N,...\)</span> ，但是 <span class="arithmatex">\(K\)</span> 总是比 <span class="arithmatex">\(N\)</span> 要大的 (代码里面 <span class="arithmatex">\(K=65536\)</span> ，即队列大小实际是 65536)。</p>
+<p>下面如上图 8 所示，有俩网络，一个是 Encoder <span class="arithmatex">\(f_\textrm{q}\)</span> ，另一个是 Momentum Encoder <span class="arithmatex">\(f_\textrm{Mk}\)</span> 。这两个模型的网络结构是一样的，初始参数也是一样的 (但是训练开始后两者参数将不再一样了)。 <span class="arithmatex">\(f_\textrm{q}\)</span> 与 <span class="arithmatex">\(f_\textrm{Mk}\)</span> 是将输入信息映射到特征空间的网络，特征空间由一个长度为 <span class="arithmatex">\(C\)</span> 的向量表示，它们在代码里面分别表示为：<strong>f_q</strong> , <strong>f_k</strong> 和 <strong>C</strong>。</p>
+<p>代码里的 <strong>k</strong> 可以看作模板，<strong>q</strong> 看作查询元素，每一个输入未知图像的特征由 <strong>f_q</strong> 提取， 现在给一系列由 <strong>f_k</strong> 提取的模板特征 (比如狗的特征、猫的特征) ，就能使用 <strong>f_q</strong> 与 <strong>f_k</strong> 的度量值来确定 <strong>f_q</strong> 是属于什么。</p>
+<p><strong>1) 数据增强：</strong></p>
+<p>现在我们有一堆无标签的数据，拿出一个 Batch，代码表示为 <strong>x</strong>，也就是 <span class="arithmatex">\(N\)</span> 张图片，分别进行两种不同的数据增强，得到 <strong>x_q</strong> 和 <strong>x_k</strong>，则 <strong>x_q</strong> 是 <span class="arithmatex">\(N\)</span> 张图片，<strong>x_k</strong> 也是 <span class="arithmatex">\(N\)</span> 张图片。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>for x in loader: # 输入一个图像序列x，包含N张图，没有标签
+<span class="linenos" data-linenos="2 "></span>    x_q = aug(x) # 用于查询的图 (数据增强得到)
+<span class="linenos" data-linenos="3 "></span>    x_k = aug(x) # 模板图 (数据增强得到)，自监督就体现在这里，只有图x和x的数据增强才被归为一类
+</code></pre></div>
+<p><strong>2) 分别通过 Encoder 和 Momentum Encoder：</strong></p>
+<p><strong>x_q</strong> 通过 Encoder 得到特征 <strong>q</strong>，维度是 <span class="arithmatex">\(N,C\)</span> ，这里特征空间由一个长度为 <span class="arithmatex">\(C=128\)</span> 的向量表示。</p>
+<p><strong>x_q</strong> 通过 Momentum Encoder 得到特征 <strong>k</strong>，维度是 <span class="arithmatex">\(N,C\)</span> 。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>q = f_q.forward(x_q) # 提取查询特征，输出NxC
+<span class="linenos" data-linenos="2 "></span>    k = f_k.forward(x_k) # 提取模板特征，输出NxC
+</code></pre></div>
+<p><strong>3) Momentum Encoder 的参数不更新：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span># 不使用梯度更新f_k的参数，这是因为文章假设用于提取模板的表示应该是稳定的，不应立即更新
+<span class="linenos" data-linenos="2 "></span>    k = k.detach()
+</code></pre></div>
+<p><strong>4) 计算 <span class="arithmatex">\(N\)</span> 张图片的自己与自己的增强图的特征的匹配度：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span># 这里bmm是分批矩阵乘法
+<span class="linenos" data-linenos="2 "></span>    l_pos = bmm(q.view(N,1,C), k.view(N,C,1)) # 输出Nx1，也就是自己与自己的增强图的特征的匹配度
+</code></pre></div>
+<p>这里得到的 <strong>l_pos</strong> 的维度是 <strong>(N, 1, 1)</strong>，<strong>N</strong> 个数代表<strong><span class="arithmatex">\(N\)</span> 张图片的自己与自己的增强图的特征的匹配度。</strong></p>
+<p><strong>5) 计算</strong> <span class="arithmatex">\(N\)</span> <strong>张图片与队列中的</strong> <span class="arithmatex">\(K\)</span> <strong>张图的特征的匹配度：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>l_neg = mm(q.view(N,C), queue.view(C,K)) # 输出Nxk，自己与上一批次所有图的匹配度（全不匹配）
+</code></pre></div>
+<p>这里得到的 <strong>l_neg</strong> 的维度是 <strong>(N, K)</strong>，代表 <span class="arithmatex">\(N\)</span> <strong>张图片与队列 Queue 中的</strong><span class="arithmatex">\(K\)</span> <strong>张图的特征的匹配度。</strong></p>
+<p><strong>6) 把 4, 5 两步得到的结果 concat 起来：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>logits = cat([l_pos, l_neg], dim=1) # 输出Nx(1+k)
+</code></pre></div>
+<p>这里得到的 <strong>logits</strong> 的维度是 <strong>(N, K+1)</strong>，把它看成是一个矩阵的话呢，有 <strong>N</strong> 行，代表一个 Batch 里面的 <strong>N</strong> 张图片。每一行的第 1 个元素是某张图片自己与自己的匹配度，每一行的后面 <strong>K</strong> 个元素是某张图片与其他 <strong>K</strong> 个图片的匹配度，如下图 9 所示，图 9 展示的是某一行的信息，这里的 <strong>K=2</strong>。</p>
+<p><img alt="" src="https://pic3.zhimg.com/v2-f0149860b4586944a8d19dbf1534f6ca_r.jpg" /></p>
+<p><strong>7) NCE 损失函数，就是为了保证自己与自己衍生的匹配度输出越大越好，否则越小越好：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>labels = zeros(N)
+<span class="linenos" data-linenos="2 "></span>    # NCE损失函数，就是为了保证自己与自己衍生的匹配度输出越大越好，否则越小越好
+<span class="linenos" data-linenos="3 "></span>    loss = CrossEntropyLoss(logits/t, labels) 
+<span class="linenos" data-linenos="4 "></span>    loss.backward()
+</code></pre></div>
+<p><strong>8) 更新 Encoder 的参数：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>update(f_q.params) # f_q使用梯度立即更新
+</code></pre></div>
+<p><strong>9) Momentum Encoder 的参数使用动量更新：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span># 由于假设模板特征的表示方法是稳定的，因此它更新得更慢，这里使用动量法更新，相当于做了个滤波。
+<span class="linenos" data-linenos="2 "></span>    f_k.params = m*f_k.params+(1-m)*f_q.params
+</code></pre></div>
+<p><strong>10) 更新队列，删除最老的一个 Batch，加入一个新的 Batch：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>enqueue(queue, k) # 为了生成反例，所以引入了队列
+<span class="linenos" data-linenos="2 "></span>    dequeue(queue)
+</code></pre></div>
+<p><strong>全部的伪代码 (来自 MoCo 的 paper)：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>f_k.params = f_q.params # 初始化
+<span class="linenos" data-linenos=" 2 "></span>for x in loader: # 输入一个图像序列x，包含N张图，没有标签
+<span class="linenos" data-linenos=" 3 "></span>    x_q = aug(x) # 用于查询的图（数据增强得到）
+<span class="linenos" data-linenos=" 4 "></span>    x_k = aug(x) # 模板图（数据增强得到），自监督就体现在这里，只有图x和x的数据增强才被归为一类
+<span class="linenos" data-linenos=" 5 "></span>    q = f_q.forward(x_q) # 提取查询特征，输出NxC
+<span class="linenos" data-linenos=" 6 "></span>    k = f_k.forward(x_k) # 提取模板特征，输出NxC
+<span class="linenos" data-linenos=" 7 "></span>    # 不使用梯度更新f_k的参数，这是因为文章假设用于提取模板的表示应该是稳定的，不应立即更新
+<span class="linenos" data-linenos=" 8 "></span>    k = k.detach() 
+<span class="linenos" data-linenos=" 9 "></span>    # 这里bmm是分批矩阵乘法
+<span class="linenos" data-linenos="10 "></span>    l_pos = bmm(q.view(N,1,C), k.view(N,C,1)) # 输出Nx1，也就是自己与自己的增强图的特征的匹配度
+<span class="linenos" data-linenos="11 "></span>    l_neg = mm(q.view(N,C), queue.view(C,K)) # 输出Nxk，自己与上一批次所有图的匹配度（全不匹配）
+<span class="linenos" data-linenos="12 "></span>    logits = cat([l_pos, l_neg], dim=1) # 输出Nx(1+k)
+<span class="linenos" data-linenos="13 "></span>    labels = zeros(N)
+<span class="linenos" data-linenos="14 "></span>    # NCE损失函数，就是为了保证自己与自己衍生的匹配度输出越大越好，否则越小越好
+<span class="linenos" data-linenos="15 "></span>    loss = CrossEntropyLoss(logits/t, labels) 
+<span class="linenos" data-linenos="16 "></span>    loss.backward()
+<span class="linenos" data-linenos="17 "></span>    update(f_q.params) # f_q使用梯度立即更新
+<span class="linenos" data-linenos="18 "></span>    # 由于假设模板特征的表示方法是稳定的，因此它更新得更慢，这里使用动量法更新，相当于做了个滤波。
+<span class="linenos" data-linenos="19 "></span>    f_k.params = m*f_k.params+(1-m)*f_q.params 
+<span class="linenos" data-linenos="20 "></span>    enqueue(queue, k) # 为了生成反例，所以引入了队列
+<span class="linenos" data-linenos="21 "></span>    dequeue(queue)
+</code></pre></div>
+<ul>
+<li><strong>1.5 MoCo v1 FAQ</strong></li>
+</ul>
+<p>以上 10 步就是 MoCo 算法的流程。先把上面的流程搞清楚以后，我们思考以下几个问题：</p>
+<p><strong>1 Encoder <span class="arithmatex">\(f_\textrm{q}\)</span> 和 Momentum Encoder <span class="arithmatex">\(f_\textrm{Mk}\)</span> 的输入分别是什么？</strong></p>
+<p><strong>答：</strong> Encoder <span class="arithmatex">\(f_\textrm{q}\)</span> 的输入是一个 Batch 的样本 <strong><span class="arithmatex">\(x\)</span></strong> 的增强版本 <strong><span class="arithmatex">\(x_q\)</span></strong>。Momentum Encoder <span class="arithmatex">\(f_\textrm{Mk}\)</span> 的输入是一个 Batch 的样本 <strong><span class="arithmatex">\(x\)</span></strong> 的另一个增强版本 <strong><span class="arithmatex">\(x_k\)</span> 和 队列中的所有样本 <span class="arithmatex">\(x_{queue}\)</span>，<span class="arithmatex">\(x_{queue}\)</span></strong> 通过 Momentum Encoder 得到代码中的变量 <strong>queue</strong>。</p>
+<p><strong>2</strong> <strong>Encoder</strong> <span class="arithmatex">\(f_\textrm{q}\)</span> <strong>和 Momentum Encoder</strong> <span class="arithmatex">\(f_\textrm{Mk}\)</span> <strong>的更新方法有什么不同？</strong></p>
+<p><strong>答：</strong>Encoder <span class="arithmatex">\(f_\textrm{q}\)</span> 在每个 step 都会通过<strong>反向传播</strong>更新参数，假设 1 个 epoch 里面有 500 个 step，Encoder <span class="arithmatex">\(f_\textrm{q}\)</span> 就更新 500 次。Momentum Encoder <span class="arithmatex">\(f_\textrm{Mk}\)</span> 在每个 step 都会通过动量的方式更新参数，假设 1 个 epoch 里面有 500 个 step，Momentum Encoder <span class="arithmatex">\(f_\textrm{Mk}\)</span> 就更新 500 次，只是更新的方式是：</p>
+<div class="arithmatex">\[
+\theta_\textrm{k}\leftarrow m\theta_\textrm{k}+(1-m)\theta_\textrm{q}\tag{4}
+\]</div>
+<p>式中， <span class="arithmatex">\(m\)</span> 是动量参数，默认取 <span class="arithmatex">\(m=0.999\)</span> ，这意味着 Momentum Encoder 的更新是极其缓慢的，而且并不是通过反向传播来更新参数，而是通过动量的方式来更新。</p>
+<p><strong>3 MoCo 相对于原来的两种方法的优势在哪里？</strong></p>
+<p><strong>答：在 [1 原始的端到端自监督学习方法]</strong> 里面，Encoder <span class="arithmatex">\(f_\textrm{q}\)</span> 和 Encoder <span class="arithmatex">\(f_\textrm{k}\)</span> 的参数每个 step 都更新，这个问题在前面也有提到，因为 Encoder <span class="arithmatex">\(f_\textrm{k}\)</span> 输入的是一个 Batch 的 negative samples，所以输入的数量不能太大，即 dictionary 不能太大，即 Batch size 不能太大。</p>
+<p>现在的 Momentum Encoder <span class="arithmatex">\(f_\textrm{Mk}\)</span> 的更新是通过 4 式，以动量的方法更新的，不涉及反向传播，所以 <span class="arithmatex">\(f_\textrm{Mk}\)</span> 输入的负样本 (negative samples) 的数量可以很多，具体就是 Queue 的大小可以比较大，那当然是负样本的数量越多越好了。这就是 Dictionary as a queue 的含义，即通过动量更新的形式，使得可以包含更多的负样本。而且 Momentum Encoder <span class="arithmatex">\(f_\textrm{Mk}\)</span> 的更新极其缓慢 (因为 <span class="arithmatex">\(m=0.999\)</span> 很接近于 1)，所以 Momentum Encoder <span class="arithmatex">\(f_\textrm{Mk}\)</span> 的更新相当于是看了很多的 Batch，也就是很多负样本。</p>
+<p>在 <strong>[2 采用一个较大的 memory bank 存储较大的字典]</strong> 方法里面，所有样本的 representation 都存在 memory bank 里面，根据上文的描述会带来最新的 query 采样得到的 key 可能是好多个 step 之前的编码器编码得到的 key，因此丧失了一致性的问题。但是 MoCo 的每个 step 都会更新 Momentum Encoder，虽然更新缓慢，但是每个 step 都会通过 4 式更新一下 Momentum Encoder，这样 Encoder <span class="arithmatex">\(f_\textrm{q}\)</span> 和 Momentum Encoder <span class="arithmatex">\(f_\textrm{Mk}\)</span> 每个 step 都有更新，就解决了一致性的问题。</p>
+<ul>
+<li><strong>1.6 MoCo v1 实验</strong></li>
+</ul>
+<p><strong>Encoder 的具体结构</strong>是 ResNet，Contrastive loss 3 式的超参数 <span class="arithmatex">\(\tau=0.07\)</span> 。</p>
+<p><strong>数据增强的方式</strong>是 (都可以通过 Torchvision 包实现)：</p>
+<ul>
+<li>Randomly resized image + random color jittering</li>
+<li>Random horizontal flip</li>
+<li>Random grayscale conversion</li>
+</ul>
+<p>此外，作者还把 BN 替换成了 Shuffling BN，因为 BN 会欺骗 pretext task，轻易找到一种使得 loss 下降很快的方法。</p>
+<p><strong>自监督训练的数据集是：</strong> ImageNet-1M (1280000 训练集，各类别分布均衡) 和 Instagram-1B (1 billion 训练集，各类别分布不均衡)</p>
+<p><strong>优化器：</strong> SGD，weight decay: 0.0001，momentum: 0.9。</p>
+<p><strong>Batch size：</strong> <span class="arithmatex">\(N=256\)</span></p>
+<p><strong>初始学习率：</strong> 0.03，200 epochs，在第 120 和第 160 epochs 时分别乘以 0.1，结束时是 0.0003。</p>
+<p><strong>实验一：Linear Classification Protocol</strong></p>
+<p>评价一个自监督模型的性能，最关键和最重要的实验莫过于 <strong>Linear Classification Protocol</strong> 了，它也叫做 <strong>Linear Evaluation</strong>，具体做法就是先使用自监督的方法预训练 Encoder，这一过程不使用任何 label。预训练完以后 Encoder 部分的权重也就确定了，这时候把它的权重 freeze 住，同时在 Encoder 的末尾添加 Global Average Pooling 和一个线性分类器 (具体就是一个 FC 层 + softmax 函数)，并在某个数据集上做 Fine-tune，这一过程使用全部的 label。</p>
+<p>上述方法 [1 原始的端到端自监督学习方法]，[2 采用一个较大的 memory bank 存储较大的字典]<strong>，</strong>[3 MoCo 方法] 的结果对比如下图 10 所示。</p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-5c8f92f8b3c6c04a9173a5f864096f6f_r.jpg" /></p>
+<p>图 10 里面的 <span class="arithmatex">\(K\)</span> ：</p>
+<ul>
+<li>对于 [3 MoCo 方法] 来讲就是队列 Queue 的大小，也是负样本的数量。</li>
+<li>对于 [1 原始的端到端自监督学习方法] 是一个 Batch 的大小，那么这种方法的<strong>一个 Batch 有 1 个正样本和 K-1 个负样本</strong>。因为对于给定的一个样本 <span class="arithmatex">\(x^q\)</span> ， 选择一个正样本 <span class="arithmatex">\(x^{k_{+}}\)</span> (这里正样本的对于图像上的理解就是 <span class="arithmatex">\(x^q\)</span> 的 data augmentation 版本)。然后选择<strong>一批负样本</strong> (对于图像来说，就是除了 <span class="arithmatex">\(x^q\)</span> 之外的图像)，样本 <span class="arithmatex">\(x^q\)</span> 输入给 Encoder <span class="arithmatex">\(f_\textrm{q}\)</span> ，正样本和负样本都输入给 Encoder <span class="arithmatex">\(f_\textrm{k}\)</span> ，所以有 K-1 个负样本。</li>
+<li>对于 [2 采用一个较大的 memory bank 存储较大的字典] 方法来讲，也是负样本的数量。</li>
+</ul>
+<p>我们看到图 10 中的 3 条曲线都是随着 <span class="arithmatex">\(K\)</span> 的增加而上升的，证明对于每一个样本来讲，正样本的数量都是一个，随着负样本数量的上升，自监督训练的性能会相应提升。我们看图 10 中的黑色线 <span class="arithmatex">\(K\)</span> 最大取到了 1024，因为这种方法同时使用反向传播更新 Encoder <span class="arithmatex">\(f_\textrm{q}\)</span> 和 Encoder <span class="arithmatex">\(f_\textrm{k}\)</span> 的参数，所以 Batch size 的大小受到了显存容量的限制。</p>
+<p>同时橙色曲线是最优的，证明了 MoCo 方法的有效性。</p>
+<p><strong>实验二：对比不同动量参数 <span class="arithmatex">\(m\)</span></strong></p>
+<p>结果如下图 11 所示， <span class="arithmatex">\(m\)</span> 取 0.999 时性能最好，当 <span class="arithmatex">\(m=0\)</span> 时，即 <strong>Momentum Encoder</strong> <span class="arithmatex">\(f_\textrm{Mk}\)</span> 参数 <span class="arithmatex">\(\theta_\textrm{k}\leftarrow\theta_\textrm{q}\)</span> ，即直接拷贝 <strong>Encoder</strong> <span class="arithmatex">\(f_\textrm{q}\)</span> 的参数，则训练失败，说明 2 个网络的参数不可以完全一致。</p>
+<p><img alt="" src="https://pic1.zhimg.com/v2-3a26ffdfa676450c24f2c190401006c8_r.jpg" /></p>
+<p><strong>实验三：与其他方法对比</strong></p>
+<p>如下图 12 所示，设置 <span class="arithmatex">\(K=65536,m=0.999\)</span> ，Encoder 架构是 ResNet-50，MoCo 可以达到 60.6% 的准确度，如果 ResNet-50 的宽度设为原来的 4 倍，则精度可以进一步达到 68.6%，比以往方法更占优。</p>
+<p><img alt="" src="https://pic1.zhimg.com/v2-ec1def59c352ba83a25a85152778fccc_r.jpg" /></p>
+<p><strong>实验四：下游任务 Fine-tune 结果</strong></p>
+<p>有了预训练好的模型，我们就相当于是已经把参数训练到了初步成型，这时候再根据你 <strong>下游任务 (Downstream Tasks)</strong> 的不同去用带标签的数据集把参数训练到 <strong>完全成型</strong>，那这时用的数据集量就不用太多了，因为参数经过了第 1 阶段就已经训练得差不多了。</p>
+<p>本文的下游任务是：PASCAL VOC Object Detection 以及 COCO Object Detection and Segmentation，主要对比的对象是 <strong>ImageNet 预训练模型 (ImageNet supervised pre-training)</strong>，注意这个模型是使用 100% 的 ImageNet 标签训练的。</p>
+<p><strong>PASCAL VOC Object Detection 结果</strong></p>
+<p><strong>Backbone:</strong> Faster R-CNN: R50-dilated-C5 或者 R50-C4。</p>
+<p><strong>训练数据尺寸：</strong> 训练时 [480, 800]，推理时 800。</p>
+<p><strong>Evaluation data：</strong> 即测试集是 VOC test2007 set。</p>
+<p>如下图 13 是在 <strong>trainval07+12 (约 16.5k images)</strong> 数据集上 Fine-tune 之后的结果，当 Backbone 使用 R50-dilated-C5 时，在 ImageNet-1M 上预训练的 MoCo 模型的性能与有监督学习的性能是相似的。在 Instagram-1B 上预训练的 MoCo 模型的性能超过了有监督学习的性能。当 Backbone 使用 R50-dilated-C5 时，在 ImageNet-1M 或者 Instagram-1B 上预训练的 MoCo 模型的性能都超过了有监督学习的性能。</p>
+<p><img alt="" src="https://pic3.zhimg.com/v2-86bcf0af56f31b97b14de92232f8964a_r.jpg" /></p>
+<p>接着作者又在下游任务上对比了方法 1,2 和 MoCo 的性能，如下图 14 所示。end-to-end 的方法 (上述方法 1) 和 memory bank 方法 (上述方法 2) 的性能都不如 MoCo。</p>
+<p><img alt="" src="https://pic1.zhimg.com/v2-419457ec70a3d90cb45601084d590714_r.jpg" /></p>
+<p><strong>COCO Object Detection and Segmentation 结果</strong></p>
+<p><strong>Backbone:</strong> Mask R-CNN: FPN 或者 C4。</p>
+<p><strong>训练数据尺寸：</strong>训练时 [640, 800]，推理时 800。</p>
+<p><strong>Evaluation data：</strong>即测试集是 val2017。</p>
+<p>如下图 15 是在 <strong>train2017 set (约 118k images)</strong> 数据集上 Fine-tune 之后的结果，图 15 (a)(b) 展示的是 backbone 为 R50-FPN 的结果，图 15 (c)(d) 展示的是 backbone 为 R50-C4 的结果。在 2× schedule 的情况下 MoCo 相比于有监督训练来讲更占优。</p>
+<p><img alt="" src="https://pic3.zhimg.com/v2-58cf75e8c51d63745dbd24c6558ad516_r.jpg" /></p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-10d9af709d97cae1f53d1f3234d89adf_r.jpg" /></p>
+<p><img alt="" src="https://pic3.zhimg.com/v2-20af57a293069c8c4a634f0696b45416_r.jpg" /></p>
+<p><img alt="" src="https://pic3.zhimg.com/v2-3e0a863bba3afce082bde21cd17f6202_r.jpg" /></p>
+<ul>
+<li><strong>1.7 MoCo v1 完整代码解读</strong></li>
+</ul>
+<p><strong>开源地址：</strong></p>
+<p><a href="https://github.com/facebookresearch/moco">facebookresearch/moco</a></p>
+<p>MoCo 系列的整套代码力求和 <strong>PyTorch 训练 ImageNet 的官方实现代码 (如下链接)</strong> 的差距尽量小。</p>
+<p><a href="https://raw.githubusercontent.com/pytorch/examples/master/imagenet/main.py">https://raw.githubusercontent.com/pytorch/examples/master/imagenet/main.py</a></p>
+<p><strong>(a) 使用方法：</strong></p>
+<p><strong>1 自监督训练 (Unsupervised Training)：</strong></p>
+<p>支持多 GPU，DistributedDataParallel 训练，假设 Encoder 是 ResNet-50，在 8 卡训练：</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>python main_moco.py.\ \$
+<span class="linenos" data-linenos="2 "></span>  -a resnet50.\ \$
+<span class="linenos" data-linenos="3 "></span>  --lr 0.03.\ \$
+<span class="linenos" data-linenos="4 "></span>  --batch-size 256.\ \$
+<span class="linenos" data-linenos="5 "></span>  --dist-url &#39;tcp://localhost:10001&#39; --multiprocessing-distributed --world-size 1 --rank 0.\ \$
+<span class="linenos" data-linenos="6 "></span>  [your imagenet-folder with train and val folders]
+</code></pre></div>
+<p>以上代码默认是 MoCo v1 版本，若想跑 v2，则加上命令行参数：
+--mlp --moco-t 0.2 --aug-plus --cos</p>
+<p><strong>2 在评估模型时一般使用 Linear Evaluation (Linear Classification)：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>python main_lincls.py.\ \$
+<span class="linenos" data-linenos="2 "></span>  -a resnet50.\ \$
+<span class="linenos" data-linenos="3 "></span>  --lr 30.0.\ \$
+<span class="linenos" data-linenos="4 "></span>  --batch-size 256.\ \$
+<span class="linenos" data-linenos="5 "></span>  --pretrained [your checkpoint path]/checkpoint_0199.pth.tar.\ \$
+<span class="linenos" data-linenos="6 "></span>  --dist-url &#39;tcp://localhost:10001&#39; --multiprocessing-distributed --world-size 1 --rank 0.\ \$
+<span class="linenos" data-linenos="7 "></span>  [your imagenet-folder with train and val folders]
+</code></pre></div>
+<p>8 NVIDIA V100 GPUs 结果是：</p>
+<table data-draft-node="block" data-draft-type="table" data-size="normal" data-row-style="normal"><tbody><tr><th></th><th>pre-train epochs</th><th>pre-train time</th><th>MoCo v1 top-1 acc.</th><th>MoCo v2 top-1 acc.</th></tr><tr><td>ResNet-50</td><td>200</td><td>53 hours</td><td>60.8±0.2</td><td>67.5±0.1</td></tr></tbody></table>
+
+<p><strong>3 在下游任务 (Detection) 上做 Fine-tune：</strong></p>
+<p>首先安装 Install <a href="https://github.com/facebookresearch/detectron2/blob/master/INSTALL.md">detectron2</a></p>
+<p>把预训练好的 MoCo 模型转化成 detectron2 的格式：</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>python3 convert-pretrain-to-detectron2.py input.pth.tar output.pkl
+</code></pre></div>
+<p>把数据集按照 detectron2 的文件夹格式要求放在 ./datasets 文件夹下。</p>
+<p>开始训练：</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>python train_net.py --config-file configs/pascal_voc_R_50_C4_24k_moco.yaml.\ \$
+<span class="linenos" data-linenos="2 "></span>--num-gpus 8 MODEL.WEIGHTS ./output.pkl
+</code></pre></div>
+<p><strong>(b) Unsupervised Pre-training 代码解读：</strong></p>
+<p><strong>1 分布式训练启动</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>def main():
+<span class="linenos" data-linenos=" 2 "></span>    args = parser.parse_args()
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>    if args.seed is not None:
+<span class="linenos" data-linenos=" 5 "></span>        random.seed(args.seed)
+<span class="linenos" data-linenos=" 6 "></span>        torch.manual_seed(args.seed)
+<span class="linenos" data-linenos=" 7 "></span>        cudnn.deterministic = True
+<span class="linenos" data-linenos=" 8 "></span>        warnings.warn(&#39;You have chosen to seed training. &#39;
+<span class="linenos" data-linenos=" 9 "></span>                      &#39;This will turn on the CUDNN deterministic setting, &#39;
+<span class="linenos" data-linenos="10 "></span>                      &#39;which can slow down your training considerably! &#39;
+<span class="linenos" data-linenos="11 "></span>                      &#39;You may see unexpected behavior when restarting &#39;
+<span class="linenos" data-linenos="12 "></span>                      &#39;from checkpoints.&#39;)
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>    if args.gpu is not None:
+<span class="linenos" data-linenos="15 "></span>        warnings.warn(&#39;You have chosen a specific GPU. This will completely &#39;
+<span class="linenos" data-linenos="16 "></span>                      &#39;disable data parallelism.&#39;)
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>    if args.dist_url == &quot;env://&quot; and args.world_size == -1:
+<span class="linenos" data-linenos="19 "></span>        args.world_size = int(os.environ[&quot;WORLD_SIZE&quot;])
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span>    args.distributed = args.world_size &gt; 1 or args.multiprocessing_distributed
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span>    ngpus_per_node = torch.cuda.device_count()
+<span class="linenos" data-linenos="24 "></span>    if args.multiprocessing_distributed:
+<span class="linenos" data-linenos="25 "></span>        # Since we have ngpus_per_node processes per node, the total world_size
+<span class="linenos" data-linenos="26 "></span>        # needs to be adjusted accordingly
+<span class="linenos" data-linenos="27 "></span>        args.world_size = ngpus_per_node * args.world_size
+<span class="linenos" data-linenos="28 "></span>        # Use torch.multiprocessing.spawn to launch distributed processes: the
+<span class="linenos" data-linenos="29 "></span>        # main_worker process function
+<span class="linenos" data-linenos="30 "></span>        mp.spawn(main_worker, nprocs=ngpus_per_node, args=(ngpus_per_node, args))
+<span class="linenos" data-linenos="31 "></span>    else:
+<span class="linenos" data-linenos="32 "></span>        # Simply call main_worker function
+<span class="linenos" data-linenos="33 "></span>        main_worker(args.gpu, ngpus_per_node, args)
+</code></pre></div>
+<p><strong>mp.spawn 第一个参数是一个函数</strong>，这个函数将执行训练的所有步骤。从这一步开始，python 将建立多个进程，每个进程都会执行 main_worker 函数。 <strong>第二个参数是开启的进程数目。第三个参数是 main_worker 的函数实参。</strong>
+然后看 <strong>main_worker</strong> 的定义，特别注意一下。我们送入的两个实参，但实际形参有三个。第一个形参是进程 id 号 (必须要多加一个形参，且放到第一个位置上)。id 号是从 0 到 (总进程数目 - 1) 的。id 为 0 的进程我们就叫做主进程。之所以需要区分进程，因为我们一般打印日志和存权重文件，不会希望每个进程都做一次相同的事情。我们只在主进程完成这个事情就行了 (用 if 判断一下，如下 main_worker 函数所示)。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>def main_worker(gpu, ngpus_per_node, args):
+<span class="linenos" data-linenos=" 2 "></span>    args.gpu = gpu
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>    # suppress printing if not master
+<span class="linenos" data-linenos=" 5 "></span>    if args.multiprocessing_distributed and args.gpu != 0:
+<span class="linenos" data-linenos=" 6 "></span>        def print_pass(*args):
+<span class="linenos" data-linenos=" 7 "></span>            pass
+<span class="linenos" data-linenos=" 8 "></span>        builtins.print = print_pass
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    if args.gpu is not None:
+<span class="linenos" data-linenos="11 "></span>        print(&quot;Use GPU: {} for training&quot;.format(args.gpu))
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span>    if args.distributed:
+<span class="linenos" data-linenos="14 "></span>        if args.dist_url == &quot;env://&quot; and args.rank == -1:
+<span class="linenos" data-linenos="15 "></span>            args.rank = int(os.environ[&quot;RANK&quot;])
+<span class="linenos" data-linenos="16 "></span>        if args.multiprocessing_distributed:
+<span class="linenos" data-linenos="17 "></span>            # For multiprocessing distributed training, rank needs to be the
+<span class="linenos" data-linenos="18 "></span>            # global rank among all the processes
+<span class="linenos" data-linenos="19 "></span>            args.rank = args.rank * ngpus_per_node + gpu
+<span class="linenos" data-linenos="20 "></span>        dist.init_process_group(backend=args.dist_backend, init_method=args.dist_url,
+<span class="linenos" data-linenos="21 "></span>                                world_size=args.world_size, rank=args.rank)
+</code></pre></div>
+<p><strong>2 构造模型</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span># create model
+<span class="linenos" data-linenos="2 "></span>    print(&quot;=&gt; creating model &#39;{}&#39;&quot;.format(args.arch))
+<span class="linenos" data-linenos="3 "></span>    model = moco.builder.MoCo(
+<span class="linenos" data-linenos="4 "></span>        models.__dict__[args.arch],
+<span class="linenos" data-linenos="5 "></span>        args.moco_dim, args.moco_k, args.moco_m, args.moco_t, args.mlp)
+<span class="linenos" data-linenos="6 "></span>    print(model)
+</code></pre></div>
+<p>moco_dim 指的是 feature dimension (default: 128)。
+moco_k 指的是 队列 Queue 的长度，默认 65536。
+moco_m 指的是 momentum 参数，默认是 0.999。
+moco_t 指的是式 3 中的超参数，默认是 0.07。
+mlp 指的是 是否使用预测头 Projection head，默认是 True。</p>
+<p>moco.builder.MoCo 具体实现如下：</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>class MoCo(nn.Module):
+<span class="linenos" data-linenos=" 2 "></span>    &quot;&quot;&quot;
+<span class="linenos" data-linenos=" 3 "></span>    Build a MoCo model with: a query encoder, a key encoder, and a queue
+<span class="linenos" data-linenos=" 4 "></span>    https://arxiv.org/abs/1911.05722
+<span class="linenos" data-linenos=" 5 "></span>    &quot;&quot;&quot;
+<span class="linenos" data-linenos=" 6 "></span>    def __init__(self, base_encoder, dim=128, K=65536, m=0.999, T=0.07, mlp=False):
+<span class="linenos" data-linenos=" 7 "></span>        &quot;&quot;&quot;
+<span class="linenos" data-linenos=" 8 "></span>        dim: feature dimension (default: 128)
+<span class="linenos" data-linenos=" 9 "></span>        K: queue size; number of negative keys (default: 65536)
+<span class="linenos" data-linenos="10 "></span>        m: moco momentum of updating key encoder (default: 0.999)
+<span class="linenos" data-linenos="11 "></span>        T: softmax temperature (default: 0.07)
+<span class="linenos" data-linenos="12 "></span>        &quot;&quot;&quot;
+<span class="linenos" data-linenos="13 "></span>        super(MoCo, self).__init__()
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>        self.K = K
+<span class="linenos" data-linenos="16 "></span>        self.m = m
+<span class="linenos" data-linenos="17 "></span>        self.T = T
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span>        # create the encoders
+<span class="linenos" data-linenos="20 "></span>        # num_classes is the output fc dimension
+<span class="linenos" data-linenos="21 "></span>        self.encoder_q = base_encoder(num_classes=dim)
+<span class="linenos" data-linenos="22 "></span>        self.encoder_k = base_encoder(num_classes=dim)
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span>        if mlp:  # hack: brute-force replacement
+<span class="linenos" data-linenos="25 "></span>            dim_mlp = self.encoder_q.fc.weight.shape[1]
+<span class="linenos" data-linenos="26 "></span>            self.encoder_q.fc = nn.Sequential(nn.Linear(dim_mlp, dim_mlp), nn.ReLU(), self.encoder_q.fc)
+<span class="linenos" data-linenos="27 "></span>            self.encoder_k.fc = nn.Sequential(nn.Linear(dim_mlp, dim_mlp), nn.ReLU(), self.encoder_k.fc)
+<span class="linenos" data-linenos="28 "></span>
+<span class="linenos" data-linenos="29 "></span>        for param_q, param_k in zip(self.encoder_q.parameters(), self.encoder_k.parameters()):
+<span class="linenos" data-linenos="30 "></span>            param_k.data.copy_(param_q.data)  # initialize
+<span class="linenos" data-linenos="31 "></span>            param_k.requires_grad = False  # not update by gradient
+<span class="linenos" data-linenos="32 "></span>
+<span class="linenos" data-linenos="33 "></span>        # create the queue
+<span class="linenos" data-linenos="34 "></span>        self.register_buffer(&quot;queue&quot;, torch.randn(dim, K))
+<span class="linenos" data-linenos="35 "></span>        self.queue = nn.functional.normalize(self.queue, dim=0)
+<span class="linenos" data-linenos="36 "></span>
+<span class="linenos" data-linenos="37 "></span>        self.register_buffer(&quot;queue_ptr&quot;, torch.zeros(1, dtype=torch.long))
+</code></pre></div>
+<p>param_k.data.copy_(param_q.data)： <span class="arithmatex">\(f_\textrm{Mk}\)</span> 参数初始化时直接拷贝 <span class="arithmatex">\(f_\textrm{q}\)</span> 的参数。
+param_k.requires_grad = False：<span class="arithmatex">\(f_\textrm{Mk}\)</span> 参数不通过反向传播更新。</p>
+<p><strong>3 (4) 式的动量更新：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>@torch.no_grad()
+<span class="linenos" data-linenos="2 "></span>    def _momentum_update_key_encoder(self):
+<span class="linenos" data-linenos="3 "></span>        &quot;&quot;&quot;
+<span class="linenos" data-linenos="4 "></span>        Momentum update of the key encoder
+<span class="linenos" data-linenos="5 "></span>        &quot;&quot;&quot;
+<span class="linenos" data-linenos="6 "></span>        for param_q, param_k in zip(self.encoder_q.parameters(), self.encoder_k.parameters()):
+<span class="linenos" data-linenos="7 "></span>            param_k.data = param_k.data * self.m + param_q.data * (1. - self.m)
+</code></pre></div>
+<p>Momentum Encoder <span class="arithmatex">\(f_\textrm{Mk}\)</span> 参数的更新方法是： <span class="arithmatex">\(\theta_\textrm{k}\leftarrow m\theta_\textrm{k}+(1-m)\theta_\textrm{q}\)</span> 。</p>
+<p><strong>4 出队和入队操作：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>@torch.no_grad()
+<span class="linenos" data-linenos=" 2 "></span>    def _dequeue_and_enqueue(self, keys):
+<span class="linenos" data-linenos=" 3 "></span>        # gather keys before updating queue
+<span class="linenos" data-linenos=" 4 "></span>        keys = concat_all_gather(keys)
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>        batch_size = keys.shape[0]
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>        ptr = int(self.queue_ptr)
+<span class="linenos" data-linenos=" 9 "></span>        assert self.K % batch_size == 0  # for simplicity
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>        # replace the keys at ptr (dequeue and enqueue)
+<span class="linenos" data-linenos="12 "></span>        self.queue[:, ptr:ptr + batch_size] = keys.T
+<span class="linenos" data-linenos="13 "></span>        ptr = (ptr + batch_size) % self.K  # move pointer
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>        self.queue_ptr[0] = ptr
+</code></pre></div>
+<p><strong>5 模型的前向传播：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>def forward(self, im_q, im_k):
+<span class="linenos" data-linenos=" 2 "></span>        &quot;&quot;&quot;
+<span class="linenos" data-linenos=" 3 "></span>        Input:
+<span class="linenos" data-linenos=" 4 "></span>            im_q: a batch of query images
+<span class="linenos" data-linenos=" 5 "></span>            im_k: a batch of key images
+<span class="linenos" data-linenos=" 6 "></span>        Output:
+<span class="linenos" data-linenos=" 7 "></span>            logits, targets
+<span class="linenos" data-linenos=" 8 "></span>        &quot;&quot;&quot;
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>        # compute query features
+<span class="linenos" data-linenos="11 "></span>        q = self.encoder_q(im_q)  # queries: NxC
+<span class="linenos" data-linenos="12 "></span>        q = nn.functional.normalize(q, dim=1)
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>        # compute key features
+<span class="linenos" data-linenos="15 "></span>        with torch.no_grad():  # no gradient to keys
+<span class="linenos" data-linenos="16 "></span>            self._momentum_update_key_encoder()  # update the key encoder
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>            # shuffle for making use of BN
+<span class="linenos" data-linenos="19 "></span>            im_k, idx_unshuffle = self._batch_shuffle_ddp(im_k)
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span>            k = self.encoder_k(im_k)  # keys: NxC
+<span class="linenos" data-linenos="22 "></span>            k = nn.functional.normalize(k, dim=1)
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span>            # undo shuffle
+<span class="linenos" data-linenos="25 "></span>            k = self._batch_unshuffle_ddp(k, idx_unshuffle)
+<span class="linenos" data-linenos="26 "></span>
+<span class="linenos" data-linenos="27 "></span>        # compute logits
+<span class="linenos" data-linenos="28 "></span>        # Einstein sum is more intuitive
+<span class="linenos" data-linenos="29 "></span>        # positive logits: Nx1
+<span class="linenos" data-linenos="30 "></span>        l_pos = torch.einsum(&#39;nc,nc-&gt;n&#39;, [q, k]).unsqueeze(-1)
+<span class="linenos" data-linenos="31 "></span>        # negative logits: NxK
+<span class="linenos" data-linenos="32 "></span>        l_neg = torch.einsum(&#39;nc,ck-&gt;nk&#39;, [q, self.queue.clone().detach()])
+<span class="linenos" data-linenos="33 "></span>
+<span class="linenos" data-linenos="34 "></span>        # logits: Nx(1+K)
+<span class="linenos" data-linenos="35 "></span>        logits = torch.cat([l_pos, l_neg], dim=1)
+<span class="linenos" data-linenos="36 "></span>
+<span class="linenos" data-linenos="37 "></span>        # apply temperature
+<span class="linenos" data-linenos="38 "></span>        logits /= self.T
+<span class="linenos" data-linenos="39 "></span>
+<span class="linenos" data-linenos="40 "></span>        # labels: positive key indicators
+<span class="linenos" data-linenos="41 "></span>        labels = torch.zeros(logits.shape[0], dtype=torch.long).cuda()
+<span class="linenos" data-linenos="42 "></span>
+<span class="linenos" data-linenos="43 "></span>        # dequeue and enqueue
+<span class="linenos" data-linenos="44 "></span>        self._dequeue_and_enqueue(k)
+<span class="linenos" data-linenos="45 "></span>
+<span class="linenos" data-linenos="46 "></span>        return logits, labels
+</code></pre></div>
+<p>重要的是这几步：
+<strong>计算 query 与正样本 key 之间的相似度：</strong>
+l_pos = torch.einsum('nc,nc-&gt;n', [q, k]).unsqueeze(-1)
+<strong>计算 query 与负样本 (来自队列 Queue) 之间的相似度：</strong>
+l_neg = torch.einsum('nc,ck-&gt;nk', [q, self.queue.clone().detach()])
+<strong>利用一个 Batch 的负样本更新队列：</strong>
+self._dequeue_and_enqueue(k)</p>
+<p><strong>6 使用 DistributedDataParallel 包装模型：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>model.cuda()
+<span class="linenos" data-linenos="2 "></span> # DistributedDataParallel will divide and allocate batch_size to all
+<span class="linenos" data-linenos="3 "></span> # available GPUs if device_ids are not set
+<span class="linenos" data-linenos="4 "></span>            model = torch.nn.parallel.DistributedDataParallel(model)
+</code></pre></div>
+<p><strong>7 数据增强：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span># Data loading code
+<span class="linenos" data-linenos=" 2 "></span>    traindir = os.path.join(args.data, &#39;train&#39;)
+<span class="linenos" data-linenos=" 3 "></span>    normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
+<span class="linenos" data-linenos=" 4 "></span>                                     std=[0.229, 0.224, 0.225])
+<span class="linenos" data-linenos=" 5 "></span>    if args.aug_plus:
+<span class="linenos" data-linenos=" 6 "></span>        # MoCo v2&#39;s aug: similar to SimCLR https://arxiv.org/abs/2002.05709
+<span class="linenos" data-linenos=" 7 "></span>        augmentation = [
+<span class="linenos" data-linenos=" 8 "></span>            transforms.RandomResizedCrop(224, scale=(0.2, 1.)),
+<span class="linenos" data-linenos=" 9 "></span>            transforms.RandomApply([
+<span class="linenos" data-linenos="10 "></span>                transforms.ColorJitter(0.4, 0.4, 0.4, 0.1)  # not strengthened
+<span class="linenos" data-linenos="11 "></span>            ], p=0.8),
+<span class="linenos" data-linenos="12 "></span>            transforms.RandomGrayscale(p=0.2),
+<span class="linenos" data-linenos="13 "></span>            transforms.RandomApply([moco.loader.GaussianBlur([.1, 2.])], p=0.5),
+<span class="linenos" data-linenos="14 "></span>            transforms.RandomHorizontalFlip(),
+<span class="linenos" data-linenos="15 "></span>            transforms.ToTensor(),
+<span class="linenos" data-linenos="16 "></span>            normalize
+<span class="linenos" data-linenos="17 "></span>        ]
+<span class="linenos" data-linenos="18 "></span>    else:
+<span class="linenos" data-linenos="19 "></span>        # MoCo v1&#39;s aug: the same as InstDisc https://arxiv.org/abs/1805.01978
+<span class="linenos" data-linenos="20 "></span>        augmentation = [
+<span class="linenos" data-linenos="21 "></span>            transforms.RandomResizedCrop(224, scale=(0.2, 1.)),
+<span class="linenos" data-linenos="22 "></span>            transforms.RandomGrayscale(p=0.2),
+<span class="linenos" data-linenos="23 "></span>            transforms.ColorJitter(0.4, 0.4, 0.4, 0.4),
+<span class="linenos" data-linenos="24 "></span>            transforms.RandomHorizontalFlip(),
+<span class="linenos" data-linenos="25 "></span>            transforms.ToTensor(),
+<span class="linenos" data-linenos="26 "></span>            normalize
+<span class="linenos" data-linenos="27 "></span>        ]
+<span class="linenos" data-linenos="28 "></span>
+<span class="linenos" data-linenos="29 "></span>    train_dataset = datasets.ImageFolder(
+<span class="linenos" data-linenos="30 "></span>        traindir,
+<span class="linenos" data-linenos="31 "></span>        moco.loader.TwoCropsTransform(transforms.Compose(augmentation)))
+<span class="linenos" data-linenos="32 "></span>
+<span class="linenos" data-linenos="33 "></span># TwoCropsTransform 的定义如下：
+<span class="linenos" data-linenos="34 "></span>class TwoCropsTransform:
+<span class="linenos" data-linenos="35 "></span>    &quot;&quot;&quot;Take two random crops of one image as the query and key.&quot;&quot;&quot;
+<span class="linenos" data-linenos="36 "></span>
+<span class="linenos" data-linenos="37 "></span>    def __init__(self, base_transform):
+<span class="linenos" data-linenos="38 "></span>        self.base_transform = base_transform
+<span class="linenos" data-linenos="39 "></span>
+<span class="linenos" data-linenos="40 "></span>    def __call__(self, x):
+<span class="linenos" data-linenos="41 "></span>        q = self.base_transform(x)
+<span class="linenos" data-linenos="42 "></span>        k = self.base_transform(x)
+<span class="linenos" data-linenos="43 "></span>        return [q, k]
+</code></pre></div>
+<p><strong>MoCo v1</strong> 使用 RandomResizedCrop，RandomGrayscale，ColorJitter，RandomHorizontalFlip 这几种数据增强方式，到了 <strong>MoCo v2</strong> 又增加了：
+transforms.RandomApply([moco.loader.GaussianBlur([.1, 2.])], p=0.5) 这种方式。</p>
+<p><strong>8 损失函数，优化器，sampler 定义：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span># define loss function (criterion) and optimizer
+<span class="linenos" data-linenos=" 2 "></span>    criterion = nn.CrossEntropyLoss().cuda(args.gpu)
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>    optimizer = torch.optim.SGD(model.parameters(), args.lr,
+<span class="linenos" data-linenos=" 5 "></span>                                momentum=args.momentum,
+<span class="linenos" data-linenos=" 6 "></span>                                weight_decay=args.weight_decay)
+<span class="linenos" data-linenos=" 7 "></span>    if args.distributed:
+<span class="linenos" data-linenos=" 8 "></span>        train_sampler = torch.utils.data.distributed.DistributedSampler(train_dataset)
+<span class="linenos" data-linenos=" 9 "></span>    else:
+<span class="linenos" data-linenos="10 "></span>        train_sampler = None
+</code></pre></div>
+<p>在 DistributedDataParallel 的模式下应该使用 torch.utils.data.distributed.DistributedSampler 的采样器。</p>
+<p><strong>9 开始训练：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>for epoch in range(args.start_epoch, args.epochs):
+<span class="linenos" data-linenos="2 "></span>        if args.distributed:
+<span class="linenos" data-linenos="3 "></span>            train_sampler.set_epoch(epoch)
+<span class="linenos" data-linenos="4 "></span>        adjust_learning_rate(optimizer, epoch, args)
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span>        # train for one epoch
+<span class="linenos" data-linenos="7 "></span>        train(train_loader, model, criterion, optimizer, epoch, args)
+</code></pre></div>
+<p><strong>(c) Linear Evaluation 代码解读：</strong></p>
+<p>Linear Evaluation 的代码整体结构和 Unsupervised Pre-training 是一致的，但是在做 Linear Evaluation 时要注意冻结 Encoder 的参数不更新，而只更新最后分类器的参数即可。代码表示如下：</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span># freeze all layers but the last fc
+<span class="linenos" data-linenos=" 2 "></span>    for name, param in model.named_parameters():
+<span class="linenos" data-linenos=" 3 "></span>        if name not in [&#39;fc.weight&#39;, &#39;fc.bias&#39;]:
+<span class="linenos" data-linenos=" 4 "></span>            param.requires_grad = False
+<span class="linenos" data-linenos=" 5 "></span>    # init the fc layer
+<span class="linenos" data-linenos=" 6 "></span>    model.fc.weight.data.normal_(mean=0.0, std=0.01)
+<span class="linenos" data-linenos=" 7 "></span>    model.fc.bias.data.zero_()
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    # optimize only the linear classifier
+<span class="linenos" data-linenos="11 "></span>    parameters = list(filter(lambda p: p.requires_grad, model.parameters()))
+<span class="linenos" data-linenos="12 "></span>    assert len(parameters) == 2  # fc.weight, fc.bias
+<span class="linenos" data-linenos="13 "></span>    optimizer = torch.optim.SGD(parameters, args.lr,
+<span class="linenos" data-linenos="14 "></span>                                momentum=args.momentum,
+<span class="linenos" data-linenos="15 "></span>                                weight_decay=args.weight_decay)
+</code></pre></div>
+<p>优化器 optimizer 作用的参数为 parameters，它只包含分类器 <strong>fc 的 weight 和 bias</strong> 这两部分。</p>
+<p>另外为了确保除了分类器 fc 的 weight 和 bias 的部分，其余所有参数不发生改变，作者使用了这个 sanity_check 函数。这个函数有 <strong>2 个输入：state_dict(Linear Evaluation 进行了一个 Epoch 之后的模型) 和 pretrained_weights (预训练权重的存放文件夹)</strong>。先从 pretrained_weights 的位置导入权重，命名为 state_dict_pre。</p>
+<p>接下来通过 assert ((state_dict[k].cpu() == state_dict_pre[k_pre]).all()) 比较 state_dict 的权重和 pretrained_weights 是不是一致的，即 Encoder 的权重有没有发生变化。如果有变化就会打印 k is changed in linear classifier training。</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>def sanity_check(state_dict, pretrained_weights):
+<span class="linenos" data-linenos=" 2 "></span>    &quot;&quot;&quot;
+<span class="linenos" data-linenos=" 3 "></span>    Linear classifier should not change any weights other than the linear layer.
+<span class="linenos" data-linenos=" 4 "></span>    This sanity check asserts nothing wrong happens (e.g., BN stats updated).
+<span class="linenos" data-linenos=" 5 "></span>    &quot;&quot;&quot;
+<span class="linenos" data-linenos=" 6 "></span>    print(&quot;=&gt; loading &#39;{}&#39; for sanity check&quot;.format(pretrained_weights))
+<span class="linenos" data-linenos=" 7 "></span>    checkpoint = torch.load(pretrained_weights, map_location=&quot;cpu&quot;)
+<span class="linenos" data-linenos=" 8 "></span>    state_dict_pre = checkpoint[&#39;state_dict&#39;]
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    for k in list(state_dict.keys()):
+<span class="linenos" data-linenos="11 "></span>        # only ignore fc layer
+<span class="linenos" data-linenos="12 "></span>        if &#39;fc.weight&#39; in k or &#39;fc.bias&#39; in k:
+<span class="linenos" data-linenos="13 "></span>            continue
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>        # name in pretrained model
+<span class="linenos" data-linenos="16 "></span>        k_pre = &#39;module.encoder_q.&#39; + k[len(&#39;module.&#39;):].\ \$
+<span class="linenos" data-linenos="17 "></span>            if k.startswith(&#39;module.&#39;) else &#39;module.encoder_q.&#39; + k
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span>        assert ((state_dict[k].cpu() == state_dict_pre[k_pre]).all()),.\ \$
+<span class="linenos" data-linenos="20 "></span>            &#39;{} is changed in linear classifier training.&#39;.format(k)
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span>    print(&quot;=&gt; sanity check passed.&quot;)
+</code></pre></div>
+<p>代码剩下的部分和 Unsupervised Pre-training 是一致的。</p>
+<h2 id="_1">总结<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>MoCo v1 的改进其实可以总结为 2 点：</p>
+<p><strong>(a)</strong> 在 <strong>[1 原始的端到端自监督学习方法]</strong> 里面，Encoder <span class="arithmatex">\(f_\textrm{q}\)</span> 和 Encoder <span class="arithmatex">\(f_\textrm{k}\)</span> 的参数每个 step 都更新，这个问题在前面也有提到，因为 Encoder <span class="arithmatex">\(f_\textrm{k}\)</span> 输入的是一个 Batch 的 negative samples (N-1 个)，所以输入的数量不能太大，即 dictionary 不能太大，即 Batch size 不能太大。</p>
+<p>现在的 Momentum Encoder <span class="arithmatex">\(f_\textrm{Mk}\)</span> 的更新是通过动量的方法更新的，不涉及反向传播，所以 <span class="arithmatex">\(f_\textrm{Mk}\)</span> 输入的负样本 (negative samples) 的数量可以很多，具体就是 Queue 的大小可以比较大，可以比 mini-batch 大，属于超参数。队列是逐步更新的在每次迭代时，当前 mini-batch 的样本入列，而队列中最老的 mini-batch 样本出列，那当然是负样本的数量越多越好了。这就是 Dictionary as a queue 的含义，即通过动量更新的形式，使得可以包含更多的负样本。而且 Momentum Encoder <span class="arithmatex">\(f_\textrm{Mk}\)</span> 的更新极其缓慢 (因为 <span class="arithmatex">\(m=0.999\)</span> 很接近于 1)，所以 Momentum Encoder <span class="arithmatex">\(f_\textrm{Mk}\)</span> 的更新相当于是看了很多的 Batch，也就是很多负样本。</p>
+<p><strong>(b)</strong> 在 <strong>[2 采用一个较大的 memory bank 存储较大的字典]</strong> 方法里面，所有样本的 representation 都存在 memory bank 里面，根据上文的描述会带来最新的 query 采样得到的 key 可能是好多个 step 之前的编码器编码得到的 key，因此丧失了一致性的问题。但是 MoCo 的每个 step 都会更新 Momentum Encoder，虽然更新缓慢，但是每个 step 都会通过 4 式更新一下 Momentum Encoder，这样 Encoder <span class="arithmatex">\(f_\textrm{q}\)</span> 和 Momentum Encoder <span class="arithmatex">\(f_\textrm{Mk}\)</span> 每个 step 都有更新，就解决了一致性的问题。</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../ViT/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ViT">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                ViT
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Self-Supervised%20Learning%20MoCoV2%2C3/" class="md-footer__link md-footer__link--next" aria-label="Next: MoCo V2">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                MoCo V2
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "header.autohide"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../mathjax-config.js"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../extra.js"></script>
+      
+        <script src="../js/toggle_sidebar.js"></script>
+      
+    
+  </body>
+</html>
