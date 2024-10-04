@@ -1,0 +1,5969 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://localhost:8000/Metabolic%20heterogeneity%20in%20cancer/">
+      
+      
+        <link rel="prev" href="../Metabolic%20analysis%20as%20a%20driver%20for%20discovery%2C%20diagnosis%2C%20and%20therapy/">
+      
+      
+        <link rel="next" href="../Toward%20modeling%20metabolic%20state%20from%20single-cell%20transcriptomics/">
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Metabolic heterogeneity in cancer - One Last Kiss</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-M0R7V8QGQ7"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-M0R7V8QGQ7",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-M0R7V8QGQ7",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="One Last Kiss" class="md-header__button md-logo" aria-label="One Last Kiss" data-md-component="logo">
+      
+  <img src="../img/icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            One Last Kiss
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Metabolic heterogeneity in cancer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aletolia/aletolia.github.io.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aletolia/aletolia.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+    
+  
+  🏠 Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Mygo/" class="md-tabs__link">
+          
+  
+    
+  
+  ⛏️ CV and Multimodels
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Session%201/" class="md-tabs__link">
+          
+  
+    
+  
+  🚀 Re:0 Road to CPath & Visualization
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../1.1%20Single-cell%20RNA%20sequencing/" class="md-tabs__link">
+          
+  
+    
+  
+  💤 Re:0 Road to scRNA-seq Analysis
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Large-scale%20foundation%20model%20on%20single-cell%20transcriptomics/" class="md-tabs__link">
+          
+  
+    
+  
+  🧬 scRNA Analysis
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../%E7%AC%AC%201%20%E7%AB%A0%20python%20%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+          
+  
+    
+  
+  📐 Data Structures
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Best%20practices%20for%20single-cell%20analysis%20across%20modalities/" class="md-tabs__link">
+          
+  
+    
+  
+  💡 Reviews
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="One Last Kiss" class="md-nav__button md-logo" aria-label="One Last Kiss" data-md-component="logo">
+      
+  <img src="../img/icon.png" alt="logo">
+
+    </a>
+    One Last Kiss
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aletolia/aletolia.github.io.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aletolia/aletolia.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href=".." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    🏠 Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            🏠 Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⛏️ CV and Multimodels
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ⛏️ CV and Multimodels
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mygo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MyGO: Discrete Modality Information as Fine-Grained Tokens for Multi-modal Knowledge Graph Completion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GMM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GMM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DINO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mamba/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mamba
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ViT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Self-Supervised%20Learning%20MoCo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MoCo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Self-Supervised%20Learning%20MoCoV2%2C3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MoCo V2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E4%B8%80%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer  (一)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%20%28%E4%BA%8C%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (二)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E4%B8%89%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer  (三)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E5%9B%9B%29%20%28TNT%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (四)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%20%E9%A2%84%E8%AE%AD%E7%BB%83%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (知识蒸馏 预训练）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28PyramidTNT%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer(Pyramid TNT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E5%92%8C%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%93%E9%A2%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    傅里叶级数和傅里叶变换专题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%20%E5%AD%98%E5%82%A8%E4%B8%8E%E8%AF%BB%E5%8F%96%20HDF5%20%E6%96%87%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python 存储与读取 HDF5 文件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Segment%20Anything%20in%20Medical%20Images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Segment Anything in Medical Images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Mamba%20Efficient%20Visual%20Representation%20Learning%20with%20Bidirectional%20State%20Space%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Mamba Efficient Visual Representation Learning with Bidirectional State Space Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_18" id="__nav_2_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🚑 医学影像相关
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_18">
+            <span class="md-nav__icon md-icon"></span>
+            🚑 医学影像相关
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Why%20is%20the%20winner%20the%20best/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why is the winner the best
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PORPOISE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PORPOISE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HIPT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scaling Vision Transformers to Gigapixel Images via Hierarchical Self-Supervised Learning(HIPT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data-efficient%20and%20weakly%20supervised%20computational%20pathology%20on%20whole-slide%20images%28CLAM%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data efficient and weakly supervised computational pathology on whole slide images(CLAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Towards%20a%20general-purpose%20foundation%20model%20for%20computational%20pathology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Towards a general purpose foundation model for computational pathology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20whole-slide%20foundation%20model%20for%20digital%20pathology%20from%20real-world%20data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A whole slide foundation model for digital pathology from real world data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20visual-language%20foundation%20model%20for%20computational%20pathology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A visual language foundation model for computational pathology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Recurrent%20memory%20with%20optimal%20polynomial%20projections./" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recurrent memory with optimal polynomial projections.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modeling%20Dense%20Multimodal%20Interactions%20Between%20Biological%20Pathways%20and%20Histology%20for%20Survival%20Prediction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modeling Dense Multimodal Interactions Between Biological Pathways and Histology for Survival Prediction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inferring%20super-resolution%20tissue%20architecture%20by%20integrating%20spatial%20transcriptomics%20with%20histology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inferring super resolution tissue architecture by integrating spatial transcriptomics with histology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prediction%20of%20recurrence%20risk%20in%20endometrial%20cancer%20with%20multimodal%20deep%20learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prediction of recurrence risk in endometrial cancer with multimodal deep learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🚀 Re:0 Road to CPath & Visualization
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            🚀 Re:0 Road to CPath & Visualization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    理解全幅切片图像
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    在计算病理学中用于癌症诊断的弱监督深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基于注意力的多示例学习可解释性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How%20to%20visualize%20Attention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to visualize Attention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AttentionViz%20A%20Global%20View%20of%20Transformer%20Attention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AttentionViz A Global View of Transformer Attention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transformer%20Interpretability%20Beyond%20Attention%20Visualization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformer Interpretability Beyond Attention Visualization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visualization%20Work%20Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visualization Work Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Attention%20Generation%20Work%20Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Attention Generation Work Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🪛 PyTorch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            🪛 PyTorch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Autograd%20mechanics%20%E2%80%94%20PyTorch%202_3%20documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Autograd mechanics — PyTorch 2 3 documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PyTorch%20Autograd%20Explained%20-%20In-depth%20Tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch Autograd Explained   In depth Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    💤 Re:0 Road to scRNA-seq Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            💤 Re:0 Road to scRNA-seq Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Using Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Using Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_1" id="__nav_4_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⏳ CHAPTER 1 简介
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            ⏳ CHAPTER 1 简介
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1%20Single-cell%20RNA%20sequencing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1.The building block of life
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2%20Raw%20Data%20Processing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 Raw data processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3%20Analysis%20frameworks%20and%20tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 Analysis frameworks and tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🌏 CHAPTER 2 数据准备与可视化
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            🌏 CHAPTER 2 数据准备与可视化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1%20quality_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 Quality Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2%20normalization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 Normalization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.3_feature_selection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 Feature selection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.4_dimensionality_reduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.4 Dimensionality Reduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🍀 CHAPTER 3 识别细胞结构
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            🍀 CHAPTER 3 识别细胞结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1clustering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 Clustering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.2annotation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 Annotation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 Data integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_4" id="__nav_4_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⏱️ CHAPTER 4 推断细胞轨迹
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            ⏱️ CHAPTER 4 推断细胞轨迹
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pseudotemporal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 Pseudotemporal ordering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rna_velocity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 RNA velocity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lineage_tracing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.3 Lineage tracing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_5" id="__nav_4_1_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🎁 CHAPTER 5 应对特殊情况
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            🎁 CHAPTER 5 应对特殊情况
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../differential_gene_expression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 Differential gene expression analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compositional/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 Compositional analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gsea_pathway/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.3 Gene set enrichment and pathway analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../perturbation_modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.4 Perturbation modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⚙️ CHAPTER 6 机制建模
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            ⚙️ CHAPTER 6 机制建模
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gene_regulatory_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1 Gene regulatory networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cell_cell_communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2 Cell-cell communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_7" id="__nav_4_1_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🔓 CHAPTER 7 反卷积
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            🔓 CHAPTER 7 反卷积
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bulk_deconvolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 Bulk deconvolution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    简明易懂的单细胞分析流程（使用 R 语言）
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            简明易懂的单细胞分析流程（使用 R 语言）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    环境配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1%20%E6%9E%84%E5%BB%BA%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E5%88%86%E6%9E%90%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1 构建单细胞 RNA seq 分析环境
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2%20R%20%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 R 环境安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3%20Docker%20%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 Docker 安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.4%20%E5%9C%A8%20Docker%20%E4%B8%AD%E5%90%AF%E5%8A%A8%20Rstudio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.4 在 Docker 中启动 Rstudio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.5%20%E6%9C%89%E5%85%B3%20Bioconductor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.5 有关 Bioconductor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1%20R%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 R 的基本用法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2%20%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%20DataFrame%EF%BC%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 如何处理 DataFrame？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.3%20%E4%BD%BF%E7%94%A8%20ggplot2%20%E5%8F%AF%E8%A7%86%E5%8C%96%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 使用 ggplot2 可视化数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1%20PCA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 PCA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.2%20%E4%BD%BF%E7%94%A8%20clusterPlofiler%20%E8%BF%9B%E8%A1%8C%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 使用 clusterPlofiler 进行富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3%20%E5%9F%BA%E5%9B%A0%E6%9C%AC%E4%BD%93%EF%BC%88GO%EF%BC%89%E4%B8%AD%E5%90%84%20BP%E3%80%81MF%20%E5%92%8C%20CC%20%E7%9A%84%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 基因本体（GO）中各 BP、MF 和 CC 的富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3%20%E4%BD%BF%E7%94%A8%20DEseq2%20%E6%8F%90%E5%8F%96%20RNA-seq%20%E5%88%86%E6%9E%90%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%20DEG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 使用 DEseq2 提取 RNA seq 分析数据中的 DEG
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.4%20%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88KEGG%E3%80%81Reactome%20%E7%AD%89%EF%BC%89%E8%BF%9B%E8%A1%8C%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.4 使用其他数据库（KEGG、Reactome 等）进行富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1%20scRNA-seq%20%E6%A6%82%E8%A6%81/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 scRNA seq 概要
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.2%20%E5%87%86%E5%A4%87%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 准备使用 Seurat 进行分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.3%20%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.3 使用 Seurat 进行数据预处理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.4%20%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E8%88%AC%E9%A1%BA%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.4 使用 Seurat 进行数据分析的一般顺序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.1%20%E5%A6%82%E4%BD%95%E6%9F%A5%E6%89%BE%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 如何查找单细胞 RNA seq 数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.2%20%E4%B8%BA%E6%AF%8F%E4%B8%AA%E7%B0%87%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E7%BB%86%E8%83%9E%E6%B3%A8%E9%87%8A%E6%A0%87%E7%AD%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 为每个簇自动添加细胞注释标签
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.3%20%E4%BD%BF%E7%94%A8%20FeaturePlot%20%E6%A3%80%E6%9F%A5%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.3 使用 FeaturePlot 检查基因表达
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.4%20%E5%B0%86%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9B%B8%E4%BA%92%E7%BB%93%E5%90%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.4 将单细胞 RNA seq 数据集相互结合
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.5%20%E7%BA%A0%E6%AD%A3%E6%89%B9%E6%AC%A1%E6%95%88%E5%BA%94%EF%BC%8C%E6%AF%94%E8%BE%83%E5%AF%B9%E7%85%A7%E7%BB%84%E5%92%8C%E5%88%BA%E6%BF%80%E7%BB%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.5 纠正批次效应，比较对照组和刺激组
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.6%20%E7%A1%AE%E5%AE%9A%E6%AF%8F%E4%B8%AA%E7%BE%A4%E7%BB%84%E7%9A%84%E6%A0%87%E8%AE%B0%E5%9F%BA%E5%9B%A0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.6 确定每个群组的标记基因
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.1%20%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Cell%20Ranger%20%E7%BB%9F%E8%AE%A1%20scRNA-seq%20%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE%E6%B0%B4%E5%B9%B3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1 如何使用 Cell Ranger 统计 scRNA seq 数据中的基因表达水平
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.2%20%E4%BD%BF%E7%94%A8%20Cell%20Ranger%20%E5%A4%84%E7%90%86%20NCBI%20Sequence%20Read%20Archive%20%28SRA%29%20%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2 使用 Cell Ranger 处理 NCBI Sequence Read Archive (SRA) 数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.1%20%E5%85%B3%E4%BA%8E%20scRNA-seq%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%B4%A8%E9%87%8F%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 关于 scRNA seq 数据的质量控制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.2%20%E4%BD%BF%E7%94%A8%20DoubleFinder%20%E6%A3%80%E6%B5%8B%E5%8F%8C%E9%87%8D%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.2 使用 DoubleFinder 检测双重细胞
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.3%20%E7%94%A8%20CellBender%20%E5%8E%BB%E9%99%A4%E8%83%8C%E6%99%AF%20RNA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.3 用 CellBender 去除背景 RNA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🧬 scRNA Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            🧬 scRNA Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🐍 Using Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            🐍 Using Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Large-scale%20foundation%20model%20on%20single-cell%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Large scale foundation model on single cell transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scGPT%20toward%20building%20a%20foundation%20model%20for%20single-cell%20multi-omics%20using%20generative%20AI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scGPT toward building a foundation model for single cell multi omics using generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scBERT%20as%20a%20large-scale%20pretrained%20deep%20language%20model%20for%20cell%20type%20annotation%20of%20single-cell%20RNA-seq%20data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scBERT as a large scale pretrained deep language model for cell type annotation of single cell RNA seq data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RNA%20velocity%20of%20single%20cells/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RNA velocity of single cells
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TFvelo_gene%20regulation%20inspired%20RNA%20velocity%20estimation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TFvelo gene regulation inspired RNA velocity estimation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Disentanglement%20of%20single-cell%20data%20with%20biolord/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Disentanglement of single cell data with biolord
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%AD%90%E2%AD%90%E2%AD%90C5aR1%20inhibition%20reprograms%20tumor%20associated%20macrophages%20and%20reverses%20PARP%20inhibitor%20resistance%20in%20breast%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⭐⭐⭐C5aR1 inhibition reprograms tumor associated macrophages and reverses PARP inhibitor resistance in breast cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spatial%20transition%20tensor%20of%20single%20cells/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial transition tensor of single cells
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Statistical%20method%20scDEED%20for%20detecting%20dubious%202D%20single-cell%20embeddings%20and%20optimizing%20t-SNE%20and%20UMAP%20hyperparameters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistical method scDEED for detecting dubious 2D single cell embeddings and optimizing t SNE and UMAP hyperparameters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scRank%20infers%20drug-responsive%20cell%20types%20from%20untreated%20scRNA-seq%20data%20using%20a%20target-perturbed%20gene%20regulatory%20network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scRank infers drug responsive cell types from untreated scRNA seq data using a target perturbed gene regulatory network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📔 文献
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            📔 文献
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZNF689%20deficiency%20promotes%20intratumor%20heterogeneity%20and%20immunotherapy%20resistance%20in%20triple-negative%20breast%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ZNF689 deficiency promotes intratumor heterogeneity and immunotherapy resistance in triple negative breast cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tumour%20vasculature%20at%20single-cell%20resolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tumour vasculature at single-cell resolution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scRNA-seq%20of%20gastric%20tumor%20shows%20complex%20intercellular%20interaction%20with%20an%20alternative%20T%20cell%20exhaustion%20trajectory%EF%BC%88%E5%8F%82%E8%80%83%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scRNA seq of gastric tumor shows complex intercellular interaction with an alternative T cell exhaustion trajectory（参考）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20analysis%20reveals%20new%20evolutionary%20complexity%20in%20uveal%20melanoma%EF%BC%88%E5%8F%82%E8%80%83%202%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis reveals new evolutionary complexity in uveal melanoma（参考 2）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20characterization%20of%20macrophages%20in%20uveal%20melanoma%20uncovers%20transcriptionally%20heterogeneous%20subsets%20conferring%20poor%20prognosis%20and%20aggressive%20behavior%EF%BC%88%E8%8C%83%E4%BE%8B%201%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell characterization of macrophages in uveal melanoma uncovers transcriptionally heterogeneous subsets conferring poor prognosis and aggressive behavior（范例 1）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ScRNA-seq%20of%20gastric%20cancer%20tissues%20reveals%20differences%20in%20the%20immune%20microenvironment%20of%20primary%20tumors%20and%20metastases/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ScRNA seq of gastric cancer tissues reveals differences in the immune microenvironment of primary tumors and metastases
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Blimp-1%20and%20c-Maf%20regulate%20immune%20gene%20networks%20to%20protect%20against%20distinct%20pathways%20of%20pathobiont-induced%20colitis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blimp 1 and c Maf regulate immune gene networks to protect against distinct pathways of pathobiont induced colitis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single%20cell%20analysis%20unveils%20B%20cell-dominated%20immune%20subtypes%20in%20HNSCC%20for%20enhanced%20prognostic%20and%20therapeutic%20stratification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis unveils B cell dominated immune subtypes in HNSCC for enhanced prognostic and therapeutic stratification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20spatial%20multi-omics%20and%20deep%20learning%20dissect%20enhancer-driven%20gene%20regulatory%20networks%20in%20liver%20zonation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell spatial multi omics and deep learning dissect enhancer driven gene regulatory networks in liver zonation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Neutrophil%20profiling%20illuminates%20anti-tumor%20antigen%20presenting%20potency/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neutrophil profiling illuminates anti tumor antigen presenting potency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20blueprint%20for%20tumor-infiltrating%20B%20cells%20across%20human%20cancers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A blueprint for tumor infiltrating B cells across human cancers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20transcriptomic%20analyses%20reveal%20distinct%20immune%20cell%20contributions%20to%20epithelial%20barrier%20dysfunction%20in%20checkpoint%20inhibitor%20colitis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell transcriptomic analyses reveal distinct immune cell contributions to epithelial barrier dysfunction in checkpoint inhibitor colitis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Systematic%20dissection%20of%20tumor-normal%20single-cell%20ecosystems%20across%20a%20thousand%20tumors%20of%2030%20cancer%20types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systematic dissection of tumor normal single cell ecosystems across a thousand tumors of 30 cancer types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../The%20aged%20tumor%20microenvironment%20limits%20T%20cell%20control%20of%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The aged tumor microenvironment limits T cell control of cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TIM-3%2B%20CD8%20T%20cells%20with%20a%20terminally%20exhausted%20phenotype%20retain%20functional%20capacity%20in%20hematological%20malignancies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TIM 3+ CD8 T cells with a terminally exhausted phenotype retain functional capacity in hematological malignancies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20lactate-SREBP2%20signaling%20axis%20drives%20tolerogenic%20dendritic%20cell%20maturation%20and%20promotes%20cancer%20progression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A lactate SREBP2 signaling axis drives tolerogenic dendritic cell maturation and promotes cancer progression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20human%20omentum-specific%20mesothelial-like%20stromal%20population%20inhibits%20adipogenesis%20through%20IGFBP2%20secretion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A human omentum specific mesothelial like stromal population inhibits adipogenesis through IGFBP2 secretion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Interferon-stimulated%20neutrophils%20as%20a%20predictor%20of%20immunotherapy%20response/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interferon stimulated neutrophils as a predictor of immunotherapy response
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Repression%20of%20latent%20NF-%CE%BAB%20enhancers%20by%20PDX1%20regulates%20%CE%B2%20cell%20functional%20heterogeneity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Repression of latent NF κB enhancers by PDX1 regulates β cell functional heterogeneity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20systematic%20pan-cancer%20study%20on%20deep%20learning-based%20prediction%20of%20multi-omic%20biomarkers%20from%20routine%20pathology%20images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A systematic pan cancer study on deep learning based prediction of multi omic biomarkers from routine pathology images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20and%20spatial%20transcriptomics%20analysis%20of%20non-small%20cell%20lung%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell and spatial transcriptomics analysis of non small cell lung cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seeing%20data%20as%20t-SNE%20and%20UMAP%20do/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Seeing data as t SNE and UMAP do
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping%20the%20cellular%20biogeography%20of%20human%20bone%20marrow%20niches%20using%20single-cell%20transcriptomics%20and%20proteomic%20imaging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapping the cellular biogeography of human bone marrow niches using single cell transcriptomics and proteomic imaging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Onco-fetal%20Reprogramming%20of%20Endothelial%20Cells%20Drives%20Immunosuppressive%20Macrophages%20in%20Hepatocellular%20Carcinoma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Onco fetal Reprogramming of Endothelial Cells Drives Immunosuppressive Macrophages in Hepatocellular Carcinoma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20analysis%20of%20anti-BCMA%20CAR%20T%20cell%20therapy%20in%20patients%20with%20central%20nervous%20system%20autoimmunity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis of anti BCMA CAR T cell therapy in patients with central nervous system autoimmunity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20sequencing%20depicts%20tumor%20architecture%20and%20empowers%20clinical%20decision%20in%20metastatic%20conjunctival%20melanoma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell sequencing depicts tumor architecture and empowers clinical decision in metastatic conjunctival melanoma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PR-SET7%20epigenetically%20restrains%20uterine%20interferon%20response%20and%20cell%20death%20governing%20proper%20postnatal%20stromal%20development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PR SET7 epigenetically restrains uterine interferon response and cell death governing proper postnatal stromal development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Clonal%20associations%20between%20lymphocyte%20subsets%20and%20functional%20states%20in%20rheumatoid%20arthritis%20synovium/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clonal associations between lymphocyte subsets and functional states in rheumatoid arthritis synovium
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📐 Data Structures
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            📐 Data Structures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%201%20%E7%AB%A0%20python%20%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 1 章 python 入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%202%20%E7%AB%A0%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 2 章 面向对象编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%203%20%E7%AB%A0%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 3 章 算法分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%204%20%E7%AB%A0%20%E9%80%92%E5%BD%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 4 章 递归
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%205%20%E7%AB%A0%20%E5%9F%BA%E4%BA%8E%E6%95%B0%E7%BB%84%E7%9A%84%E5%BA%8F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 5 章 基于数组的序列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%206%20%E7%AB%A0%20%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E5%92%8C%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 6 章 栈、队列和双端队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%207%20%E7%AB%A0%20%E9%93%BE%E8%A1%A8%28Linked%20Lists%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 7 章 链表(Linked Lists)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%208%20%E7%AB%A0%20%E6%A0%91%20%E2%98%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 8 章 树 ★
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%209%20%E7%AB%A0%20%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 9 章 优先级队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    💡 Reviews
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            💡 Reviews
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    🧭 scRNA analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            🧭 scRNA analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Best%20practices%20for%20single-cell%20analysis%20across%20modalities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best practices for single cell analysis across modalities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Multi-omics%20integration%20in%20biomedical%20research%20%E2%80%93%20A%20metabolomics-centric%20review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multi omics integration in biomedical research – A metabolomics centric review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Museum%20of%20spatial%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Museum of spatial transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20guide%20to%20artificial%20intelligence%20for%20cancer%20researchers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A guide to artificial intelligence for cancer researchers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    🦠 Metabolism
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            🦠 Metabolism
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20analysis%20as%20a%20driver%20for%20discovery%2C%20diagnosis%2C%20and%20therapy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic analysis as a driver for discovery, diagnosis, and therapy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Metabolic heterogeneity in cancer
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic heterogeneity in cancer
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      摘要
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      主要内容
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主要内容">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      环境因素诱导癌细胞的代谢异质性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      氧梯度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      营养物质的可用性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="营养物质的可用性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      间质液定义了器官的营养空间
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      器官间的营养物质可用性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      肿瘤内的营养物质可用性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      葡萄糖梯度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      谷氨酰胺梯度
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="谷氨酰胺梯度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      蛋白质作为营养来源
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      细胞来源颗粒作为代谢物载体
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecm" class="md-nav__link">
+    <span class="md-ellipsis">
+      ECM 大分子作为营养来源
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      细胞密度和组织刚度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      与基质细胞的相互作用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="与基质细胞的相互作用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      基质细胞提供营养物质
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      基质细胞与癌细胞的交流调控蛋白表达
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      通过分泌因子调控癌细胞代谢
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tme" class="md-nav__link">
+    <span class="md-ellipsis">
+      TME 中的神经
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      代谢竞争
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      转移形成和治疗耐药期间的代谢演变
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="转移形成和治疗耐药期间的代谢演变">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      转移形成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      脂肪酸代谢
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      丝氨酸生物合成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tca" class="md-nav__link">
+    <span class="md-ellipsis">
+      糖酵解和 TCA 循环代谢
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他贡献者
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      治疗耐药
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dna" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNA 损伤诱导疗法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      治疗诱导的氧化应激
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      结论和备注
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Toward%20modeling%20metabolic%20state%20from%20single-cell%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Toward modeling metabolic state from single cell transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20reprogramming%20and%20cancer%20progression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic reprogramming and cancer progression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Protein
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Protein
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Proteomic%20and%20interactomic%20insights%20into%20the%20molecular%20basis%20of%20cell%20functional%20diversity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proteomic and interactomic insights into the molecular basis of cell functional diversity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      摘要
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      主要内容
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主要内容">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      环境因素诱导癌细胞的代谢异质性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      氧梯度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      营养物质的可用性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="营养物质的可用性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      间质液定义了器官的营养空间
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      器官间的营养物质可用性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      肿瘤内的营养物质可用性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      葡萄糖梯度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      谷氨酰胺梯度
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="谷氨酰胺梯度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      蛋白质作为营养来源
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      细胞来源颗粒作为代谢物载体
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecm" class="md-nav__link">
+    <span class="md-ellipsis">
+      ECM 大分子作为营养来源
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      细胞密度和组织刚度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      与基质细胞的相互作用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="与基质细胞的相互作用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      基质细胞提供营养物质
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      基质细胞与癌细胞的交流调控蛋白表达
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      通过分泌因子调控癌细胞代谢
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tme" class="md-nav__link">
+    <span class="md-ellipsis">
+      TME 中的神经
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      代谢竞争
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      转移形成和治疗耐药期间的代谢演变
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="转移形成和治疗耐药期间的代谢演变">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      转移形成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      脂肪酸代谢
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      丝氨酸生物合成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tca" class="md-nav__link">
+    <span class="md-ellipsis">
+      糖酵解和 TCA 循环代谢
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他贡献者
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      治疗耐药
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dna" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNA 损伤诱导疗法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      治疗诱导的氧化应激
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      结论和备注
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/aletolia/aletolia.github.io.git/edit/master/docs/Metabolic heterogeneity in cancer.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/aletolia/aletolia.github.io.git/raw/master/docs/Metabolic heterogeneity in cancer.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+  <h1>Metabolic heterogeneity in cancer</h1>
+
+<h3 id="_1">摘要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>癌细胞通过重塑代谢在癌症进展过程中存活。在这种情况下，肿瘤的代谢异质性在各种环境因素的影响下产生和发展。这种代谢异质性促进了癌症的侵袭性，并影响了治疗机会。近年来，技术进步使得能够直接表征肿瘤中的代谢异质性。除了在原发肿瘤中观察到的代谢异质性外，代谢异质性还随着肿瘤进展而在时间上演变。在这篇综述中，我们总结了环境诱导的代谢异质性的机制。此外，我们还讨论了在转移级联和治疗过程中，癌症代谢以及关键代谢物和酶如何在时间和功能上演变。</p>
+<h3 id="_2">主要内容<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>代谢重编程是癌症的一个公认标志，使癌细胞能够在环境限制的适应压力下生存和增殖。这样的代谢重编程不是遵循僵硬的路径，而是一个动态过程。这导致了肿瘤之间（肿瘤间代谢异质性）和同一肿瘤的癌细胞和基质细胞之间（肿瘤内代谢异质性）存在显著的代谢特征。一个新兴的概念是微环境诱导选择压力，驱动癌细胞的进化，并最终导致向转移和耐药性的进展。转录组学和代谢组学研究表明，代谢重编程在癌细胞进化过程中起着重要作用。</p>
+<p>肿瘤微环境（TME）由不同的细胞类型组成。除了癌细胞外，促肿瘤和抗肿瘤的基质细胞以及非细胞成分构成了肿瘤的结构。此外，小分子（包括葡萄糖、脂质、氨基酸和氧）的浓度在 TME 中高度可变。同样，由癌细胞和非癌细胞产生的细胞外基质（ECM）也是 TME 的重要组成部分。所有这些参数都会影响癌细胞的代谢，导致在空间和时间上的代谢异质性（图 1）。空间上的代谢异质性源于肿瘤内或器官间环境的异质性。例如，肿瘤核心的环境可能与肿瘤边缘的环境有显著不同，而同一患者体内不同器官中的癌细胞也可能经历截然不同的环境。时间上的代谢异质性源于同一癌细胞对变化环境的适应或进化反应。例如，治疗或全身生理变化可能迫使癌细胞改变其代谢。空间和时间上的代谢异质性这两个方面是交织在一起的。一个很好的例子是转移形成，因为原发肿瘤中的营养限制（空间异质性）可能驱使一些癌细胞发生转移，而这些转移的癌细胞在从原发肿瘤通过淋巴系统和/或血液循环到达远处器官时会暴露于不同的环境中（时间异质性）。</p>
+<p><img alt="" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs42255-023-00963-z/MediaObjects/42255_2023_963_Fig1_HTML.png?as=webp" /></p>
+<blockquote>
+<p>空间上的代谢异质性源于肿瘤内部或器官间环境的异质性。不同的肿瘤微环境因素根据癌细胞的空间位置，促使其产生不同的代谢表型。在癌症转移和抗癌治疗过程中，代谢限制导致癌细胞在时间上的代谢异质性。</p>
+</blockquote>
+<p>在这篇综述中，我们讨论了不同的环境因素如何协同作用以诱导和调节肿瘤的代谢异质性。此外，我们强调了代谢异质性在癌症转移和治疗过程中的复杂性如何演变。</p>
+<h4 id="_3">环境因素诱导癌细胞的代谢异质性<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>在以往的癌症研究中，肿瘤内癌细胞的遗传和表观遗传异质性受到了大量关注。最近，单细胞和空间转录组学、蛋白质组学和代谢组学的技术进步（见框 1）使得对同一肿瘤中癌细胞和非癌细胞群体的代谢异质性进行研究成为可能。有趣的是，在同一遗传定义的癌症亚群中，已经鉴定出不同的代谢表型，这表明不仅是内在的遗传改变，还有其他微环境因素共同调节代谢异质性（见图 2）。</p>
+<p><img alt="" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs42255-023-00963-z/MediaObjects/42255_2023_963_Fig2_HTML.png?as=webp" /></p>
+<blockquote>
+<p>在肿瘤微环境（TME）中，氧梯度、营养物质的可获得性以及肿瘤细胞与细胞外基质（ECM）和非癌细胞（如神经细胞、成纤维细胞、内皮细胞和免疫细胞）的相互作用是根据空间位置产生不同癌细胞代谢表型的主要原因，导致肿瘤内和/或器官间的代谢异质性。EV，细胞外囊泡。</p>
+<p>框 1：癌症代谢组学研究中的 MSI</p>
+<p>空间代谢组学提供了具有空间分辨率的稳态代谢物丰度的广泛视角，结合同位素追踪添加了动态代谢物周转的成分。在不同的 MSI（质谱成像）技术中，MALDI-MSI 和 DESI-MSI 是癌症研究中最广泛使用的。</p>
+<p>MALDI-MSI 是一种依赖基质的技术，能够实现组织内代谢物的空间可视化。为实现这一目标，基质直接应用于组织切片上，与代谢物形成共晶，使其离子化，并将电荷转移到代谢物，导致其解吸和离子化。例如，MALDI-MSI 已被用于推断患者 GBM（胶质母细胞瘤）肿瘤与肿瘤周围组织区域的代谢物浓度。结合稳定同位素追踪，MALDI-MSI 观察到了小鼠胰腺肿瘤与周围胰腺组织相比的 TCA 循环中葡萄糖的差异性贡献。</p>
+<p>DESI-MSI 采用电喷雾离子化技术，直接用带电溶剂液滴喷洒样品以提取代谢物。与 MALDI-MSI 不同，DESI-MSI 不需要基质应用。因此，在 MSI 测量后，组织可以直接进行其他分析，例如组织学染色，而无需基质去除步骤。利用 DESI-MSI，已显示出脂质谱可以准确区分患者乳腺肿瘤边缘的癌组织和邻近的正常组织。</p>
+<p>相比于新开发的大气压 MALDI-MSI 平台，其侧向分辨率为 1.4 微米，DESI-MSI 的空间分辨率较低。然而，缺少基质使 DESI-MSI 特别适合检测低分子量分子，因为基质离子与几种小代谢物具有相似的质荷比。总的来说，MALDI-MSI 和 DESI-MSI 有许多相似之处，每种都有其独特的优点和缺点。考虑到这一点，这些技术的选择应基于特定的代谢物和代谢途径以及所研究的生物学问题。</p>
+</blockquote>
+<h4 id="_4">氧梯度<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>氧梯度主要被描述为空间上代谢异质性的驱动因素。在患者中，通过缺氧标志物表达分析和使用氧敏感针电极对组织区域进行极谱氧测量发现，缺氧程度在肿瘤类型之间以及个体患者的肿瘤内存在很大差异。在缺氧细胞中，由糖酵解产生的丙酮酸不能有效地氧化成乙酰辅酶 A（CoA），并在细胞质中积累，在那里它被乳酸脱氢酶（LDH）A 转化为乳酸。因此，线粒体氧化磷酸化（OXPHOS）和三羧酸循环（TCA）中的乙酰辅酶 A 氧化减少。氧气稀缺可以直接阻碍 OXPHOS，因为它是电子传递链的末端电子受体，并导致转录因子缺氧诱导因子（HIF）-α 的稳定。这会诱导糖酵解基因、LDHA 和丙酮酸脱氢酶激酶（PDK）1 的表达，而后者会损害丙酮酸脱氢酶（PDH）的活性，从而阻止丙酮酸氧化为乙酰辅酶 A。在缺氧情况下，发现 HIF-2α 诱导了质膜中谷氨酰胺转运蛋白溶质载体家族 1 成员 5（SLC1A5）和谷氨酰胺酶（GLS）1 的表达，增强了谷氨酰胺代谢，这在宫颈癌、咽鳞状细胞癌和结肠癌细胞系中得到证实。在胰腺导管癌（PDAC）细胞中，HIF-2α 被证明诱导了线粒体中 SLC1A5 变体谷氨酰胺转运蛋白，促进了线粒体谷氨酰胺代谢对 OXPHOS 和 ATP 生成的贡献。</p>
+<p>在人的肺腺癌的三维 3D 球体中，这种氧化与缺氧细胞之间的代谢异质性得到了重现。在该模型中，多模式质谱成像（MSI；见框 1）结果显示，TCA 循环代谢物水平在球体的外层区域较高，而糖酵解代谢物丙酮酸和乳酸的水平在缺氧核心较高。然而，来自患者头颈部鳞状细胞癌和黑色素瘤的单细胞转录组学表明，缺氧反应标志物与糖酵解和 OXPHOS 均相关，这挑战了关于糖酵解、OXPHOS 和缺氧相互作用的传统观点。</p>
+<p>氧合程度可以成为有氧和缺氧癌细胞之间代谢共生的来源。这种相互依赖通过单羧酸转运蛋白（MCT）1 和 MCT4 的乳酸交换得以促进。MCT4 是一种低亲和力乳酸转运蛋白（Km=22 mM），适合释放乳酸。相反，MCT1 对乳酸具有较高的亲和力（Km=3.5–10 mM），从而促进乳酸的流入和氧化。在胰腺导管癌（PDAC）的体内模型中，MCT1 和 MCT4 分别在有氧和缺氧区域表达。同样，在人类结直肠腺癌细胞中，占据氧合的血管周围利基细胞表达高水平的 MCT1。MCT1 抑制表现出抗肿瘤效应，这可能是因为氧合细胞依赖于进口和氧化缺氧糖酵解细胞释放的乳酸，这些细胞消耗了可用的葡萄糖。与此一致的是，位于灌注良好区域的人肺癌细胞使用的葡萄糖量比灌注不良区域的细胞少，并表现出增强的乳酸摄取和氧化。进一步支持这种共生模式的是在乳酸补充培养基中在有氧环境下培养的小鼠 PDAC 细胞，利用提供的乳酸高达 50%。</p>
+<p><img alt="" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs42255-023-00963-z/MediaObjects/42255_2023_963_Fig3_HTML.png?as=webp" /></p>
+<blockquote>
+<p>在原发肿瘤中，陡峭的氧梯度可以诱导出空间上异质的代谢表型。在缺氧条件下，还原性谷氨酰胺代谢在为 TCA 循环中的柠檬酸补充起着重要作用，HIF-2α 在诱导谷氨酰胺质膜 SLC1A5 转运蛋白和线粒体谷氨酰胺 SLC1A5 变体转运蛋白的表达中发挥关键作用，这在胰腺、宫颈、咽鳞状细胞癌和结肠癌细胞系中得到了证明。增加的谷氨酰胺介导的 TCA 循环补充进而有助于乙酰辅酶 A 的生成，这对于新生脂肪生成至关重要。在缺氧细胞中，脂滴的积累可以保护其免受由于氧依赖性 SCD 酶功能低效引起的潜在脂质过氧化的影响。缺氧癌细胞可以通过从糖酵解衍生的丙酮酸释放乳酸，与氧合癌细胞建立共生关系。事实上，氧合癌细胞也可以氧化乳酸以为 TCA 循环提供燃料。此外，氧合癌细胞可以适当地氧化和不饱和脂肪酸。</p>
+<p>α-KG，α- 酮戊二酸；FADS2，脂肪酸脱饱和酶 2；HUFA，高不饱和脂肪酸；MUFA，单不饱和脂肪酸；UFA，不饱和脂肪酸。</p>
+</blockquote>
+<p>在缺氧条件下，HIF-1α 和 HIF-2α 的稳定也会影响新生脂肪生成。乙酰辅酶 A 是脂肪酸合成的核心生物合成前体。葡萄糖、脂肪酸和乙酸盐都可以为乙酰辅酶 A 的生成提供燃料。如果乙酰辅酶 A 是在线粒体中产生的，其运输到细胞质依赖于柠檬酸的出口和 ATP 柠檬酸裂解酶的活性。在缺氧条件下，向乙酰辅酶 A 合成的糖酵解通量减少意味着柠檬酸的可用性减少，而柠檬酸一旦在细胞质中转化为乙酰辅酶 A，就会用于新生脂肪生成。因此，缺氧条件下的新生脂肪生成可能主要依赖于其他碳源，包括还原性谷氨酰胺对柠檬酸的贡献。在不同来源的培养肿瘤细胞中，异柠檬酸脱氢酶（IDH）对总细胞 α- 酮戊二酸还原通量的相对贡献增加，并在新合成的脂肪酸中检测到谷氨酰胺来源的碳。这一发现与 von Hippel–Lindau 缺失的人肾细胞癌细胞衍生的异种移植小鼠模型中谷氨酰胺还原羧化生成柠檬酸的观察结果一致，在这些细胞中，由于 von Hippel–Lindau 蛋白的丧失，HIF-1α 和/或 HIF-2α 信号传导（伪缺氧）被持续激活。有趣的是，α- 酮戊二酸与柠檬酸的比例已被证明与还原性谷氨酰胺代谢的幅度相关。然而，需要进一步的体内分析来评估缺氧在调节肿瘤中还原羧化和新生脂肪生成中的作用。然而，值得推测的是，除了缺氧条件下的 HIF 激活外，其他改变 α- 酮戊二酸与柠檬酸比例的肿瘤微环境（TME）扰动也可以决定谷氨酰胺是以还原还是氧化方向代谢，导致不同空间代谢表型的癌细胞的出现。</p>
+<p>氧气稀缺本身可以抑制通过 β- 氧化的脂肪酸分解代谢，这在人的肝细胞癌（HCC）细胞系中得到了证明。另一方面，脂肪酸转运酶 CD36 在多个人癌细胞系中上调，并且在体外培养的人的胶质瘤和乳腺癌细胞中显示出细胞外脂质摄取的增加。这可能是因为在缺氧癌细胞中，脂肪酸的脱饱和受到影响，因为硬脂酰辅酶 A 脱饱和酶（SCD）是一种依赖氧的酶，这在人的乳腺癌和前列腺癌细胞系中得到了证明。因此，在缺氧条件下，新生合成的脂肪酸可能不再充分脱饱和。结果，一些癌细胞通过脂肪酸结合蛋白（FABP）3 或 FABP7 显示出增加的脱饱和脂肪酸摄取，并形成脂滴以避免潜在的饱和脂肪酸引起的脂毒性，这在人的乳腺癌和胶质母细胞瘤细胞中得到了证明。与由于氧梯度引起的脂质代谢调节一致，利用脱附电喷雾电离（DESI）-MSI 在胶质母细胞瘤（GBM）异种移植模型和基质辅助激光解吸电离（MALDI）-MSI 在正位乳腺癌模型中识别出肿瘤脂质组和脂肪酸氧化中的显著肿瘤内异质性。此外，来自患者来源的 GBM 类器官不同区域的 RNA 测序和靶向脂质组学揭示了在脂质处理基因表达和总脂质含量方面的显著区域性受限脂质代谢。分析还显示，缺氧类器官核心以及患者原发 GBM 中的坏死周围和假围栏区域上调了缺氧诱导的脂滴相关基因表达。</p>
+<h4 id="_5">营养物质的可用性<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>癌细胞显示出改变的代谢以满足其表型需求。然而，除了细胞内在的改变外，细胞外在因素如环境中营养物质的可用性进一步施加了调节癌细胞代谢的限制。在某些器官中，例如肝脏，氧气和营养物质呈梯度分布，这可能会引起癌细胞的不同区域代谢特征。在脑脊液（CSF）中，由于血脑屏障的存在，氨基酸和脂质的浓度低于血浆。此外，发现小鼠和人类的肺间质液（IF）含有大量的脂肪酸，而脑间质液和脑脊液缺乏脂肪酸，淋巴液富含油酸。因此，营养物质的可用性主要被描述为肿瘤内代谢异质性的驱动因素，但新兴证据也表明器官环境之间的营养异质性。</p>
+<h5 id="_6">间质液定义了器官的营养空间<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
+<p>在肿瘤中，异常的血管结构可能导致肿瘤细胞与循环系统之间的营养供应和废物交换效率低下。因此，肿瘤间质液的营养成分不同于健康组织和血浆的营养成分。肿瘤间质液中的营养物质可用性受到器官位置和肿瘤组织起源的影响，而不是内在的基因突变。最近，研究表明饮食也可以影响特定器官间质液的营养成分。与对照饮食相比，食用高脂饮食的小鼠的肺和肝间质液中棕榈酸、油酸和硬脂酸的积累较高，但亚油酸的积累没有增加。此外，原发肿瘤本身可以在转移发生之前主动改变潜在的转移器官，形成所谓的预转移微环境。进一步发现，原发肿瘤的分泌物也可以改变预转移微环境中的营养成分。一项早期研究表明，microRNA（miR）-122 在健康细胞中诱导低代谢，可能为到达的癌细胞在大脑和肺中保留葡萄糖。此外，小鼠和乳腺癌患者的预转移与对照肺间质液显示棕榈酸显著富集。因此，间质液的营养成分，这是一种癌细胞的营养来源，可以由特定的器官位置、肿瘤组织起源、原发肿瘤的存在和不同的饮食来定义。</p>
+<h5 id="_7">器官间的营养物质可用性<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h5>
+<p>在不同器官中生长的癌细胞对可用的营养物质作出代谢反应。在小鼠肺间质液中，丙酮酸的可用性促进了肺转移与对应的原发乳腺肿瘤相比的丙酮酸羧化酶（PC）依赖性补充。此外，丙酮酸的摄取还通过促进癌细胞产生的 ECM 的胶原羟基化支持乳腺癌细胞在小鼠肺中的转移种植和生长。此外，小鼠肺间质液中的丙酮酸增加了由丝氨酸生物合成产生的 α- 酮戊二酸，支持肺转移中的哺乳动物雷帕霉素靶蛋白复合物 1（mTORC1）信号传导，而不是对应的原发乳腺肿瘤。肺预转移微环境中的高棕榈酸可用性使到达的乳腺癌细胞能够利用它来产生乙酰辅酶 A，进而促进 p65 乙酰化的增加，从而增强核因子 κB（NF-κB）信号传导。如前所述，与血浆相比，健康 C57BL/6 小鼠的脑脊液和脑间质液中缺乏脂肪酸。为了适应这种缺脂环境，HER2+ 乳腺癌细胞可以在小鼠的大脑中上调脂肪酸合成。这一发现在人乳腺癌来源的脑转移中得到了进一步证实，显示出比原发肿瘤更高的 FASN 水平。尽管脑脊液和脑间质液中脂肪酸稀缺，但发现来自患者的 GBM 肿瘤中含有具有不同细胞命运的癌细胞亚群，这些亚群显示出脂肪酸合成和处理基因的差异表达，表明在异质性 GBM 肿瘤中癌细胞亚群之间或癌细胞与基质细胞之间存在脂肪酸交换。</p>
+<h5 id="_8">肿瘤内的营养物质可用性<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h5>
+<p>肿瘤的空间分析表明，一些肿瘤区域具有异质的营养物质可用性。在以下部分中，我们讨论了葡萄糖和谷氨酰胺梯度如何促成肿瘤内的代谢异质性。</p>
+<p><img alt="" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs42255-023-00963-z/MediaObjects/42255_2023_963_Fig4_HTML.png?as=webp" /></p>
+<blockquote>
+<p>a. 在缺乏葡萄糖的区域，糖酵解不足以产生由丙酮酸衍生的乙酰辅酶 A，从而减慢了 TCA 循环。因此，癌细胞依赖于谷氨酰胺的进口和代谢，如淋巴瘤、脑肿瘤和宫颈癌，它们依赖于外源脂肪酸的进口和氧化来生产能量。在乳腺癌细胞中，低葡萄糖条件可以通过 KLF4 的转录重编程选择出具有有氧糖酵解表型的癌细胞。此外，葡萄糖缺乏可以激活 PHGDH 的非经典苹果酸转草酰乙酸反应，消耗 NAD+ 库，影响 c-Jun 的功能。在低谷氨酰胺环境中，葡萄糖通过糖酵解代谢，为乙酰辅酶 A 的生成提供燃料，这对脂肪生成至关重要。HCC 细胞中观察到应对谷氨酰胺短缺的组织特异性机制，这些细胞通过 SLC13A5（主要在肝脏中表达）进口柠檬酸以进行脂肪生成。通过阻止乙酰辅酶 A 进入 TCA 循环，癌细胞通过上调 Asp-Asn 合成来避免低谷氨酰胺引起的细胞死亡。</p>
+<p>b. 癌细胞通过从肿瘤微环境（TME）中获取大分子并在溶酶体中分解它们来满足能量和合成需求。作为一种非选择性的、大量摄取过程，大吞噬作用提供了来自大分子和小颗粒（包括白蛋白、ECM 成分和外泌体）的氨基酸、糖和脂质。ECM 成分，如纤连蛋白，可以与整合素 α5β1 等受体结合进行内化。此外，外泌体和非膜纳米颗粒，即外体和超体，可以运输完整的代谢物、大分子和为癌细胞代谢提供燃料的代谢酶。</p>
+<p>CS：柠檬酸合酶；OAA：草酰乙酸；GOT2：谷氨酰 - 草酰乙酸转氨酶 2；ASNS：天冬酰胺合成酶；gp18：糖蛋白 18；gp30：糖蛋白 30；UPR：未折叠蛋白反应。星号表示在特定癌症类型中在塑造癌细胞代谢方面发挥作用的特定途径。红线表示转录因子对代谢途径的调控事件。</p>
+</blockquote>
+<h4 id="_9">葡萄糖梯度<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>在一个体外 GBM 类器官模型中，发现营养丰富的边缘区域特别富含癌症干细胞，这些细胞的脂滴积累较低且多不饱和脂肪酸的生产增加，相对于非癌症干细胞而言。相比之下，葡萄糖缺乏的条件可以限制新生脂肪酸的合成，同时诱导 CD36 的表达，如在人胃癌细胞中所示。与此一致，从患者来源的原发 GBM 中分离出的缓慢增殖的癌细胞显著增加了依赖 FABP7 的外源性脂肪酸摄取及其利用。这意味着靶向 FABP7 可能使缓慢增殖的癌细胞在葡萄糖缺乏条件下对代谢压力更加敏感。此外，谷氨酰胺代谢在葡萄糖限制条件下为 TCA 循环的补充提供了必要的支持。因此，多种细胞系如淋巴瘤、神经母细胞瘤和宫颈癌在葡萄糖缺乏条件下通过 SLC1A5 上调谷氨酰胺的进口和代谢。同样，在 HCC 细胞和 GBM 细胞中，通过线粒体谷氨酸脱氢酶（GDH）1 将谷氨酸脱氨，提供 TCA 循环中的 α- 酮戊二酸。然而，研究还发现，将人乳腺癌细胞暴露于葡萄糖饥饿环境中会选择具有增加的有氧糖酵解表型和乳酸生成率的克隆。这个代谢表型由 Krüppel 样因子 4（KLF4）转录因子的上调驱动，这与早期发育和干细胞样表型有关，即使在营养丰富的条件下培养细胞时，这一表型也得以维持。此外，低葡萄糖浓度可以诱导癌细胞中代谢酶的非经典功能的区域性激活。在人胰腺和小鼠肝癌细胞中，葡萄糖饥饿诱导了磷酸甘油酸脱氢酶（PHGDH）连续的 Ser371 和 Ser55 磷酸化，这是一种在新生丝氨酸合成中的关键酶。结果，这些翻译后修饰加速了 PHGDH 的核转位，催化非经典的苹果酸转草酰乙酸氧化和烟酰胺腺嘌呤二核苷酸（NAD）H 的生成。NAD+ 水平的降低抑制了依赖 NAD+ 的 c-Jun 的多（ADP- 核糖）化，这损害了其转录活性，限制了癌细胞的生长。</p>
+<h4 id="_10">谷氨酰胺梯度<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>除了葡萄糖外，与正常组织相比，肿瘤中谷氨酰胺也可能耗尽，这在 PDAC 的小鼠模型中得到了证明。与肿瘤外围相比，肿瘤核心的谷氨酰胺浓度也可能局部下降，这在黑色素瘤异种移植模型中得到了证明。在人乳腺癌、HCC 和结肠癌（CRC）细胞中，谷氨酰胺短缺激活了 DNA 损伤诱导转录因子 3（DDIT3），通过上调糖酵解并抑制 OXPHOS 来平衡 ATP 生成。此外，在培养的 HCC 和 GBM 细胞中，观察到谷氨酰胺饥饿时通过 PC 进行的葡萄糖补充。位于谷氨酰胺缺乏区域的癌细胞能够通过为天冬氨酸 - 天冬酰胺生物合成途径提供燃料来抑制谷氨酰胺缺乏引起的细胞凋亡。在人 GBM 细胞系中，谷氨酰胺缺乏诱导了柠檬酸合酶的抑制，这使得草酰乙酸从 TCA 转向天冬氨酸 - 天冬酰胺合成。反过来，这抑制了未折叠蛋白反应的凋亡调节因子的诱导。在人 HCC 中，通过钠偶联的柠檬酸转运蛋白 NaCT 和溶质载体家族 13 成员 5（SLC13A5）摄取的细胞外柠檬酸可以在谷氨酰胺缺乏环境中支持脂肪生成。当谷氨酰胺缺乏环境中柠檬酸补充减少时，这种 HCC 细胞对谷氨酰胺缺乏的反应可能是一种适应机制，类似于癌细胞的起源，因为在健康组织中，SLC13A5 柠檬酸转运蛋白主要在肝脏中表达。然而，目前尚不清楚这种适应机制是否也在其他组织中生长的癌细胞中相关，这些组织中也表达 SLC13A5，如大脑、生殖组织和唾液腺。</p>
+<h5 id="_11">蛋白质作为营养来源<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h5>
+<p>血管渗漏（即血管通透性增加）和淋巴引流不足（保留效应）导致 TME 中血浆来源的蛋白质积累。在肿瘤间质液中，这些蛋白质可以通过清除过程成为癌细胞的营养来源。受体和大吞噬作用介导的细胞外蛋白质清除有助于补充细胞内氨基酸库。白蛋白已被证明在肿瘤中积累，可以被体外和体内的胰腺癌细胞分解，贡献供肿瘤生长的自由氨基酸。此外，白蛋白富含半胱氨酸。在各种癌细胞系中，通过分解溶酶体中的细胞外白蛋白可以避免半胱氨酸缺乏诱导的铁死亡。观察到释放的自由半胱氨酸有助于维持细胞内谷胱甘肽（GSH）水平，从而抑制有毒脂质过氧化物。此外，白蛋白降解可能为癌细胞提供脂肪酸，因为白蛋白有多达七个脂肪酸结合位点。</p>
+<h5 id="_12">细胞来源颗粒作为代谢物载体<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h5>
+<p>有趣的是，研究表明，来自 TME 的细胞外囊泡携带代谢物，包括 TCA 循环中间体、氨基酸和脂质，这些代谢物被用作营养来源来支持受体前列腺癌细胞的代谢。与此一致，来自患者来源的癌症相关成纤维细胞（CAFs）释放的外泌体中的代谢物可以支持前列腺癌细胞的代谢。此外，CRC 来源的超级体（非常小的非膜纳米颗粒）已被证明可以改变受体细胞中的乳酸分泌，携带甲基丙二酸的细胞外囊泡促进了乳腺癌细胞的上皮 - 间质转化（EMT）。此外，一项最近的研究表明，肿瘤来源的外泌体携带棕榈酸诱导脂肪肝疾病，从而增强化疗的副作用。因此，这提供了证据表明，细胞来源的颗粒可以高效地将特定代谢物转移到远处部位。</p>
+<h5 id="ecm">ECM 大分子作为营养来源<a class="headerlink" href="#ecm" title="Permanent link">&para;</a></h5>
+<p>ECM 提供了细胞通过受体（主要是整合素）或大吞噬作用介导的清除从中获取营养的储备，如胶原蛋白、纤连蛋白和层粘连蛋白。研究表明，PDAC 和卵巢癌细胞可以通过整合素 α5β1 介导的内吞作用在体外和体内内化纤连蛋白并在溶酶体中消化，从而释放氨基酸。像纤连蛋白一样，I 型和 IV 型胶原可以被小鼠 PDAC 细胞内化和消化，这在体外得到了证明。在基础条件下或葡萄糖缺乏条件下培养的小鼠 PDAC 细胞，大吞噬作用似乎是内化 I 型和 IV 型胶原的必要过程。相比之下，在谷氨酰胺受限条件下，其他受体介导的机制似乎参与了 PDAC 肿瘤中的胶原清除。在胶原降解后可用的氨基酸中包括半胱氨酸，已被证明支持 PDAC 细胞的代谢和增殖。ECM 成分还可以提供糖类，因为它们高度糖基化。因此，清除的糖类可以重复用于蛋白质糖基化，节省葡萄糖或谷氨酰胺用于其他代谢过程。</p>
+<p>器官特异性的营养成分和 TME 中的营养梯度本身代表了肿瘤间和肿瘤内代谢异质性的一个层面。这可以通过局部重新编程癌细胞的代谢来获得不同的代谢表型，从而促进肿瘤内代谢异质性。</p>
+<h4 id="_13">细胞密度和组织刚度<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>肿瘤内的空间代谢异质性可以由实体肿瘤不同区域的细胞密度决定。Kondo 等人使用基于荧光共振能量转移的葡萄糖传感器研究了乳腺癌细胞系在体内和体外的葡萄糖利用。在人乳腺癌 MCF-7 来源的小鼠异种移植瘤中，发现高细胞内葡萄糖浓度的癌细胞位于低细胞密度的肿瘤边缘区域。在培养的 MCF-7 细胞中，细胞密度增加伴随着结合肌动蛋白的蛋白 cofilin 的磷酸化增加，这是一种解聚肌动蛋白丝的蛋白。Cofilin 的磷酸化降低了其功能，进而降低了细胞内葡萄糖浓度，将细胞推入低葡萄糖状态。</p>
+<p>除了细胞密度外，肿瘤的机械刚度也会影响癌细胞代谢，导致区域差异。作为 ECM 的关键成分，透明质酸可以被透明质酸酶消化，导致 ECM 刚度下降。在体外培养的多种癌细胞（包括人肺癌、乳腺癌、宫颈癌、结直肠癌和胰腺癌）中，透明质酸酶触发的 ECM 重塑期间观察到糖酵解增加。此外，透明质酸酶触发的 ECM 重塑导致葡萄糖转运蛋白 1（GLUT1）抑制因子硫氧还蛋白相互作用蛋白（TXNIP）降解，导致葡萄糖摄取和糖酵解增加。与此一致，模拟乳腺癌肿瘤 ECM 刚度异质性的 3D 水凝胶培养系统显示，软微环境诱导糖酵解富集，而硬微环境诱导 OXPHOS 和脂肪酸代谢的上调。考虑到 TME 的复杂性，3D 体外模型只能部分再现体内环境。在体内，肿瘤基质细胞，如 CAF 和肌成纤维细胞，可以调节 ECM 成分和利基刚度。事实上，与上述 3D 水凝胶系统的结果相反，患者间质性高级别浆液性卵巢癌来源的异种移植肿瘤的外围比肿瘤核心更软，具有增强的 OXPHOS 代谢，而硬肿瘤核心则以更高的糖酵解代谢为特征。</p>
+<p><img alt="" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs42255-023-00963-z/MediaObjects/42255_2023_963_Fig5_HTML.png?as=webp" /></p>
+<blockquote>
+<p>在体外 3D 肿瘤模型中，增加的基质刚度会诱导 OXPHOS 和脂肪酸代谢的上调，而在软基质中，糖酵解被增强。作为 ECM 的关键成分，透明质酸（HA）可以被透明质酸酶（HAase）消化，导致 ECM 刚度下降。透明质酸酶通过降解 GLUT1 抑制因子 TXNIP，触发葡萄糖摄取和糖酵解的增加。在体内样本的硬肿瘤核心中也观察到糖酵解代谢的增加。在硬基质中观察到 CAF（癌症相关成纤维细胞）和肿瘤细胞之间的代谢串扰。</p>
+<p>ZFP36：锌指蛋白 36；SLC1A3：溶质载体家族 1 成员 3。</p>
+</blockquote>
+<p>ECM 硬化也会影响癌细胞和基质细胞中的氨基酸代谢。在一个基于水凝胶的体外系统中，随着基质刚度的增加，癌细胞分泌谷氨酸并摄取天冬氨酸，以维持在增殖期间的核苷酸生物合成。同时，CAF（癌症相关成纤维细胞）分泌天冬氨酸并摄取癌细胞分泌的谷氨酸，以供给 GSH（谷胱甘肽）途径，这保护了 CAF 免受积累的活性氧（ROS）的损害。此外，研究表明，散播到骨髓、大脑、肺和肝脏的乳腺癌细胞遇到了促进 GSH 代谢的软环境，从而在癌细胞中促进了氧化还原稳态。与此一致，培养在软 ECM 上的转移性乳腺癌细胞显示出线粒体 ROS（mtROS）的急性增加，激活了包括胱氨酸摄取和 GSH 氧化还原在内的抗氧化反应。这种逆行反应使癌细胞具备更高的抗氧化应激能力。</p>
+<p>这些研究表明了组织刚度对肿瘤代谢的深远影响。为了更好地理解 ECM 和癌细胞代谢之间的潜在机制和双向反馈，还需要更多的体内研究和改进的体外模型，这些模型可以更紧密地模拟癌症进展过程中基质刚度的动态变化。</p>
+<h4 id="_14">与基质细胞的相互作用<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<p>基质细胞是 TME 的重要组成部分，它们与癌细胞进行代谢交互和/或竞争。癌细胞与基质细胞之间的这种相互作用促进了代谢的异质性。</p>
+<h5 id="_15">基质细胞提供营养物质<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h5>
+<p>脂肪细胞和癌细胞之间的串扰可以满足癌细胞在快速生长期间的能量需求。在人类卵巢肿瘤来源的网膜转移中，靠近脂肪细胞的癌细胞显示出脂滴积累的增加。将人卵巢癌细胞与初级网膜脂肪细胞共同培养，确认卵巢癌细胞可以摄取脂肪细胞释放的脂肪酸。这种共生关系可以解释卵巢癌偏好在富含脂肪细胞的网膜中形成转移。进一步发现，肺内的 II 型肺泡细胞在响应于原发乳腺肿瘤分泌的因子时增加了棕榈酸含量脂质的释放。反过来，这促进了到达肺环境的癌细胞利用可用的棕榈酸的能力，从而在小鼠模型中导致转移生长增加。在 PDAC 的背景下，癌细胞分泌的 miR-105 诱导 CAF 释放源自葡萄糖和谷氨酰胺代谢的代谢物，从而在营养充足条件下为邻近的癌细胞提供燃料。相反，在营养不足的条件下，这些 CAF 通过将代谢废物转化为富含能量的代谢物来解毒。此外，其他代谢物如丙氨酸已被观察到由胰腺星形细胞分泌，为 PDAC 的生长提供燃料。因此，靶向主要的丙氨酸转运蛋白 SLC38A2 可以抑制 PDAC 的生长。此外，在肥胖小鼠中，肿瘤周围的脂肪细胞增强了肌酸的生产，邻近的癌细胞利用肌酸来生产磷酸肌酸。磷酸肌酸被认为在高能量需求时期（如细胞增殖）缓冲癌细胞的 ATP 库。</p>
+<p><img alt="" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs42255-023-00963-z/MediaObjects/42255_2023_963_Fig6_HTML.png?as=webp" /></p>
+<blockquote>
+<p>TME 中的基质细胞与肿瘤细胞进行代谢互动，诱导空间上的代谢异质性。脂肪细胞和 II 型肺泡（ATII）细胞为癌细胞提供脂肪酸，作为能量来源或信号分子。巨噬细胞、肝星状细胞和 T 细胞可以通过分泌细胞因子或酶来引起糖酵解的变化。此外，癌细胞可以通过竞争环境中的脂肪酸或分泌 D-2HG 来抑制 T 细胞功能。TME 激活内皮细胞中的 PHGDH 介导的丝氨酸生物合成，促进异常血管化。内皮细胞诱导肿瘤细胞中 PHGDH 的丧失，导致肿瘤细胞的代谢从糖酵解向唾液酸途径重编程。CAF 和星状细胞通过解毒代谢废物和分泌富含能量的代谢物和外泌体来影响癌细胞代谢。神经分泌丝氨酸以促进肿瘤生长，并通过分泌神经肽与基质细胞（如内皮细胞）进行串扰。</p>
+<p>F6P, 果糖 -6- 磷酸；OPN, 骨涎蛋白；Ac, 乙酰；3PG, 3- 磷酸甘油酸；NE, 去甲肾上腺素；miRNA, 微 RNA；CGRP, 降钙素基因相关肽。</p>
+</blockquote>
+<h5 id="_16">基质细胞与癌细胞的交流调控蛋白表达<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h5>
+<p>除了直接的代谢物交换外，基质细胞和癌细胞还可以相互影响代谢酶的表达（图 6）。据报道，在三阴性乳腺癌（TNBC）患者的原发肿瘤中，PHGDH 可以表现出异质性表达，低 PHGDH 的癌细胞定位于血管周围利基。这表明内皮细胞可以在体外改变癌细胞中的 PHGDH 表达。有趣的是，这种调控不仅仅是单向的。一项最近的研究发现，在 GBM 中，肿瘤微环境信号激活了肿瘤相关内皮细胞中 PHGDH 介导的丝氨酸生物合成，推动了缺氧和免疫敌对的血管微环境的形成，导致 GBM 对免疫治疗的耐受。此外，在肝纤维化过程中，转化生长因子β（TGF-β）刺激肝星状细胞中己糖激酶（HK）1 的棕榈酰化，促进其通过大细胞外囊泡分泌。随后，HCC 细胞可以摄取这些细胞外囊泡，导致糖酵解加速和 HCC 进展。</p>
+<h4 id="_17">通过分泌因子调控癌细胞代谢<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<p>多项研究表明，基质细胞通过分泌因子调控癌细胞代谢（图 6）。单细胞 RNA 测序显示，在六种癌症类型中，低氧肿瘤相关巨噬细胞（TAMs）分泌的细胞因子骨涎蛋白在一个亚群中高度表达。TAM 分泌的骨涎蛋白影响了癌细胞中的 ECM 重塑、糖酵解和白细胞介素（IL）-10 信号传导。同样，其他 TAM 分泌的细胞因子可以促进肿瘤中的糖酵解。通过共培养路易斯肺癌细胞和小鼠骨髓衍生的巨噬细胞，观察到巨噬细胞分泌肿瘤坏死因子α（TNF-α），通过上调 GLUT1 和 HK2 并下调过氧化物酶体增殖物激活受体γ（PPAR-γ）共激活因子 1α（PGC-1α）来促进肿瘤糖酵解。同样，共培养人 M2 极化的巨噬细胞和人胶质瘤细胞通过释放细胞因子白细胞介素 6（IL-6），促进了癌细胞中的糖酵解，增强了磷酸甘油酸激酶 1（PGK1）的磷酸化。此外，在早期肿瘤发生过程中，T 细胞产生的干扰素γ（IFN-γ）暴露于黑色素瘤细胞中，促进了有氧糖酵解并减少了 OXPHOS。在机制上，非经典的 IFN-γ- 信号转导和转录激活因子 3（STAT3）信号传导刺激 c-Myc 表达，这在体内外模型中介导了 OXPHOS 基因表达的下调。在前列腺癌的背景下，患者来源的 CAF 分泌的外泌体在体外抑制了线粒体 OXPHOS 并诱导了糖酵解通量和谷氨酰胺依赖的还原羧化的补偿性增加。此外，患者来源的 CAF 分泌的外泌体中的长链非编码 RNA SNHG3 通过分离 miR-330-5p 来减少 OXPHOS 并增加体外和体内乳腺癌细胞的糖酵解和生长，从而增加了丙酮酸激酶同工酶（PKM）的表达。</p>
+<h4 id="tme">TME 中的神经<a class="headerlink" href="#tme" title="Permanent link">&para;</a></h4>
+<p>流行病学研究表明，神经结构的存在是胰腺癌、前列腺癌、乳腺癌、头颈癌等多种癌症患者总体生存的独立风险因素。对患者肿瘤和临床前模型的研究表明，肿瘤可以招募局部外周神经到其微环境，通过多种机制促进肿瘤的发展。在口腔癌和黑色素瘤中，用棕榈酸预处理癌细胞或给小鼠喂食高脂饮食促进了转移性表观遗传变化和肿瘤相关施旺细胞的 ECM 生产。在低葡萄糖环境中，口腔鳞状细胞癌细胞可以利用由痛觉神经分泌的神经源性降钙素基因相关肽在营养缺乏条件下生存。此外，研究发现，神经源性降钙素基因相关肽通过在体外诱导细胞保护性自噬促进癌细胞生长。此外，发现神经与其他基质细胞（如内皮细胞和免疫细胞）交流，进而影响 TME 并促进肿瘤生长。在早期前列腺癌的基因工程小鼠模型中，肾上腺素能神经衍生的去甲肾上腺素激活内皮细胞中的β- 肾上腺素受体信号传导。此激活进而引发内皮细胞的代谢转换，促进血管生成和肿瘤生长。肾上腺素能神经衍生的去甲肾上腺素还作用于 CD8+ T 细胞上的β2 肾上腺素受体，通过减少 GLUT1 的表达抑制 T 细胞的代谢激活。此外，发现神经在代谢上支持 PDAC 细胞。在丝氨酸 - 甘氨酸缺乏条件下，PDAC 肿瘤表现出增强的神经浸润。这些招募的神经分泌丝氨酸以促进依赖外源丝氨酸的 PDAC 细胞的生长。</p>
+<h4 id="_18">代谢竞争<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<p>在肿瘤中，不同细胞类型之间也存在代谢竞争。在高脂饮食诱导的肥胖小鼠模型中，小鼠 MC38 CRC 细胞和 T 细胞对可用营养物质的适应不同。癌细胞增强了脂肪酸的摄取，以竞争脂质，而肿瘤浸润的 CD8+ T 细胞则没有。这些不同的代谢重编程过程促进了肿瘤生长，同时损害了 CD8+ T 细胞的功能（图 6）。即使在癌细胞不参与代谢竞争的情况下，它们也可以影响 TME 中基质细胞的代谢景观。这就是 IDH 突变肿瘤衍生的 D-2- 羟基戊二酸（D-2HG）的情况，最近发现它是抗肿瘤 T 细胞功能的强抑制剂。使用循环免疫荧光结合 MSI，显示在多名患者的 IDH 突变胶质瘤中，T 细胞在高水平 D-2HG 区域内未能增殖并发挥抗肿瘤功能。此外，在缺氧肿瘤利基中，TAMs 高表达发育和 DNA 损伤反应中的调节因子 1（REDD1），这是一种 mTOR 的负调控因子。REDD1 介导的 mTOR 抑制阻碍了缺氧 TAMs 中的糖酵解，并促进了异常血管的形成。删除 TAMs 中编码 REDD1 的基因加强了它们的糖酵解。重要的是，这些高糖酵解的 REDD1 缺乏 TAMs 在葡萄糖使用上胜过内皮细胞，导致血管稳定化和转移抑制。</p>
+<p>因此，这表明 TME 中的基质细胞可以直接或间接地诱导或参与肿瘤的代谢异质性。</p>
+<h4 id="_19">转移形成和治疗耐药期间的代谢演变<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<p>环境信号在空间上诱导和调节代谢异质性的同时，癌细胞的代谢在转移形成和药物治疗期间也随着时间的推移而演变。</p>
+<h5 id="_20">转移形成<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h5>
+<p>转移级联包括多个步骤：原发肿瘤的癌细胞侵入邻近组织并进入血液和淋巴循环，在远处器官中外渗。在转移级联的每一步中，不同的环境对癌细胞施加适应压力，包括远处器官的环境，这些器官是转移癌细胞的最终目的地。因此，这在空间上创造了代谢异质性。然而，在转移形成过程中，这些不同的中途环境被同一癌细胞经历，因此也在时间上创造了代谢异质性。在以下部分中，我们重点介绍了转移过程中空间和时间上的代谢异质性的证据，主要关注 ROS、脂肪酸、丝氨酸、糖酵解和 TCA 循环代谢（图 7）。</p>
+<p><img alt="" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs42255-023-00963-z/MediaObjects/42255_2023_963_Fig7_HTML.png?as=webp" /></p>
+<blockquote>
+<p>在转移形成过程中出现的时间性代谢异质性反映了癌细胞代谢表型的动态演变，使得同一代谢途径、代谢物或代谢酶可以用于不同的目的。在原发肿瘤中，ROS 的产生有助于获得迁移–侵袭表型，促进转移级联的早期阶段。在循环中，抗氧化策略使其能够在高氧化环境中生存。ROS 代谢对远处器官氧化状态的适应性决定了转移扩展的成功。同样，脂肪酸的利用在原发肿瘤中支持迁移–侵袭表型，而在循环肿瘤细胞（CTCs）中满足抗氧化需求，并支持转移生长。此外，在转移形成过程中，代谢异质性还反映在代谢酶如 PHGDH 或 HK2 的非经典功能的出现上。它们分别通过催化和非催化功能为原发肿瘤和转移的增殖以及迁移–侵袭表型做出贡献。</p>
+<p>ETC, electron transport chain; FA, fatty acid; me3, trimethylation; PI3K, phosphoinositide 3-kinase; PUFA, polyunsaturated fatty acid; SAM, S-adenosylmethionine; EGR2, early growth response protein 2; GAL, galanin.</p>
+</blockquote>
+<h5 id="ros">ROS<a class="headerlink" href="#ros" title="Permanent link">&para;</a></h5>
+<p>氧化应激可能对转移过程施加限制，癌细胞利用多种策略来应对它。然而，在原发肿瘤中，ROS 可以激活信号通路，通常会聚于磷脂酰肌醇 -3- 激酶–AKT–mTOR 轴，从而诱导癌细胞的迁移和侵袭表型。与此一致，抑制 TP53 诱导的糖酵解和凋亡调节因子（TIGAR），一种促进戊糖磷酸途径衍生抗氧化剂的酶，会增加 PDAC 中的 ROS 水平，导致小鼠细胞迁移、侵袭和体内转移增加。在原发肿瘤中，电子传递链功能障碍及其过载可以诱导 mtROS 的产生。例如，在转移性小鼠黑色素瘤细胞中，电子传递链过载和部分抑制都增加了 mtROS 超氧化物。下游，这激活了 rous 肉瘤癌基因（SRC）诱导的焦点粘附激酶 PYK2（蛋白酪氨酸激酶 2）的表达，进而在体外促进侵袭性和体内肺转移。除了线粒体代谢外，异常的线粒体动力学也可以增强 mtROS 的产生，从而促进转移性表型。在人卵巢癌细胞中，由于线粒体延伸因子 2（MIEF2）的过表达，线粒体分裂发生变化，诱导 ROS 的产生。下游，增强的 AKT–mTOR 信号传导负责体外迁移和侵袭。与此一致，丝裂融合蛋白 2 的表达改善了线粒体融合，并通过诱导自噬和阻止 ROS 的产生抑制了这些促转移表型。简而言之，在原发肿瘤中，适度的 ROS 增加可以将氧化应激引导到有利范围内，以促进癌细胞的侵袭和迁移促转移表型。</p>
+<p>另一方面，对于循环肿瘤细胞（CTCs）来说，血液中的高氧化应激，主要由高浓度的氧气和铁维持，是限制转移传播的主要因素之一。因此，CTCs 需要增加其抗氧化策略以应对有害的氧化应激。支持这一点的是，外部给予抗氧化剂 N- 乙酰半胱氨酸和维生素 E 以及一些与饮食相关的化合物（如维生素 C、β- 胡萝卜素、视黄棕榈酸酯和虾青素）在 KRAS 驱动的肺癌转移小鼠模型和 BRAFV600E 驱动的黑色素瘤小鼠模型中增强了转移。在这些降低氧化应激的条件下，氧化还原敏感的转录因子 BTB 域和 CNC 同源物 1（BACH1）被稳定，从而在体外刺激糖酵解依赖的迁移，并在体内促进小鼠和人肺癌细胞的转移。同样，在 PDAC 小鼠模型中，BACH1 可以通过抑制叉头盒蛋白 A1（FOXA1）来维持转移形成，进而导致 E- 钙黏蛋白和上皮细胞粘附必需基因（如 claudin 3 和 4）下调。此外，NADPH 是抗氧化应激抵抗的重要还原当量来源。因此，多种肿瘤类型通过将葡萄糖流量转移到产生 NADPH 的戊糖磷酸途径或增加其对产生 NADPH 的酶的依赖性来显著扩展其 NADPH 库。在患者黑色素瘤细胞衍生的正位小鼠模型中的 CTCs 中，NADPH 水平增加。此外，为了维持氧化还原平衡，抗氧化剂 GSH 增加并被大量消耗。通过表观遗传调控，人食管鳞状细胞癌（ESCC）细胞可以通过增加 NADPH 生成酶亚甲基四氢叶酸脱氢酶 1（MTHFD1）的活性来提高其抗氧化防御和转移能力。因此，通过减轻 CTCs 面临的氧化应激，抗氧化策略可以促进远处转移。</p>
+<p>远处转移器官提供了不同的氧化环境，癌细胞在扩展前必须适应这些环境。在肺中，癌细胞暴露于高浓度的氧气。氟尿嘧啶标记的 RNA 测序（Flura-seq）显示，与乳腺肿瘤或脑微转移相比，抗氧化程序在肺微转移中被诱导。人乳腺癌细胞在肺中播种所采用的一些抗氧化策略包括上调小抗氧化蛋白过氧化物还原酶 2（PRDX2）以及过表达二氢嘧啶酶样蛋白 4（DPYSL4），一种促进氧气消耗的蛋白。在所有组织中，骨骼肌可能代表了最具转移抑制性的环境，因为血源性转移非常罕见。在这种情况下，转移扩展的主要限制因素是氧化应激。事实上，尽管癌细胞能够到达骨骼肌，但由于其富含过氧化氢（H2O2），它们无法在体内定殖此组织并建立转移。相应地，在人乳腺癌细胞中表达过氧化氢酶或中和小鼠骨骼肌中的 ROS 产生促进了该组织中的转移生长。因此，能够茁壮成长为显性转移的癌细胞需要发展出特殊的抗氧化策略以抵抗器官特异性的氧化损伤。</p>
+<p>因此，癌细胞中的 ROS 代谢通过不同的促氧化和抗氧化策略的激活在时间上演变，以应对转移级联中异质的环境。</p>
+<h5 id="_21">脂肪酸代谢<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h5>
+<p>脂质和脂肪酸在细胞中可以充当能量来源、膜构建块、翻译后修饰的底物或信号分子。因此，脂肪酸代谢及其功能在转移过程中演变。在原发肿瘤中，脂肪酸转运相关蛋白的表达（如长链脂肪酸转运蛋白（FATP）1）、黑色素瘤、前列腺癌和胃癌细胞中的 FABP12 和 CD36，分别诱导了促转移表型，并与患者的预后不良相关。在大多数这些情况下，脂肪酸摄取增加伴随着脂肪酸氧化增强和脂肪酸合成减少。这意味着癌细胞通过减少合成过程节省能量，同时直接氧化外源脂肪酸，作为能量来源支持细胞运动性增加。有趣的是，代谢偏好的转变取决于特定的微环境，这可能解释了为什么接近释放脂肪酸的脂肪细胞的促转移卵巢肿瘤细胞表达高水平的 FABP4。因此，在卵巢肿瘤中沉默 FABP4 导致整体脂质含量减少，但 MSI 确定的脂肪酸分布仍然异质化。尽管脂肪酸摄取和氧化的增加是癌细胞迁移和侵袭的广泛特征，但在特定条件下，不同的肿瘤类型可能对脂肪酸有不同的偏好。在基质分离期间或喂食高脂饮食时，饱和脂肪酸水平增加。在这些情况下，CD36 可能会促进单不饱和脂肪酸的选择性摄取，这可以保护乳腺癌细胞免受饱和脂肪酸引起的脂毒性，同时维持细胞内脂质稳态。在口腔癌和黑色素瘤中，饮食中的棕榈酸，而不是油酸或亚油酸，通过调节癌细胞中特定的组蛋白甲基化标记诱导了表观遗传记忆。这使得癌细胞能够激活肿瘤浸润施旺细胞的 ECM 分泌，从而最终增强转移的启动。此外，在宫颈癌细胞中，油酸处理促进了 SRC 激酶和下游的细胞外信号调节激酶（ERK1–ERK2）途径的激活，从而促进了侵袭和扩散。这些发现表明，脂肪酸除了具有能量效应外，还通过表观遗传修饰和信号传导来促进癌症转移。</p>
+<p>循环中的癌细胞利用脂肪酸代谢来逃避由分离引起的细胞死亡（anoikis）和 ROS 引起的细胞死亡。预处理过油酸或通过淋巴系统传播的循环黑色素瘤细胞免受铁死亡的保护，这提供了低铁和高油酸的环境。因此，来自患者的循环黑色素瘤细胞通过增强脂质代谢调控因子甾醇调节元件结合蛋白（SREBP）2 介导的转铁蛋白表达，从而赋予对铁死亡的抗性。在体外，脂肪酸氧化和肉碱棕榈酰转移酶（CPT）1A 的表达使人 CRC、高级别浆液性卵巢癌和 ESCC 细胞系通过提供 ATP 和调节氧化还原稳态来抵抗基质分离引起的 anoikis。</p>
+<p>与原发肿瘤相比，转移中的脂质代谢发生变化。对于患者来说，几种脂肪酸代谢酶的情况就是如此，不同远处器官的营养可用性的变化可能推动了这些变化。在脑中，乳腺癌衍生的转移物中脂肪酸合成酶（FASN）和乙酰辅酶 A 羧化酶（ACC）1 水平增加，这是一个缺乏脂肪酸的环境，以增强脂肪酸的生物合成。相比之下，在富含脂肪酸的淋巴结和肝脏中，CRC 衍生的转移物倾向于增加 CPT1A 的表达，以增强脂肪酸向线粒体的转运和氧化。与此一致，MSI 结果表明，与小鼠肺周围组织相比，乳腺癌衍生的肺转移物中富含棕榈酸含量的脂质。靶向 CPT1A 活性足以在乳腺癌小鼠模型中削弱高脂饮食引起的肝和肺转移。机制上，棕榈酸诱导了 CPT1A 和赖氨酸乙酰转移酶 2A（KAT2A）的表达，这导致 p65 的乙酰化和随后 NF-κB 信号传导的激活。有趣的是，为了适应脑中脂质可用性的减少，转移的 HER2+ 乳腺癌细胞表现出增加的脂肪酸合成，MSI 评估葡萄糖到脂质的 13C 掺入证明了这一点。然而，富含脂肪酸的星形胶质细胞能够直接提供不饱和脂肪酸，以激活侵袭性乳腺癌细胞中的 PPAR-γ信号，促进转移扩展。相比之下，在富含脂肪细胞的网膜中，转移的卵巢癌细胞高度表达盐诱导激酶 2（SIK2），这促进了 ACC 的磷酸化和脂肪酸氧化。</p>
+<h5 id="_22">丝氨酸生物合成<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h5>
+<p>丝氨酸合成途径（SSP）由 PHGDH、磷酸丝氨酸氨基转移酶（PSAT）和磷酸丝氨酸磷酸酶（PSPH）催化，参与肿瘤进展。PSPH 上调诱导的高丝氨酸和甘氨酸维持急性 T 细胞淋巴细胞白血病的增殖、黑色素瘤的生长及其在体内的促转移表型。此外，PHGDH 的过表达和扩增与子宫内膜癌、乳腺癌和胰腺癌患者的总生存期缩短相关。高 PHGDH 活性增加了 SSP 衍生的 S- 腺苷甲硫氨酸，从而在体外诱导了细胞粘附基因和迁移的上调。因此，PHGDH 和 S- 腺苷甲硫氨酸水平与 CRC 患者转移的增加相关。有趣的是，患者 TNBC 肿瘤中 PHGDH 蛋白的异质或低表达也与转移增加、无转移生存时间缩短和总生存期缩短相关。这表明 PHGDH 的酶活性不是唯一促进转移的因素。事实上，PHGDH 的丧失通过其非催化活性在体外和体内通过降低糖酵解酶磷酸果糖激酶的活性来促进 TNBC 细胞的促转移表型，从而将葡萄糖代谢从糖酵解重定向到唾液酸途径，这反过来诱导了整合素αvβ3 的高糖基化和活性。</p>
+<p>虽然 SSP 和相关酶在原发肿瘤中诱导了癌细胞的促转移表型，但它们在 CTCs 中的作用仍不明确。一种假设可能是 CTCs 中低 PHGDH 表达有助于维持其间充质表型，直到它们在远处器官中扩展。事实上，在 TNBC 和黑色素瘤患者来源的异种移植（PDX）模型中，PHGDH 表达在晚期转移中再次增加，而 CTCs 和早期转移病灶的 PHGDH 表达低于相应的原发肿瘤。</p>
+<p>器官特异性环境可以在转移中调节 SSP。例如，在患者肝转移中 PHGDH 的表达比在原发 CRC 中更高，而骨转移的人乳腺癌细胞相比于亲本细胞系增加了丝氨酸生物合成。在严重缺乏丝氨酸的大脑中，不同癌症类型的转移需要上调 PHGDH 表达。此外，在丙酮酸高的肺组织中，乳腺癌衍生的转移需要 PHGDH 的催化活性来支持依赖α- 酮戊二酸的 mTORC1 生长信号。因此，脑和肺转移都对 PHGDH 抑制敏感，但相应的原发肿瘤则不然。</p>
+<p>总之，SSP 在整个转移级联中演变，以满足合成需求并促进依赖于其酶的催化和非催化功能的信号通路。</p>
+<h5 id="tca">糖酵解和 TCA 循环代谢<a class="headerlink" href="#tca" title="Permanent link">&para;</a></h5>
+<p>糖酵解和 TCA 循环是 ATP 生成的两个关键途径。根据转移过程中不同细胞状态的能量需求，糖酵解和 TCA 循环表现出不同的活性。在几个原发实体瘤模型中，包括肺癌、胰腺癌、结肠癌和肝癌，与相应的健康组织相比，糖酵解通量增加。然而，定量通量建模表明，糖酵解通量的增加不足以补偿由于 TCA 通量抑制而导致的 ATP 产量低。这意味着原发部位的癌细胞可能会减少耗 ATP 的活动，以节省 ATP 用于增殖。此外，糖酵解相关成分可以通过信号事件在原发肿瘤中促进 EMT。例如，糖酵解的第一种酶 HK2 与 PDAC、舌鳞状细胞癌和卵巢癌细胞中 EMT 的增强相关。HK2 和 LDHs 的活性增加可以导致 TME 中的 pH 降低，反过来可以通过基质金属蛋白酶活性促进 EMT 和基质降解，导致鳞状细胞癌和肺癌细胞的迁移和运动。此外，HK2 的非催化活性促进了糖原合成酶激酶 3（GSK3）的磷酸化，这反过来稳定了 GSK3 靶标 SNAIL，诱导体外的 EMT 过程。此外，敲低 HK2 降低了 SNAIL 蛋白水平，并在乳腺癌小鼠模型中抑制了 SNAIL 介导的 EMT 和转移。同样，另一种糖酵解酶 PKM2，催化糖酵解的最后一步，被证明通过环氧合酶（COX）-2 介导的前列腺肿瘤 EMT 和体内外的转移。</p>
+<p>在循环中，不同肿瘤类型的癌细胞可能会进行代谢转换以抵消氧化应激。使用 [13C6] 葡萄糖示踪剂，显示在分离的宫颈癌和肺癌细胞系中糖酵解增强。与此一致，糖酵解酶 HK2 可能是区分高度糖酵解 CTCs 的潜在标志物。在肺癌患者的血液样本中，HK2 与上皮标志物细胞角蛋白（CK）结合使用，比仅依赖于上皮标志物检测 CTCs 的比例更高。此外，流行的 HK2hiCK− CTCs 与肺癌患者的不良治疗反应相关。</p>
+<p>当转移癌细胞到达远处器官时，增加的 ATP 可用性对转移定殖和扩展至关重要。乳腺癌衍生的骨和肺转移依赖于线粒体 ATP 生成，也通过脯氨酸分解代谢，而肝转移增强了依赖糖酵解的代谢来产生能量。此外，高度增殖的乳腺癌、非小细胞肺癌（NSCLC）、黑色素瘤和透明细胞肾细胞癌（ccRCC）衍生的脑转移类似于原发 GBM，可以通过同时氧化葡萄糖和乙酸在 TCA 中产生能量，这在人体正位模型和注入 [13C] 乙酸的患者中得到了证明。与原发肿瘤和 CTCs 中的糖酵解及其相关酶升高相比，人和小鼠 TNBC 衍生的转移中检测到糖酵解减少和富集的 OXPHOS 基因签名以及更高的 TCA 循环通量。与此一致，体外用寡霉素预处理的乳腺癌细胞注入静脉后，诱导从 OXPHOS 到糖酵解的代谢转换，在早期时间点显示肺转移负担减少。然而，寡霉素预处理并不影响正位小鼠模型中的原发肿瘤生长，这表明 OXPHOS 对促进转移定殖的早期事件很重要。因此，推测糖酵解相关酶的活性增加可以维持基质降解，促进癌细胞在原发肿瘤中的迁移和侵袭。此外，通过线粒体代谢增加的能量需求允许癌细胞重塑器官环境，以创造一个支持转移扩展的利基。在这方面，重要的是要注意到高度耗能的途径是蛋白质合成和蛋白质运输，这可能突显了癌细胞在次生部位对线粒体能量生成的依赖性增加是 ECM 生产和重塑的必要性。</p>
+<p>总之，这些研究表明，转移癌细胞在远处器官的能量生成遵循空间和细胞表型特异性的模式。</p>
+<h5 id="_23">其他贡献者<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h5>
+<p>此外，其他代谢物，如谷氨酰胺和酮体，在整个转移级联中维持癌细胞代谢。</p>
+<p>谷氨酰胺代谢的损伤可以减少原发肿瘤的生长和转移形成。谷氨酰胺氧化在肿瘤进展的不同阶段显示出相关性：高度侵袭性的人卵巢癌细胞在体外依赖于谷氨酰胺，转移性小鼠黑色素瘤细胞显示出增加的谷氨酰胺氧化。在谷氨酰胺下游，GDH 在体外维持 CRC 细胞迁移和转移性肺癌细胞抵抗 anoikis。与此一致，GDH 过表达在体内促进了转移形成。相比之下，小鼠 PDAC 细胞通过上调 EMT 主调节因子 SLUG 的表达来应对谷氨酰胺缺乏，SLUG 通过有丝分裂活化蛋白激酶激酶（MEK）-ERK 信号和激活转录因子（ATF）4 驱动 EMT、细胞运动性和体外细胞侵袭。在各种癌细胞中发现 GLS1 过表达，并与疾病晚期以及不良预后相关，并与 CRC 的淋巴结转移相关。与 GLS1 不同，异构酶 GLS2 在体外抑制人 HCC 增殖并在体内抑制肺转移。异构酶表达之间的平衡是否在推动转移级联中起作用需要进一步探索。</p>
+<p>此外，还观察到酮代谢的演变。酮体氧化酶如 D-β- 羟基丁酸脱氢酶和琥珀酰辅酶 A:3- 酮酸辅酶 A 转移酶的表达，使得酮体氧化在肝、乳腺、前列腺和结肠肿瘤以及 PDAC 中得以实现。在人乳腺癌细胞中，β- 羟基丁酸作为化学趋化剂，刺激细胞迁移。β- 羟基丁酸可以代谢为乙酰辅酶 A 以供给 TCA 循环，在体外促进人 PDAC 细胞的迁移和侵袭能力。此外，它诱导了 IDH1 的乙酰化，促进 CRC 的增殖和转移。虽然体内给予β- 羟基丁酸促进了乳腺癌、PDAC 和 CRC 的肿瘤生长，但仅在 PDAC 和 CRC 中促进了转移形成，而在乳腺癌中没有。与健康供体相比，在 CRC 患者中观察到β- 羟基丁酸血清水平升高。酮体可以通过 MCT2 和钠偶联的 MCT1（SMCT1）进口。这两种转运蛋白在转移中升高，表明癌细胞在次生部位可以吸收酮体以促进转移扩展。相比之下，在 HCC 的背景下，癌细胞对其侵袭性表型的依赖性较小。事实上，酮生成限速酶 3- 羟甲基戊二酸辅酶 A 合成酶 2（HMGCS2）在正常肝组织中大量表达，但在患者 HCC 组织中显著减少，导致细胞内酮体水平降低。这与 HCC 的分化差和体内增殖和转移增加相关。因为酮体可以通过生酮饮食非特异性地增加，评估它们对癌症生长和转移形成影响的未来研究将是重要的。在这方面，一份病例报告显示生酮饮食疗法可以有效管理伴有脑转移的 NSCLC。</p>
+<h5 id="_24">治疗耐药<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h5>
+<p>同一肿瘤中不同癌细胞亚克隆的共存可以导致治疗耐药。这些癌细胞的小亚群对治疗的反应具有可塑性，从而驱动时间上的癌症异质性（药物诱导或获得性耐药）。重要的是，抗癌治疗不一定会减少癌细胞的遗传异质性。通过在患者来源的 CRC 和 TNBC 模型中使用细胞条形码系统，已经显示，在标准护理化疗下，癌细胞进入耐药持久状态并在治疗后重新出现。因此，在这种适应过程中没有观察到肿瘤克隆复杂性的丧失，表明它们在此过程中维持了肿瘤内异质性。同样，从暴露于快速加速纤维肉瘤（RAF）-MEK 靶向治疗的 BRAF 突变 PDX 黑色素瘤队列中分离出的最小残留肿瘤细胞可以包含多种耐药状态。在一种过渡状态中，残留细胞表现出一种“饥饿”样表型，其特征是通常在营养缺乏细胞中上调的一组营养基因。这表明残留黑色素瘤细胞改变其细胞状态以逃避药物治疗，并且改变的代谢表型在此过程中起重要作用。在以下部分中，我们讨论了肿瘤细胞如何重新编程其代谢以应对抗癌治疗诱导的 DNA 损伤和氧化应激。</p>
+<p><img alt="" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs42255-023-00963-z/MediaObjects/42255_2023_963_Fig8_HTML.png?as=webp" /></p>
+<blockquote>
+<p>a, 治疗耐药状态的癌细胞可以是预先存在的或获得的。</p>
+<p>b, 在 DNA 损伤诱导治疗后，癌细胞通过改变丝氨酸和谷氨酰胺代谢来增强核苷酸的生产，以进行 DNA 修复。此外，改变的葡萄糖和丝氨酸代谢帮助细胞维持 NAD+ 库，从而支持 DNA 修复活性。此外，癌细胞通过增强 GSH 的生产并将其能量代谢从依赖糖酵解转向依赖脂肪酸β- 氧化的合成代谢，在治疗诱导的氧化应激下生存。</p>
+</blockquote>
+<h4 id="dna">DNA 损伤诱导疗法<a class="headerlink" href="#dna" title="Permanent link">&para;</a></h4>
+<p>基于铂的化疗药物，如顺铂、卡铂和奥沙利铂，已广泛应用于治疗不同类型的癌症。这些药物通过与核 DNA 结合，抑制 DNA 复制并损害 DNA 修复，从而发挥细胞毒性作用。然而，癌细胞可以通过调整其代谢以增强 DNA 修复来克服这种细胞毒性。在上皮性卵巢癌的背景下，在 PDX 模型和临床样本中观察到，经过顺铂化疗后复发的肿瘤样本中 PHGDH 介导的丝氨酸生物合成减少。丝氨酸生物合成的减少帮助肿瘤细胞维持细胞内 NAD+ 的可用性，从而支持参与 DNA 修复的关键酶聚 (ADP- 核糖) 聚合酶（PARP）的活性。这种表型伴随着细胞外丝氨酸摄取的适应性增加，这在铂治疗下支持核苷酸生产和肿瘤增殖。同样，丝氨酸代谢的变化可以通过不同的适应机制诱导人 CRC 对 5- 氟尿嘧啶的耐药性。例如，在体外生成的 5- 氟尿嘧啶耐药的 HCT-116 细胞增加了新生 SSP 酶的表达，而耐药的 HT29 细胞增强了外源性丝氨酸的消耗。尽管不同的耐药克隆有特定的丝氨酸代谢策略，但丝氨酸羟甲基转移酶 2（SHMT2）驱动的丝氨酸代谢在线粒体内的分区是支持 CRC 细胞在 5- 氟尿嘧啶诱导的 DNA 损伤应激下嘌呤合成的关键适应机制。除了化疗，放疗是另一种用于多种癌症的 DNA 损伤诱导治疗方式。对辐射诱导的 DNA 损伤的反应是，在多种癌细胞系中观察到 GSH 合成增加、核苷酸代谢增加和 TCA 循环代谢物的比例增加。总体而言，抗癌治疗诱导了丝氨酸代谢的改变，支持核苷酸生物合成和 DNA 损伤修复，从而发展出治疗耐药性。事实上，在体外和体内模型中，丝氨酸和甘氨酸的饥饿促进了多种耐药癌细胞对化疗和放疗的敏感性。</p>
+<p>谷氨酰胺代谢也可以通过增加核苷酸生物合成来促进治疗耐药性。包括人 CRC、NSCLC 和卵巢癌细胞系在内的几种顺铂耐药细胞系表现出高度活跃的谷氨酰胺代谢，这是通过谷氨酰胺转运蛋白和酶的表达或代谢组学分析确定的。同样，放疗也可以诱导谷氨酰胺代谢的改变，以促进 DNA 修复所需的核苷酸合成。特别是，体外培养的放射抗性人鼻咽癌和 GBM 癌细胞通过过表达谷氨酰胺合成酶（GS），重新编程代谢通量向谷氨酰胺合成代谢转变，提供了足够的氮供应用于嘧啶和嘌呤合成。这些研究表明，增强的谷氨酰胺代谢主要是为铂和辐射耐药癌细胞系中的核苷酸生物合成所需。事实上，谷氨酰胺饥饿、周期性禁食和与靶向谷氨酰胺代谢的抑制剂联合治疗能够在体外和体内重新使耐药细胞对 DNA 损伤诱导的治疗敏感。</p>
+<h4 id="_25">治疗诱导的氧化应激<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
+<p>大多数抗癌疗法，如放疗、基于铂的疗法和蛋白酶体抑制剂，依赖于增加氧化应激来诱导细胞死亡。鉴于 GSH 的强大抗氧化功能，耐药肿瘤细胞调整其代谢以提高 GSH 水平，从而保护它们免受治疗诱导的细胞死亡。体外生成的顺铂耐药人卵巢肿瘤细胞中显示了细胞内 GSH 水平与对顺铂的耐药性之间的密切关系。细胞内 GSH 由谷氨酸、半胱氨酸和甘氨酸合成。在多种癌症类型中，负责谷氨酸交换的胱氨酸 - 谷氨酸逆转运蛋白（xCT）的亚单位在药物耐药性的发展中起重要作用。例如，体外用 5- 氟尿嘧啶处理导致具有高肿瘤起始和抗氧化能力的干细胞样 CRC 细胞比例显著增加。与此一致，这个亚群中的 xCT 蛋白高度表达，介导半胱氨酸摄取并促进 GSH 合成。重要的是，在包括人 CRC、NSCLC 和 ESCC 在内的多种癌症类型中，已显示 xCT 在肿瘤组织中的表达高于邻近的正常组织。这使得 xCT 成为药物耐药肿瘤的潜在治疗靶点。事实上，xCT 抑制剂，如柳氮磺吡啶，使体外培养的胃癌细胞对 5- 氟尿嘧啶敏感，并增强 CRC 对顺铂治疗的敏感性，并提高头颈鳞状细胞癌对表皮生长因子受体（EGFR）靶向治疗的敏感性。</p>
+<p>改变的脂质代谢为癌细胞提供了另一条逃避药物诱导的氧化应激的途径。在最近的一项研究中，使用高通量高光谱受激拉曼散射成像平台，在铂耐药的卵巢癌细胞中确定了从葡萄糖依赖到脂肪酸依赖的合成和能量代谢的代谢转换。在生长在脂肪组织中的 CRC 肿瘤中观察到类似的脂质代谢适应，并用抗血管生成药物治疗。在这两种情况下，脂肪酸摄取和氧化的增加在代谢应激下提供了替代的能量生产途径。重要的是，顺铂的急性治疗导致卵巢癌细胞中脂肪酸摄取暂时增加，伴随着脂肪酸转运蛋白或载体表达的急性增加。这表明铂耐药的卵巢癌细胞中脂肪酸摄取增加的代谢重新编程可能是对治疗反应的适应性代谢重新编程。</p>
+<p>总体而言，为了应对抗癌治疗，癌细胞调整特定的代谢程序以发展治疗耐药性，导致随着时间的推移出现不同的代谢表型。</p>
+<h3 id="_26">结论和备注<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>先进的单细胞测序结合基于空间成像的代谢组学技术和动态同位素追踪显示了肿瘤中癌细胞的不同代谢表型的出现。此外，积累的机制研究开始揭示肿瘤内代谢异质性如何产生和调控。癌细胞代谢的变化主要依赖于转录、翻译、翻译后和代谢水平的非克隆异质性，这为癌细胞提供了出色的可塑性和灵活性，可以快速在不同的代谢状态之间转换。重要的是，环境因素的区域变化可以直接支持这些变化，诱发肿瘤内代谢异质性的爆发。在这种情况下，不同的代谢表型为肿瘤提供了多条路径，以不断进化适应和克服具有挑战性的环境的选择压力。这一过程发生在不同癌细胞群体之间的空间上以及在肿瘤从局部到转移性疾病演变的过程中。</p>
+<p>目前，我们仍然缺乏全面了解肿瘤代谢异质性的复杂性，特别是在细胞间和细胞环境相互作用涉及时。为了更好地捕捉癌症代谢异质性的动态变化，仍然需要更全面的实验模型和纵向采样设计。空间多组学（包括空间转录组学、代谢组学和蛋白质组学）的整合为解决这一需求提供了有希望的机会。对肿瘤内代谢异质性的程度的越来越深入理解将为研究人员提供生物学基础，以探索前所未有的治疗策略，针对肿瘤演变过程中暴露的不同脆弱性进行量身定制。这在采用联合治疗模型时具有显著优势，旨在通过同时靶向多条路径来遏制癌症进展。</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Metabolic%20analysis%20as%20a%20driver%20for%20discovery%2C%20diagnosis%2C%20and%20therapy/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Metabolic analysis as a driver for discovery, diagnosis, and therapy">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Metabolic analysis as a driver for discovery, diagnosis, and therapy
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Toward%20modeling%20metabolic%20state%20from%20single-cell%20transcriptomics/" class="md-footer__link md-footer__link--next" aria-label="Next: Toward modeling metabolic state from single cell transcriptomics">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Toward modeling metabolic state from single cell transcriptomics
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "header.autohide"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+        <script src="../mathjax-config.js"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../extra.js"></script>
+      
+        <script src="../js/toggle_sidebar.js"></script>
+      
+    
+  </body>
+</html>

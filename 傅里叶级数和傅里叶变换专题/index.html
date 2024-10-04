@@ -1,0 +1,5999 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://localhost:8000/%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E5%92%8C%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%93%E9%A2%98/">
+      
+      
+        <link rel="prev" href="../Vision%20Transformer%20%28PyramidTNT%29/">
+      
+      
+        <link rel="next" href="../Python%20%E5%AD%98%E5%82%A8%E4%B8%8E%E8%AF%BB%E5%8F%96%20HDF5%20%E6%96%87%E4%BB%B6/">
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>傅里叶级数和傅里叶变换专题 - One Last Kiss</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-M0R7V8QGQ7"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-M0R7V8QGQ7",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-M0R7V8QGQ7",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="One Last Kiss" class="md-header__button md-logo" aria-label="One Last Kiss" data-md-component="logo">
+      
+  <img src="../img/icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            One Last Kiss
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              傅里叶级数和傅里叶变换专题
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aletolia/aletolia.github.io.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aletolia/aletolia.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+    
+  
+  🏠 Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Mygo/" class="md-tabs__link">
+          
+  
+    
+  
+  ⛏️ CV and Multimodels
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Session%201/" class="md-tabs__link">
+          
+  
+    
+  
+  🚀 Re:0 Road to CPath & Visualization
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../1.1%20Single-cell%20RNA%20sequencing/" class="md-tabs__link">
+          
+  
+    
+  
+  💤 Re:0 Road to scRNA-seq Analysis
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Large-scale%20foundation%20model%20on%20single-cell%20transcriptomics/" class="md-tabs__link">
+          
+  
+    
+  
+  🧬 scRNA Analysis
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../%E7%AC%AC%201%20%E7%AB%A0%20python%20%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+          
+  
+    
+  
+  📐 Data Structures
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Best%20practices%20for%20single-cell%20analysis%20across%20modalities/" class="md-tabs__link">
+          
+  
+    
+  
+  💡 Reviews
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="One Last Kiss" class="md-nav__button md-logo" aria-label="One Last Kiss" data-md-component="logo">
+      
+  <img src="../img/icon.png" alt="logo">
+
+    </a>
+    One Last Kiss
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aletolia/aletolia.github.io.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aletolia/aletolia.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href=".." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    🏠 Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            🏠 Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ⛏️ CV and Multimodels
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ⛏️ CV and Multimodels
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mygo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MyGO: Discrete Modality Information as Fine-Grained Tokens for Multi-modal Knowledge Graph Completion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GMM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GMM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DINO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mamba/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mamba
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ViT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Self-Supervised%20Learning%20MoCo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MoCo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Self-Supervised%20Learning%20MoCoV2%2C3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MoCo V2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E4%B8%80%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer  (一)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%20%28%E4%BA%8C%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (二)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E4%B8%89%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer  (三)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E5%9B%9B%29%20%28TNT%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (四)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%20%E9%A2%84%E8%AE%AD%E7%BB%83%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (知识蒸馏 预训练）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28PyramidTNT%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer(Pyramid TNT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    傅里叶级数和傅里叶变换专题
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    傅里叶级数和傅里叶变换专题
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      冲激函数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      连续单变量函数的傅里叶变换
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="连续单变量函数的傅里叶变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      求一个简单连续函数的傅里叶变换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      冲激和冲激串的傅里叶变换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      卷积
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      取样和取样函数的傅里叶变换
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="取样和取样函数的傅里叶变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      取样后的函数的傅里叶变换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      取样定理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      混叠
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      由取样后的数据重建 (复原) 函数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      单变量的离散傅里叶变换
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="单变量的离散傅里叶变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dft" class="md-nav__link">
+    <span class="md-ellipsis">
+      由取样后的函数的连续变换得到 DFT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      取样和频率间隔的关系
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      二变量函数的傅里叶变换
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二变量函数的傅里叶变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      二维冲激及其取样性质
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      二维连续傅里叶变换对
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      二维取样和二维取样定理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%20%E5%AD%98%E5%82%A8%E4%B8%8E%E8%AF%BB%E5%8F%96%20HDF5%20%E6%96%87%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python 存储与读取 HDF5 文件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Segment%20Anything%20in%20Medical%20Images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Segment Anything in Medical Images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Mamba%20Efficient%20Visual%20Representation%20Learning%20with%20Bidirectional%20State%20Space%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Mamba Efficient Visual Representation Learning with Bidirectional State Space Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_18" id="__nav_2_18_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    🚑 医学影像相关
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_18">
+            <span class="md-nav__icon md-icon"></span>
+            🚑 医学影像相关
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Why%20is%20the%20winner%20the%20best/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why is the winner the best
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PORPOISE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PORPOISE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HIPT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scaling Vision Transformers to Gigapixel Images via Hierarchical Self-Supervised Learning(HIPT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data-efficient%20and%20weakly%20supervised%20computational%20pathology%20on%20whole-slide%20images%28CLAM%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data efficient and weakly supervised computational pathology on whole slide images(CLAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Towards%20a%20general-purpose%20foundation%20model%20for%20computational%20pathology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Towards a general purpose foundation model for computational pathology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20whole-slide%20foundation%20model%20for%20digital%20pathology%20from%20real-world%20data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A whole slide foundation model for digital pathology from real world data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20visual-language%20foundation%20model%20for%20computational%20pathology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A visual language foundation model for computational pathology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Recurrent%20memory%20with%20optimal%20polynomial%20projections./" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recurrent memory with optimal polynomial projections.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modeling%20Dense%20Multimodal%20Interactions%20Between%20Biological%20Pathways%20and%20Histology%20for%20Survival%20Prediction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modeling Dense Multimodal Interactions Between Biological Pathways and Histology for Survival Prediction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inferring%20super-resolution%20tissue%20architecture%20by%20integrating%20spatial%20transcriptomics%20with%20histology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inferring super resolution tissue architecture by integrating spatial transcriptomics with histology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prediction%20of%20recurrence%20risk%20in%20endometrial%20cancer%20with%20multimodal%20deep%20learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prediction of recurrence risk in endometrial cancer with multimodal deep learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🚀 Re:0 Road to CPath & Visualization
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            🚀 Re:0 Road to CPath & Visualization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    理解全幅切片图像
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    在计算病理学中用于癌症诊断的弱监督深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基于注意力的多示例学习可解释性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How%20to%20visualize%20Attention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to visualize Attention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AttentionViz%20A%20Global%20View%20of%20Transformer%20Attention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AttentionViz A Global View of Transformer Attention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transformer%20Interpretability%20Beyond%20Attention%20Visualization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformer Interpretability Beyond Attention Visualization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visualization%20Work%20Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visualization Work Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Attention%20Generation%20Work%20Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Attention Generation Work Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🪛 PyTorch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            🪛 PyTorch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Autograd%20mechanics%20%E2%80%94%20PyTorch%202_3%20documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Autograd mechanics — PyTorch 2 3 documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PyTorch%20Autograd%20Explained%20-%20In-depth%20Tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch Autograd Explained   In depth Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    💤 Re:0 Road to scRNA-seq Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            💤 Re:0 Road to scRNA-seq Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Using Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Using Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_1" id="__nav_4_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⏳ CHAPTER 1 简介
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            ⏳ CHAPTER 1 简介
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1%20Single-cell%20RNA%20sequencing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1.The building block of life
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2%20Raw%20Data%20Processing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 Raw data processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3%20Analysis%20frameworks%20and%20tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 Analysis frameworks and tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🌏 CHAPTER 2 数据准备与可视化
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            🌏 CHAPTER 2 数据准备与可视化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1%20quality_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 Quality Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2%20normalization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 Normalization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.3_feature_selection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 Feature selection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.4_dimensionality_reduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.4 Dimensionality Reduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🍀 CHAPTER 3 识别细胞结构
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            🍀 CHAPTER 3 识别细胞结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1clustering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 Clustering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.2annotation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 Annotation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 Data integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_4" id="__nav_4_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⏱️ CHAPTER 4 推断细胞轨迹
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            ⏱️ CHAPTER 4 推断细胞轨迹
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pseudotemporal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 Pseudotemporal ordering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rna_velocity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 RNA velocity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lineage_tracing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.3 Lineage tracing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_5" id="__nav_4_1_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🎁 CHAPTER 5 应对特殊情况
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            🎁 CHAPTER 5 应对特殊情况
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../differential_gene_expression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 Differential gene expression analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compositional/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 Compositional analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gsea_pathway/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.3 Gene set enrichment and pathway analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../perturbation_modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.4 Perturbation modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⚙️ CHAPTER 6 机制建模
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            ⚙️ CHAPTER 6 机制建模
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gene_regulatory_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1 Gene regulatory networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cell_cell_communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2 Cell-cell communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_7" id="__nav_4_1_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🔓 CHAPTER 7 反卷积
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            🔓 CHAPTER 7 反卷积
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bulk_deconvolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 Bulk deconvolution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    简明易懂的单细胞分析流程（使用 R 语言）
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            简明易懂的单细胞分析流程（使用 R 语言）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    环境配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1%20%E6%9E%84%E5%BB%BA%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E5%88%86%E6%9E%90%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1 构建单细胞 RNA seq 分析环境
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2%20R%20%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 R 环境安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3%20Docker%20%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 Docker 安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.4%20%E5%9C%A8%20Docker%20%E4%B8%AD%E5%90%AF%E5%8A%A8%20Rstudio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.4 在 Docker 中启动 Rstudio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.5%20%E6%9C%89%E5%85%B3%20Bioconductor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.5 有关 Bioconductor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1%20R%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 R 的基本用法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2%20%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%20DataFrame%EF%BC%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 如何处理 DataFrame？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.3%20%E4%BD%BF%E7%94%A8%20ggplot2%20%E5%8F%AF%E8%A7%86%E5%8C%96%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 使用 ggplot2 可视化数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1%20PCA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 PCA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.2%20%E4%BD%BF%E7%94%A8%20clusterPlofiler%20%E8%BF%9B%E8%A1%8C%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 使用 clusterPlofiler 进行富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3%20%E5%9F%BA%E5%9B%A0%E6%9C%AC%E4%BD%93%EF%BC%88GO%EF%BC%89%E4%B8%AD%E5%90%84%20BP%E3%80%81MF%20%E5%92%8C%20CC%20%E7%9A%84%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 基因本体（GO）中各 BP、MF 和 CC 的富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3%20%E4%BD%BF%E7%94%A8%20DEseq2%20%E6%8F%90%E5%8F%96%20RNA-seq%20%E5%88%86%E6%9E%90%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%20DEG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 使用 DEseq2 提取 RNA seq 分析数据中的 DEG
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.4%20%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88KEGG%E3%80%81Reactome%20%E7%AD%89%EF%BC%89%E8%BF%9B%E8%A1%8C%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.4 使用其他数据库（KEGG、Reactome 等）进行富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1%20scRNA-seq%20%E6%A6%82%E8%A6%81/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 scRNA seq 概要
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.2%20%E5%87%86%E5%A4%87%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 准备使用 Seurat 进行分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.3%20%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.3 使用 Seurat 进行数据预处理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.4%20%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E8%88%AC%E9%A1%BA%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.4 使用 Seurat 进行数据分析的一般顺序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.1%20%E5%A6%82%E4%BD%95%E6%9F%A5%E6%89%BE%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 如何查找单细胞 RNA seq 数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.2%20%E4%B8%BA%E6%AF%8F%E4%B8%AA%E7%B0%87%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E7%BB%86%E8%83%9E%E6%B3%A8%E9%87%8A%E6%A0%87%E7%AD%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 为每个簇自动添加细胞注释标签
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.3%20%E4%BD%BF%E7%94%A8%20FeaturePlot%20%E6%A3%80%E6%9F%A5%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.3 使用 FeaturePlot 检查基因表达
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.4%20%E5%B0%86%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9B%B8%E4%BA%92%E7%BB%93%E5%90%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.4 将单细胞 RNA seq 数据集相互结合
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.5%20%E7%BA%A0%E6%AD%A3%E6%89%B9%E6%AC%A1%E6%95%88%E5%BA%94%EF%BC%8C%E6%AF%94%E8%BE%83%E5%AF%B9%E7%85%A7%E7%BB%84%E5%92%8C%E5%88%BA%E6%BF%80%E7%BB%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.5 纠正批次效应，比较对照组和刺激组
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.6%20%E7%A1%AE%E5%AE%9A%E6%AF%8F%E4%B8%AA%E7%BE%A4%E7%BB%84%E7%9A%84%E6%A0%87%E8%AE%B0%E5%9F%BA%E5%9B%A0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.6 确定每个群组的标记基因
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.1%20%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Cell%20Ranger%20%E7%BB%9F%E8%AE%A1%20scRNA-seq%20%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE%E6%B0%B4%E5%B9%B3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1 如何使用 Cell Ranger 统计 scRNA seq 数据中的基因表达水平
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.2%20%E4%BD%BF%E7%94%A8%20Cell%20Ranger%20%E5%A4%84%E7%90%86%20NCBI%20Sequence%20Read%20Archive%20%28SRA%29%20%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2 使用 Cell Ranger 处理 NCBI Sequence Read Archive (SRA) 数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.1%20%E5%85%B3%E4%BA%8E%20scRNA-seq%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%B4%A8%E9%87%8F%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 关于 scRNA seq 数据的质量控制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.2%20%E4%BD%BF%E7%94%A8%20DoubleFinder%20%E6%A3%80%E6%B5%8B%E5%8F%8C%E9%87%8D%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.2 使用 DoubleFinder 检测双重细胞
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.3%20%E7%94%A8%20CellBender%20%E5%8E%BB%E9%99%A4%E8%83%8C%E6%99%AF%20RNA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.3 用 CellBender 去除背景 RNA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🧬 scRNA Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            🧬 scRNA Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🐍 Using Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            🐍 Using Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Large-scale%20foundation%20model%20on%20single-cell%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Large scale foundation model on single cell transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scGPT%20toward%20building%20a%20foundation%20model%20for%20single-cell%20multi-omics%20using%20generative%20AI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scGPT toward building a foundation model for single cell multi omics using generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scBERT%20as%20a%20large-scale%20pretrained%20deep%20language%20model%20for%20cell%20type%20annotation%20of%20single-cell%20RNA-seq%20data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scBERT as a large scale pretrained deep language model for cell type annotation of single cell RNA seq data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RNA%20velocity%20of%20single%20cells/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RNA velocity of single cells
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TFvelo_gene%20regulation%20inspired%20RNA%20velocity%20estimation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TFvelo gene regulation inspired RNA velocity estimation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Disentanglement%20of%20single-cell%20data%20with%20biolord/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Disentanglement of single cell data with biolord
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%AD%90%E2%AD%90%E2%AD%90C5aR1%20inhibition%20reprograms%20tumor%20associated%20macrophages%20and%20reverses%20PARP%20inhibitor%20resistance%20in%20breast%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⭐⭐⭐C5aR1 inhibition reprograms tumor associated macrophages and reverses PARP inhibitor resistance in breast cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spatial%20transition%20tensor%20of%20single%20cells/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial transition tensor of single cells
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Statistical%20method%20scDEED%20for%20detecting%20dubious%202D%20single-cell%20embeddings%20and%20optimizing%20t-SNE%20and%20UMAP%20hyperparameters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistical method scDEED for detecting dubious 2D single cell embeddings and optimizing t SNE and UMAP hyperparameters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scRank%20infers%20drug-responsive%20cell%20types%20from%20untreated%20scRNA-seq%20data%20using%20a%20target-perturbed%20gene%20regulatory%20network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scRank infers drug responsive cell types from untreated scRNA seq data using a target perturbed gene regulatory network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📔 文献
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            📔 文献
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZNF689%20deficiency%20promotes%20intratumor%20heterogeneity%20and%20immunotherapy%20resistance%20in%20triple-negative%20breast%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ZNF689 deficiency promotes intratumor heterogeneity and immunotherapy resistance in triple negative breast cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tumour%20vasculature%20at%20single-cell%20resolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tumour vasculature at single-cell resolution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scRNA-seq%20of%20gastric%20tumor%20shows%20complex%20intercellular%20interaction%20with%20an%20alternative%20T%20cell%20exhaustion%20trajectory%EF%BC%88%E5%8F%82%E8%80%83%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scRNA seq of gastric tumor shows complex intercellular interaction with an alternative T cell exhaustion trajectory（参考）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20analysis%20reveals%20new%20evolutionary%20complexity%20in%20uveal%20melanoma%EF%BC%88%E5%8F%82%E8%80%83%202%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis reveals new evolutionary complexity in uveal melanoma（参考 2）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20characterization%20of%20macrophages%20in%20uveal%20melanoma%20uncovers%20transcriptionally%20heterogeneous%20subsets%20conferring%20poor%20prognosis%20and%20aggressive%20behavior%EF%BC%88%E8%8C%83%E4%BE%8B%201%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell characterization of macrophages in uveal melanoma uncovers transcriptionally heterogeneous subsets conferring poor prognosis and aggressive behavior（范例 1）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ScRNA-seq%20of%20gastric%20cancer%20tissues%20reveals%20differences%20in%20the%20immune%20microenvironment%20of%20primary%20tumors%20and%20metastases/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ScRNA seq of gastric cancer tissues reveals differences in the immune microenvironment of primary tumors and metastases
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Blimp-1%20and%20c-Maf%20regulate%20immune%20gene%20networks%20to%20protect%20against%20distinct%20pathways%20of%20pathobiont-induced%20colitis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blimp 1 and c Maf regulate immune gene networks to protect against distinct pathways of pathobiont induced colitis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single%20cell%20analysis%20unveils%20B%20cell-dominated%20immune%20subtypes%20in%20HNSCC%20for%20enhanced%20prognostic%20and%20therapeutic%20stratification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis unveils B cell dominated immune subtypes in HNSCC for enhanced prognostic and therapeutic stratification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20spatial%20multi-omics%20and%20deep%20learning%20dissect%20enhancer-driven%20gene%20regulatory%20networks%20in%20liver%20zonation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell spatial multi omics and deep learning dissect enhancer driven gene regulatory networks in liver zonation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Neutrophil%20profiling%20illuminates%20anti-tumor%20antigen%20presenting%20potency/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neutrophil profiling illuminates anti tumor antigen presenting potency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20blueprint%20for%20tumor-infiltrating%20B%20cells%20across%20human%20cancers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A blueprint for tumor infiltrating B cells across human cancers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20transcriptomic%20analyses%20reveal%20distinct%20immune%20cell%20contributions%20to%20epithelial%20barrier%20dysfunction%20in%20checkpoint%20inhibitor%20colitis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell transcriptomic analyses reveal distinct immune cell contributions to epithelial barrier dysfunction in checkpoint inhibitor colitis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Systematic%20dissection%20of%20tumor-normal%20single-cell%20ecosystems%20across%20a%20thousand%20tumors%20of%2030%20cancer%20types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systematic dissection of tumor normal single cell ecosystems across a thousand tumors of 30 cancer types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../The%20aged%20tumor%20microenvironment%20limits%20T%20cell%20control%20of%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The aged tumor microenvironment limits T cell control of cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TIM-3%2B%20CD8%20T%20cells%20with%20a%20terminally%20exhausted%20phenotype%20retain%20functional%20capacity%20in%20hematological%20malignancies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TIM 3+ CD8 T cells with a terminally exhausted phenotype retain functional capacity in hematological malignancies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20lactate-SREBP2%20signaling%20axis%20drives%20tolerogenic%20dendritic%20cell%20maturation%20and%20promotes%20cancer%20progression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A lactate SREBP2 signaling axis drives tolerogenic dendritic cell maturation and promotes cancer progression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20human%20omentum-specific%20mesothelial-like%20stromal%20population%20inhibits%20adipogenesis%20through%20IGFBP2%20secretion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A human omentum specific mesothelial like stromal population inhibits adipogenesis through IGFBP2 secretion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Interferon-stimulated%20neutrophils%20as%20a%20predictor%20of%20immunotherapy%20response/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interferon stimulated neutrophils as a predictor of immunotherapy response
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Repression%20of%20latent%20NF-%CE%BAB%20enhancers%20by%20PDX1%20regulates%20%CE%B2%20cell%20functional%20heterogeneity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Repression of latent NF κB enhancers by PDX1 regulates β cell functional heterogeneity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20systematic%20pan-cancer%20study%20on%20deep%20learning-based%20prediction%20of%20multi-omic%20biomarkers%20from%20routine%20pathology%20images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A systematic pan cancer study on deep learning based prediction of multi omic biomarkers from routine pathology images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20and%20spatial%20transcriptomics%20analysis%20of%20non-small%20cell%20lung%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell and spatial transcriptomics analysis of non small cell lung cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seeing%20data%20as%20t-SNE%20and%20UMAP%20do/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Seeing data as t SNE and UMAP do
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping%20the%20cellular%20biogeography%20of%20human%20bone%20marrow%20niches%20using%20single-cell%20transcriptomics%20and%20proteomic%20imaging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapping the cellular biogeography of human bone marrow niches using single cell transcriptomics and proteomic imaging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Onco-fetal%20Reprogramming%20of%20Endothelial%20Cells%20Drives%20Immunosuppressive%20Macrophages%20in%20Hepatocellular%20Carcinoma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Onco fetal Reprogramming of Endothelial Cells Drives Immunosuppressive Macrophages in Hepatocellular Carcinoma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20analysis%20of%20anti-BCMA%20CAR%20T%20cell%20therapy%20in%20patients%20with%20central%20nervous%20system%20autoimmunity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis of anti BCMA CAR T cell therapy in patients with central nervous system autoimmunity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20sequencing%20depicts%20tumor%20architecture%20and%20empowers%20clinical%20decision%20in%20metastatic%20conjunctival%20melanoma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell sequencing depicts tumor architecture and empowers clinical decision in metastatic conjunctival melanoma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PR-SET7%20epigenetically%20restrains%20uterine%20interferon%20response%20and%20cell%20death%20governing%20proper%20postnatal%20stromal%20development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PR SET7 epigenetically restrains uterine interferon response and cell death governing proper postnatal stromal development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Clonal%20associations%20between%20lymphocyte%20subsets%20and%20functional%20states%20in%20rheumatoid%20arthritis%20synovium/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clonal associations between lymphocyte subsets and functional states in rheumatoid arthritis synovium
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📐 Data Structures
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            📐 Data Structures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%201%20%E7%AB%A0%20python%20%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 1 章 python 入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%202%20%E7%AB%A0%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 2 章 面向对象编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%203%20%E7%AB%A0%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 3 章 算法分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%204%20%E7%AB%A0%20%E9%80%92%E5%BD%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 4 章 递归
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%205%20%E7%AB%A0%20%E5%9F%BA%E4%BA%8E%E6%95%B0%E7%BB%84%E7%9A%84%E5%BA%8F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 5 章 基于数组的序列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%206%20%E7%AB%A0%20%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E5%92%8C%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 6 章 栈、队列和双端队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%207%20%E7%AB%A0%20%E9%93%BE%E8%A1%A8%28Linked%20Lists%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 7 章 链表(Linked Lists)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%208%20%E7%AB%A0%20%E6%A0%91%20%E2%98%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 8 章 树 ★
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%209%20%E7%AB%A0%20%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 9 章 优先级队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    💡 Reviews
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            💡 Reviews
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🧭 scRNA analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            🧭 scRNA analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Best%20practices%20for%20single-cell%20analysis%20across%20modalities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best practices for single cell analysis across modalities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Multi-omics%20integration%20in%20biomedical%20research%20%E2%80%93%20A%20metabolomics-centric%20review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multi omics integration in biomedical research – A metabolomics centric review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Museum%20of%20spatial%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Museum of spatial transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20guide%20to%20artificial%20intelligence%20for%20cancer%20researchers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A guide to artificial intelligence for cancer researchers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🦠 Metabolism
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            🦠 Metabolism
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20analysis%20as%20a%20driver%20for%20discovery%2C%20diagnosis%2C%20and%20therapy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic analysis as a driver for discovery, diagnosis, and therapy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20heterogeneity%20in%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic heterogeneity in cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Toward%20modeling%20metabolic%20state%20from%20single-cell%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Toward modeling metabolic state from single cell transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20reprogramming%20and%20cancer%20progression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic reprogramming and cancer progression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Protein
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Protein
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Proteomic%20and%20interactomic%20insights%20into%20the%20molecular%20basis%20of%20cell%20functional%20diversity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proteomic and interactomic insights into the molecular basis of cell functional diversity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      冲激函数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      连续单变量函数的傅里叶变换
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="连续单变量函数的傅里叶变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      求一个简单连续函数的傅里叶变换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      冲激和冲激串的傅里叶变换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      卷积
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      取样和取样函数的傅里叶变换
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="取样和取样函数的傅里叶变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      取样后的函数的傅里叶变换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      取样定理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      混叠
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      由取样后的数据重建 (复原) 函数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      单变量的离散傅里叶变换
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="单变量的离散傅里叶变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dft" class="md-nav__link">
+    <span class="md-ellipsis">
+      由取样后的函数的连续变换得到 DFT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      取样和频率间隔的关系
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      二变量函数的傅里叶变换
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二变量函数的傅里叶变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      二维冲激及其取样性质
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      二维连续傅里叶变换对
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      二维取样和二维取样定理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/aletolia/aletolia.github.io.git/edit/master/docs/傅里叶级数和傅里叶变换专题.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/aletolia/aletolia.github.io.git/raw/master/docs/傅里叶级数和傅里叶变换专题.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+  <h1>傅里叶级数和傅里叶变换专题</h1>
+
+<p>首先是傅里叶级数，周期为 <span class="arithmatex">\(T\)</span>  的周期函数 <span class="arithmatex">\(f(t)\)</span>  ，可以表示为正弦函数和余弦函数之和，即傅里叶级数</p>
+<div class="arithmatex">\[
+\begin{gathered}
+f(t)=\sum_{n=-\infty}^{\infty} c_n \mathrm{e}^{\mathrm{j} \frac{2 \pi n}{T} t} \\\end{gathered}
+\]</div>
+<p>而这些级数的系数 <span class="arithmatex">\(c_{n}\)</span> 则是</p>
+<div class="arithmatex">\[
+c_n=\frac{1}{T} \int_{-T / 2}^{T / 2} f(t) \mathrm{e}^{-\mathrm{j} \frac{2 \pi n}{T} t} \mathrm{~d} t, \quad n=0, \pm 1, \pm 2, \cdots
+\]</div>
+<p>根据欧拉定理</p>
+<p>$$</p>
+<p>e^{j \theta} =\cos \theta +j \sin \theta
+$$</p>
+<p>那么</p>
+<div class="arithmatex">\[
+\mathrm{e}^{-\mathrm{j} \frac{2 \pi n}{T} t}=\cos(\frac{-2 \pi nt}{T})+j \sin (\frac{-2 \pi nt}{T})
+\]</div>
+<p>而 <span class="arithmatex">\(\omega =\frac{2 \pi}{T}\)</span>，因此</p>
+<div class="arithmatex">\[
+\mathrm{e}^{-\mathrm{j} \frac{2 \pi n}{T} t}=e^{-j \omega nt}=\cos(-\omega nt)+j \sin (-\omega nt)
+\]</div>
+<h2 id="_1">冲激函数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>冲激函数是指具有以下性质的函数</p>
+<div class="arithmatex">\[
+\delta(t)= \begin{cases}\infty, &amp; t=0 \\ 0, &amp; t \neq 0\end{cases}
+\]</div>
+<p>并且</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{\infty} \delta(t) \mathrm{d} t=1
+\]</div>
+<p>因此冲激函数具有这样的取样性质</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{\infty} f(t) \delta(t) \mathrm{d} t=f(0)
+\]</div>
+<p>这是因为</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\int_{-\infty}^{\infty} f(t) \delta(t) \mathrm{d} t\\=&amp;\int_{-\infty}^{\infty} f(0) \delta(t) \mathrm{d} t\ (除了0以外都是0)\\=&amp;f(0)\int_{-\infty}^{\infty}  \delta(t) \mathrm{d} t\\=&amp;f(0)
+\end{aligned}
+\]</div>
+<p>因此如果移动冲激函数的冲激位置，就会有</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{\infty} f(t) \delta\left(t-t_0\right) \mathrm{d} t=f\left(t_0\right)
+\]</div>
+<p>冲激串被定义为无穷多个冲激 <span class="arithmatex">\(\Delta T\)</span> 单位的和</p>
+<div class="arithmatex">\[
+s_{\Delta T}(t)=\sum_{k=-\infty}^{\infty} \delta(t-k \Delta T)
+\]</div>
+<p><img alt="image.png" src="https://raw.githubusercontent.com/aletolia/Pictures/main/202401261127638.png" /></p>
+<p>此外我们定义冲激函数的离散形式，也就是离散冲激</p>
+<div class="arithmatex">\[
+\delta(x)= \begin{cases}1, &amp; x=0 \\ 0, &amp; x \neq 0\end{cases}
+\]</div>
+<p>其中 <span class="arithmatex">\(x\)</span> 是一个离散变量，并且其和式为</p>
+<div class="arithmatex">\[
+\sum_{x=-\infty}^{\infty} \delta(x)=1
+\]</div>
+<p>对于离散函数而言，同样也满足取样性质</p>
+<div class="arithmatex">\[
+\sum_{x=-\infty}^{\infty} f(x) \delta(x)=f(0)
+\]</div>
+<p>同样，更一般的有</p>
+<div class="arithmatex">\[
+\sum_{x=-\infty}^{\infty} f(x) \delta\left(x-x_0\right)=f\left(x_0\right)
+\]</div>
+<h2 id="_2">连续单变量函数的傅里叶变换<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>连续变量 <span class="arithmatex">\(t\)</span> 的连续函数 <span class="arithmatex">\(f(t)\)</span> 的傅里叶变换由 <span class="arithmatex">\(\mathfrak{I}\{f(t)\}\)</span> 表示, 它定义为</p>
+<div class="arithmatex">\[
+\Im\{f(t)\}=\int_{-\infty}^{\infty} f(t) \mathrm{e}^{-\mathrm{j} 2 \pi \mu t} \mathrm{~d} t
+\]</div>
+<p>式中, <span class="arithmatex">\(\mu\)</span> 也是一个连续变量。因为积分变量是 <span class="arithmatex">\(t\)</span>, 所以 <span class="arithmatex">\(\mathfrak{I}\{f(t)\}\)</span> 只是 <span class="arithmatex">\(\mu\)</span> 的函数, 即 <span class="arithmatex">\(\mathfrak{J}\{f(t)\}=F(\mu)\)</span>;因此, 我们把 <span class="arithmatex">\(f(t)\)</span> 的傅里叶变换写为</p>
+<div class="arithmatex">\[F(\mu)=\int_{-\infty}^{\infty} f(t) \mathrm{e}^{-\mathrm{j} 2 \pi \mu t} \mathrm{~d} t\]</div>
+<p>(因为积分变量是 <span class="arithmatex">\(t\)</span>，所以这个积分在积出来之后就只和 <span class="arithmatex">\(\mu\)</span> 有关)</p>
+<p>相反, 已知 <span class="arithmatex">\(F(\mu)\)</span> 时, 可通过傅里叶反变换可以得到 <span class="arithmatex">\(f(t)\)</span>, 它写为</p>
+<div class="arithmatex">\[
+f(t)=\int_{-\infty}^{\infty} F(\mu) \mathrm{e}^{\mathrm{j} 2 \pi \mu t} \mathrm{~d} \mu
+\]</div>
+<p>其中用到了反变换中积分变量是 <span class="arithmatex">\(\mu\)</span> 的事实, 因此将反变换简单地写为 <span class="arithmatex">\(f(t)\)</span>,</p>
+<p>因此根据欧拉公式，傅里叶变换又可以写作</p>
+<div class="arithmatex">\[
+F(\mu)=\int_{-\infty}^{\infty} f(t)[\cos (2 \pi \mu t)-\mathrm{j} \sin (2 \pi \mu t)] \mathrm{d} t
+\]</div>
+<p><strong>我们看到, 如果 <span class="arithmatex">\(f(t)\)</span> 是实数, 那么其变换通常是复数</strong>。注意, 傅里叶变换是 <span class="arithmatex">\(f(t)\)</span> 乘以正弦函数的展开式, 其中正弦函数的频率由 <span class="arithmatex">\(\mu\)</span> 值决定。因此, 积分后留下的唯一变量是频率, 因此我们说傅里叶变换域是频率域</p>
+<h3 id="_3">求一个简单连续函数的傅里叶变换<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>图 4.4(a)中的函数的傅里叶变换可由式(4.20)得出:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp; F(\mu)=\int_{-\infty}^{\infty} f(t) \mathrm{e}^{-\mathrm{j} 2 \pi \mu t} \mathrm{~d} t=\int_{-W / 2}^{W / 2} A \mathrm{e}^{-\mathrm{j} 2 \pi \mu t} \mathrm{~d} t \\
+&amp; =\frac{-A}{\mathrm{j} 2 \pi \mu}\left[\mathrm{e}^{-\mathrm{j} 2 \pi \omega / \omega}\right]_{-W / 2}^{W / 2}=\frac{-A}{\mathrm{j} 2 \pi \mu}\left[\mathrm{e}^{-\mathrm{j} \pi \mu W}-\mathrm{e}^{\mathrm{j} \pi \omega W}\right] \\
+&amp; =\frac{A}{\mathrm{j} 2 \pi \mu}\left[\mathrm{e}^{\mathrm{j} \pi \mu W}-\mathrm{e}^{-\mathrm{j} \mu \mu W}\right] \\
+&amp; =A W \frac{\sin (\pi \mu W)}{(\pi \mu W)} \\
+&amp;
+\end{aligned}
+\]</div>
+<p><img alt="image.png" src="https://raw.githubusercontent.com/aletolia/Pictures/main/202401261212432.png" />
+式中使用了三角恒等式 <span class="arithmatex">\(\sin \theta=\left(\mathrm{e}^{\mathrm{j} \theta}-\mathrm{e}^{-\mathrm{j} \theta}\right) / 2 \mathrm{j}\)</span> 。此时, 傅里叶变换的复数项合并为一个实正弦函数。上式中最后一步的结果是我们熟悉的 sinc 函数, 即</p>
+<div class="arithmatex">\[
+\operatorname{sinc}(m)=\frac{\sin (\pi m)}{(\pi m)}
+\]</div>
+<p>式中, <span class="arithmatex">\(\operatorname{sinc}(0)=1\)</span>, 对于 <span class="arithmatex">\(m\)</span> 的所有其他整数值, <span class="arithmatex">\(\operatorname{sinc}(m)=0\)</span> 。图 4.4(b) 显示了 <span class="arithmatex">\(F(\mu)\)</span> 的曲线。</p>
+<p>通常, 傅里叶变换中包含复数项, 这是为显示变换的幅值 (一个实量) 的一种约定。这个幅值称为傅里叶频谱或频谱:</p>
+<div class="arithmatex">\[
+|F(\mu)|=A W\left|\frac{\sin (\pi \mu W)}{(\pi \mu W)}\right|
+\]</div>
+<p>图 4.4(c)显示了 <span class="arithmatex">\(|F(\mu)|\)</span> 与频率的关系曲线。曲线的关键性质是: </p>
+<ul>
+<li>(1) <span class="arithmatex">\(F(\mu)\)</span> 和 <span class="arithmatex">\(|F(\mu)|\)</span> 的零值位置都与 “盒式” 函数的宽度 <span class="arithmatex">\(W\)</span> 成反比; </li>
+<li>(2) 到原点的距离越大, 旁瓣的高度随到原点距离的增加而减小; </li>
+<li>(3) 函数向 <span class="arithmatex">\(\mu\)</span> 值的正方向和负方向无限扩展。</li>
+</ul>
+<h3 id="_4">冲激和冲激串的傅里叶变换<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>位于原点的单位冲激的傅里叶变换由式(4.20)给出:</p>
+<div class="arithmatex">\[
+\Im\{\delta(t)\}=F(\mu)=\int_{-\infty}^{\infty} \delta(t) \mathrm{e}^{-\mathrm{j} 2 \pi \mu t} \mathrm{~d} t=\int_{-\infty}^{\infty} \mathrm{e}^{-\mathrm{j} 2 \pi \mu t} \delta(t) \mathrm{d} t=\mathrm{e}^{-\mathrm{j} 2 \pi \mu_0}=\mathrm{e}^0=1
+\]</div>
+<p>因此类似的</p>
+<div class="arithmatex">\[
+\Im\left\{\delta\left(t-t_0\right)\right\}=F(\mu)=\int_{-\infty}^{\infty} \delta\left(t-t_0\right) \mathrm{e}^{-\mathrm{j} 2 \pi \omega t} \mathrm{~d} t=\int_{-\infty}^{\infty} \mathrm{e}^{-\mathrm{j} 2 \pi \mu t} \delta\left(t-t_0\right) \mathrm{d} t=\mathrm{e}^{-\mathrm{j} 2 \pi \mu t_0}
+\]</div>
+<p>4.3 节将使用周期冲激串的傅里叶变换。得到这个变换并不像得到各个冲激的变换那样简单。然而, 了解如何推导一个冲激串的变换十分重要, 下面花一些时间来进行推导。我们发现, 式(4.20)和式(4.21)的差别只是指数符号的不同。因此, 如果函数 <span class="arithmatex">\(f(t)\)</span> 有傅里叶变换 <span class="arithmatex">\(F(\mu)\)</span>, 那么求该函数在点 <span class="arithmatex">\(t\)</span> 的值 <span class="arithmatex">\(F(t)\)</span> 时, 一定有变换 <span class="arithmatex">\(f(-\mu)\)</span> 。</p>
+<ul>
+<li>使用这种对称性质和上面给出的冲激 <span class="arithmatex">\(\delta\left(t-t_0\right)\)</span> 的傅里叶变换 <span class="arithmatex">\(\mathrm{e}^{-\mathrm{j} 2 \pi \mu_0}\)</span>, 可得函数 <span class="arithmatex">\(\mathrm{e}^{-j 2 \pi\mu_0}\)</span> 的变换为 <span class="arithmatex">\(\delta\left(-\mu-t_0\right)\)</span> 。<strong>(注意 <span class="arithmatex">\(\mu\)</span> 和 <span class="arithmatex">\(t\)</span> 之间的互变)</strong></li>
+<li>令 <span class="arithmatex">\(-t_0=a\)</span>, 可得 <span class="arithmatex">\(\mathrm{e}^{\mathrm{j} 2 \pi at}\)</span> 的变换是 <span class="arithmatex">\(\delta(-\mu+a)=\delta(\mu-a)\)</span>, 其中最后一步是正确的, 因为除 <span class="arithmatex">\(\mu=a\)</span> 外, <span class="arithmatex">\(\delta\)</span> 为零, 对 <span class="arithmatex">\(\delta(-\mu+a)\)</span> 或 <span class="arithmatex">\(\delta(\mu-a)\)</span> 而言, 这是相同的条件。</li>
+</ul>
+<p>式(4.14)中的冲激串 <span class="arithmatex">\(s_{\Delta T}(t)\)</span> 是周期为 <span class="arithmatex">\(\Delta T\)</span> 的周期函数, 因此它可表示为一个傅里叶级数:</p>
+<div class="arithmatex">\[
+S_{\Delta T}(t)=\sum_{n=\infty}^{\infty} c_n \mathrm{e}^{j\frac{ 2 \pi n}{\Delta T}t}
+\]</div>
+<p>式中,</p>
+<div class="arithmatex">\[
+c_n=\frac{1}{\Delta T} \int_{-\Delta T / 2}^{\Delta T / 2} s_{\Delta T}(t) \mathrm{e}^{-{j\frac{ 2 \pi n}{\Delta T}t}} \mathrm{~d} t
+\]</div>
+<p>参考图 4.3(b), 我们发现区间 <span class="arithmatex">\([-\Delta T / 2, \Delta T / 2]\)</span> 上的积分仅包含位于原点的冲激。因此, 上式变为</p>
+<div class="arithmatex">\[
+c_n=\frac{1}{\Delta T} \int_{-\Delta T / 2}^{\Delta T / 2} \delta(t) \mathrm{e}^{-\frac{2 w n}{\Delta T} t} \mathrm{~d} t=\frac{1}{\Delta T} \mathrm{e}^0=\frac{1}{\Delta T}
+\]</div>
+<p>式中用到了 <span class="arithmatex">\(\delta(t)\)</span> 的取样性质。于是, 傅里叶级数变为</p>
+<div class="arithmatex">\[
+s_{\Delta T}(t)=\frac{1}{\Delta T} \sum_{n=-\infty}^{\infty} \mathrm{e}^{j\frac{ 2 \pi n}{\Delta T}t}
+\]</div>
+<p>我们的目的是得到该表达式的傅里叶变换。因为求和是线性过程, 和的傅里叶变换等于各个分量的傅里叶变换之和。这些分量是指数形式的, 本例中前面已得到</p>
+<div class="arithmatex">\[
+\Im\left\{\mathrm{e}^{j \frac{2 n \pi}{\Delta T} t}\right\}=\delta\left(\mu-\frac{n}{\Delta T}\right)
+\]</div>
+<p>因此周期冲激串的傅里叶变换 <span class="arithmatex">\(S(\mu)\)</span> 是</p>
+<div class="arithmatex">\[
+S(\mu)=\mathfrak{I}\left\{s_{\Delta T}(t)\right\}=\mathfrak{I}\left\{\frac{1}{\Delta T} \sum_{n=-\infty}^{\infty} \mathrm{e}^{j \frac{2 \pi n}{\Delta T} t}\right\}=\frac{1}{\Delta T} \mathfrak{J}\left\{\sum_{n=\infty}^{\infty} \mathrm{e}^{j\frac{ 2 \pi n}{\Delta T}t}\right\}=\frac{1}{\Delta T} \sum_{n=-\infty}^{\infty} \delta\left(\mu-\frac{n}{\Delta T}\right)
+\]</div>
+<h3 id="_5">卷积<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>卷积被定义为</p>
+<div class="arithmatex">\[
+(f \star h)(t)=\int_{-\infty}^{\infty} f(\tau) h(t-\tau) \mathrm{d} \tau
+\]</div>
+<p>求上式的傅里叶变换，首先有</p>
+<div class="arithmatex">\[
+\Im\{(f \star h)(t)\}=\int_{-\infty}^{\infty}\left[\int_{-\infty}^{\infty} f(\tau) h(t-\tau) \mathrm{d} \tau\right] \mathrm{e}^{-\mathrm{j} 2 \pi \mu t} \mathrm{~d} t=\int_{-\infty}^{\infty} f(\tau)\left[\int_{-\infty}^{\infty} h(t-\tau) \mathrm{e}^{-\mathrm{j} 2 \pi \mu t} \mathrm{~d} t\right] \mathrm{d} \tau
+\]</div>
+<p>并且 </p>
+<div class="arithmatex">\[
+\mathfrak{F}\{h(t-\tau)\}=H(\mu) \mathrm{e}^{-\mathrm{j} 2 \pi \mu \tau}
+\]</div>
+<p>因此</p>
+<div class="arithmatex">\[
+\Im\{(f \star h)(t)\}=\int_{-\infty}^{\infty} f(\tau)\left[H(\mu) \mathrm{e}^{-\mathrm{j} 2 \pi \mu \tau}\right] \mathrm{d} \tau=H(\mu) \int_{-\infty}^{\infty} f(\tau) \mathrm{e}^{-\mathrm{j} 2 \pi \mu \tau} \mathrm{d} \tau=H(\mu) F(\mu)=(H \cdot F)(\mu)
+\]</div>
+<p>式中, 符号 <span class="arithmatex">\(\cdot\)</span> 表示相乘。如前所述, 如果将 <span class="arithmatex">\(t\)</span> 的域称为空间域, 将 <span class="arithmatex">\(\mu\)</span> 的域称为频率域, 那么上式告诉我们, 空间域中两个函数的卷积的傅里叶变换, 等于频率域中两个函数的傅里叶变换的乘积。反过来,如果有两个变换的乘积, 那么可以通过计算傅里叶反变换得到空间域的卷积。换句话说, <span class="arithmatex">\(f \star h\)</span> 和 <span class="arithmatex">\(F \cdot H\)</span>是一个傅里叶变换对。这一结果是卷积定理的一半, 它写为</p>
+<div class="arithmatex">\[
+(f \star h)(t) \Leftrightarrow(H \cdot F)(\mu)
+\]</div>
+<p>如前所述, 双箭头表明右侧的表达式是通过取左侧表达式的傅里叶正变换得到的, 而左侧的表达式是通过取右侧表达式的傅里叶反变换得到的。</p>
+<p>类似地, 可以推出另外一半卷积定理:</p>
+<div class="arithmatex">\[
+(f \cdot h)(t) \Leftrightarrow(H \star F)(\mu)
+\]</div>
+<h2 id="_6">取样和取样函数的傅里叶变换<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>在能用计算机进行处理之前, 连续函数必须转换为一系列离散值, 这就要求取样和量化, 如 2.4 节所述。下面详细介绍取样。</p>
+<p>考虑一个连续函数 <span class="arithmatex">\(f(t)\)</span>, 我们希望以自变量 <span class="arithmatex">\(t\)</span> 的均匀间隔 <span class="arithmatex">\(\Delta T\)</span> 对函数取样 (见图 4.5 )。首先假设该函数关于 <span class="arithmatex">\(t\)</span> 从 <span class="arithmatex">\(-\infty\)</span> 扩展到 <span class="arithmatex">\(\infty\)</span> 。对取样建模的一种方法是将 <span class="arithmatex">\(f(t)\)</span> 乘以一个取样函数, 这个取样函数等于单位间隔 <span class="arithmatex">\(\Delta T\)</span> 的一个冲激串。也就是说，</p>
+<div class="arithmatex">\[
+\tilde{f}(t)=f(t) s_{\Delta T}(t)=\sum_{n=-\infty}^{\infty} f(t) \delta(t-n \Delta T)
+\]</div>
+<p>这个和式的每个分量都是冲激位置 <span class="arithmatex">\(f(t)\)</span> 的一个加权冲激，因此取样序列中任意一个取样的值 <span class="arithmatex">\(f_k\)</span> 由下式给出:</p>
+<div class="arithmatex">\[
+f_k=\int_{-\infty}^{\infty} f(t) \delta(t-k \Delta T) \mathrm{d} t=f(k \Delta T)
+\]</div>
+<blockquote>
+<p>以间隔 <span class="arithmatex">\(\Delta T\)</span> 进行取样意味着<strong>取样率（每一秒取样的几率）</strong> 等于 <span class="arithmatex">\(1 / \Delta T\)</span></p>
+</blockquote>
+<p><img alt="image.png" src="https://raw.githubusercontent.com/aletolia/Pictures/main/202401261302389.png" /></p>
+<h3 id="_7">取样后的函数的傅里叶变换<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>令 <span class="arithmatex">\(F(\mu)\)</span> 表示连续函数 <span class="arithmatex">\(f(t)\)</span> 的傅里叶变换。如前节所述, 取样后的函数 <span class="arithmatex">\(\tilde{f}(t)\)</span> 是 <span class="arithmatex">\(f(t)\)</span> 与一个冲激串的乘积。由卷积定理可知, 空间域中两个函数的乘积的傅里叶变换, 是两个函数的变换在频率域中的卷积。于是, 取样后的函数 <span class="arithmatex">\(\tilde{f}(t)\)</span> 的傅里叶变换 <span class="arithmatex">\(\tilde{F}(\mu)\)</span> 是</p>
+<div class="arithmatex">\[
+\tilde{F}(\mu)=\mathfrak{J}\{\tilde{f}(t)\}=\mathfrak{J}\left\{f(t) s_{\Delta T}(t)\right\}=(F \star S)(\mu)
+\]</div>
+<p>式中, 由例 4.2 可知</p>
+<div class="arithmatex">\[
+S(\mu)=\frac{1}{\Delta T} \sum_{n=-\infty}^{\infty} \delta\left(\mu-\frac{n}{\Delta T}\right)
+\]</div>
+<p>是冲激串 <span class="arithmatex">\(s_{\Delta T}(t)\)</span> 的傅里叶变换。由式(4.24)中一维卷积的定义, 可直接得到 <span class="arithmatex">\(F(\mu)\)</span> 和 <span class="arithmatex">\(S(\mu)\)</span> 的卷积:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\tilde{F}(\mu) &amp; =(F \star S)(\mu)=\int_{-\infty}^{\infty} F(\tau) S(\mu-\tau) \mathrm{d} \tau \\
+&amp; =\frac{1}{\Delta T} \int_{-\infty}^{\infty} F(\tau) \sum_{n=-\infty}^{\infty} \delta\left(\mu-\tau-\frac{n}{\Delta T}\right) \mathrm{d} \tau \\
+&amp; =\frac{1}{\Delta T} \sum_{n=-\infty}^{\infty} \int_{-\infty}^{\infty} F(\tau) \delta\left(\mu-\tau-\frac{n}{\Delta T}\right) \mathrm{d} \tau \\
+&amp; =\frac{1}{\Delta T} \sum_{n=-\infty}^{\infty} F\left(\mu-\frac{n}{\Delta T}\right)
+\end{aligned}
+\]</div>
+<p>式(4.31)中最后一行的求和表明, 取样后的函数 <span class="arithmatex">\(\tilde{f}(t)\)</span> 的傅里叶变换 <span class="arithmatex">\(\tilde{F}(\mu)\)</span>, 是<strong>原连续函数的傅里叶变换的一个无限的、周期的副本序列</strong>。副本之间的间隔由 <span class="arithmatex">\(1 / \Delta T\)</span> 的值决定。虽然 <span class="arithmatex">\(\tilde{f}(t)\)</span> 是取样后的函数,但其变换 <span class="arithmatex">\(\tilde{F}(\mu)\)</span> 是连续的, 因为它由 <span class="arithmatex">\(F(\mu)\)</span> 的多个副本组成, 所以 <span class="arithmatex">\(F(\mu)\)</span> 是一个连续函数。</p>
+<p>图 4.6 是前述结果的图示小结 <span class="arithmatex">\({ }^{(1)}\)</span> 。图 4.6(a) 是函数 <span class="arithmatex">\(f(t)\)</span> 的傅里叶变换 <span class="arithmatex">\(F(\mu)\)</span> 的简图, 图 4.6(b) 显示了取样后的函数 <span class="arithmatex">\(\tilde{f}(t)\)</span> 的变换 <span class="arithmatex">\(\tilde{F}(\mu)\)</span> 。如前节所述, <span class="arithmatex">\(1 / \Delta T\)</span> 是用于生成取样后的函数的取样率。因此,</p>
+<p><img alt="image.png" src="https://raw.githubusercontent.com/aletolia/Pictures/main/202401261309779.png" /></p>
+<p>在图 4.6(b)中, 取样率要高到足以在各个周期之间提供有效的间隔, 以便保持 <span class="arithmatex">\(F(\mu)\)</span> 的完整性 ( 即完美的副本 )。在图 4.6(c)中, 取样率刚好足以保持 <span class="arithmatex">\(F(\mu)\)</span>, 但在图 4.6(d)中, 取样率低于保持不同 <span class="arithmatex">\(F(\mu)\)</span>副本所需的最小值, 因此不能保持原始变换。图 4.6(b)是对信号过取样后的结果, 图 4.6(c)和(d) 分别是对信号临界取样和欠取样后的结果。这些概念是帮助我们掌握取样定理基本原理的基础, 下面讨论取样定理。</p>
+<h3 id="_8">取样定理<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>对于以原点为中心的有限区间 (带宽) <span class="arithmatex">\(\left[-\mu_{\max }, \mu_{\max }\right]\)</span> 外的频率值, 傅里叶变换为零的函数 <span class="arithmatex">\(f(t)\)</span> 称为<strong>带限函数</strong>。图 4.6(a)的放大部分即图 4.7(a) 就是这样一个函数。类似地, 图 4.7(b) 是图 4.6(c)所示临界取样后的函数的傅里叶变换的详细视图 [ 见图 4.6(c) ]。<strong>较大的 <span class="arithmatex">\(\Delta T\)</span> 值会使得 <span class="arithmatex">\(\tilde{F}(\mu)\)</span>中的周期混叠, 较小的 <span class="arithmatex">\(\Delta T\)</span> 值会在周期之间提供更清晰的间隔</strong>。</p>
+<p>如果能从 <span class="arithmatex">\(\tilde{F}(\mu)\)</span> 中包含的这个函数的副本的周期序列中分离出 <span class="arithmatex">\(F(\mu)\)</span> 的一个副本, 那么就能由样本复原 <span class="arithmatex">\(f(t)\)</span>, 其中 <span class="arithmatex">\(\tilde{F}(\mu)\)</span> 是取样后的函数 <span class="arithmatex">\(\tilde{f}(t)\)</span> 的傅里叶变换。回顾前节的讨论可知, <span class="arithmatex">\(\tilde{F}(\mu)\)</span> 是周期为 <span class="arithmatex">\(1 / \Delta T\)</span> 的连续周期函数。因此, 我们需要一个完整的周期来表征整个变换。换句话说, 可以取傅里叶反变换,由单个周期复原 <span class="arithmatex">\(f(t)\)</span> 。</p>
+<p><img alt="image.png" src="https://raw.githubusercontent.com/aletolia/Pictures/main/202401261312641.png" /></p>
+<p>如果副本间的间隔足够大 (见图 4.6),那么就能从 <span class="arithmatex">\(\tilde{F}(\mu)\)</span> 中提取一个等于 <span class="arithmatex">\(F(\mu)\)</span> 的周期。根据图 4.7(b), 如果 <span class="arithmatex">\(1 / 2 \Delta T&gt;\mu_{\max }\)</span> 或</p>
+<div class="arithmatex">\[
+\frac{1}{\Delta T}&gt;2 \mu_{\max }
+\]</div>
+<p>就可保证足够的间隔。<strong>该式表明, 如果以超过函数最高频率 2 倍的取样率来得到样本, 那么连续带限函数就能够完全由其样本集合复原。这个非常重要的结论称为取样定理</strong> <span class="arithmatex">\({ }^1\)</span> 。根据这一结论, 我们可以说如果一个连续带限函数用取样率大于函数最高频率 2 倍得到的样本来表示, 那么不会丢失信息。反之, 我们说以 <span class="arithmatex">\(1 / \Delta T\)</span> 的取样率对信号取样得到的最大频率是 <span class="arithmatex">\(\mu_{\text {max }}=1 / 2 \Delta T\)</span> 。完全等于最高频率 2 倍的取样率称为奈奎斯特率</p>
+<p>图 4.8 说明了函数以高于奈奎斯特率的取样率取样时, 由 <span class="arithmatex">\(\tilde{F}(\mu)\)</span> 复原 <span class="arithmatex">\(F(\mu)\)</span> 的过程。图 4.8(b)中的函数由下式定义:</p>
+<div class="arithmatex">\[
+H(\mu)=\left\{\begin{array}{cc}
+\Delta T, &amp; -\mu_{\max } \leq \mu \leq \mu_{\max } \\
+0, &amp; \text { 其他 }
+\end{array}\right.
+\]</div>
+<p>乘以图 4.8(a)中的周期序列时, 该函数就分隔了以原点为中心的周期。于是, 如图 4.8(c)所示, <span class="arithmatex">\(H(\mu)\)</span> 和 <span class="arithmatex">\(\tilde{F}(\mu)\)</span> 相乘得到
+<span class="arithmatex">\(F(\mu)\)</span> :</p>
+<div class="arithmatex">\[
+F(\mu)=H(\mu) \tilde{F}(\mu)
+\]</div>
+<p>求出 <span class="arithmatex">\(F(\mu)\)</span> 后, 就可用傅里叶反变换复原 <span class="arithmatex">\(f(t)\)</span> :</p>
+<div class="arithmatex">\[
+f(t)=\int^{\infty}_{-\infty} F(\mu) \mathrm{e}^{\mathrm{j} 2 \pi \mu t} \mathrm{~d} \mu
+\]</div>
+<p><img alt="image.png" src="https://raw.githubusercontent.com/aletolia/Pictures/main/202401261331789.png" /></p>
+<h3 id="_9">混叠<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>混叠一词的字面意思是 “假身份”。在信号处理领域, 混叠是指取样后不同信号变得彼此无法区分的取样现象, 或者一个信号 “伪装” 成另一个信号的现象。</p>
+<p>从概念上讲, 掌握取样和混叠之间的关系并不困难。与取样有关的混叠的基础是, <strong>我们只能用函数的样本值来描述数字化函数。这意味着两个 (或多个) 完全不同的连续函数有可能在各自样本的值上重合, 但我们却没有办法知道这些样本之间的函数特征</strong>。为便于说明, 图 4.9 示出了以相同取样率取样后的两个完全不同的正弦函数。</p>
+<p><img alt="image.png" src="https://raw.githubusercontent.com/aletolia/Pictures/main/202401261335259.png" /></p>
+<p>图 4.10(a)与图4.6(d)相同, 它显示了带限函数欠取样的傅里叶变换。</p>
+<p>该图说明取样率小于奈奎斯特率的后果是, <strong>傅里叶变换的周期现在是重叠的, 不管使用何种滤波器,都不可能分离出变换的一个周期</strong>。例如, 使用图 4.10(b)中的理想低通滤波器, 会得到如图 4.10(c)所示的一个变换, 但这个变换已被来自邻近周期的频率破坏。于是, 反变换将产生一个与原函数不同的 <span class="arithmatex">\(f_a(t)\)</span> 。也就是说, <span class="arithmatex">\(f_a(t)\)</span> 是一个混叠函数, 因为它包含了原函数中不存在的频率分量。按照前面的说法, <span class="arithmatex">\(f_a(t)\)</span> 伪装成了一个不同的函数。混叠函数甚至可能与原函数毫无相似之处。</p>
+<p><img alt="image.png" src="https://raw.githubusercontent.com/aletolia/Pictures/main/202401261337539.png" /></p>
+<p>遗憾的是, 除下面提到的某些特殊情况外, 混叠总是出现在取样后的信号中。这是因为即使原取样函数是带限的，在不得不限制该函数的持续时间时，也会引入无限个频率分量。为便于说明，假设我们想要将带限函数 <span class="arithmatex">\(f(t)\)</span> 的持续时间限制到一个有限的区间, 譬如区间 <span class="arithmatex">\([0, T]\)</span> 。我们可以将 <span class="arithmatex">\(f(t)\)</span> 乘以如下函数来实现这一目的:</p>
+<div class="arithmatex">\[
+h(t)=\left\{\begin{array}{lc}
+1, &amp; 0 \leq t \leq T \\
+0, &amp; \text { 其他 }
+\end{array}\right.
+\]</div>
+<p>这个函数的基本形状与图 4.4(a)相同, 但其傅里叶变换 <span class="arithmatex">\(H(\mu)\)</span> 具有向两个方向无限扩展的频率分量, 如图 4.4(b) 所示。由卷积定理可知, 乘积 <span class="arithmatex">\(h(t) f(t)\)</span> 的变换是频率域中变换 <span class="arithmatex">\(F(\mu)\)</span> 和 <span class="arithmatex">\(H(\mu)\)</span> 的卷积。即使 <span class="arithmatex">\(F(\mu)\)</span>是带限的, 并且它与 <span class="arithmatex">\(H(\mu)\)</span> 的卷积运算涉及将一个函数滑过另一个函数, 也会产生频率分量在两个方向上无限扩展的结果（见习题 4.12 )。由此得出结论, 有限持续时间函数不可能是带限的。反之, 带限函数一定会从 <span class="arithmatex">\(-\infty\)</span> 扩展到 <span class="arithmatex">\(\infty{ }^{\Phi}\)</span> 。</p>
+<h3 id="_10">由取样后的数据重建 (复原) 函数<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>本节介绍如何在实践中减少样本间的内插, 由一组样本来重建函数。即使是显示图像的简单动作,也要通过显示介质由其样本重建图像。因此, 理解取样后的数据重建的基础非常重要。卷积是我们进行这一理解的核心, 这再次表明了卷积概念的重要性。</p>
+<p>关于图 4.8 和式(4.34)的讨论, 给出了使用频率域方法由样本完美复原一个带限函数的过程。使用卷积定理, 我们可在空间域中得到相同的结果。由式 <span class="arithmatex">\((4.34)\)</span> 即 <span class="arithmatex">\(F(\mu)=H(\mu) \tilde{F}(\mu)\)</span> 可知</p>
+<div class="arithmatex">\[
+f(t)=\mathfrak{J}^{-1}\{F(\mu)\}=\mathfrak{J}^{-1}\{H(\mu) \tilde{F}(\mu)\}=h(t) \star \tilde{f}(t)
+\]</div>
+<p>式中, <span class="arithmatex">\(\tilde{f}(t)\)</span> 照例表示取样后的函数, 且最后一步来自式(4.25), 即卷积定理。可以证明 (见习题 4.13),将式(4.27)给出的 <span class="arithmatex">\(\tilde{f}(t)\)</span> 代入式(4.37), 然后使用式(4.24), 可得到 <span class="arithmatex">\(f(t)\)</span> 的如下空间域表达式:</p>
+<div class="arithmatex">\[
+f(t)=\sum_{n=-\infty}^{\infty} f(n \Delta T) \operatorname{sinc}[(t-n \Delta T) / \Delta T]
+\]</div>
+<p>式中, sinc 函数由式(4.23)定义。这个结果并不令入意外, 因为理想（盒式）滤波器 <span class="arithmatex">\(H(\mu)\)</span> 的傅里叶反变换是一个 sinc 函数 (见例 4.1 )。式(4.38) 表明, 完美重建的函数 <span class="arithmatex">\(f(t)\)</span> 是用样本值加权的 sinc 函数的无限和。它有一个重要的性质, 即重建的函数恒等于整数倍增量 <span class="arithmatex">\(\Delta T\)</span> 处的样本值。也就是说, 对于任何 <span class="arithmatex">\(t=k \Delta T, f(t)\)</span> 等于第 <span class="arithmatex">\(k\)</span> 个样本 <span class="arithmatex">\(f(k \Delta T)\)</span>, 其中 <span class="arithmatex">\(k\)</span> 是整数。这一结论是由式(4.38)得到的, 因为 <span class="arithmatex">\(\operatorname{sinc}(0)=1\)</span>,且对于任何其他整数 <span class="arithmatex">\(m, \operatorname{sinc}(m)=0\)</span> 。样本点之间的 <span class="arithmatex">\(f(t)\)</span> 值是由 <span class="arithmatex">\(\operatorname{sinc}\)</span> 函数之和形成的内插值。</p>
+<h2 id="_11">单变量的离散傅里叶变换<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>本节的主要目的之一是从基本原理开始推导离散傅里叶变换 (DFT)。到目前为止的内容都可视为这些基本原理的基础, 因此我们现在有了推导 DFT 的必要工具。</p>
+<h3 id="dft">由取样后的函数的连续变换得到 DFT<a class="headerlink" href="#dft" title="Permanent link">&para;</a></h3>
+<p>如 4.3 节所述, 从 <span class="arithmatex">\(-\infty\)</span> 扩展到 <span class="arithmatex">\(\infty\)</span> 的带限函数取样的傅里叶变换, 也是从 <span class="arithmatex">\(-\infty\)</span> 扩展到 <span class="arithmatex">\(\infty\)</span> 的连续周期函数。实践中, 我们处理的是有限数量的样本, 本节的目的是推导这种有限样本集合的 DFT。</p>
+<p>式(4.31)给出了对原函数的变换取样后的数据的变换 <span class="arithmatex">\(\tilde{F}(\mu)\)</span>, 但未给出<strong>取样后的函数 <span class="arithmatex">\(\tilde{f}(t)\)</span> 的变换 <span class="arithmatex">\(\tilde{F}(\mu)\)</span> 的表达式</strong>。我们直接由式(4.19)给出的傅里叶变换的定义来求这一表达式:</p>
+<div class="arithmatex">\[
+\tilde{F}(\mu)=\int_{-\infty}^{\infty} \tilde{f}(t) \mathrm{e}^{-\mathrm{j} 2 \pi \mu t} \mathrm{~d} t
+\]</div>
+<p>用式(4.27)代替 <span class="arithmatex">\(\tilde{f}(t)\)</span>, 得到</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\tilde{F}(\mu) &amp; =\int_{-\infty}^{\infty} \tilde{f}(t) \mathrm{e}^{-\mathrm{j} 2 \pi \mu t} \mathrm{~d} t=\int_{-\infty}^{\infty} \sum_{n=-\infty}^{\infty} f(t) \delta(t-n \Delta T) \mathrm{e}^{-\mathrm{j} 2 \pi \mu t} \mathrm{~d} t \\
+&amp; =\sum_{n=-\infty}^{\infty} \int_{-\infty}^{\infty} f(t) \delta(t-n \Delta T) \mathrm{e}^{-\mathrm{j} 2 \pi \mu t} \mathrm{~d} t \\
+&amp; =\sum_{n=-\infty}^{\infty} f_n \mathrm{e}^{-\mathrm{j} 2 \pi \mu n \Delta T}
+\end{aligned}
+\]</div>
+<p>最后一步是由式(4.28)和冲激的取样性质得到的。尽管 <span class="arithmatex">\(f_n\)</span> 是离散函数, 但由式(4.31)可知其傅里叶变换 <span class="arithmatex">\(\tilde{F}(\mu)\)</span> 是周期为 <span class="arithmatex">\(1 / \Delta T\)</span> 的无限周期连续函数。因此, 表征 <span class="arithmatex">\(\tilde{F}(\mu)\)</span> 所需的只是一个周期, 对该函数的一个周期进行取样是 DFT 的基础。</p>
+<p>假设我们要在从 <span class="arithmatex">\(\mu=0\)</span> 到 <span class="arithmatex">\(\mu=1 / \Delta T\)</span> 的一个周期内等间隔地取 <span class="arithmatex">\(\tilde{F}(\mu)\)</span> 的 <span class="arithmatex">\(M\)</span> 个样本（见图 4.8 )。在如下频率处取样可实现这一目的:</p>
+<div class="arithmatex">\[
+\mu=\frac{m}{M \Delta T}, \quad m=0,1,2, \cdots, M-1
+\]</div>
+<p>把 <span class="arithmatex">\(\mu\)</span> 的这一结果代入式(4.40), 并令 <span class="arithmatex">\(F_m\)</span> 表示得到的结果, 有</p>
+<div class="arithmatex">\[
+F_m=\sum_{n=0}^{M-1} f_n \mathrm{e}^{-\mathrm{j} 2 \pi m n / M}, \quad m=0,1,2, \cdots, M-1
+\]</div>
+<p>这个表达式就是我们所求的离散傅里叶变换</p>
+<ul>
+<li>已知一个由 <span class="arithmatex">\(f(t)\)</span> 的 <span class="arithmatex">\(M\)</span> 个样本组成的集合 <span class="arithmatex">\(\left\{f_m\right\}\)</span> 时,式(4.42)给出一个与输入样本集合的离散傅里叶变换相对应的 <span class="arithmatex">\(M\)</span> 个复值集合 <span class="arithmatex">\(\left\{F_m\right\}\)</span> 。反之, 已知 <span class="arithmatex">\(\left\{F_m\right\}\)</span> 时, 可由傅里叶反变换 (IDFT) 复原样本集 <span class="arithmatex">\(\left\{f_m\right\}\)</span> :</li>
+</ul>
+<div class="arithmatex">\[
+f_n=\frac{1}{M} \sum_{m=0}^{M-1} F_m \mathrm{e}^{\mathrm{j} 2 \pi m n / M}, \quad n=0,1,2, \cdots, M-1
+\]</div>
+<p>不难证明 (见习题 4.15 ), 将式(4.43)中的 <span class="arithmatex">\(f_n\)</span> 代入式(4.42)可得 <span class="arithmatex">\(F_m \equiv F_m\)</span> 。类似地, 把式(4.42)中的 <span class="arithmatex">\(F_m\)</span>代入式(4.43)可得 <span class="arithmatex">\(f_n \equiv f_n\)</span> 。这表明式(4.42)和式(4.43)构成了一个离散傅里叶变换对。此外, 这些恒等式指出, 对于任何其值有限的样本集合, 正、傅里叶反变换都是存在的。注意, 这两个表达式既不显式地取决于取样间隔 <span class="arithmatex">\(\Delta T\)</span>, 又不取决于式(4.41)中的频率间隔。因此, 离散傅里叶变换对适用于任何均匀取样的离散样本集合。</p>
+<p>在前面的阐述中, 我们使用 <span class="arithmatex">\(m\)</span> 和 <span class="arithmatex">\(n\)</span> 来表示离散变量, 因为这是推导中的典型做法。然而, 尤其是在二维情况下, 使用 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 表示图像坐标变量并使用 <span class="arithmatex">\(u\)</span> 和 <span class="arithmatex">\(v\)</span> 表示频率变量更为直观, 这里的这些变量都理解为整数。于是, 式(4.42)和式(4.43)变为</p>
+<div class="arithmatex">\[
+F(u)=\sum_{x=0}^{M-1} f(x) \mathrm{e}^{-\mathrm{j} 2 \pi u x / M}, \quad u=0,1,2, \cdots, M-1
+\]</div>
+<p>和</p>
+<div class="arithmatex">\[
+f(x)=\frac{1}{M} \sum_{u=0}^{M-1} F(u) \mathrm{e}^{\mathrm{j} 2 \pi u x / M}, \quad x=0,1,2, \cdots, M-1
+\]</div>
+<p>为简单起见, 我们使用函数符号代替了下标。比较式(4.42)到式(4.45), 会发现 <span class="arithmatex">\(F(u) \equiv F_m\)</span> 且 <span class="arithmatex">\(f(x) \equiv f_n\)</span> 。从现在开始,我们用式(4.44)和式(4.45)表示一维 DFT 对。类似于连续情况,我们常称式(4.44)为 <span class="arithmatex">\(f(x)\)</span> 的傅里叶正变换 (DFT), 而称式(4.45)为 <span class="arithmatex">\(F(u)\)</span> 的傅里叶反变换。我们照例用 <span class="arithmatex">\(f(x) \Leftrightarrow F(u)\)</span> 表示傅里叶变换对。有时, 我们在文献中会发现式(4.44)前面有 <span class="arithmatex">\(1 / M\)</span> 项, 这不会影响两个公式形成一个傅里叶变换对的证明 (见习题 4.15 )。
+<span class="arithmatex">\(f(x)\)</span> 和 <span class="arithmatex">\(F(u)\)</span> 是傅里叶变换对的知识, 对于证明函数及其变换之间的关系很有用。例如, 习题 4.17 要求证明 <span class="arithmatex">\(f\left(x-x_0\right) \Leftrightarrow F(u) \mathrm{e}^{-\mathrm{j} 2 \pi x_0 / M}\)</span> 是一个傅里叶变换对。也就是说, 要证明 <span class="arithmatex">\(f\left(x-x_0\right)\)</span> 的 DFT 是 <span class="arithmatex">\(F(u) \mathrm{e}^{-\mathrm{j} 2 \pi u x_0 / M}\)</span> ，并证明 <span class="arithmatex">\(F(u) \mathrm{e}^{-\mathrm{j} 2 \pi u x_0 / M}\)</span> 的反 DFT 是 <span class="arithmatex">\(f\left(x-x_0\right)\)</span> 。因为直接代入式(4.44)和式(4.45)可以证明它, 同时证明这两个公式构成傅里叶变换对 (见习题 4.15), 如果证明 “ <span class="arithmatex">\(\Leftrightarrow\)</span> ” 的一侧是另一侧的 DFT （IDFT）, 那么另一侧必定是刚刚证明的一侧的 IDFT（DFT）。事实表明，选择性地证明一侧或另一侧通常会简化证明。对一维和二维连续与离散傅里叶变换对来说, 同样如此。</p>
+<p>可以证明 (见习题 4.16), 正离散变换和反离散变换都是无限周期的, 周期为 <span class="arithmatex">\(M\)</span>, 即</p>
+<div class="arithmatex">\[
+F(u)=F(u+k M)
+\]</div>
+<p>和</p>
+<div class="arithmatex">\[
+f(x)=f(x+k M)
+\]</div>
+<p>式中, <span class="arithmatex">\(k\)</span> 是整数。
+式(4.24)中一维卷积的离散卷积是</p>
+<div class="arithmatex">\[
+f(x) \star h(x)=\sum_{m=0}^{M-1} f(m) h(x-m), \quad x=0,1,2, \cdots, M-1
+\]</div>
+<p>因为在上述公式中，函数是周期的，所以它们的卷积也是周期的。式(4.48)给出了周期卷积的一个周期。因此, 这个公式通常称为循环卷积。这是 DFT 及其反变换的周期性直接导致的结论。</p>
+<h3 id="_12">取样和频率间隔的关系<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>如果以 <span class="arithmatex">\(\Delta T\)</span> 个单位间隔对函数 <span class="arithmatex">\(f(t)\)</span> 取样后的 <span class="arithmatex">\(f(x)\)</span> 由 <span class="arithmatex">\(M\)</span> 个样本组成, 那么包含集合 <span class="arithmatex">\(\{f(x)\}, x=0,1\)</span>, <span class="arithmatex">\(2, \cdots, M-1\)</span> 的记录的长度是</p>
+<div class="arithmatex">\[
+T=M \Delta T
+\]</div>
+<p>由式(4.41)得到的频率域中的对应间隔 <span class="arithmatex">\(\Delta u\)</span> 为</p>
+<div class="arithmatex">\[
+\Delta u=\frac{1}{M \Delta T}=\frac{1}{T}
+\]</div>
+<p>DFT 的 <span class="arithmatex">\(M\)</span> 个分量跨越的整个频率范围是</p>
+<div class="arithmatex">\[
+R=M \Delta u=\frac{1}{\Delta T}
+\]</div>
+<p>于是, 由式(4.50)和式(4.51)可以看出, DFT 的频率分辨率 <span class="arithmatex">\(\Delta u\)</span> 与记录的长度 <span class="arithmatex">\(T\)</span> ( <span class="arithmatex">\(t\)</span> 是时间时, 为持续时间）成反比; DFT 跨越的频率范围则取决于取样间隔 <span class="arithmatex">\(\Delta T\)</span> 。记住 <span class="arithmatex">\(\Delta u\)</span> 和 <span class="arithmatex">\(\Delta T\)</span> 的这些互逆关系。</p>
+<p>例 4.4 计算 DFT 的原理。</p>
+<p>图 4.12(a) 显示了连续函数 <span class="arithmatex">\(f(t)\)</span> 以 <span class="arithmatex">\(\Delta T\)</span> 个单位间隔取样后的 4 个样本。图 4.12(b) 显示了 <span class="arithmatex">\(x\)</span> 域中的样本。 <span class="arithmatex">\(x\)</span> 的值是 <span class="arithmatex">\(0,1,2\)</span> 和 3 , 这些数字指的是序列中从 0 开始计算的样本数。例如, <span class="arithmatex">\(f(t)\)</span> 的第 3 个样本为 <span class="arithmatex">\(f(2)=f\left(t_0+2 \Delta T\right) 。\)</span></p>
+<p><img alt="image.png" src="https://raw.githubusercontent.com/aletolia/Pictures/main/202401261414689.png" /></p>
+<p>由式(4.44)得 <span class="arithmatex">\(F(u)\)</span> 的第一个值 即 <span class="arithmatex">\(F(0)]\)</span> 是</p>
+<div class="arithmatex">\[
+F(0)=\sum_{x=0}^3 f(x)=[f(0)+f(1)+f(2)+f(3)]=1+2+4+4=11
+\]</div>
+<p><span class="arithmatex">\(F(u)\)</span> 的下一个值是</p>
+<div class="arithmatex">\[
+F(1)=\sum_{x=0}^3 f(x) \mathrm{e}^{-\mathrm{j} 2 \pi(1) x / 4}=1 \mathrm{e}^0+2 \mathrm{e}^{-\mathrm{j} \pi / 2}+4 \mathrm{e}^{-\mathrm{j} \pi}+4 \mathrm{e}^{-\mathrm{j} 3 \pi / 2}=-3+2 \mathrm{j}
+\]</div>
+<p>类似地, 有 <span class="arithmatex">\(F(2)=-(1+0 \mathrm{j})\)</span> 和 <span class="arithmatex">\(F(3)=-(3+2 \mathrm{j})\)</span> 。观察到计算 <span class="arithmatex">\(F(u)\)</span> 的每个值时都用到了 <span class="arithmatex">\(f(x)\)</span> 的所有值。</p>
+<p>若已知的是 <span class="arithmatex">\(F(u)\)</span>, 并要求计算反变换, 则可用相同的方法进行处理, 但要使用傅里叶反变换。例如,</p>
+<div class="arithmatex">\[
+f(0)=\frac{1}{4} \sum_{u=0}^3 F(u) \mathrm{e}^{j 2 \pi u(0)}=\frac{1}{4} \sum_{u=0}^3 F(u)=\frac{1}{4}[11-3+2 \mathrm{j}-1-3-2 \mathrm{j}]=\frac{1}{4}[4]=1
+\]</div>
+<p>这与图 4.12(b)一致。 <span class="arithmatex">\(f(x)\)</span> 的其他值可用类似的方式得到。</p>
+<h2 id="_13">二变量函数的傅里叶变换<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>本节把本章前几节介绍的概念扩展到两个变量的情况。</p>
+<h3 id="_14">二维冲激及其取样性质<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>两个连续变量 <span class="arithmatex">\(t\)</span> 和 <span class="arithmatex">\(z\)</span> 的冲激函数 <span class="arithmatex">\(\delta(t, z)\)</span> 照例定义为</p>
+<div class="arithmatex">\[
+\delta(t, z)=\left\{\begin{array}{cc}
+1, &amp; t=z=0 \\
+0, &amp; \text { 其他 }
+\end{array}\right.
+\]</div>
+<p>和</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \delta(t, z) \mathrm{d} t \mathrm{~d} z=1
+\]</div>
+<p>如一维情况中那样, 二维冲激在积分下展现了取样性质:</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(t, z) \delta(t, z) \mathrm{d} t \mathrm{~d} z=f(0,0)
+\]</div>
+<p>或者, 更一般地对 <span class="arithmatex">\(\left(t_0, z_0\right)\)</span> 处的冲激, 有</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(t, z) \delta\left(t-t_0, z-z_0\right) \mathrm{d} t \mathrm{~d} z=f\left(t_0, z_0\right)
+\]</div>
+<p>我们看到, 取样性质在冲激所在的位置照例产生函数的值。</p>
+<p>对于离散变量 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span>, 二维离散单位冲激定义为</p>
+<div class="arithmatex">\[
+\delta(x, y)=\left\{\begin{array}{lc}
+1, &amp; x=y=0 \\
+0, &amp; \text { 其他 }
+\end{array}\right.
+\]</div>
+<p>其取样性质为</p>
+<div class="arithmatex">\[
+\sum_{x=-\infty}^{\infty} \sum_{y=-\infty}^{\infty} f(x, y) \delta(x, y)=f(0,0)
+\]</div>
+<p>式中, <span class="arithmatex">\(f(x, y)\)</span> 是离散变量 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 的函数。对于坐标 <span class="arithmatex">\(\left(x_0, y_0\right)\)</span>处的一个冲激 (见图 4.13), 取样性质为</p>
+<div class="arithmatex">\[
+\sum_{x=-\infty}^{\infty} \sum_{y=-\infty}^{\infty} f(x, y) \delta\left(x-x_0, y-y_0\right)=f\left(x_0, y_0\right)
+\]</div>
+<p>处理有限维图像时, 上面两个公式中的限制由图像的维数代替。</p>
+<p><img alt="image.png" src="https://raw.githubusercontent.com/aletolia/Pictures/main/202401261419897.png" /></p>
+<h3 id="_15">二维连续傅里叶变换对<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>令 <span class="arithmatex">\(f(t, z)\)</span> 是两个连续变量 <span class="arithmatex">\(t\)</span> 和 <span class="arithmatex">\(z\)</span> 的连续函数, 则其二维连续傅里叶变换对为</p>
+<div class="arithmatex">\[
+F(\mu, v)=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(t, z) \mathrm{e}^{-\mathrm{j} 2 \pi(\mu t+v z)} \mathrm{d} t \mathrm{~d} z
+\]</div>
+<p>和</p>
+<div class="arithmatex">\[
+f(t, z)=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} F(\mu, v) \mathrm{e}^{\mathrm{j} 2 \pi(\mu t+v z)} \mathrm{d} \mu \mathrm{d} v
+\]</div>
+<p>式中, <span class="arithmatex">\(\mu\)</span> 和 <span class="arithmatex">\(v\)</span> 是频率变量。涉及图像时, <span class="arithmatex">\(t\)</span> 和 <span class="arithmatex">\(z\)</span> 解释为连续空间变量。类似于一维情况, 变量 <span class="arithmatex">\(\mu\)</span> 和 <span class="arithmatex">\(v\)</span> 的域定义了连续频率域。</p>
+<p>例 4.5 求二维盒式函数的傅里叶变换。</p>
+<p>图 4.14(a)显示了一个二维盒式函数, 它对应于例 4.1 中的一维盒式函数。按照例 4.1 中给出的类似步骤,可得</p>
+<div class="arithmatex">\[
+F(\mu, v)=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(t, z) \mathrm{e}^{-\mathrm{j} 2 \pi(\mu t+v z)} \mathrm{d} t \mathrm{~d} z=\int_{-T / 2}^{T / 2} \int_{-Z / 2}^{Z / 2} A \mathrm{e}^{-\mathrm{j} 2 \pi(\mu t+v z)} \mathrm{d} t \mathrm{~d} z=A T Z\left[\frac{\sin (\pi \mu T)}{(\pi \mu T)}\right]\left[\frac{\sin (\pi v Z)}{(\pi v Z)}\right]
+\]</div>
+<p>图 4.14(b) 显示了关于原点的频谱的一部分。如一维情况中那样, 谱中零的位置与 <span class="arithmatex">\(T\)</span> 和 <span class="arithmatex">\(Z\)</span> 的值成反比。在这个例子中, <span class="arithmatex">\(T\)</span> 大于 <span class="arithmatex">\(Z\)</span>, 所以谱沿 <span class="arithmatex">\(\mu\)</span> 轴更 “收缩”。</p>
+<p><img alt="image.png" src="https://raw.githubusercontent.com/aletolia/Pictures/main/202401261423168.png" /></p>
+<h3 id="_16">二维取样和二维取样定理<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>类似于一维取样, 二维取样可用一个取样函数 (即一个二维冲激串) 建模:</p>
+<div class="arithmatex">\[
+s_{\Delta T \Delta Z}(t, z)=\sum_{m=-\infty}^{\infty} \sum_{n=-\infty}^{\infty} \delta(t-m \Delta T, z-n \Delta Z)
+\]</div>
+<p>式中, <span class="arithmatex">\(\Delta T\)</span> 和 <span class="arithmatex">\(\Delta Z\)</span> 是连续函数 <span class="arithmatex">\(f(t, z)\)</span> 沿 <span class="arithmatex">\(t\)</span> 轴和 <span class="arithmatex">\(z\)</span> 轴的样本间的间隔。式(4.61)描述了沿两个轴无限扩展的一组周期冲激 (见图 4.15 )。如图 4.5 中说明的一维情况那样, 用 <span class="arithmatex">\(s_{\Delta T \Delta Z}(t, z)\)</span> 乘以 <span class="arithmatex">\(f(t, z)\)</span> 可以得到取样后的函数。
+在区间 <span class="arithmatex">\(\left[-\mu_{\text {max }}, \mu_{\text {max }}\right]\)</span> 和 <span class="arithmatex">\(\left[-v_{\text {max }}, v_{\text {max }}\right]\)</span> 建立的频率域矩形之外, 函数 <span class="arithmatex">\(f(t, z)\)</span> 的傅里叶变换为零, 即</p>
+<div class="arithmatex">\[
+F(\mu, v)=0, \quad|\mu| \geq \mu_{\max } \text { 且 }|v| \geq v_{\max }
+\]</div>
+<p>时, 称该函数为带限函数。二维取样定理称, 若取样间隔满足</p>
+<div class="arithmatex">\[
+\Delta T&lt;\frac{1}{2 \mu_{\max }}
+\]</div>
+<p>和</p>
+<div class="arithmatex">\[
+\Delta \mathrm{Z}&lt;\frac{1}{2 v_{\max }}
+\]</div>
+<p>或以取样率表示时, 满足</p>
+<div class="arithmatex">\[
+\frac{1}{\Delta T}&gt;2 \mu_{\max }
+\]</div>
+<p>和</p>
+<div class="arithmatex">\[
+\frac{1}{\Delta Z}&gt;2 v_{\max }
+\]</div>
+<p>则连续带限函数 <span class="arithmatex">\(f(t, z)\)</span> 可由其一组样本无误地复原。另一种表述方法是：如果一个带限连续二维函数在 <span class="arithmatex">\(\mu\)</span> 和 <span class="arithmatex">\(v\)</span> 两个方向上可由大于该函数最高频率 2 倍的取样率得到的样本表示. 那么我们说无信息丢失。</p>
+<p>图 4.16 显示了对应于图 4.6(b)和(d)中一维傅里叶变换的二维傅里叶变换。理想二维滤波器传递函数 (在频率域中) 具有图 4.14(a) 所示的形式。如图 4.8 中所示的那样, 为了从样本重建带限函数而隔离出一个周期的变换, 图 4.16(a)的虚线部分显示了这个滤波器函数的位置。由图 4.10 可知, 如果这个函数是欠取样的, 此时各个周期重叠, 并且如图 4.16(b)所示, 那么不可能分离出单个周期。在这样的条件下, 将出现混叠。</p>
+<p><img alt="image.png" src="https://raw.githubusercontent.com/aletolia/Pictures/main/202401261429846.png" /></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Vision%20Transformer%20%28PyramidTNT%29/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Vision Transformer(Pyramid TNT)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Vision Transformer(Pyramid TNT)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Python%20%E5%AD%98%E5%82%A8%E4%B8%8E%E8%AF%BB%E5%8F%96%20HDF5%20%E6%96%87%E4%BB%B6/" class="md-footer__link md-footer__link--next" aria-label="Next: Python 存储与读取 HDF5 文件">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Python 存储与读取 HDF5 文件
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "header.autohide"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+        <script src="../mathjax-config.js"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../extra.js"></script>
+      
+        <script src="../js/toggle_sidebar.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,394 @@
+{% extends "main.html" %}
+
+{% block tabs %}
+{{ super() }}
+<script src="./repo-cards.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+<head>
+    <meta name="google-site-verification" content="Q3I7y2X6R377fHXamyOTXZ4U-l1rgpFK3tWPfwmgkLA" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #ffffff;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: calc(100vh - 64px);
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 使图片等比例裁剪以适应容器 */
+            object-position: center; /* 保持图片居中 */
+        }
+
+        .typed-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 40px;
+            font-weight: Medium;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.15em solid rgb(20, 59, 95);
+            padding-right: 0.1em;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 30%;
+            transform: translateY(-50%);
+        }
+
+        .typed-text.typing::after {
+            content: "|";
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .profile-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ccc;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .custom-message {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #000000;
+            font-family: 'Dancing Script', cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div class="image-container">
+            <img src="da Vinci.jpg" alt="Background Image"> <!-- 使用 <img> 标签来加载背景图片 -->
+            <div class="typed-text typing"></div>
+        </div>
+        <div class="profile-container">
+            <img src="qq.jpg" alt="Profile Picture" class="profile-pic">
+            <div class="additional-info" style="margin-top: 20px; text-align: left;">
+                <div style="border-left: 4px solid #ccc; padding-left: 10px; opacity: 0.8;">
+                    <p style="font-size: 18px; margin: 5px 0;">
+                        One Last Kiss | 🏫WMU | ⚕️Clinical Medicine Undergraduate
+                    </p>
+                    <p style="font-size: 18px; margin: 5px 0;">
+                        📧 Contact Me: 1290279498sytzz@gmail.com
+                    </p>
+                </div>
+            </div>
+            <div class="custom-message" style="margin-top: 20px;">
+                <p style="font-size: 22px;">All you need to know is I love you.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const typed = new Typed('.typed-text', {
+                    strings: ["You stole my heart so long ago"],
+                    typeSpeed: 90,
+                    backSpeed: 25,
+                    loop: false,
+                    onComplete: () => {
+                        // Remove the cursor
+                        const typedText = document.querySelector('.typed-text');
+                        typedText.classList.remove('typing');
+                        typedText.style.borderRight = 'none';
+                    }
+                });
+            }, 1500);
+        });
+
+        function clickEffect() {
+            let balls = [];
+            let longPressed = false;
+            let longPress;
+            let multiplier = 0;
+            let width, height;
+            let origin;
+            let normal;
+            let ctx;
+            const colours = ["#1E90FF", "#87CEFA", "#FFC0CB", "##E6E6FA", "#FFC1C1"];
+            const canvas = document.createElement("canvas");
+            document.body.appendChild(canvas);
+            canvas.setAttribute("style", "width: 100%; height: 100%; top: 0; left: 0; z-index: 99999; position: fixed; pointer-events: none;");
+            const pointer = document.createElement("span");
+            pointer.classList.add("pointer");
+            document.body.appendChild(pointer);
+
+            if (canvas.getContext && window.addEventListener) {
+                ctx = canvas.getContext("2d");
+                updateSize();
+                window.addEventListener('resize', updateSize, false);
+                loop();
+                window.addEventListener("mousedown", function (e) {
+                    pushBalls(randBetween(10, 20), e.clientX, e.clientY);
+                    document.body.classList.add("is-pressed");
+                    longPress = setTimeout(function () {
+                        document.body.classList.add("is-longpress");
+                        longPressed = true;
+                    }, 500);
+                }, false);
+                window.addEventListener("mouseup", function (e) {
+                    clearInterval(longPress);
+                    if (longPressed == true) {
+                        document.body.classList.remove("is-longpress");
+                        pushBalls(randBetween(50 + Math.ceil(multiplier), 100 + Math.ceil(multiplier)), e.clientX, e.clientY);
+                        longPressed = false;
+                    }
+                    document.body.classList.remove("is-pressed");
+                }, false);
+                window.addEventListener("mousemove", function (e) {
+                    let x = e.clientX;
+                    let y = e.clientY;
+                    pointer.style.top = y + "px";
+                    pointer.style.left = x + "px";
+                }, false);
+            } else {
+                console.log("canvas or addEventListener is unsupported!");
+            }
+
+            function updateSize() {
+                canvas.width = window.innerWidth * 2;
+                canvas.height = window.innerHeight * 2;
+                canvas.style.width = window.innerWidth + 'px';
+                canvas.style.height = window.innerHeight + 'px';
+                ctx.scale(2, 2);
+                width = (canvas.width = window.innerWidth);
+                height = (canvas.height = window.innerHeight);
+                origin = {
+                    x: width / 2,
+                    y: height / 2
+                };
+                normal = {
+                    x: width / 2,
+                    y: height / 2
+                };
+            }
+
+            class Ball {
+                constructor(x = origin.x, y = origin.y) {
+                    this.x = x;
+                    this.y = y;
+                    this.angle = Math.PI * 2 * Math.random();
+                    if (longPressed == true) {
+                        this.multiplier = randBetween(14 + multiplier, 15 + multiplier);
+                    } else {
+                        this.multiplier = randBetween(6, 12);
+                    }
+                    this.vx = (this.multiplier + Math.random() * 0.5) * Math.cos(this.angle);
+                    this.vy = (this.multiplier + Math.random() * 0.5) * Math.sin(this.angle);
+                    this.r = randBetween(8, 12) + 3 * Math.random();
+                    this.color = colours[Math.floor(Math.random() * colours.length)];
+                }
+
+                update() {
+                    this.x += this.vx - normal.x;
+                    this.y += this.vy - normal.y;
+                    normal.x = -2 / window.innerWidth * Math.sin(this.angle);
+                    normal.y = -2 / window.innerHeight * Math.cos(this.angle);
+                    this.r -= 0.3;
+                    this.vx *= 0.9;
+                    this.vy *= 0.9;
+                }
+            }
+
+            function pushBalls(count = 1, x = origin.x, y = origin.y) {
+                for (let i = 0; i < count; i++) {
+                    balls.push(new Ball(x, y));
+                }
+            }
+
+            function randBetween(min, max) {
+                return Math.floor(Math.random() * max) + min;
+            }
+
+            function loop() {
+                ctx.fillStyle = "rgba(255, 255, 255, 0)";
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < balls.length; i++) {
+                    let b = balls[i];
+                    if (b.r < 0) continue;
+                    ctx.fillStyle = b.color;
+                    ctx.beginPath();
+                    ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2, false);
+                    ctx.fill();
+                    b.update();
+                }
+                if (longPressed == true) {
+                    multiplier += 0.2;
+                } else if (!longPressed && multiplier >= 0) {
+                    multiplier -= 0.4;
+                }
+                removeBall();
+                requestAnimationFrame(loop);
+            }
+
+            function removeBall() {
+                for (let i = 0; i < balls.length; i++) {
+                    let b = balls[i];
+                    if (b.x + b.r < 0 || b.x - b.r > width || b.y + b.r < 0 || b.y - b.r > height || b.r < 0) {
+                        balls.splice(i, 1);
+                    }
+                }
+            }
+        }
+        clickEffect();
+    </script>
+</body>
+
+<section class="mdx-container portfolio-section">
+    <div class="md-grid md-typeset">
+        <div class="text-center">
+            <h1>scRNA-seq Tutorial</h1>
+        </div>
+        <div class="grid">
+            <p class="card repo-card" data-repo="crazyhottommy/scRNAseq-analysis-notes"></p>
+            <p class="card repo-card" data-repo="theislab/single-cell-tutorial"></p>
+            <p class="card repo-card" data-repo="Starlitnightly/omicverse"></p>
+            <p class="card repo-card" data-repo="BaderLab/CellAnnotationTutorial"></p>
+        </div>
+        <div class="text-center">
+            <h1>scRNA-seq Workflows & Replication</h1>
+        </div>
+        <div class="grid">
+            <p class="card repo-card" data-repo="vib-singlecell-nf/vsn-pipelines"></p>
+            <p class="card repo-card" data-repo="xinglab-ai/genomap"></p>
+            <p class="card repo-card" data-repo="bowang-lab/scGPT"></p>
+            <p class="card repo-card" data-repo="blueswen/fastapi-jaeger"></p>
+            <p class="card repo-card" data-repo="TencentAILabHealthcare/scBERT"></p>
+            <p class="card repo-card" data-repo="villani-lab/ircolitis"></p>
+            <p class="card repo-card" data-repo="clinicalml/sc-foundation-eval"></p>
+            <p class="card repo-card" data-repo="wu-yc/scProgram"></p>
+            <p class="card repo-card" data-repo="wu-yc/neutrophil"></p>
+            <p class="card repo-card" data-repo="SrivastavaLab-Gladstone/Nishino_DM_2022"></p>
+            <p class="card repo-card" data-repo="satijalab/seurat"></p>
+            <p class="card repo-card" data-repo="scverse/anndata"></p>
+            <p class="card repo-card" data-repo="scverse/scanpy"></p>
+            <p class="card repo-card" data-repo="scverse/scvi-tools"></p>
+            <p class="card repo-card" data-repo="scverse/scirpy"></p>
+            <p class="card repo-card" data-repo="scverse/rapids_singlecell"></p>
+        </div>
+        <div class="text-center">
+            <h1>CV & CPath</h1>
+        </div>
+        <div class="grid">
+            <p class="card repo-card" data-repo="hustvl/Vim"></p>
+            <p class="card repo-card" data-repo="YubiaoYue/MedMamba"></p>
+            <p class="card repo-card" data-repo="lucidrains/vit-pytorch"></p>
+            <p class="card repo-card" data-repo="clemsgrs/hs2p"></p>
+            <p class="card repo-card" data-repo="bowang-lab/MedSAM"></p>
+            <p class="card repo-card" data-repo="WongKinYiu/yolov9"></p>
+            <p class="card repo-card" data-repo="pytorch/vision"></p>
+            <p class="card repo-card" data-repo="google-research/vision_transformer"></p>
+            <p class="card repo-card" data-repo="AdalbertoCq/Histomorphological-Phenotype-Learning"></p>
+            <p class="card repo-card" data-repo="fahadshamshad/awesome-transformers-in-medical-imaging"></p>
+            <p class="card repo-card" data-repo="mahmoodlab/SurvPath"></p>
+            <p class="card repo-card" data-repo="BiomedSciAI/histocartography"></p>
+            <p class="card repo-card" data-repo="mahmoodlab/CONCH"></p>
+            <p class="card repo-card" data-repo="mahmoodlab/UNI"></p>
+            <p class="card repo-card" data-repo="mahmoodlab/CLAM"></p>
+            <p class="card repo-card" data-repo="mahmoodlab/PathomicFusion"></p>
+            <p class="card repo-card" data-repo="Xiyue-Wang/TransPath"></p>
+        </div>
+        <div class="text-center">
+            <h1>Interpretability & Visualization for DL Models</h1>
+        </div>
+        <div class="grid">
+            <p class="card repo-card" data-repo="hila-chefer/Transformer-Explainability"></p>
+            <p class="card repo-card" data-repo="catherinesyeh/attention-viz"></p>
+            <p class="card repo-card" data-repo="jacobgil/vit-explain"></p>
+            <p class="card repo-card" data-repo="utkuozbulak/pytorch-cnn-visualizations"></p>
+            <p class="card repo-card" data-repo="shap/shap"></p>
+            <p class="card repo-card" data-repo="pytorch/captum"></p>
+            <p class="card repo-card" data-repo="ankurtaly/Integrated-Gradients"></p>
+        </div>
+        <div class="text-center">
+            <h1>scRNA-seq trajections & velos analysis</h1>
+        </div>
+        <div class="grid">
+            <p class="card repo-card" data-repo="yutongo/TIGON"></p>
+            <p class="card repo-card" data-repo="xiaoyeye/TFvelo"></p>
+            <p class="card repo-card" data-repo="jacobgil/vit-explain"></p>
+            <p class="card repo-card" data-repo="bowang-lab/DeepVelo"></p>
+        </div>
+        <div class="text-center">
+            <h1>Data sets & Mode Zoos & Paper Lists</h1>
+        </div>
+        <div class="grid">
+            <p class="card repo-card" data-repo="facebookresearch/multimodal"></p>
+            <p class="card repo-card" data-repo="MaxBenChrist/awesome_time_series_in_python"></p>
+            <p class="card repo-card" data-repo="hussius/deeplearning-biology"></p>
+            <p class="card repo-card" data-repo="pliang279/awesome-multimodal-ml"></p>
+            <p class="card repo-card" data-repo="fahadshamshad/awesome-transformers-in-medical-imaging"></p>
+            <p class="card repo-card" data-repo="thunlp/GNNPapers"></p>
+            <p class="card repo-card" data-repo="guillaumejaume/graph-neural-networks-roadmap"></p>
+            <p class="card repo-card" data-repo="datawhalechina/pumpkin-book"></p>
+            <p class="card repo-card" data-repo="microsoft/Web-Dev-For-Beginners"></p>
+            <p class="card repo-card" data-repo="beamandrew/medical-data"></p>
+        </div>
+        <div class="text-center">
+            <h1>scRNA-seq Batch Normalization & Annotation</h1>
+        </div>
+        <div class="grid">
+            <p class="card repo-card" data-repo="datapplab/AutoClass"></p>
+            <p class="card repo-card" data-repo="eleozzr/scDML"></p>
+            <p class="card repo-card" data-repo="genialis/RNAnorm"></p>
+            <p class="card repo-card" data-repo="ptheislab/scTab"></p>
+            <p class="card repo-card" data-repo="brianhie/scanorama"></p>
+            <p class="card repo-card" data-repo="immunogenomics/harmony"></p>
+            <p class="card repo-card" data-repo="theislab/scarches"></p>
+            <p class="card repo-card" data-repo="JackieHanLab/TOSICA"></p>
+            <p class="card repo-card" data-repo="xinglab-ai/genomap"></p>
+        </div>
+    </div>
+</section>
+{% endblock %}

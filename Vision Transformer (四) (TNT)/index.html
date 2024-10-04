@@ -1,0 +1,5650 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://localhost:8000/Vision%20Transformer%20%28%E5%9B%9B%29%20%28TNT%29/">
+      
+      
+        <link rel="prev" href="../Vision%20Transformer%20%28%E4%B8%89%29/">
+      
+      
+        <link rel="next" href="../Vision%20Transformer%20%28%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%20%E9%A2%84%E8%AE%AD%E7%BB%83%EF%BC%89/">
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Vision Transformer (四) - One Last Kiss</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-M0R7V8QGQ7"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-M0R7V8QGQ7",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-M0R7V8QGQ7",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#9-patch-transformer-in-transformertnt" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="One Last Kiss" class="md-header__button md-logo" aria-label="One Last Kiss" data-md-component="logo">
+      
+  <img src="../img/icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            One Last Kiss
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vision Transformer (四)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aletolia/aletolia.github.io.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aletolia/aletolia.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+    
+  
+  🏠 Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Mygo/" class="md-tabs__link">
+          
+  
+    
+  
+  ⛏️ CV and Multimodels
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Session%201/" class="md-tabs__link">
+          
+  
+    
+  
+  🚀 Re:0 Road to CPath & Visualization
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../1.1%20Single-cell%20RNA%20sequencing/" class="md-tabs__link">
+          
+  
+    
+  
+  💤 Re:0 Road to scRNA-seq Analysis
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Large-scale%20foundation%20model%20on%20single-cell%20transcriptomics/" class="md-tabs__link">
+          
+  
+    
+  
+  🧬 scRNA Analysis
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../%E7%AC%AC%201%20%E7%AB%A0%20python%20%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+          
+  
+    
+  
+  📐 Data Structures
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Best%20practices%20for%20single-cell%20analysis%20across%20modalities/" class="md-tabs__link">
+          
+  
+    
+  
+  💡 Reviews
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="One Last Kiss" class="md-nav__button md-logo" aria-label="One Last Kiss" data-md-component="logo">
+      
+  <img src="../img/icon.png" alt="logo">
+
+    </a>
+    One Last Kiss
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aletolia/aletolia.github.io.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aletolia/aletolia.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href=".." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    🏠 Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            🏠 Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ⛏️ CV and Multimodels
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ⛏️ CV and Multimodels
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mygo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MyGO: Discrete Modality Information as Fine-Grained Tokens for Multi-modal Knowledge Graph Completion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GMM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GMM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DINO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DINO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mamba/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mamba
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ViT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ViT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Self-Supervised%20Learning%20MoCo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MoCo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Self-Supervised%20Learning%20MoCoV2%2C3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MoCo V2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E4%B8%80%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer  (一)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%20%28%E4%BA%8C%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (二)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E4%B8%89%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer  (三)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Vision Transformer (四)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (四)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#9-patch-transformer-in-transformertnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      9 充分挖掘 patch 内部信息：Transformer in Transformer：TNT
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-do-we-really-need-explicit-position-encodings-for-vision-transformers" class="md-nav__link">
+    <span class="md-ellipsis">
+      10 探究位置编码的必要性：Do We Really Need Explicit Position Encodings for Vision Transformers?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结：
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%20%E9%A2%84%E8%AE%AD%E7%BB%83%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer (知识蒸馏 预训练）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Transformer%20%28PyramidTNT%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer(Pyramid TNT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E5%92%8C%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%93%E9%A2%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    傅里叶级数和傅里叶变换专题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%20%E5%AD%98%E5%82%A8%E4%B8%8E%E8%AF%BB%E5%8F%96%20HDF5%20%E6%96%87%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python 存储与读取 HDF5 文件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Segment%20Anything%20in%20Medical%20Images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Segment Anything in Medical Images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vision%20Mamba%20Efficient%20Visual%20Representation%20Learning%20with%20Bidirectional%20State%20Space%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Mamba Efficient Visual Representation Learning with Bidirectional State Space Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_18" id="__nav_2_18_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    🚑 医学影像相关
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_18">
+            <span class="md-nav__icon md-icon"></span>
+            🚑 医学影像相关
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Why%20is%20the%20winner%20the%20best/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why is the winner the best
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PORPOISE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PORPOISE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HIPT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scaling Vision Transformers to Gigapixel Images via Hierarchical Self-Supervised Learning(HIPT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data-efficient%20and%20weakly%20supervised%20computational%20pathology%20on%20whole-slide%20images%28CLAM%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data efficient and weakly supervised computational pathology on whole slide images(CLAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Towards%20a%20general-purpose%20foundation%20model%20for%20computational%20pathology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Towards a general purpose foundation model for computational pathology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20whole-slide%20foundation%20model%20for%20digital%20pathology%20from%20real-world%20data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A whole slide foundation model for digital pathology from real world data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20visual-language%20foundation%20model%20for%20computational%20pathology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A visual language foundation model for computational pathology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Recurrent%20memory%20with%20optimal%20polynomial%20projections./" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recurrent memory with optimal polynomial projections.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modeling%20Dense%20Multimodal%20Interactions%20Between%20Biological%20Pathways%20and%20Histology%20for%20Survival%20Prediction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modeling Dense Multimodal Interactions Between Biological Pathways and Histology for Survival Prediction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inferring%20super-resolution%20tissue%20architecture%20by%20integrating%20spatial%20transcriptomics%20with%20histology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inferring super resolution tissue architecture by integrating spatial transcriptomics with histology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prediction%20of%20recurrence%20risk%20in%20endometrial%20cancer%20with%20multimodal%20deep%20learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prediction of recurrence risk in endometrial cancer with multimodal deep learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🚀 Re:0 Road to CPath & Visualization
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            🚀 Re:0 Road to CPath & Visualization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    理解全幅切片图像
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    在计算病理学中用于癌症诊断的弱监督深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Session%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基于注意力的多示例学习可解释性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How%20to%20visualize%20Attention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to visualize Attention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AttentionViz%20A%20Global%20View%20of%20Transformer%20Attention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AttentionViz A Global View of Transformer Attention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transformer%20Interpretability%20Beyond%20Attention%20Visualization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformer Interpretability Beyond Attention Visualization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visualization%20Work%20Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visualization Work Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Attention%20Generation%20Work%20Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Attention Generation Work Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🪛 PyTorch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            🪛 PyTorch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Autograd%20mechanics%20%E2%80%94%20PyTorch%202_3%20documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Autograd mechanics — PyTorch 2 3 documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PyTorch%20Autograd%20Explained%20-%20In-depth%20Tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch Autograd Explained   In depth Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    💤 Re:0 Road to scRNA-seq Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            💤 Re:0 Road to scRNA-seq Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Using Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Using Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_1" id="__nav_4_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⏳ CHAPTER 1 简介
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            ⏳ CHAPTER 1 简介
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1%20Single-cell%20RNA%20sequencing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1.The building block of life
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2%20Raw%20Data%20Processing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 Raw data processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3%20Analysis%20frameworks%20and%20tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 Analysis frameworks and tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🌏 CHAPTER 2 数据准备与可视化
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            🌏 CHAPTER 2 数据准备与可视化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1%20quality_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 Quality Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2%20normalization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 Normalization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.3_feature_selection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 Feature selection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.4_dimensionality_reduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.4 Dimensionality Reduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🍀 CHAPTER 3 识别细胞结构
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            🍀 CHAPTER 3 识别细胞结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1clustering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 Clustering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.2annotation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 Annotation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 Data integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_4" id="__nav_4_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⏱️ CHAPTER 4 推断细胞轨迹
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            ⏱️ CHAPTER 4 推断细胞轨迹
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pseudotemporal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 Pseudotemporal ordering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rna_velocity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 RNA velocity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lineage_tracing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.3 Lineage tracing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_5" id="__nav_4_1_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🎁 CHAPTER 5 应对特殊情况
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            🎁 CHAPTER 5 应对特殊情况
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../differential_gene_expression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 Differential gene expression analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compositional/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 Compositional analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gsea_pathway/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.3 Gene set enrichment and pathway analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../perturbation_modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.4 Perturbation modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ⚙️ CHAPTER 6 机制建模
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            ⚙️ CHAPTER 6 机制建模
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gene_regulatory_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1 Gene regulatory networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cell_cell_communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2 Cell-cell communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_7" id="__nav_4_1_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🔓 CHAPTER 7 反卷积
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            🔓 CHAPTER 7 反卷积
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bulk_deconvolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 Bulk deconvolution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    简明易懂的单细胞分析流程（使用 R 语言）
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            简明易懂的单细胞分析流程（使用 R 语言）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    环境配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1%20%E6%9E%84%E5%BB%BA%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E5%88%86%E6%9E%90%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1 构建单细胞 RNA seq 分析环境
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2%20R%20%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 R 环境安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3%20Docker%20%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 Docker 安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.4%20%E5%9C%A8%20Docker%20%E4%B8%AD%E5%90%AF%E5%8A%A8%20Rstudio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.4 在 Docker 中启动 Rstudio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.5%20%E6%9C%89%E5%85%B3%20Bioconductor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.5 有关 Bioconductor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1%20R%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 R 的基本用法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2%20%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%20DataFrame%EF%BC%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 如何处理 DataFrame？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.3%20%E4%BD%BF%E7%94%A8%20ggplot2%20%E5%8F%AF%E8%A7%86%E5%8C%96%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 使用 ggplot2 可视化数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1%20PCA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 PCA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.2%20%E4%BD%BF%E7%94%A8%20clusterPlofiler%20%E8%BF%9B%E8%A1%8C%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 使用 clusterPlofiler 进行富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3%20%E5%9F%BA%E5%9B%A0%E6%9C%AC%E4%BD%93%EF%BC%88GO%EF%BC%89%E4%B8%AD%E5%90%84%20BP%E3%80%81MF%20%E5%92%8C%20CC%20%E7%9A%84%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 基因本体（GO）中各 BP、MF 和 CC 的富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.3%20%E4%BD%BF%E7%94%A8%20DEseq2%20%E6%8F%90%E5%8F%96%20RNA-seq%20%E5%88%86%E6%9E%90%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%20DEG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 使用 DEseq2 提取 RNA seq 分析数据中的 DEG
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.4%20%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88KEGG%E3%80%81Reactome%20%E7%AD%89%EF%BC%89%E8%BF%9B%E8%A1%8C%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.4 使用其他数据库（KEGG、Reactome 等）进行富集分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1%20scRNA-seq%20%E6%A6%82%E8%A6%81/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 scRNA seq 概要
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.2%20%E5%87%86%E5%A4%87%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 准备使用 Seurat 进行分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.3%20%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.3 使用 Seurat 进行数据预处理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.4%20%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E8%88%AC%E9%A1%BA%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.4 使用 Seurat 进行数据分析的一般顺序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.1%20%E5%A6%82%E4%BD%95%E6%9F%A5%E6%89%BE%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 如何查找单细胞 RNA seq 数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.2%20%E4%B8%BA%E6%AF%8F%E4%B8%AA%E7%B0%87%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E7%BB%86%E8%83%9E%E6%B3%A8%E9%87%8A%E6%A0%87%E7%AD%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 为每个簇自动添加细胞注释标签
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.3%20%E4%BD%BF%E7%94%A8%20FeaturePlot%20%E6%A3%80%E6%9F%A5%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.3 使用 FeaturePlot 检查基因表达
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.4%20%E5%B0%86%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9B%B8%E4%BA%92%E7%BB%93%E5%90%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.4 将单细胞 RNA seq 数据集相互结合
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.5%20%E7%BA%A0%E6%AD%A3%E6%89%B9%E6%AC%A1%E6%95%88%E5%BA%94%EF%BC%8C%E6%AF%94%E8%BE%83%E5%AF%B9%E7%85%A7%E7%BB%84%E5%92%8C%E5%88%BA%E6%BF%80%E7%BB%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.5 纠正批次效应，比较对照组和刺激组
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.6%20%E7%A1%AE%E5%AE%9A%E6%AF%8F%E4%B8%AA%E7%BE%A4%E7%BB%84%E7%9A%84%E6%A0%87%E8%AE%B0%E5%9F%BA%E5%9B%A0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.6 确定每个群组的标记基因
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.1%20%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Cell%20Ranger%20%E7%BB%9F%E8%AE%A1%20scRNA-seq%20%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE%E6%B0%B4%E5%B9%B3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1 如何使用 Cell Ranger 统计 scRNA seq 数据中的基因表达水平
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.2%20%E4%BD%BF%E7%94%A8%20Cell%20Ranger%20%E5%A4%84%E7%90%86%20NCBI%20Sequence%20Read%20Archive%20%28SRA%29%20%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2 使用 Cell Ranger 处理 NCBI Sequence Read Archive (SRA) 数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.1%20%E5%85%B3%E4%BA%8E%20scRNA-seq%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%B4%A8%E9%87%8F%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 关于 scRNA seq 数据的质量控制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.2%20%E4%BD%BF%E7%94%A8%20DoubleFinder%20%E6%A3%80%E6%B5%8B%E5%8F%8C%E9%87%8D%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.2 使用 DoubleFinder 检测双重细胞
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.3%20%E7%94%A8%20CellBender%20%E5%8E%BB%E9%99%A4%E8%83%8C%E6%99%AF%20RNA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.3 用 CellBender 去除背景 RNA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🧬 scRNA Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            🧬 scRNA Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🐍 Using Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            🐍 Using Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Large-scale%20foundation%20model%20on%20single-cell%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Large scale foundation model on single cell transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scGPT%20toward%20building%20a%20foundation%20model%20for%20single-cell%20multi-omics%20using%20generative%20AI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scGPT toward building a foundation model for single cell multi omics using generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scBERT%20as%20a%20large-scale%20pretrained%20deep%20language%20model%20for%20cell%20type%20annotation%20of%20single-cell%20RNA-seq%20data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scBERT as a large scale pretrained deep language model for cell type annotation of single cell RNA seq data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RNA%20velocity%20of%20single%20cells/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RNA velocity of single cells
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TFvelo_gene%20regulation%20inspired%20RNA%20velocity%20estimation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TFvelo gene regulation inspired RNA velocity estimation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Disentanglement%20of%20single-cell%20data%20with%20biolord/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Disentanglement of single cell data with biolord
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%AD%90%E2%AD%90%E2%AD%90C5aR1%20inhibition%20reprograms%20tumor%20associated%20macrophages%20and%20reverses%20PARP%20inhibitor%20resistance%20in%20breast%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⭐⭐⭐C5aR1 inhibition reprograms tumor associated macrophages and reverses PARP inhibitor resistance in breast cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spatial%20transition%20tensor%20of%20single%20cells/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial transition tensor of single cells
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Statistical%20method%20scDEED%20for%20detecting%20dubious%202D%20single-cell%20embeddings%20and%20optimizing%20t-SNE%20and%20UMAP%20hyperparameters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistical method scDEED for detecting dubious 2D single cell embeddings and optimizing t SNE and UMAP hyperparameters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scRank%20infers%20drug-responsive%20cell%20types%20from%20untreated%20scRNA-seq%20data%20using%20a%20target-perturbed%20gene%20regulatory%20network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scRank infers drug responsive cell types from untreated scRNA seq data using a target perturbed gene regulatory network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📔 文献
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            📔 文献
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZNF689%20deficiency%20promotes%20intratumor%20heterogeneity%20and%20immunotherapy%20resistance%20in%20triple-negative%20breast%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ZNF689 deficiency promotes intratumor heterogeneity and immunotherapy resistance in triple negative breast cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tumour%20vasculature%20at%20single-cell%20resolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tumour vasculature at single-cell resolution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scRNA-seq%20of%20gastric%20tumor%20shows%20complex%20intercellular%20interaction%20with%20an%20alternative%20T%20cell%20exhaustion%20trajectory%EF%BC%88%E5%8F%82%E8%80%83%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    scRNA seq of gastric tumor shows complex intercellular interaction with an alternative T cell exhaustion trajectory（参考）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20analysis%20reveals%20new%20evolutionary%20complexity%20in%20uveal%20melanoma%EF%BC%88%E5%8F%82%E8%80%83%202%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis reveals new evolutionary complexity in uveal melanoma（参考 2）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20characterization%20of%20macrophages%20in%20uveal%20melanoma%20uncovers%20transcriptionally%20heterogeneous%20subsets%20conferring%20poor%20prognosis%20and%20aggressive%20behavior%EF%BC%88%E8%8C%83%E4%BE%8B%201%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell characterization of macrophages in uveal melanoma uncovers transcriptionally heterogeneous subsets conferring poor prognosis and aggressive behavior（范例 1）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ScRNA-seq%20of%20gastric%20cancer%20tissues%20reveals%20differences%20in%20the%20immune%20microenvironment%20of%20primary%20tumors%20and%20metastases/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ScRNA seq of gastric cancer tissues reveals differences in the immune microenvironment of primary tumors and metastases
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Blimp-1%20and%20c-Maf%20regulate%20immune%20gene%20networks%20to%20protect%20against%20distinct%20pathways%20of%20pathobiont-induced%20colitis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blimp 1 and c Maf regulate immune gene networks to protect against distinct pathways of pathobiont induced colitis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single%20cell%20analysis%20unveils%20B%20cell-dominated%20immune%20subtypes%20in%20HNSCC%20for%20enhanced%20prognostic%20and%20therapeutic%20stratification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis unveils B cell dominated immune subtypes in HNSCC for enhanced prognostic and therapeutic stratification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20spatial%20multi-omics%20and%20deep%20learning%20dissect%20enhancer-driven%20gene%20regulatory%20networks%20in%20liver%20zonation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell spatial multi omics and deep learning dissect enhancer driven gene regulatory networks in liver zonation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Neutrophil%20profiling%20illuminates%20anti-tumor%20antigen%20presenting%20potency/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neutrophil profiling illuminates anti tumor antigen presenting potency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20blueprint%20for%20tumor-infiltrating%20B%20cells%20across%20human%20cancers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A blueprint for tumor infiltrating B cells across human cancers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20transcriptomic%20analyses%20reveal%20distinct%20immune%20cell%20contributions%20to%20epithelial%20barrier%20dysfunction%20in%20checkpoint%20inhibitor%20colitis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell transcriptomic analyses reveal distinct immune cell contributions to epithelial barrier dysfunction in checkpoint inhibitor colitis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Systematic%20dissection%20of%20tumor-normal%20single-cell%20ecosystems%20across%20a%20thousand%20tumors%20of%2030%20cancer%20types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systematic dissection of tumor normal single cell ecosystems across a thousand tumors of 30 cancer types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../The%20aged%20tumor%20microenvironment%20limits%20T%20cell%20control%20of%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The aged tumor microenvironment limits T cell control of cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TIM-3%2B%20CD8%20T%20cells%20with%20a%20terminally%20exhausted%20phenotype%20retain%20functional%20capacity%20in%20hematological%20malignancies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TIM 3+ CD8 T cells with a terminally exhausted phenotype retain functional capacity in hematological malignancies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20lactate-SREBP2%20signaling%20axis%20drives%20tolerogenic%20dendritic%20cell%20maturation%20and%20promotes%20cancer%20progression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A lactate SREBP2 signaling axis drives tolerogenic dendritic cell maturation and promotes cancer progression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20human%20omentum-specific%20mesothelial-like%20stromal%20population%20inhibits%20adipogenesis%20through%20IGFBP2%20secretion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A human omentum specific mesothelial like stromal population inhibits adipogenesis through IGFBP2 secretion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Interferon-stimulated%20neutrophils%20as%20a%20predictor%20of%20immunotherapy%20response/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interferon stimulated neutrophils as a predictor of immunotherapy response
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Repression%20of%20latent%20NF-%CE%BAB%20enhancers%20by%20PDX1%20regulates%20%CE%B2%20cell%20functional%20heterogeneity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Repression of latent NF κB enhancers by PDX1 regulates β cell functional heterogeneity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20systematic%20pan-cancer%20study%20on%20deep%20learning-based%20prediction%20of%20multi-omic%20biomarkers%20from%20routine%20pathology%20images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A systematic pan cancer study on deep learning based prediction of multi omic biomarkers from routine pathology images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20and%20spatial%20transcriptomics%20analysis%20of%20non-small%20cell%20lung%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell and spatial transcriptomics analysis of non small cell lung cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seeing%20data%20as%20t-SNE%20and%20UMAP%20do/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Seeing data as t SNE and UMAP do
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping%20the%20cellular%20biogeography%20of%20human%20bone%20marrow%20niches%20using%20single-cell%20transcriptomics%20and%20proteomic%20imaging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapping the cellular biogeography of human bone marrow niches using single cell transcriptomics and proteomic imaging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Onco-fetal%20Reprogramming%20of%20Endothelial%20Cells%20Drives%20Immunosuppressive%20Macrophages%20in%20Hepatocellular%20Carcinoma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Onco fetal Reprogramming of Endothelial Cells Drives Immunosuppressive Macrophages in Hepatocellular Carcinoma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20analysis%20of%20anti-BCMA%20CAR%20T%20cell%20therapy%20in%20patients%20with%20central%20nervous%20system%20autoimmunity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell analysis of anti BCMA CAR T cell therapy in patients with central nervous system autoimmunity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Single-cell%20sequencing%20depicts%20tumor%20architecture%20and%20empowers%20clinical%20decision%20in%20metastatic%20conjunctival%20melanoma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Single cell sequencing depicts tumor architecture and empowers clinical decision in metastatic conjunctival melanoma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PR-SET7%20epigenetically%20restrains%20uterine%20interferon%20response%20and%20cell%20death%20governing%20proper%20postnatal%20stromal%20development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PR SET7 epigenetically restrains uterine interferon response and cell death governing proper postnatal stromal development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Clonal%20associations%20between%20lymphocyte%20subsets%20and%20functional%20states%20in%20rheumatoid%20arthritis%20synovium/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clonal associations between lymphocyte subsets and functional states in rheumatoid arthritis synovium
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📐 Data Structures
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            📐 Data Structures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%201%20%E7%AB%A0%20python%20%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 1 章 python 入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%202%20%E7%AB%A0%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 2 章 面向对象编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%203%20%E7%AB%A0%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 3 章 算法分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%204%20%E7%AB%A0%20%E9%80%92%E5%BD%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 4 章 递归
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%205%20%E7%AB%A0%20%E5%9F%BA%E4%BA%8E%E6%95%B0%E7%BB%84%E7%9A%84%E5%BA%8F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 5 章 基于数组的序列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%206%20%E7%AB%A0%20%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E5%92%8C%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 6 章 栈、队列和双端队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%207%20%E7%AB%A0%20%E9%93%BE%E8%A1%A8%28Linked%20Lists%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 7 章 链表(Linked Lists)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%208%20%E7%AB%A0%20%E6%A0%91%20%E2%98%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 8 章 树 ★
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC%209%20%E7%AB%A0%20%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第 9 章 优先级队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    💡 Reviews
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            💡 Reviews
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🧭 scRNA analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            🧭 scRNA analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Best%20practices%20for%20single-cell%20analysis%20across%20modalities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best practices for single cell analysis across modalities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Multi-omics%20integration%20in%20biomedical%20research%20%E2%80%93%20A%20metabolomics-centric%20review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multi omics integration in biomedical research – A metabolomics centric review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Museum%20of%20spatial%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Museum of spatial transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A%20guide%20to%20artificial%20intelligence%20for%20cancer%20researchers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A guide to artificial intelligence for cancer researchers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🦠 Metabolism
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            🦠 Metabolism
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20analysis%20as%20a%20driver%20for%20discovery%2C%20diagnosis%2C%20and%20therapy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic analysis as a driver for discovery, diagnosis, and therapy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20heterogeneity%20in%20cancer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic heterogeneity in cancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Toward%20modeling%20metabolic%20state%20from%20single-cell%20transcriptomics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Toward modeling metabolic state from single cell transcriptomics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metabolic%20reprogramming%20and%20cancer%20progression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolic reprogramming and cancer progression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Protein
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Protein
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Proteomic%20and%20interactomic%20insights%20into%20the%20molecular%20basis%20of%20cell%20functional%20diversity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proteomic and interactomic insights into the molecular basis of cell functional diversity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#9-patch-transformer-in-transformertnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      9 充分挖掘 patch 内部信息：Transformer in Transformer：TNT
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-do-we-really-need-explicit-position-encodings-for-vision-transformers" class="md-nav__link">
+    <span class="md-ellipsis">
+      10 探究位置编码的必要性：Do We Really Need Explicit Position Encodings for Vision Transformers?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结：
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/aletolia/aletolia.github.io.git/edit/master/docs/Vision Transformer (四) (TNT).md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/aletolia/aletolia.github.io.git/raw/master/docs/Vision Transformer (四) (TNT).md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+  <h1>Vision Transformer (四)</h1>
+
+<div class="admonition note">
+<p class="admonition-title">Attention</p>
+<p>原文地址：https://zhuanlan.zhihu.com/p/354913120</p>
+</div>
+<p>Transformer 是 Google 的团队在 2017 年提出的一种 NLP 经典模型，现在比较火热的 Bert 也是基于 Transformer。Transformer 模型使用了 Self-Attention 机制，<strong>不采用</strong> RNN 的<strong>顺序结构</strong>，使得模型<strong>可以并行化训练</strong>，而且能够<strong>拥有全局信息。</strong></p>
+<p>本文分析的文章都是<strong>针对 Transformer 内部机制的探究</strong>，从而提出的对于 ViT，DeiT 模型的改进。第 1 篇是针对 Transformer 模型处理图片的方式：将输入图片划分成一个个块 (patch)，然后针对将这些 patch 看成一个序列 (Sequence) 的不完美之处，提出了一种 TNT 架构，它不仅考虑 patch 之间的信息，还考虑每个 patch 的内部信息，使得 Transformer 模型分别对整体和局部信息进行建模，提升性能。第 2 篇 CPVT 通过 PEG 模块代替传统的位置编码，实现了灵活的位置表示和更高效的位置信息编码，提升了 DeiT/ViT 的性能。值得一提的是，这 2 种方法与其他的改进措施是正交的，可以在不相互影响的条件下直接完成迁移。</p>
+<p>对本文符号进行统一：</p>
+<p><strong>Multi-head Self-attention：</strong></p>
+<p><span class="arithmatex">\(\begin{equation} \textit{Attention}(Q,K,V) = \textit{softmax}(\frac{QK^T}{\sqrt{d_k}})V. \end{equation}\)</span></p>
+<p>式中， <span class="arithmatex">\(X\in\mathbb{R}^{n\times d}\)</span> ， <span class="arithmatex">\(Q\in\mathbb{R}^{n\times d_k}\)</span> ， <span class="arithmatex">\(K\in\mathbb{R}^{n\times d_k}\)</span> ， <span class="arithmatex">\(V\in\mathbb{R}^{n\times d_v}\)</span> ， <span class="arithmatex">\(n\)</span> 代表序列长度， <span class="arithmatex">\(d,d_k,d_v\)</span> 代表 hidden dimension。</p>
+<p><strong>MLP 层：</strong></p>
+<div class="arithmatex">\[
+\begin{equation} \textit{MLP}(X) = \sigma(XW_1+b_1)W_2+b_2 \end{equation}.\ \$
+\]</div>
+<p>式中， <span class="arithmatex">\(W_1\in\mathbb{R}^{d\times d_m}, W_2\in\mathbb{R}^{d_m\times d}\)</span> 为 2 个 FC 层的权重， <span class="arithmatex">\(b_1\in\mathbb{R}^{d_m},b_2\in\mathbb{R}^{d}\)</span> 是 bias 值。</p>
+<p><strong>Layer Normalization：</strong></p>
+<div class="arithmatex">\[
+\begin{equation} \textit{LN}(x) = \frac{x-\mu}{\delta}\circ\gamma + \beta \end{equation}.\ \$
+\]</div>
+<p>LN 层是 Transformer 模型快速训练和稳定收敛的重要保证。LN 层的作用对象是 <span class="arithmatex">\(x\in\mathbb{R}^{d}\)</span> ， <span class="arithmatex">\(\mu\in\mathbb{R},\delta\in\mathbb{R}\)</span> 代表每个样本的均值和方差。 <span class="arithmatex">\(\gamma\in\mathbb{R}^{d},\beta\in\mathbb{R}^{d}\)</span> 是可学习的仿射参数。</p>
+<h2 id="9-patch-transformer-in-transformertnt">9 充分挖掘 patch 内部信息：Transformer in Transformer：TNT<a class="headerlink" href="#9-patch-transformer-in-transformertnt" title="Permanent link">&para;</a></h2>
+<p><strong>论文名称：Transformer in Transformer</strong></p>
+<p><strong>论文地址：</strong></p>
+<p><a href="https://arxiv.org/pdf/2103.00112.pdf">https://arxiv.org/pdf/2103.00112.pdf</a></p>
+<ul>
+<li><strong>9.1 TNT 原理分析：</strong></li>
+</ul>
+<p>Transformer 网络推动了诸多自然语言处理任务的进步，而近期 transformer 开始在计算机视觉领域崭露头角。例如，DETR 将目标检测视为一个直接集预测问题，并使用 transformer 编码器 - 解码器架构来解决它；IPT 利用 transformer 在单个模型中处理多个底层视觉任务。与现有主流 CNN 模型（如 ResNet）相比，这些基于 transformer 的模型在视觉任务上也显示出了良好的性能。其中，将 Transformer 应用在图像识别领域的两个经典的工作是：<a href="https://zhuanlan.zhihu.com/p/342261872">ViT</a> 和 <a href="https://zhuanlan.zhihu.com/p/349315675">DeiT</a>(详细的解读进入链接查看)。ViT 的结构如下图 1 所示。它先将输入图片划分成一个个块 (patch)，然后将这些 patch 看成一个块的序列 (Sequence)，这里假设序列长度为 <span class="arithmatex">\(N\)</span> 。再把这个序列中的每个 patch 进行展平操作 (Flatten)，这样一来，每个 patch 就转化成了一个向量，我们假设这个向量是 <span class="arithmatex">\(c\)</span> 维的。那么经过以上所有操作，一张输入图片就成为了一个大小为 <span class="arithmatex">\((N,c)\)</span> 的矩阵。这个矩阵<strong>与一个向量 <span class="arithmatex">\(\color{purple}{\text{class token}}\)</span> 一起被输入 Transformer 的 Encoder 中</strong>，来处理图像 patch 序列，最终<strong>由 <span class="arithmatex">\(\color{purple}{\text{class token}}\)</span> 的输出做图像识别</strong>。</p>
+<p>DeiT 对 ViT 的结构做了一点微小的改动，输入图片依然经过相同的操作变成一个大小为 <span class="arithmatex">\((N,c)\)</span> 的矩阵，只是此时这个矩阵与一个向量 <span class="arithmatex">\(\color{purple}{\text{class token}}\)</span> 和另一个向量 <span class="arithmatex">\(\color{crimson}{\text{distillation token}}\)</span> 一起被输入 Transformer 的 Encoder 中，来处理图像 patch 序列。在训练时，对 <span class="arithmatex">\(\color{purple}{\text{class token}}\)</span> 的输出使用有监督损失，对 <span class="arithmatex">\(\color{crimson}{\text{distillation token}}\)</span> 的输出使用蒸馏损失。最终由 <span class="arithmatex">\(\color{purple}{\text{class token}}\)</span> 的输出和 <span class="arithmatex">\(\color{crimson}{\text{distillation token}}\)</span> 的输出的均值做图像识别。</p>
+<p><img alt="" src="https://pic3.zhimg.com/v2-12f7157dec309ed2e5e89ebd97ad3ed2_r.jpg" /></p>
+<p>到这里我们发现，DeiT 相比于 ViT 来讲，在训练方式上做出了改进，这使得 Transformer 在建模 patch 之间的信息时考虑更多的因素，提升了 Transformer 模型的整体性能。但是，<strong>DeiT 有一个没有解决的问题是：</strong></p>
+<p>DeiT 依然把图片转化成 patch 并进行 Flatten 操作之后输入 Transformer 模型，而<strong>这种转化成 patch 的办法，真的是处理图片这种 2D 输入信息的最合适的方法吗？</strong></p>
+<p>我们知道，Transformer 需要的是序列 (Sequence) 的输入信号，而我们有的是 image 这种 2D 的输入信号，那直接把图片分块以后进行 Flatten 操作是一种很直觉的处理方式。<strong>但是，这种 intuitive 的方法能不能够完美地建模图像呢？</strong></p>
+<p><strong>答案显然是否定的。</strong>因为我们缺少了一部分非常重要的信息，即：<strong>每个 patch 的内部信息。</strong></p>
+<p><strong>问：为什么每个 patch 的内部信息这么重要？</strong></p>
+<p><strong>答：</strong>Transformer 这种模型之所以有效，是因为它能处理长度为 <span class="arithmatex">\(N\)</span> 的输入序列中这 <span class="arithmatex">\(N\)</span> 个输入之间的关系 (relationship)，而<strong>对于每个输入的内部信息的 relationship，它是无能为力的，因为 ViT，DeiT，IPT，SETR，ViT-FRCNN 这类模型把每个 patch 展平为了一个向量，破坏了每个 patch 的内部信息。</strong></p>
+<p>所以我们认为，<strong>每个输入的内部信息，即每个 patch 的内部信息，没有被 Transformer 所建模。</strong>是一个欠考虑的因素。</p>
+<p><strong>所以本文的动机是：使得 Transformer 模型既建模那些不同 patch 之间的关系，也要建模每个 patch 内部的关系。</strong></p>
+<p>所以作者这里设计了一种 Transformer in Transformer (TNT) 的结构，第 1 步还是将输入图片划分成 <span class="arithmatex">\(n\)</span> 个块 (patch)：</p>
+<div class="arithmatex">\[
+\mathcal{X}=[X^1,X^2,\cdots,X^n]\in\mathbb{R}^{n\times p\times p\times 3}.\ \$
+\]</div>
+<p>式中 <span class="arithmatex">\(p\)</span> 是每个块的大小。ViT，DeiT，IPT，SETR，ViT-FRCNN 到这里就把它们输入 Transformer 了，本文为了更好地学习图片中 global 和 local 信息的关系，还要再进行一步：</p>
+<p>接下来再把每个 patch 通过 PyTorch 的 unfold 操作划分成更小的 patch，之后把这些小 patch 展平，就得到了</p>
+<div class="arithmatex">\[
+\begin{equation} \mathcal{Y}_0=[Y_0^1,Y_0^2,\cdots,Y_0^n]\in\mathbb{R}^{n\times p'\times p'\times c}, \end{equation}.\ \$
+\]</div>
+<p>式中 <span class="arithmatex">\(Y_0^i\in\mathbb{R}^{p'\times p'\times c}, i=1,2,\cdots,n\)</span> ，那么 <span class="arithmatex">\(Y_{\color{orange}{0}}^{\color{green}{i}}\)</span>  <strong>代表的物理意义是第 <span class="arithmatex">\(\color{orange}{0}\)</span> 个 layer 的第 <span class="arithmatex">\(\color{green}{i}\)</span> 个大 patch 包含的所有小 patch</strong>， <span class="arithmatex">\(c\)</span> 是 channel 数。意思是：原图是 <span class="arithmatex">\(\mathcal{Y}_0\)</span> ，分成 <span class="arithmatex">\(n\)</span> 个大 patch，每个大 patch 可以看做是由很多 <span class="arithmatex">\(p'\times p'\)</span> 的小 patch 组成的。</p>
+<p>例如，大 patch 的大小是 <span class="arithmatex">\(16\times16\times3\)</span> ，这里 <span class="arithmatex">\(p=16\)</span> ，那么小 patch 的大小是 <span class="arithmatex">\(8\times8\times3\)</span> 。每个大 patch 被分成了 4 个小 patch，即 <span class="arithmatex">\(Y_{\color{orange}{0}}^{\color{green}{i}}\in\mathbb{R}^{8\times 8\times 12}\)</span> 相当于是 4 个小 patch。</p>
+<p>接下来作者把 <span class="arithmatex">\(Y_{\color{orange}{0}}^{\color{green}{i}}\in\mathbb{R}^{p'\times p'\times c}\)</span> 这一堆小 patch 视为一个 pixel embedding：</p>
+<div class="arithmatex">\[
+\begin{equation} Y_0^i=[y_0^{i,1},y_0^{i,2},\cdots,y_0^{i,m}] \end{equation}.\ \$
+\]</div>
+<p>这个 pixel embedding 由 <span class="arithmatex">\(m=p'^2\)</span> 个向量组成，每个向量 <span class="arithmatex">\(y_0^{i,j}\in\mathbb{R}^{c}, j=1,2,\cdots,m\)</span> 。</p>
+<p>如下图 2 所示，输入是一个大 patch，<strong>输出的黄色大长条是这个 patch 展平以后的 patch embedding，输出的彩色小长条是这个 patch 划分成更小的 patch 之后再展平以后的 pixel embedding</strong>。</p>
+<p><img alt="" src="https://pic2.zhimg.com/v2-e3289b761f44c4a79af39800d2f2bd7d_r.jpg" /></p>
+<p>图 2 的操作进行完之后就得到了<strong>大 patch 的 patch embedding 以及小 patch 的 pixel embedding</strong>。接下来把它们送入 Transformer 的 Block 里面建模特征，如下图 3 所示。Transformer 是由很多 TNT Blocks 组成的，每个 TNT Block 包含 2 个 Transformer Block，分别是：</p>
+<ul>
+<li><strong>Outer block 建模 patch embedding 之间的 global relationship。</strong></li>
+<li><strong>Inner block 建模 pixel embedding 之间的 local structure information。</strong></li>
+</ul>
+<p><img alt="" src="https://pic3.zhimg.com/v2-b7ac4d52e1e18b7620f3613e7b4b78d6_r.jpg" /></p>
+<p>这两种 Block 对应 2 个不同的数据流，其中 Outer block 的数据流在不同 patch 之间运行，而 Inner block 的数据流在每个 patch 内部运行。</p>
+<p><strong>Inner Transformer：</strong></p>
+<p>定义 <span class="arithmatex">\(Y_l^i \in\mathbb{R}^{p'\times p'\times c}=\mathbb{R}^{m\times c}\)</span> ，我们把这个值传入 <strong>Inner Transformer</strong> <span class="arithmatex">\(T_{in}\)</span> ，则有：</p>
+<div class="arithmatex">\[
+\begin{align} {Y'}_l^i &amp;= Y_{l-1}^i+\textit{MSA}(\textit{LN}(Y_{l-1}^i)),\\ Y_l^i &amp;= {Y'}_{l}^i+\textit{MLP}(\textit{LN}({Y'}_{l}^i)). \end{align} \tag{9.1}
+\]</div>
+<p>注意正常的 Transformer 的输入应该是 <span class="arithmatex">\((b,n,d)\)</span> 的张量，这里 <span class="arithmatex">\(b\)</span> 代表 batch size， <span class="arithmatex">\(n\)</span> 代表序列长度， <span class="arithmatex">\(d\)</span> 代表 hidden dimension。不考虑 batch size 这一维，就是一个 <span class="arithmatex">\((n,d)\)</span> 的矩阵，也可以看做是 <span class="arithmatex">\(n\)</span> 个 <span class="arithmatex">\(d\)</span> 维向量，那么对于 Inner Transformer <span class="arithmatex">\(T_{in}\)</span> 来讲，这里的 <span class="arithmatex">\(d=mc\)</span> 。也就是说，Inner Transformer <span class="arithmatex">\(T_{in}\)</span> 的输入是 <span class="arithmatex">\(n\)</span> 个 <span class="arithmatex">\(mc\)</span> 维的向量。注意这里的 <span class="arithmatex">\(Y_l^i \in\mathbb{R}^{p'\times p'\times c}=\mathbb{R}^{m\times c}\)</span> 就是这 <span class="arithmatex">\(n\)</span> 个向量的其中一个。所以 Inner Transformer 的第 <span class="arithmatex">\(l\)</span> 个 layer 的输出就可以写为：</p>
+<div class="arithmatex">\[
+\mathcal{Y}_l=[Y_l^1,Y_l^2,\cdots,Y_l^n],\mathcal{Y}_l\in\mathbb{R}^{n\times m\times c}.\ \$
+\]</div>
+<p>Inner Transformer <span class="arithmatex">\(T_{in}\)</span> 建模的是更细小的像素级别的 relationship，例如，在一张人脸中，属于眼睛的像素与眼睛的其他像素更相关，而与前额像素的 relationship 较少。</p>
+<p><strong>Outer Transformer：</strong></p>
+<p>Outer Transformer <span class="arithmatex">\(T_{out}\)</span> 就相当于是 ViT 中的 Transformer，它建模的是更答大的 patch 级别的 relationship，输入的 patch embedding 使用 ViT 类似的做法，添加 <span class="arithmatex">\(\color{purple}{\text{class token}}\;Z_\text{class}\)</span> ，它们初始化为 0。</p>
+<div class="arithmatex">\[
+\mathcal{Z}_0=[Z_\text{class},Z_0^1,Z_0^2,\cdots,Z_0^n]\in\mathbb{R}^{(n+1)\times d}.\ \$
+\]</div>
+<p>定义 <span class="arithmatex">\(\mathcal{Z}_l^i\in\mathbb{R}^{d}\)</span> 为第 <span class="arithmatex">\(l\)</span> 个 layer 的第 <span class="arithmatex">\(i\)</span> 个向量，则 Outer Transformer 的表达式为：</p>
+<div class="arithmatex">\[
+\begin{align} \mathcal{Z'}_l^i &amp;= \mathcal{Z}_{l-1}^i+\textit{MSA}(\textit{LN}(\mathcal{Z}_{l-1}^i)),\\ \mathcal{Z}_l^i &amp;= \mathcal{Z'}_{l}^i+\textit{MLP}(\textit{LN}(\mathcal{Z'}_{l}^i)). \end{align} \tag{9.2}
+\]</div>
+<p>那么现在既有 Outer Transformer 的第 <span class="arithmatex">\(l\)</span> 个 layer 的输出向量：</p>
+<div class="arithmatex">\[
+\mathcal{Z}_l=[Z_\text{class},Z_l^1,Z_l^2,\cdots,Z_l^n]\in\mathbb{R}^{(n+1)\times d}.\ \$
+\]</div>
+<p>也有 Inner Transformer 的第 <span class="arithmatex">\(l\)</span> 个 layer 的输出向量：</p>
+<div class="arithmatex">\[
+\mathcal{Y}_l=[Y_l^1,Y_l^2,\cdots,Y_l^n],\mathcal{Y}_l\in\mathbb{R}^{n\times m\times c}.\ \$
+\]</div>
+<p>下面的问题是：<strong>要如何把它们结合起来，以融合 global 和 local 的信息呢？</strong></p>
+<p><strong>作者采用的方式是：</strong></p>
+<div class="arithmatex">\[
+\begin{equation} Z_{l-1}^i = Z_{l-1}^i + \textit{Vec}(Y_{l-1}^i)W_{l-1}+b_{l-1}, \end{equation} \tag{9.3}
+\]</div>
+<p>式中， <span class="arithmatex">\(Z_{l-1}^i\in\mathbb{R}^{d},\textit{Vec}(\cdot)\)</span> 代表 Flatten 操作， <span class="arithmatex">\(W_{l-1}\in\mathbb{R}^{mc\times d},b_{l-1}\in\mathbb{R}^{d}\)</span> 代表权重。</p>
+<p>通过这种方式，把第 <span class="arithmatex">\(l\)</span> 个 layer 的第 <span class="arithmatex">\(i\)</span> 个 patch embedding 向量和第 <span class="arithmatex">\(i\)</span> 个 pixel embedding 向量融合起来，即对应图 3(b) 的结构。</p>
+<p>总的来说，TNT Block 第 <span class="arithmatex">\(l\)</span> 个 layer 的输入和输出可以表示为：</p>
+<div class="arithmatex">\[
+\begin{equation} \mathcal{Y}_l,\mathcal{Z}_l = \textit{TNT}(\mathcal{Y}_{l-1},\mathcal{Z}_{l-1}) \end{equation} \tag{9.4}
+\]</div>
+<p>在 TNT Block 中，Inner Transformer 建模 pixel embedding 之间的 local structure information 之间的关系，而 Outer block 建模 patch embedding 之间的 global relationship。通过将 TNT Block 堆叠 <span class="arithmatex">\(L\)</span> 次，作者构建了 Transformer in Transformer。最后，使用一个分类头对图像进行分类。  </p>
+<p><strong>位置编码：</strong></p>
+<p>位置编码的作用是让像素间保持空间位置关系，对于图像就是保持二维信息，它对于图像识别任务来讲很重要。具体来说，就需要对 patch embedding 和 pixel embedding 分别设计一种位置编码。</p>
+<ul>
+<li>patch positional encoding：</li>
+</ul>
+<p>作者这里使用的是可学习的 1D 位置编码：</p>
+<div class="arithmatex">\[
+\begin{align} \mathcal{Z}_0 \leftarrow \mathcal{Z}_0 + E_{patch}, \end{align} \tag{9.5}
+\]</div>
+<p>式中， <span class="arithmatex">\(E_{patch}\in\mathbb{R}^{(n+1)\times d}\)</span> 是给 patch embedding 使用的位置编码，它用来编码全局空间信息 (global spatial information)。</p>
+<ul>
+<li>pixel positional encoding：</li>
+</ul>
+<p>作者这里使用的是可学习的 1D 位置编码：</p>
+<div class="arithmatex">\[
+\begin{align} Y_0^i \leftarrow Y_0^i + E_{pixel},~ i=1,2,\cdots,n \end{align} \tag{9.6}
+\]</div>
+<p>式中， <span class="arithmatex">\(E_{pixel}\in\mathbb{R}^{m\times c}\)</span> 是给 pixel embedding 使用的位置编码。我们发现这 <span class="arithmatex">\(n\)</span> 个 patch 中的 pixel positional encoding 是一样的，它们用来编码局部相对信息 (local relative information)。</p>
+<p><strong>计算复杂度分析，标准的 Transformer Block 的结构：</strong></p>
+<p>一个标准的 Transformer Block 的结构包括 multi-head self-attention (MSA) 和 multi-layer</p>
+<p>perceptron (MLP)。</p>
+<p><strong>MSA 的计算复杂度是：</strong></p>
+<div class="arithmatex">\[
+2nd(d_k+d_v)+n^2(d_k+d_v)
+\]</div>
+<p><img alt="" src="https://pic2.zhimg.com/v2-6a3b632b76d8516eb78c01dc54250059_r.jpg" /></p>
+<p><strong>MLP 的计算复杂度是：</strong></p>
+<div class="arithmatex">\[
+2nd_vrd_v 
+\]</div>
+<p>式中， <span class="arithmatex">\(r\)</span> 是 expansion ratio。</p>
+<p><strong>所以一个标准的 Transformer Block 的计算复杂度是：</strong></p>
+<div class="arithmatex">\[
+\begin{equation} \mathrm{FLOPs}_{T} = 2nd(d_k+d_v) + n^2(d_k+d_v) + 2nddr \end{equation} \tag{9.7}
+\]</div>
+<p><span class="arithmatex">\(r\)</span> 经常设置为 4，且 <span class="arithmatex">\(d_k\)</span> 和 <span class="arithmatex">\(d_v\)</span> 一般是相等的，所以：</p>
+<div class="arithmatex">\[
+\mathrm{FLOPs}_T=2 n d(6 d+n) .
+\]</div>
+<p><strong>一个标准的 Transformer Block 的参数量为：</strong> <span class="arithmatex">\(12dd\)</span> 。</p>
+<p><strong>计算复杂度分析，TNT Block 的结构：</strong></p>
+<p><strong><span class="arithmatex">\(T_{in}\)</span> 的计算复杂度：</strong> <span class="arithmatex">\(2nmc(6c+m)\)</span></p>
+<p><span class="arithmatex">\(T_{out}\)</span> <strong>的计算复杂度：</strong> <span class="arithmatex">\(2nd(6d+n)\)</span></p>
+<p><strong>Linear Transformation 的计算复杂度是：</strong> <span class="arithmatex">\(nmcd\)</span></p>
+<p><strong>所以一个标准的 TNT Block 的计算复杂度是：</strong></p>
+<div class="arithmatex">\[
+\mathrm{FLOP}_{\mathrm{s}_T}=2 n d\left(d_k+d_v\right)+n^2\left(d_k+d_v\right)+2 n d d r
+\]</div>
+<p><strong>一个标准的 TNT Block 的参数量为：</strong><span class="arithmatex">\(\text { Params }_{T N T}=12 c c+m c d+12 d d .\)</span></p>
+<p>看似 TNT 相比于标准的 Transformer 结构的计算量和参数量都增加了很多，但是实际上并没有增加多少。因为这里的： <span class="arithmatex">\(c\ll d\)</span> 。</p>
+<p>比如在 ViT-B/16 configuration 中，设置： <span class="arithmatex">\(d=768,n=196,c=12,m=64\)</span> ，则：</p>
+<p><span class="arithmatex">\(\mathrm{FLOPs}_{T}=1446M, \mathrm{FLOPs}_{TNT}=1603M\)</span> ，增长了大概 1.09 倍，同样地，参数量增长了大概 1.08 倍。通过少量增加计算和内存成本，TNT Block 可以有效地模拟局部结构信息，并在准确性和复杂性之间实现更好的平衡，如实验所示。</p>
+<p><strong>网络架构：</strong></p>
+<p>超参数设置为：</p>
+<p>大 patch 的 patch size：16×16，小 patch 的 patch size：4×4，设计了 2 种不同大小的 TNT 模型，分别是：TNT-S 和 TNT-B，模型的参数量大小分别是 23.8M 和 65.6M。计算量分别是 5.2B 和 14.1B。</p>
+<p><img alt="" src="https://pic2.zhimg.com/v2-c622194eac92b99b11a63df81491f6b9_r.jpg" /></p>
+<p>作者还使用了 SE 模块进行 channel-wise 的 attention，具体来讲，把每个 patch 的 d 个 channel 的 embedding 做平均操作，经过一个 2 层的 MLP 得到 d 个 attention values。这 d 个 attention 会对应地乘在 d 个 channel 上面。SE 模块的好处是仅仅增大了一点参数但却能通过 dimension-wise attention 实现特征的增强。</p>
+<p><strong>Experiments：</strong></p>
+<p><strong>Dataset：</strong></p>
+<p>数据集如下图 6 所示，除了 ImageNet 以外，下面几行的小数据集用作迁移学习。数据增强方式包括了：random crop, random clip, Rand-Augment, Mixup 和 CutMix。</p>
+<p><img alt="" src="https://pic2.zhimg.com/v2-50584e229aea7c601bfc46f24d48dc01_r.jpg" /></p>
+<p>训练的方式如下图 7 所示：</p>
+<p><img alt="" src="https://pic1.zhimg.com/v2-1d35567cb343385767842842df9fd0ac_r.jpg" /></p>
+<p><strong>实验 1：ImageNet 结果：</strong></p>
+<p>作者比较了 TNT 与基于 Transformer 的 ViT 和 DeiT 模型，以及几个具有代表性的 CNN 模型比如 ResNet，RegNet 和 EfficientNet，结果如图 8，9 所示。</p>
+<p><img alt="" src="https://pic1.zhimg.com/v2-486e40623d87341ef7d57e9b59edf57c_r.jpg" /></p>
+<p><img alt="" src="https://pic3.zhimg.com/v2-f651723c97fd5f68f64ee1ed07eb50d2_r.jpg" /></p>
+<p>结果表明，TNT 超过了所有的基于 Transformer 的分类模型，TNT-S 模型达到了 81.3% 的精确度，在与 DeiT-S 参数量相当的前提下提升了 1.5%，再次证明了 local structure information 的重要性。再通过添加 SE 模块，TNT 可以达到 81.6% 的性能，也超过了基于卷积的 ResNet 和 RegNet。</p>
+<p><strong>对比实验 1：位置编码的影响</strong></p>
+<p>位置编码在图像识别任务中的作用还是挺大的，因为它让像素间保持空间位置关系，对于图像就是保持二维信息。比如一个像素点的前后左右，直接 flatten 之后进行 self-attention 的结果和左右前后 flatten 之后进行 self-attention 的结果其实是一样的。所以如果没有位置编码，就没法建模这个前后左右的位置信息。patch position encoding 的目的是存储全局空间信息，而 pixel position encoding 的目的是存储局部相对信息。如下图 10 所示，去掉位置编码之后会带来一定程度的 accuracy drop。</p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-c48a5f7e76dd1af6dbb798f7845fc027_r.jpg" /></p>
+<p><strong>对比实验 2：head 数量的影响</strong></p>
+<p>head 数量适中 (2, 4) 时能达到比较好的性能。</p>
+<p><img alt="" src="https://pic1.zhimg.com/v2-80b06b5e3f25b8e59b5e6bf045f316f4_b.jpg" /></p>
+<p><strong>对比实验 3：小 patch size 的影响</strong></p>
+<p>TNT 模型先和 ViT 一样的做法，把图片划分为 16×16 的 patch，再进一步把这些 patch 使用 unfold 操作变成 <span class="arithmatex">\(p^{'}\times p^{'}\)</span> 的小 patch，从图 12 的结果可以发现， <span class="arithmatex">\(p^{'}\)</span> 的取值对最终的结果影响不大，考虑到模型的大小和计算量，最终选择了 <span class="arithmatex">\(p^{'}=4\)</span> 。</p>
+<p><img alt="" src="https://pic2.zhimg.com/v2-0705f915271f6e4532ab06726bb4eed1_b.jpg" /></p>
+<p><strong>实验 2：可视化</strong></p>
+<p>作者可视化了 DeiT 和 TNT 的 learned feature maps，具体是先把输入 resize 成 1024×1024，那么第 1,6,12 个 Block 的输出的特征维度是 64×64×d。从 d 个特征里面随机采样 12 个 feature map 得到图 13。DeiT 也采用相同的操作，与 DeiT 相比较而言，TNT 更好地保持了 local information。作者还是用 T-SNE 可视化了 Block 12 输出的所有 384 (Outer Transformer dim) 个 feature maps，可以看到， TNT 的特征比 DeiT 更丰富，包含的信息也更丰富。这些好处归功于 Inner Transformer 的引入，以建模局部特征。</p>
+<p><img alt="" src="https://pic1.zhimg.com/v2-e25b4dc31d2536a051e005808593ae00_r.jpg" /></p>
+<p>除了 patch level 的特征以外，作者还可视化了 pixel level 的信息，如下图 14 所示。pixel embedding 的维度是 (b, 64, c)，把 64 这个维度 reshape 成 8×8 的小 patch，可以得到 14×14 个。</p>
+<p>作者将 Block 1,6,12 的输出的这 14×14 个 patch 在 c 维度上进行求平均的结果打印出来，发现 shallow layer 很好地保留了局部信息，而随着网络的深入，表示逐渐变得更加抽象。</p>
+<p><img alt="" src="https://pic3.zhimg.com/v2-5a87fdc0738dd456ff56432b729859ba_r.jpg" /></p>
+<p><strong>实验 3：迁移学习</strong></p>
+<p>作者为了证明 TNT 的泛化性能，将 TNT-S，TNT-B 这 2 个模型迁移到了小数据集 (CIFAR-10, CIFAR-100, Oxford-IIIT Pets, Oxford 102 Flowers) 上面。所有模型都使用了 384×384 的数据 fine-tune。如图 15 所示，我们发现 TNT 在大多数数据集的参数较少时优于 DeiT ，这表明了建模像素级关系以获得更好的 feature representation 的优越性。fine-tune 时为了在不同的分辨率中微调，作者还对位置编码进行了插值。</p>
+<p><img alt="" src="https://pic1.zhimg.com/v2-b980578f56a8c3aad2adfd659987d568_r.jpg" /></p>
+<h2 id="10-do-we-really-need-explicit-position-encodings-for-vision-transformers">10 探究位置编码的必要性：Do We Really Need Explicit Position Encodings for Vision Transformers?<a class="headerlink" href="#10-do-we-really-need-explicit-position-encodings-for-vision-transformers" title="Permanent link">&para;</a></h2>
+<p><strong>论文名称：Do We Really Need Explicit Position Encodings for Vision Transformers?</strong></p>
+<p><strong>论文地址：</strong></p>
+<p><a href="https://arxiv.org/pdf/2102.10882.pdf">https://arxiv.org/pdf/2102.10882.pdf</a></p>
+<ul>
+<li><strong>10.1 CPVT 原理分析：</strong></li>
+</ul>
+<p>self-attention 这种结构的特点是可以建模一整个输入序列的信息，并能根据图片的内容来动态调整感受野，但是 self-attention 的缺点是：排列不变性 (permutation-invariant)，即：无法建模输入序列的顺序信息，输入这个序列顺序的调整是不会影响输出结果的。为了解决这个问题，Transformer 引入了位置编码机制。位置编码在图像识别任务中的作用还是挺大的，因为它让像素间保持空间位置关系，对于图像就是保持二维信息。比如一个像素点的前后左右，直接 flatten 之后进行 self-attention 的结果和左右前后 flatten 之后进行 self-attention 的结果其实是一样的。所以如果没有位置编码，就没法建模这个前后左右的位置信息。<strong>位置编码可以设置为可学习的，也可以设置为不可学习的正弦函数。</strong></p>
+<p><strong>但是，位置编码的缺点是：它的长度往往是固定的。</strong>比如输入图片的大小是 <span class="arithmatex">\(H\times W\)</span> ，分成大小为 <span class="arithmatex">\(S\times S\)</span> 的 patch，那么 patch 的数量就是 <span class="arithmatex">\(N = \frac{HW}{S^2}\)</span> 。比如现在训练集输入图片是 224×224 的，分成大小为 16×16 的 patch，那么序列长度是 196。所以训练时把位置编码的长度也设置为 196。但是后续进行迁移学习时输入图片是 384×384 的，分成大小为 16×16 的 patch，那么序列长度是 576。此时你的长度是 196 的位置编码就不够了，这时人们通常的做法有这么几种：</p>
+<p><strong>1. 去掉位置编码</strong></p>
+<p>会严重地影响分类性能，因为输入序列的位置信息丢失了。以 DeiT-tiny 为例，不使用位置编码会使性能从 72.2% 降为 68.2%。</p>
+<p><strong>2. 相对位置编码</strong></p>
+<p>相对位置编码的相关工作有以下几个：</p>
+<p>Relative Position Encoding 考虑 sequence 元素之间的距离，也是一种有效的手段。</p>
+<p><a href="https://arxiv.org/pdf/1803.02155.pdf">https://arxiv.org/pdf/1803.02155.pdf</a></p>
+<p>2D 相对位置编码：</p>
+<p><a href="https://arxiv.org/pdf/1904.09925.pdf">https://arxiv.org/pdf/1904.09925.pdf</a></p>
+<p>相对位置编码的表达式如下：</p>
+<div class="arithmatex">\[
+\begin{equation} \begin{aligned} \mathrm{Att}(x_i) &amp;= \sum_{j=1}^{n} \alpha_{ij} (W^Vx_j + a^V_{ij}) \\ \alpha_{ij} &amp;= \frac{ \exp{e_{ij}} }{ \sum_{k=1}^{n} \exp{e_{ik}} } \\ e_{ij} &amp;= \frac{x_iW^Q(x_jW^K+a^K_{ij})^T}{\sqrt{d_k}} \end{aligned} \label{eq:relative-enc} \end{equation} \tag{10.1}
+\]</div>
+<p>式中， <span class="arithmatex">\(a_{ij} \in \mathbb{R}^{d_k}\)</span> 是：当把输入 sequence 视为有向的全连接的图时 <span class="arithmatex">\(x_i\)</span> 和 <span class="arithmatex">\(x_j\)</span> 的 edge distance。</p>
+<p>这种做法的缺点是实现起来比较复杂，不够 efficient，因为需要改变 Transformer 内部的表达式。</p>
+<p><strong>3. 插值法</strong></p>
+<p>把位置编码进行双三次插值 (bicubic interpolation)，把 196 的位置编码插值成长度为 396 的，以适应新的数据集。</p>
+<p>即便是有这样的补救措施，但是：</p>
+<ul>
+<li>许多视觉任务都需要不断改变输入图片的大小，也就需要不断改变输入序列的长度，这样做很不方便。</li>
+<li>插值的方法会影响性能。</li>
+</ul>
+<p>以上这 3 种办法的性能的比较如下图所示，结果发现：在使用位置编码的情况下，无论是使用可学习的位置编码 (learnable)，还是固定的位置编码 (sin-cos)，其训练的模型性能是差不多的。但是使用相对位置编码后性能会有下降，不使用位置编码性能会大幅下降。证明位置编码对于 Vision Transformer 的重要性。</p>
+<p><img alt="" src="https://pic3.zhimg.com/v2-cbbf8257c2402257ce05d91c05457a7a_r.jpg" /></p>
+<p><strong>所以目前面临的问题就是：我们需要一种新的位置编码策略，既能解决传统位置编码不可变长度的局限性，又能起到位置编码的作用。</strong></p>
+<p>本文就是为了解决这个问题，即：<strong>灵活地把位置信息引入 Transformer 中</strong>。之前工作的位置编码一般是预定义好并与输入无关 (predefined and inputagnostic)，本文的位置编码是即时的 (on-the-fly)，就是需要多长的编码就立刻有多长的编码。</p>
+<p>这种方法取名为 CVPT，如下图 17 所示。CVPT 能自动生成一种包含位置信息的编码 PEG，提升 Transformer 模型的性能。通过这样做，Transformer 可以处理任意大小的输入图像，而无需双三次插值。</p>
+<p><img alt="" src="https://pic1.zhimg.com/v2-727e0d15278d49908b7036039346a990_r.jpg" /></p>
+<p>其实对于 Positional Encoding 的研究之前已有一些：CNN 操作看上去没有进行卷积操作，但是实际上却能够隐含地编码绝对位置信息。具体来说，zero padding 和 borders 其实扮演了一种 anchor 的角色，以获取空间信息。关于这个研究可以参考下面的 2 个链接：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/99766566">Xinlong Wang：CNN 是怎么学到图片内的绝对位置信息的?</a><a href="https://arxiv.org/pdf/2101.12322.pdf">https://arxiv.org/pdf/2101.12322.pdf</a></p>
+<p>CoordConv 使用 concatenation 代替 Transformer 中的位置编码的加法操作。</p>
+<p><a href="https://arxiv.org/pdf/1807.03247.pdf">https://arxiv.org/pdf/1807.03247.pdf</a></p>
+<p>Relative Position Encoding 考虑 sequence 元素之间的距离，也是一种有效的手段。</p>
+<p><a href="https://arxiv.org/pdf/1803.02155.pdf">https://arxiv.org/pdf/1803.02155.pdf</a></p>
+<p>2D 相对位置编码：</p>
+<p><a href="https://arxiv.org/pdf/1904.09925.pdf">https://arxiv.org/pdf/1904.09925.pdf</a></p>
+<p>LambdaNetwork 使用 Lambda layers 来建模长距离的内容和位置信息的 interactions，这样就可以避免使用 self-attention layer。LambdaNetwork 的实验证明： 位置信息的 interaction 对于性能的提升是必要的，而基于内容的 interaction 只能带来性能的小幅度的改善。</p>
+<p>Transformer 的位置编码表达式为：</p>
+<div class="arithmatex">\[
+\begin{equation} \begin{aligned} PE(pos, 2i) = \sin(pos/10000^{{2i}/d_{\text{model}}}) \\ PE(pos, 2i+1) = \cos(pos/10000^{{2i}/d_{\text{model}}}) \label{eq:absolute-enc} \end{aligned} \end{equation} \tag{10.2}
+\]</div>
+<p>式中， <span class="arithmatex">\(pos\)</span> 代表某个词在序列中的位置， <span class="arithmatex">\(d_{\text{model}}\)</span> 代表这个 Transformer 模型的 embedding dimension。 <span class="arithmatex">\(i\)</span> 代表当前的 dimension，取值范围是： <span class="arithmatex">\([0,\frac{d_{\text{model}}}{2})\)</span> 。</p>
+<p>回到 CVPT 上来，它的 motivation 说：一个好的位置编码应该具备以下 3 个特征：</p>
+<ol>
+<li>继续保持很强的性能。</li>
+<li>能够避免排列不变性 (permutation equivariance)，即：输入序列的顺序变化时，结果也不同，能起到位置编码的作用。且随着输入 size 的改变要也可以灵活地变化。</li>
+<li>高效，易于实现。不改变原版 Transformer 的公式。</li>
+</ol>
+<p><strong>CVPT 的 Positional Encoding Generator (PEG) 的具体做法是：</strong></p>
+<p>先把输入 <span class="arithmatex">\(X \in \mathbb{R}^{B\times N\times C}\)</span> reshape 回 2D 的张量 <span class="arithmatex">\(X' \in \mathbb{R}^{B\times C \times H \times W}\)</span> 。</p>
+<p>再把 <span class="arithmatex">\(X'\)</span> 通过 2D 的 Transformation <span class="arithmatex">\(\mathcal{F}\)</span> 并把输出再变为 <span class="arithmatex">\(X'' \in \mathbb{R}^{B \times N \times C}\)</span> 。 <span class="arithmatex">\(\mathcal{F}\)</span> 具体是个卷积，卷积核 <span class="arithmatex">\(k (k\geq3)\)</span> ，zero-padding <span class="arithmatex">\(\frac{k-1}{2}\)</span> ，这样不改变 spatial resolution。</p>
+<p>class token <span class="arithmatex">\(Y \in \mathbb{R}^{B \times C}\)</span> 保持不变。</p>
+<p>最后把 <span class="arithmatex">\(Y\)</span> 和 concatenate 起来，得到 PEG 输出。</p>
+<p><img alt="" src="https://pic1.zhimg.com/v2-940b55cc6ef4d941b8a610a9d43913b4_r.jpg" /></p>
+<p><strong>问：为什么要这么做？这种做法怎么就能把位置信息引入 Transformer 了？</strong></p>
+<p><strong>答：</strong>给 Transformer 引入位置信息，说白了就是给一个 sequence 的 <span class="arithmatex">\(N\)</span> 个向量 assign a position。那这个 position 它既可以是绝对信息，也可以是相对信息。相对信息就是定义一个参考点然后给每个向量一个代表它与参考点相对位置的信息。这种做法相当于是使用卷积操作得到 positional encoding，而卷积操作的 zero-padding 就是相当于是参考点，卷积操作相当于提取了每个向量与参考点的相对位置信息。所以这种办法用一句话概括就是：</p>
+<p><strong>PEG 的卷积部分以 zero-padding 作为参考点，以卷积操作提取相对位置信息，借助卷积得到适用于 Transformer 的可变长度的位置编码。</strong></p>
+<p>我们通过下面的可视化结果来看下位置编码的影响：</p>
+<p>考虑一张 224×224 的 image，分成 14×14 个 patch。我们使用一个 196×196 的矩阵来表示这 196 个 patch 之间的 self-attention score，如下图 19 所示。左边是 DeiT 的结果，右边是 DeiT 去掉位置编码的结果。我们发现 DeiT 学到了 a schema of locality。每个 patch 只与它的 local neighbor interacts strongly，与那些距离它很远的 patch interacts weakly。但是去掉位置编码以后，这种 schema 消失了，每个 patch 与它的 neighbor 变得没有联系了，位置信息也消失了。</p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-21086bcbf6c273a1fc30d264c084c2db_r.jpg" /></p>
+<p>下图 20 是使用 CPVT 以后第 2 个 encoder block 的输出的 attention maps，<strong>把上一张图的每一行 (196×1) reshape 到了 14×14 的格子，一共有 196 个格子。</strong>最左上方的格子关注 (attention) 的点在左上，而最左下方的格子关注 (attention) 的点在左下，以此类推，所以 CPVT 依然能够学习到 local information。</p>
+<p><img alt="" src="https://pic2.zhimg.com/v2-743498b32d2ca48afcddd0f6765579c9_r.jpg" /></p>
+<p><strong>Experiment：</strong></p>
+<p><strong>数据集：ImageNet</strong></p>
+<p><strong>模型 variants：</strong></p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-99ad28919b0b698f1bd2601abab9baff_r.jpg" /></p>
+<p>8 卡 V100 跑 CPVT-Tiny，Small，Base 模型分别需要 1.3days，1.6days 和 2.5days。</p>
+<p><strong>Training details：</strong></p>
+<p>300 epochs，batch size=2048，AdamW。超参数与 DeiT 保持一致。</p>
+<p>学习率的变化公式： <span class="arithmatex">\(lr_{scale} = \frac{0.0005* Batch Size_{global}}{512}\)</span></p>
+<p><strong>实验 1：ImageNet 与 SOTA 的对比：</strong></p>
+<p>CPVT 在模型参数和计算量一致的前提下比 DeiT 的性能有所提升。</p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-f312b37813f984ea61434f96e5053a3f_r.jpg" /></p>
+<p>值得一提的是，这个表格的最右侧一列是在 224×224 的数据集上训练好的模型直接在 384×384 的数据集上测试，而不进行任何 fine-tuning 的结果。作者发现 DeiT-tiny 的性能从 72.2% 降为了 71.2%，而 CVPT 的性能却从 73.4% 上升到了 74.2%，证明了 CVPT 方法对于数据集大小变化的适应性。它不需要任何其他的措施来适应这一变化，仅靠着一层网络来适应数据集尺寸的变化。</p>
+<p><strong>实验 2：目标检测任务性能：</strong></p>
+<p>作者又对 Transformer 做检测任务的 DETR 模型使用了本文的 PEG 模块，epochs 数量从 500 降为 50，优化器是 AdamW，batch size 为 32，weight decay 为 0.0001。backbone 和 Trasnformer 的初始 learning rate 分别为 <span class="arithmatex">\(2\times10^{-5}\)</span> 和 <span class="arithmatex">\(1\times10^{-4}\)</span> 。learning rate 使用 stepLR 策略，在 epoch 为 40 是降为 0.1 倍。实验结果如图 23 所示。为了对比的公平 DETR 和 Deformable-DETR 都使用了 sine positional encoding。如果去掉位置编码，DETR 的 mAP 从 33.7% 降为 32.8%；但如果使用了本文的 PEG 模块会提升至 33.9%。Deformable-DETR 也得到了相似的实验结果，证明 PEG 优于原本的 positional encoding。</p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-e7857e3626d402c5b5f27fc878cfc2fb_r.jpg" /></p>
+<p><strong>实验 3：PEG 复杂度分析：</strong></p>
+<p><strong>参数量：</strong></p>
+<p>这一部分主要来看看 PEG 这个模块为模型引入了多少额外的参数量和计算量。我们假设 Transformer 模型的 embedding dim 为 <span class="arithmatex">\(d\)</span> ，如果只使用 <span class="arithmatex">\(l\)</span> 个 Depthwise convolution，增加的参数量是 <span class="arithmatex">\(dlk^2\)</span> ，如果使用 <span class="arithmatex">\(l\)</span> 个 Depthwise Separable convolution，增加的参数量是 <span class="arithmatex">\(dlk^2+ld^2\)</span> 。当 <span class="arithmatex">\(k=3,l=1\)</span> 时，CVPT-Ti 模型的 <span class="arithmatex">\(d=192\)</span> 带来大约 <span class="arithmatex">\(1728\)</span> 的参数。而 DeiT-Tiny 的位置编码参数量为 <span class="arithmatex">\(14\times14\times192=37632\)</span> ，所以 CVPT-Ti 节约了大约 <span class="arithmatex">\(37632-1728=35904\)</span> 个参数。即便你使用 Depthwise Separable convolution，PEG 参数量为 <span class="arithmatex">\(192^2+9\times192=38592\)</span> ，相比原来的 <span class="arithmatex">\(37632\)</span> 只多了 960 个参数，可以忽略不计。</p>
+<p><strong>计算量：</strong></p>
+<p><span class="arithmatex">\(l\)</span> 层 Depthwise convolution 的计算量是 <span class="arithmatex">\(14\times14dlk^2\)</span> ，当 <span class="arithmatex">\(k=3,l=1\)</span> 时计算量大概是 <span class="arithmatex">\(196\times192\times9=0.34M\)</span> ，相比 Tiny 模型 2.1G 的计算量来说可以忽略。</p>
+<p><strong>对比实验 1：PEG 模块插入策略比较</strong></p>
+<p>作者对比了几种不同的插入策略，图中的 LE 代表 learnable encoding，RPE 代表 relative positional encoding，sin-cos 代表 absolute positional encoding。</p>
+<p><img alt="" src="https://pic2.zhimg.com/v2-e27d1db871235e2e82f171c5125ec769_r.jpg" /></p>
+<p><strong>结论：</strong></p>
+<p>sin-cos 和可学习的位置编码差别不大。</p>
+<p>在每个 blk 前插入 PEG 效果更好。</p>
+<p><strong>对比实验 2：PEG 模块插入位置比较</strong></p>
+<p><img alt="" src="https://pic3.zhimg.com/v2-d975fef50cb75e11982c2366427a106e_r.jpg" /></p>
+<p><strong>结论：</strong></p>
+<p>PEG 最佳的插入位置是第 1 个 encoder block 的输出到第 4 个 encoder block 的输出。</p>
+<p><strong>为什么插入位置为 - 1 (第 1 个 encoder block 的输入) 时的效果比插入位置为 0 时 (第 1 个 encoder block 的输出) 的效果差很多？</strong></p>
+<p>作者认为是插入位置为 - 1 的感受野更小，插入位置为 0 时的感受野更大。所以在插入位置为 - 1 时扩大感受野应该可以得到相似的性能。所以作者进行了下图 26 的实验：</p>
+<p><img alt="" src="https://pic1.zhimg.com/v2-f10c647ac533ab379c2d1e4ea3bc3eb8_r.jpg" /></p>
+<p>把 3×3 卷积扩大为 27×27，并使用 13 的 zero-padding，扩大感受野后，在插入位置为 - 1 时得到了与插入位置为 0 时相似的性能。</p>
+<p>作者也在插入位置为 0 时使用了不同大小的卷积核：</p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-35e109b146266ef43857e9226d855693_r.jpg" /></p>
+<p>当卷积核为 1 时，由于无法获得位置信息，所以性能掉点严重，而卷积核为 5,7 时对性能提升意义不大。</p>
+<p>作者进一步比较了在多个位置插入 PEG 模块给 Transformer 模型带来的影响，如下图 28 所示。</p>
+<p><img alt="" src="https://pic1.zhimg.com/v2-6b25e2f3a6359445265ba49d2ab833a4_r.jpg" /></p>
+<p>在 Tiny 模型的位置 0-5 都插入 PEG 模块时，性能超过了 DeiT-tiny 1.2%。插入过多的 PEG 模块的影响不大。</p>
+<p>作者进一步对比了在 0 位置 PEG 使用 1 个 Depth-wise Convolution，1 个 Separable Convolution，4 个 Separable Convolution 的性能对比，如下图 29 所示。</p>
+<p>使用 4 个 Separable Convolution 可以在只增加 0.1M 参数量的前提下获得 0.5% 的涨点。</p>
+<p><img alt="" src="https://pic3.zhimg.com/v2-e09f4bcb89f9ce4e4aa8f8e39f1f85ae_r.jpg" /></p>
+<p><strong>对比实验 3：Padding 的作用</strong></p>
+<p>为了探索 zero-padding 的作用，作者将它去掉之后再看 CPVT 模型的性能，降为了 70.5%。原因是 zero-padding 起到定位绝对位置的作用。它能暗示出图像的哪些部分是中间，哪些部分是边缘。这个实验也侧面证明了绝对位置编码的作用。</p>
+<p><img alt="" src="https://pic3.zhimg.com/v2-bd01d3636c3b6387bbc063bb8c550a4a_r.jpg" /></p>
+<p><strong>对比实验 4：到底是什么提升了性能？</strong></p>
+<p>作者想要探索到底是 PEG 的什么提升了性能，究竟是 PEG 卷积层的 <strong>representative power</strong> 还是它的<strong>位置表示能力</strong>？</p>
+<ul>
+<li>如果是 PEG 卷积的<strong>位置表示能力</strong>起了作用，那我把卷积换成 FC 层，应该会掉点；</li>
+<li>如果是 PEG 卷积的 <strong>representative power</strong> 起了作用，那我让卷积的参数固定住不更新，应该会掉点；</li>
+</ul>
+<p>实验结果如图 30 所示，验证了第 1 点，所以是 PEG 卷积的位置表示能力在起作用。即使只使用卷积层而不学习它，那么通过 zero-padding 也可以把位置信息融入 Transformer 里面。</p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-b76145b8a5fd249d3c924bc1b705b437_r.jpg" /></p>
+<ul>
+<li><strong>13.2 CVPT 代码解读：</strong></li>
+</ul>
+<p><strong>Vision Transformer：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>import torch
+<span class="linenos" data-linenos=" 2 "></span>import torch.nn as nn
+<span class="linenos" data-linenos=" 3 "></span>class VisionTransformer:
+<span class="linenos" data-linenos=" 4 "></span>    def __init__(layers=12, dim=192, nhead=3, img_size=224, patch_size=16):
+<span class="linenos" data-linenos=" 5 "></span>    self.pos_block = PEG(dim)
+<span class="linenos" data-linenos=" 6 "></span>    self.blocks = nn.ModuleList([TransformerEncoderLayer(dim, nhead, dim*4) for _ in range(layers)])
+<span class="linenos" data-linenos=" 7 "></span>    self.patch_embed = PatchEmbed(img_size, patch_size, dim*4)
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    def forward_features(self, x):
+<span class="linenos" data-linenos="10 "></span>        B, C, H, W = x.shape
+<span class="linenos" data-linenos="11 "></span>        x, patch_size = self.patch_embed(x)
+<span class="linenos" data-linenos="12 "></span>        _H, _W = H // patch_size, W // patch_size
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>        # x: (b, N, d)
+<span class="linenos" data-linenos="15 "></span>        x = torch.cat((self.cls_tokens, x), dim=1)
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>        # 循环通过所有的Encoder Blocks, 只是第1个encoder block的输出通过PEG模块.
+<span class="linenos" data-linenos="18 "></span>        for i, blk in enumerate(self.blocks):
+<span class="linenos" data-linenos="19 "></span>            x = blk(x)
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span>            # 第1个encoder block的输出通过PEG模块.
+<span class="linenos" data-linenos="22 "></span>            if i == 0:
+<span class="linenos" data-linenos="23 "></span>                x = self.pos_block(x, _H, _W)
+<span class="linenos" data-linenos="24 "></span>        return x[:, 0]
+</code></pre></div>
+<p><strong>分类任务：PEG 模块：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>class PEG(nn.Module):
+<span class="linenos" data-linenos=" 2 "></span>    def __init__(self, dim=256, k=3):
+<span class="linenos" data-linenos=" 3 "></span>    self.proj = nn.Conv2d(dim, dim, k, 1, k//2, groups=dim) # Only for demo use, more complicated functions are effective too.
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    def forward(self, x, H, W):
+<span class="linenos" data-linenos=" 6 "></span>    B, N, C = x.shape
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>    # 把class token提出来, 不变.
+<span class="linenos" data-linenos=" 9 "></span>    # 只处理feat_token.
+<span class="linenos" data-linenos="10 "></span>    cls_token, feat_token = x[:, 0], x[:, 1:]
+<span class="linenos" data-linenos="11 "></span>    cnn_feat = feat_token.transpose(1, 2).view(B, C, H, W)
+<span class="linenos" data-linenos="12 "></span>    x = self.proj(cnn_feat) + cnn_feat
+<span class="linenos" data-linenos="13 "></span>    x = x.flatten(2).transpose(1, 2)
+<span class="linenos" data-linenos="14 "></span>    x = torch.cat((cls_token.unsqueeze(1), x), dim=1)
+<span class="linenos" data-linenos="15 "></span>    return x
+</code></pre></div>
+<p><strong>检测任务：PEG 模块：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>from torch import nn
+<span class="linenos" data-linenos=" 2 "></span>class PEGDetection(nn.Module):
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>    def __init__(self, in_chans):
+<span class="linenos" data-linenos=" 5 "></span>        super(PEGDetection, self).__init__()
+<span class="linenos" data-linenos=" 6 "></span>        self.proj = nn.Sequential(nn.Conv2d(in_chans, in_chans, 3, 1, 1, bias=False, groups=in_chans), nn.BatchNorm2d(in_chans), nn.ReLU())
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>    def forward(self, x, mask, H, W):
+<span class="linenos" data-linenos=" 9 "></span>    &quot;&quot;&quot;
+<span class="linenos" data-linenos="10 "></span>    x N, B, C ; mask B N
+<span class="linenos" data-linenos="11 "></span>    &quot;&quot;&quot;
+<span class="linenos" data-linenos="12 "></span>        _, B, C = x.shape
+<span class="linenos" data-linenos="13 "></span>        _tmp = x.transpose(0, 1)[mask]
+<span class="linenos" data-linenos="14 "></span>        x = x.permute(1, 2, 0).view(B, C, H, W)
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span>        # 与分类任务不同，直接把x通过卷积之后与自己相加.
+<span class="linenos" data-linenos="17 "></span>        x = x + self.proj(cnn_feat)
+<span class="linenos" data-linenos="18 "></span>        x = x.flatten(2).transpose(1, 2)
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span>        # mask保持不变.
+<span class="linenos" data-linenos="21 "></span>        x[mask] = _tmp
+<span class="linenos" data-linenos="22 "></span>        return x.transpose(0, 1)
+</code></pre></div>
+<h2 id="_1">总结：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Patch 内部信息的处理与位置编码是 vision Transformer 的 2 个很重要的问题。本文深入探究了 2 种 vision Transformer 的内部机制，即：1. 如何更好地利用图像 patch 内部信息？2. 如何设计更灵活的位置编码？TNT 通过将 Patch 内部信息与 Patch 之间的信息融合，提升了 DeiT/ViT 的性能。CPVT 通过 PEG 模块代替传统的位置编码，实现了灵活的位置表示和更高效的位置信息编码，提升了 DeiT/ViT 的性能。值得一提的是，这 2 种方法与其他的改进措施是正交的，可以在不相互影响的条件下直接完成迁移。</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Vision%20Transformer%20%28%E4%B8%89%29/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Vision Transformer  (三)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Vision Transformer  (三)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Vision%20Transformer%20%28%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%20%E9%A2%84%E8%AE%AD%E7%BB%83%EF%BC%89/" class="md-footer__link md-footer__link--next" aria-label="Next: Vision Transformer (知识蒸馏 预训练）">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Vision Transformer (知识蒸馏 预训练）
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "header.autohide"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+        <script src="../mathjax-config.js"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../extra.js"></script>
+      
+        <script src="../js/toggle_sidebar.js"></script>
+      
+    
+  </body>
+</html>
