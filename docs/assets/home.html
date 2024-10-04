@@ -15,25 +15,33 @@
             margin: 0;
             background-color: #ffffff;
         }
+
         .content-wrapper {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             width: 100%;
-            height: calc(100vh - 64px); 
+            height: calc(100vh - 64px);
         }
+
         .image-container {
             position: relative;
             width: 100%;
             height: 100%;
-            background-image: url('da Vinci.jpg'); 
-            background-size: cover; 
-            background-position: center; 
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 使图片等比例裁剪以适应容器 */
+            object-position: center; /* 保持图片居中 */
+        }
+
         .typed-text {
             font-family: 'Dancing Script', cursive;
             font-size: 40px;
@@ -46,22 +54,34 @@
             text-align: center;
             text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             position: absolute;
-            top: 30%; 
+            top: 30%;
             transform: translateY(-50%);
         }
+
         .typed-text.typing::after {
             content: "|";
             animation: blink 1s infinite;
         }
+
         @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
+
         .profile-container {
             text-align: center;
             padding: 20px;
         }
+
         .profile-pic {
             width: 150px;
             height: 150px;
@@ -69,10 +89,12 @@
             object-fit: cover;
             border: 2px solid #ccc;
         }
+
         .contact-info {
             margin-top: 20px;
             font-size: 18px;
         }
+
         .custom-message {
             margin-top: 20px;
             font-size: 16px;
@@ -81,9 +103,11 @@
         }
     </style>
 </head>
+
 <body>
     <div class="content-wrapper">
         <div class="image-container">
+            <img src="da Vinci.jpg" alt="Background Image"> <!-- 使用 <img> 标签来加载背景图片 -->
             <div class="typed-text typing"></div>
         </div>
         <div class="profile-container">
@@ -107,20 +131,20 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-          setTimeout(() => {
-            const typed = new Typed('.typed-text', {
-              strings: ["You stole my heart so long ago"],
-              typeSpeed: 90,
-              backSpeed: 25,
-              loop: false,
-              onComplete: () => {
-                // Remove the cursor
-                const typedText = document.querySelector('.typed-text');
-                typedText.classList.remove('typing');
-                typedText.style.borderRight = 'none';
-              }
-            });
-          }, 1500); 
+            setTimeout(() => {
+                const typed = new Typed('.typed-text', {
+                    strings: ["You stole my heart so long ago"],
+                    typeSpeed: 90,
+                    backSpeed: 25,
+                    loop: false,
+                    onComplete: () => {
+                        // Remove the cursor
+                        const typedText = document.querySelector('.typed-text');
+                        typedText.classList.remove('typing');
+                        typedText.style.borderRight = 'none';
+                    }
+                });
+            }, 1500);
         });
 
         function clickEffect() {
@@ -139,21 +163,21 @@
             const pointer = document.createElement("span");
             pointer.classList.add("pointer");
             document.body.appendChild(pointer);
-        
+
             if (canvas.getContext && window.addEventListener) {
                 ctx = canvas.getContext("2d");
                 updateSize();
                 window.addEventListener('resize', updateSize, false);
                 loop();
-                window.addEventListener("mousedown", function(e) {
+                window.addEventListener("mousedown", function (e) {
                     pushBalls(randBetween(10, 20), e.clientX, e.clientY);
                     document.body.classList.add("is-pressed");
-                    longPress = setTimeout(function(){
+                    longPress = setTimeout(function () {
                         document.body.classList.add("is-longpress");
                         longPressed = true;
                     }, 500);
                 }, false);
-                window.addEventListener("mouseup", function(e) {
+                window.addEventListener("mouseup", function (e) {
                     clearInterval(longPress);
                     if (longPressed == true) {
                         document.body.classList.remove("is-longpress");
@@ -162,7 +186,7 @@
                     }
                     document.body.classList.remove("is-pressed");
                 }, false);
-                window.addEventListener("mousemove", function(e) {
+                window.addEventListener("mousemove", function (e) {
                     let x = e.clientX;
                     let y = e.clientY;
                     pointer.style.top = y + "px";
@@ -171,7 +195,7 @@
             } else {
                 console.log("canvas or addEventListener is unsupported!");
             }
-        
+
             function updateSize() {
                 canvas.width = window.innerWidth * 2;
                 canvas.height = window.innerHeight * 2;
@@ -189,6 +213,7 @@
                     y: height / 2
                 };
             }
+
             class Ball {
                 constructor(x = origin.x, y = origin.y) {
                     this.x = x;
@@ -204,6 +229,7 @@
                     this.r = randBetween(8, 12) + 3 * Math.random();
                     this.color = colours[Math.floor(Math.random() * colours.length)];
                 }
+
                 update() {
                     this.x += this.vx - normal.x;
                     this.y += this.vy - normal.y;
@@ -214,17 +240,17 @@
                     this.vy *= 0.9;
                 }
             }
-        
+
             function pushBalls(count = 1, x = origin.x, y = origin.y) {
                 for (let i = 0; i < count; i++) {
                     balls.push(new Ball(x, y));
                 }
             }
-        
+
             function randBetween(min, max) {
                 return Math.floor(Math.random() * max) + min;
             }
-        
+
             function loop() {
                 ctx.fillStyle = "rgba(255, 255, 255, 0)";
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -245,7 +271,7 @@
                 removeBall();
                 requestAnimationFrame(loop);
             }
-        
+
             function removeBall() {
                 for (let i = 0; i < balls.length; i++) {
                     let b = balls[i];
@@ -256,8 +282,9 @@
             }
         }
         clickEffect();
-    </script>    
+    </script>
 </body>
+
 <section class="mdx-container portfolio-section">
     <div class="md-grid md-typeset">
         <div class="text-center">
