@@ -234,6 +234,15 @@ nav:
       - Proteomic and interactomic insights into the molecular basis of cell functional diversity.md
 
 
+  - 📖 Anthropic 可解释性译集:
+    - "通过特征交互追踪注意力计算": anth-interp/attention-qk-zh/index.md
+    - "大语言模型的生物学": anth-interp/attribution-graphs-biology-zh/index.md
+    - "电路追踪：揭示语言模型中的计算图": anth-interp/attribution-graphs-methods-zh/index.md
+    - "追踪大语言模型的思考": anth-interp/circuit-tracing-zh/index.md
+    - "跨层转码器模型差异比较的洞见": anth-interp/crosscoder-diffing-update-zh/index.md
+    - "跨层特征与模型差异比较的稀疏跨层转码器": anth-interp/crosscoders-zh/index.md
+    - "曲线检测器": anth-interp/distill-curve-detectors-zh/index.md
+    - "InceptionV1 早期视觉概述": anth-interp/distill-early-vision-zh/index.md
 extra:
   analytics:
     provider: google
