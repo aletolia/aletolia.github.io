@@ -236,6 +236,14 @@ nav:
 
   - 📖 Anthropic 可解释性译集:
     - "通过特征交互追踪注意力计算": anth-interp/attention-qk-zh/index.md
+    - "神经网络中自然涌现的等变性": anth-interp/distill-equivariance-zh/index.md
+    - "放大观察：电路导论": anth-interp/distill-zoom-in-zh/index.md
+    - "情绪概念及其在大语言模型中的功能": anth-interp/emotions-zh/index.md
+    - "规模化可解释性的工程挑战": anth-interp/engineering-challenges-zh/index.md
+    - "评估特征引导：缓解社会偏见的案例研究": anth-interp/evaluating-feature-steering-zh/index.md
+    - "机制（不）忠实性的玩具模型": anth-interp/faithfulness-toy-model-zh/index.md
+    - "用字典学习特征作为分类器": anth-interp/features-as-classifiers-zh/index.md
+    - "A Mathematical Framework for Transformer Circuits": anth-interp/framework-zh/index.md
     - "大语言模型的生物学": anth-interp/attribution-graphs-biology-zh/index.md
     - "电路追踪：揭示语言模型中的计算图": anth-interp/attribution-graphs-methods-zh/index.md
     - "追踪大语言模型的思考": anth-interp/circuit-tracing-zh/index.md
