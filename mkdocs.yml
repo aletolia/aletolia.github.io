@@ -89,6 +89,44 @@ nav:
       - Modeling Dense Multimodal Interactions Between Biological Pathways and Histology for Survival Prediction.md
       - Inferring super-resolution tissue architecture by integrating spatial transcriptomics with histology.md
       - Prediction of recurrence risk in endometrial cancer with multimodal deep learning.md
+    - 📖 Anthropic 可解释性译集:
+      - "通过特征交互追踪注意力计算": anth-interp/attention-qk-zh/index.md
+      - "大语言模型的生物学": anth-interp/attribution-graphs-biology-zh/index.md
+      - "电路追踪：揭示语言模型中的计算图": anth-interp/attribution-graphs-methods-zh/index.md
+      - "追踪大语言模型的思考": anth-interp/circuit-tracing-zh/index.md
+      - "跨层转码器模型差异比较的洞见": anth-interp/crosscoder-diffing-update-zh/index.md
+      - "跨层特征与模型差异比较的稀疏跨层转码器": anth-interp/crosscoders-zh/index.md
+      - "曲线检测器": anth-interp/distill-curve-detectors-zh/index.md
+      - "InceptionV1 早期视觉概述": anth-interp/distill-early-vision-zh/index.md
+      - "神经网络中自然涌现的等变性": anth-interp/distill-equivariance-zh/index.md
+      - "放大观察：电路导论": anth-interp/distill-zoom-in-zh/index.md
+      - "情绪概念及其在大语言模型中的功能": anth-interp/emotions-zh/index.md
+      - "规模化可解释性的工程挑战": anth-interp/engineering-challenges-zh/index.md
+      - "评估特征引导：缓解社会偏见的案例研究": anth-interp/evaluating-feature-steering-zh/index.md
+      - "机制（不）忠实性的玩具模型": anth-interp/faithfulness-toy-model-zh/index.md
+      - "用字典学习特征作为分类器": anth-interp/features-as-classifiers-zh/index.md
+      - "A Mathematical Framework for Transformer Circuits": anth-interp/framework-zh/index.md
+      - "语言模型中的全局工作空间（A Global Workspace in Language Models）": anth-interp/global-workspace-zh/index.md
+      - "HeadVis：注意力头可视化": anth-interp/headvis-zh/index.md
+      - "上下文学习与归纳头（In-context Learning and Induction Heads）": anth-interp/icl-induction-heads-zh/index.md
+      - "干涉权重的玩具模型": anth-interp/interference-weights-zh/index.md
+      - "可解释性之梦（Interpretability Dreams）": anth-interp/interpretability-dreams-zh/index.md
+      - "大语言模型中涌现的内省意识": anth-interp/introspection-zh/index.md
+      - "当模型操纵流形：计数任务的几何": anth-interp/linebreaks-zh/index.md
+      - "绘制大语言模型的内心地图": anth-interp/mapping-mind-zh/index.md
+      - "机制可解释性、变量与可解释基的重要性": anth-interp/mech-interp-essay-zh/index.md
+      - "分阶段模型差异比较": anth-interp/model-diffing-zh/index.md
+      - "Towards Monosemanticity: Decomposing Language Models With Dictionary Learning": anth-interp/monosemanticity-zh/index.md
+      - "自然语言自编码器": anth-interp/nla-zh/index.md
+      - "开源电路追踪工具（Open-Sourcing Circuit-Tracing Tools）": anth-interp/open-source-circuit-tracing-zh/index.md
+      - "人格向量：监测与控制语言模型中的性格特征": anth-interp/persona-vectors-zh/index.md
+      - "transformer 残差流中的特权基": anth-interp/privileged-basis-zh/index.md
+      - "质性研究的反思": anth-interp/qualitative-essay-zh/index.md
+      - "规模化单语义性：从 Claude 3 Sonnet 中提取可解释特征": anth-interp/scaling-monosemanticity-zh/index.md
+      - "Softmax 线性单元（Softmax Linear Units）": anth-interp/solu-zh/index.md
+      - "分布式表示：组合与叠加": anth-interp/superposition-composition-zh/index.md
+      - "叠加、记忆与双重下降": anth-interp/toy-double-descent-zh/index.md
+      - "Toy Models of Superposition": anth-interp/toy-model-zh/index.md
 
   - 🚀 Re:0 Road to CPath & Visualization:
     - Session 1.ipynb
@@ -234,23 +272,6 @@ nav:
       - Proteomic and interactomic insights into the molecular basis of cell functional diversity.md
 
 
-  - 📖 Anthropic 可解释性译集:
-    - "通过特征交互追踪注意力计算": anth-interp/attention-qk-zh/index.md
-    - "神经网络中自然涌现的等变性": anth-interp/distill-equivariance-zh/index.md
-    - "放大观察：电路导论": anth-interp/distill-zoom-in-zh/index.md
-    - "情绪概念及其在大语言模型中的功能": anth-interp/emotions-zh/index.md
-    - "规模化可解释性的工程挑战": anth-interp/engineering-challenges-zh/index.md
-    - "评估特征引导：缓解社会偏见的案例研究": anth-interp/evaluating-feature-steering-zh/index.md
-    - "机制（不）忠实性的玩具模型": anth-interp/faithfulness-toy-model-zh/index.md
-    - "用字典学习特征作为分类器": anth-interp/features-as-classifiers-zh/index.md
-    - "A Mathematical Framework for Transformer Circuits": anth-interp/framework-zh/index.md
-    - "大语言模型的生物学": anth-interp/attribution-graphs-biology-zh/index.md
-    - "电路追踪：揭示语言模型中的计算图": anth-interp/attribution-graphs-methods-zh/index.md
-    - "追踪大语言模型的思考": anth-interp/circuit-tracing-zh/index.md
-    - "跨层转码器模型差异比较的洞见": anth-interp/crosscoder-diffing-update-zh/index.md
-    - "跨层特征与模型差异比较的稀疏跨层转码器": anth-interp/crosscoders-zh/index.md
-    - "曲线检测器": anth-interp/distill-curve-detectors-zh/index.md
-    - "InceptionV1 早期视觉概述": anth-interp/distill-early-vision-zh/index.md
 extra:
   analytics:
     provider: google
