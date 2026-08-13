@@ -1,0 +1,8233 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://localhost:8000/anth-interp/introspection-zh/">
+      
+      
+        <link rel="prev" href="../interpretability-dreams-zh/">
+      
+      
+        <link rel="next" href="../linebreaks-zh/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>大语言模型中涌现的内省意识 - One Last Kiss</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-M0R7V8QGQ7"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-M0R7V8QGQ7",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-M0R7V8QGQ7",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="One Last Kiss" class="md-header__button md-logo" aria-label="One Last Kiss" data-md-component="logo">
+      
+  <img src="../../img/icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            One Last Kiss
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              大语言模型中涌现的内省意识
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aletolia/aletolia.github.io.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aletolia/aletolia.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  🏠 Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../Mygo/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ⛏️ CV and Multimodels
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Session%201/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  🚀 Re:0 Road to CPath & Visualization
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../1.1%20Single-cell%20RNA%20sequencing/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  💤 Re:0 Road to scRNA-seq Analysis
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Large-scale%20foundation%20model%20on%20single-cell%20transcriptomics/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  🧬 scRNA Analysis
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AC%AC%201%20%E7%AB%A0%20python%20%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  📐 Data Structures
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Best%20practices%20for%20single-cell%20analysis%20across%20modalities/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  💡 Reviews
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="One Last Kiss" class="md-nav__button md-logo" aria-label="One Last Kiss" data-md-component="logo">
+      
+  <img src="../../img/icon.png" alt="logo">
+
+    </a>
+    One Last Kiss
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aletolia/aletolia.github.io.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aletolia/aletolia.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏠 Home
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🏠 Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⛏️ CV and Multimodels
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ⛏️ CV and Multimodels
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mygo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MyGO: Discrete Modality Information as Fine-Grained Tokens for Multi-modal Knowledge Graph Completion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GMM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GMM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DINO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DINO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mamba/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mamba
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ViT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ViT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Self-Supervised%20Learning%20MoCo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Self-Supervised%20Learning%20MoCoV2%2C3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoCo V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Vision%20Transformer%20%28%E4%B8%80%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformer  (一)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Vision%20Transformer%20%20%28%E4%BA%8C%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformer (二)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Vision%20Transformer%20%28%E4%B8%89%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformer  (三)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Vision%20Transformer%20%28%E5%9B%9B%29%20%28TNT%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformer (四)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Vision%20Transformer%20%28%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%20%E9%A2%84%E8%AE%AD%E7%BB%83%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformer (知识蒸馏 预训练）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Vision%20Transformer%20%28PyramidTNT%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformer(Pyramid TNT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E5%92%8C%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%93%E9%A2%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    傅里叶级数和傅里叶变换专题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%20%E5%AD%98%E5%82%A8%E4%B8%8E%E8%AF%BB%E5%8F%96%20HDF5%20%E6%96%87%E4%BB%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python 存储与读取 HDF5 文件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Segment%20Anything%20in%20Medical%20Images/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Segment Anything in Medical Images
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Vision%20Mamba%20Efficient%20Visual%20Representation%20Learning%20with%20Bidirectional%20State%20Space%20Model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Mamba Efficient Visual Representation Learning with Bidirectional State Space Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DeepSeekMoE%20Towards%20Ultimate%20Expert%20Specialization%20in%20Mixture-of-Experts%20Language%20Models%20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DeepSeekMoE: Towards Ultimate Expert Specialization in Mixture-of-Experts Language Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_19" id="__nav_2_19_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚑 医学影像相关
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_19">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🚑 医学影像相关
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Why%20is%20the%20winner%20the%20best/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why is the winner the best
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PORPOISE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PORPOISE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HIPT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scaling Vision Transformers to Gigapixel Images via Hierarchical Self-Supervised Learning(HIPT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-efficient%20and%20weakly%20supervised%20computational%20pathology%20on%20whole-slide%20images%28CLAM%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data efficient and weakly supervised computational pathology on whole slide images(CLAM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Towards%20a%20general-purpose%20foundation%20model%20for%20computational%20pathology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Towards a general purpose foundation model for computational pathology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../A%20whole-slide%20foundation%20model%20for%20digital%20pathology%20from%20real-world%20data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A whole slide foundation model for digital pathology from real world data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../A%20visual-language%20foundation%20model%20for%20computational%20pathology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A visual language foundation model for computational pathology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Recurrent%20memory%20with%20optimal%20polynomial%20projections./" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recurrent memory with optimal polynomial projections.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Modeling%20Dense%20Multimodal%20Interactions%20Between%20Biological%20Pathways%20and%20Histology%20for%20Survival%20Prediction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modeling Dense Multimodal Interactions Between Biological Pathways and Histology for Survival Prediction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Inferring%20super-resolution%20tissue%20architecture%20by%20integrating%20spatial%20transcriptomics%20with%20histology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inferring super resolution tissue architecture by integrating spatial transcriptomics with histology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Prediction%20of%20recurrence%20risk%20in%20endometrial%20cancer%20with%20multimodal%20deep%20learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prediction of recurrence risk in endometrial cancer with multimodal deep learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_20" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../attention-qk-zh/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📖 Anthropic 可解释性译集
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_20" id="__nav_2_20_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_20_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_20">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    📖 Anthropic 可解释性译集
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../attribution-graphs-biology-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    大语言模型的生物学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../attribution-graphs-methods-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电路追踪：揭示语言模型中的计算图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../circuit-tracing-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    追踪大语言模型的思考
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crosscoder-diffing-update-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    跨层转码器模型差异比较的洞见
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crosscoders-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    跨层特征与模型差异比较的稀疏跨层转码器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distill-curve-detectors-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    曲线检测器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distill-early-vision-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InceptionV1 早期视觉概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distill-equivariance-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    神经网络中自然涌现的等变性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distill-zoom-in-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    放大观察：电路导论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../emotions-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    情绪概念及其在大语言模型中的功能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../engineering-challenges-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    规模化可解释性的工程挑战
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluating-feature-steering-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    评估特征引导：缓解社会偏见的案例研究
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faithfulness-toy-model-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机制（不）忠实性的玩具模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-as-classifiers-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    用字典学习特征作为分类器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../framework-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A Mathematical Framework for Transformer Circuits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../global-workspace-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    语言模型中的全局工作空间（A Global Workspace in Language Models）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../headvis-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HeadVis：注意力头可视化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../icl-induction-heads-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    上下文学习与归纳头（In-context Learning and Induction Heads）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interference-weights-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    干涉权重的玩具模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interpretability-dreams-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    可解释性之梦（Interpretability Dreams）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    大语言模型中涌现的内省意识
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    大语言模型中涌现的内省意识
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        机构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        发布信息
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引言
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要实验速览
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义内省
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linebreaks-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    当模型操纵流形：计数任务的几何
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mapping-mind-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    绘制大语言模型的内心地图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mech-interp-essay-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机制可解释性、变量与可解释基的重要性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model-diffing-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    分阶段模型差异比较
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monosemanticity-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Towards Monosemanticity: Decomposing Language Models With Dictionary Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nla-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自然语言自编码器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../open-source-circuit-tracing-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开源电路追踪工具（Open-Sourcing Circuit-Tracing Tools）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../persona-vectors-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人格向量：监测与控制语言模型中的性格特征
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privileged-basis-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    transformer 残差流中的特权基
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qualitative-essay-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    质性研究的反思
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scaling-monosemanticity-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    规模化单语义性：从 Claude 3 Sonnet 中提取可解释特征
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solu-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Softmax 线性单元（Softmax Linear Units）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../superposition-composition-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    分布式表示：组合与叠加
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toy-double-descent-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    叠加、记忆与双重下降
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toy-model-zh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Toy Models of Superposition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Re:0 Road to CPath & Visualization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🚀 Re:0 Road to CPath & Visualization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Session%201/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    理解全幅切片图像
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Session%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    在计算病理学中用于癌症诊断的弱监督深度学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Session%203/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基于注意力的多示例学习可解释性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../How%20to%20visualize%20Attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to visualize Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AttentionViz%20A%20Global%20View%20of%20Transformer%20Attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AttentionViz A Global View of Transformer Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Transformer%20Interpretability%20Beyond%20Attention%20Visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformer Interpretability Beyond Attention Visualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Visualization%20Work%20Flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visualization Work Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Attention%20Generation%20Work%20Flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attention Generation Work Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🪛 PyTorch
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🪛 PyTorch
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Autograd%20mechanics%20%E2%80%94%20PyTorch%202_3%20documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autograd mechanics — PyTorch 2 3 documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PyTorch%20Autograd%20Explained%20-%20In-depth%20Tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch Autograd Explained   In depth Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💤 Re:0 Road to scRNA-seq Analysis
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    💤 Re:0 Road to scRNA-seq Analysis
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Using Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_1" id="__nav_4_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⏳ CHAPTER 1 简介
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ⏳ CHAPTER 1 简介
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.1%20Single-cell%20RNA%20sequencing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1.The building block of life
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.2%20Raw%20Data%20Processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2 Raw data processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.3%20Analysis%20frameworks%20and%20tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3 Analysis frameworks and tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🌏 CHAPTER 2 数据准备与可视化
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🌏 CHAPTER 2 数据准备与可视化
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.1%20quality_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 Quality Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.2%20normalization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Normalization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.3_feature_selection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 Feature selection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.4_dimensionality_reduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.4 Dimensionality Reduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🍀 CHAPTER 3 识别细胞结构
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🍀 CHAPTER 3 识别细胞结构
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.1clustering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.1 Clustering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.2annotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.2 Annotation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.3integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.3 Data integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_4" id="__nav_4_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⏱️ CHAPTER 4 推断细胞轨迹
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ⏱️ CHAPTER 4 推断细胞轨迹
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pseudotemporal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1 Pseudotemporal ordering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rna_velocity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.2 RNA velocity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lineage_tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.3 Lineage tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_5" id="__nav_4_1_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎁 CHAPTER 5 应对特殊情况
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🎁 CHAPTER 5 应对特殊情况
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential_gene_expression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.1 Differential gene expression analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../compositional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.2 Compositional analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gsea_pathway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.3 Gene set enrichment and pathway analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perturbation_modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.4 Perturbation modeling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⚙️ CHAPTER 6 机制建模
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ⚙️ CHAPTER 6 机制建模
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gene_regulatory_networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.1 Gene regulatory networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cell_cell_communication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.2 Cell-cell communication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_7" id="__nav_4_1_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔓 CHAPTER 7 反卷积
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🔓 CHAPTER 7 反卷积
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bulk_deconvolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.1 Bulk deconvolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    简明易懂的单细胞分析流程（使用 R 语言）
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    简明易懂的单细胞分析流程（使用 R 语言）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    前言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    环境配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.1%20%E6%9E%84%E5%BB%BA%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E5%88%86%E6%9E%90%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 构建单细胞 RNA seq 分析环境
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.2%20R%20%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2 R 环境安装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.3%20Docker%20%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3 Docker 安装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.4%20%E5%9C%A8%20Docker%20%E4%B8%AD%E5%90%AF%E5%8A%A8%20Rstudio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.4 在 Docker 中启动 Rstudio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.5%20%E6%9C%89%E5%85%B3%20Bioconductor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.5 有关 Bioconductor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.1%20R%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 R 的基本用法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.2%20%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%20DataFrame%EF%BC%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 如何处理 DataFrame？
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.3%20%E4%BD%BF%E7%94%A8%20ggplot2%20%E5%8F%AF%E8%A7%86%E5%8C%96%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 使用 ggplot2 可视化数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.1%20PCA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.1 PCA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.2%20%E4%BD%BF%E7%94%A8%20clusterPlofiler%20%E8%BF%9B%E8%A1%8C%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.2 使用 clusterPlofiler 进行富集分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.3%20%E5%9F%BA%E5%9B%A0%E6%9C%AC%E4%BD%93%EF%BC%88GO%EF%BC%89%E4%B8%AD%E5%90%84%20BP%E3%80%81MF%20%E5%92%8C%20CC%20%E7%9A%84%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.3 基因本体（GO）中各 BP、MF 和 CC 的富集分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.3%20%E4%BD%BF%E7%94%A8%20DEseq2%20%E6%8F%90%E5%8F%96%20RNA-seq%20%E5%88%86%E6%9E%90%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%20DEG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.3 使用 DEseq2 提取 RNA seq 分析数据中的 DEG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.4%20%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88KEGG%E3%80%81Reactome%20%E7%AD%89%EF%BC%89%E8%BF%9B%E8%A1%8C%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.4 使用其他数据库（KEGG、Reactome 等）进行富集分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.1%20scRNA-seq%20%E6%A6%82%E8%A6%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1 scRNA seq 概要
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.2%20%E5%87%86%E5%A4%87%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.2 准备使用 Seurat 进行分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.3%20%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.3 使用 Seurat 进行数据预处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.4%20%E4%BD%BF%E7%94%A8%20Seurat%20%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E8%88%AC%E9%A1%BA%E5%BA%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.4 使用 Seurat 进行数据分析的一般顺序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.1%20%E5%A6%82%E4%BD%95%E6%9F%A5%E6%89%BE%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.1 如何查找单细胞 RNA seq 数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.2%20%E4%B8%BA%E6%AF%8F%E4%B8%AA%E7%B0%87%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E7%BB%86%E8%83%9E%E6%B3%A8%E9%87%8A%E6%A0%87%E7%AD%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.2 为每个簇自动添加细胞注释标签
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.3%20%E4%BD%BF%E7%94%A8%20FeaturePlot%20%E6%A3%80%E6%9F%A5%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.3 使用 FeaturePlot 检查基因表达
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.4%20%E5%B0%86%E5%8D%95%E7%BB%86%E8%83%9E%20RNA-seq%20%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9B%B8%E4%BA%92%E7%BB%93%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.4 将单细胞 RNA seq 数据集相互结合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.5%20%E7%BA%A0%E6%AD%A3%E6%89%B9%E6%AC%A1%E6%95%88%E5%BA%94%EF%BC%8C%E6%AF%94%E8%BE%83%E5%AF%B9%E7%85%A7%E7%BB%84%E5%92%8C%E5%88%BA%E6%BF%80%E7%BB%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.5 纠正批次效应，比较对照组和刺激组
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.6%20%E7%A1%AE%E5%AE%9A%E6%AF%8F%E4%B8%AA%E7%BE%A4%E7%BB%84%E7%9A%84%E6%A0%87%E8%AE%B0%E5%9F%BA%E5%9B%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.6 确定每个群组的标记基因
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6.1%20%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Cell%20Ranger%20%E7%BB%9F%E8%AE%A1%20scRNA-seq%20%E6%95%B0%E6%8D%AE%E4%B8%AD%E7%9A%84%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE%E6%B0%B4%E5%B9%B3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.1 如何使用 Cell Ranger 统计 scRNA seq 数据中的基因表达水平
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6.2%20%E4%BD%BF%E7%94%A8%20Cell%20Ranger%20%E5%A4%84%E7%90%86%20NCBI%20Sequence%20Read%20Archive%20%28SRA%29%20%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.2 使用 Cell Ranger 处理 NCBI Sequence Read Archive (SRA) 数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7.1%20%E5%85%B3%E4%BA%8E%20scRNA-seq%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%B4%A8%E9%87%8F%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.1 关于 scRNA seq 数据的质量控制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7.2%20%E4%BD%BF%E7%94%A8%20DoubleFinder%20%E6%A3%80%E6%B5%8B%E5%8F%8C%E9%87%8D%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.2 使用 DoubleFinder 检测双重细胞
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7.3%20%E7%94%A8%20CellBender%20%E5%8E%BB%E9%99%A4%E8%83%8C%E6%99%AF%20RNA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.3 用 CellBender 去除背景 RNA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧬 scRNA Analysis
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🧬 scRNA Analysis
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🐍 Using Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🐍 Using Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Large-scale%20foundation%20model%20on%20single-cell%20transcriptomics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Large scale foundation model on single cell transcriptomics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scGPT%20toward%20building%20a%20foundation%20model%20for%20single-cell%20multi-omics%20using%20generative%20AI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scGPT toward building a foundation model for single cell multi omics using generative AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scBERT%20as%20a%20large-scale%20pretrained%20deep%20language%20model%20for%20cell%20type%20annotation%20of%20single-cell%20RNA-seq%20data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scBERT as a large scale pretrained deep language model for cell type annotation of single cell RNA seq data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RNA%20velocity%20of%20single%20cells/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RNA velocity of single cells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TFvelo_gene%20regulation%20inspired%20RNA%20velocity%20estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TFvelo gene regulation inspired RNA velocity estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Disentanglement%20of%20single-cell%20data%20with%20biolord/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disentanglement of single cell data with biolord
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E2%AD%90%E2%AD%90%E2%AD%90C5aR1%20inhibition%20reprograms%20tumor%20associated%20macrophages%20and%20reverses%20PARP%20inhibitor%20resistance%20in%20breast%20cancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐⭐⭐C5aR1 inhibition reprograms tumor associated macrophages and reverses PARP inhibitor resistance in breast cancer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Spatial%20transition%20tensor%20of%20single%20cells/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spatial transition tensor of single cells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Statistical%20method%20scDEED%20for%20detecting%20dubious%202D%20single-cell%20embeddings%20and%20optimizing%20t-SNE%20and%20UMAP%20hyperparameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical method scDEED for detecting dubious 2D single cell embeddings and optimizing t SNE and UMAP hyperparameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scRank%20infers%20drug-responsive%20cell%20types%20from%20untreated%20scRNA-seq%20data%20using%20a%20target-perturbed%20gene%20regulatory%20network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRank infers drug responsive cell types from untreated scRNA seq data using a target perturbed gene regulatory network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📔 文献
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    📔 文献
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ZNF689%20deficiency%20promotes%20intratumor%20heterogeneity%20and%20immunotherapy%20resistance%20in%20triple-negative%20breast%20cancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZNF689 deficiency promotes intratumor heterogeneity and immunotherapy resistance in triple negative breast cancer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tumour%20vasculature%20at%20single-cell%20resolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tumour vasculature at single-cell resolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scRNA-seq%20of%20gastric%20tumor%20shows%20complex%20intercellular%20interaction%20with%20an%20alternative%20T%20cell%20exhaustion%20trajectory%EF%BC%88%E5%8F%82%E8%80%83%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    scRNA seq of gastric tumor shows complex intercellular interaction with an alternative T cell exhaustion trajectory（参考）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Single-cell%20analysis%20reveals%20new%20evolutionary%20complexity%20in%20uveal%20melanoma%EF%BC%88%E5%8F%82%E8%80%83%202%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Single cell analysis reveals new evolutionary complexity in uveal melanoma（参考 2）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Single-cell%20characterization%20of%20macrophages%20in%20uveal%20melanoma%20uncovers%20transcriptionally%20heterogeneous%20subsets%20conferring%20poor%20prognosis%20and%20aggressive%20behavior%EF%BC%88%E8%8C%83%E4%BE%8B%201%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Single cell characterization of macrophages in uveal melanoma uncovers transcriptionally heterogeneous subsets conferring poor prognosis and aggressive behavior（范例 1）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ScRNA-seq%20of%20gastric%20cancer%20tissues%20reveals%20differences%20in%20the%20immune%20microenvironment%20of%20primary%20tumors%20and%20metastases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ScRNA seq of gastric cancer tissues reveals differences in the immune microenvironment of primary tumors and metastases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blimp-1%20and%20c-Maf%20regulate%20immune%20gene%20networks%20to%20protect%20against%20distinct%20pathways%20of%20pathobiont-induced%20colitis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blimp 1 and c Maf regulate immune gene networks to protect against distinct pathways of pathobiont induced colitis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Single%20cell%20analysis%20unveils%20B%20cell-dominated%20immune%20subtypes%20in%20HNSCC%20for%20enhanced%20prognostic%20and%20therapeutic%20stratification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Single cell analysis unveils B cell dominated immune subtypes in HNSCC for enhanced prognostic and therapeutic stratification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Single-cell%20spatial%20multi-omics%20and%20deep%20learning%20dissect%20enhancer-driven%20gene%20regulatory%20networks%20in%20liver%20zonation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Single cell spatial multi omics and deep learning dissect enhancer driven gene regulatory networks in liver zonation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Neutrophil%20profiling%20illuminates%20anti-tumor%20antigen%20presenting%20potency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Neutrophil profiling illuminates anti tumor antigen presenting potency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../A%20blueprint%20for%20tumor-infiltrating%20B%20cells%20across%20human%20cancers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A blueprint for tumor infiltrating B cells across human cancers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Single-cell%20transcriptomic%20analyses%20reveal%20distinct%20immune%20cell%20contributions%20to%20epithelial%20barrier%20dysfunction%20in%20checkpoint%20inhibitor%20colitis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Single cell transcriptomic analyses reveal distinct immune cell contributions to epithelial barrier dysfunction in checkpoint inhibitor colitis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Systematic%20dissection%20of%20tumor-normal%20single-cell%20ecosystems%20across%20a%20thousand%20tumors%20of%2030%20cancer%20types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systematic dissection of tumor normal single cell ecosystems across a thousand tumors of 30 cancer types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../The%20aged%20tumor%20microenvironment%20limits%20T%20cell%20control%20of%20cancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The aged tumor microenvironment limits T cell control of cancer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TIM-3%2B%20CD8%20T%20cells%20with%20a%20terminally%20exhausted%20phenotype%20retain%20functional%20capacity%20in%20hematological%20malignancies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TIM 3+ CD8 T cells with a terminally exhausted phenotype retain functional capacity in hematological malignancies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../A%20lactate-SREBP2%20signaling%20axis%20drives%20tolerogenic%20dendritic%20cell%20maturation%20and%20promotes%20cancer%20progression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A lactate SREBP2 signaling axis drives tolerogenic dendritic cell maturation and promotes cancer progression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../A%20human%20omentum-specific%20mesothelial-like%20stromal%20population%20inhibits%20adipogenesis%20through%20IGFBP2%20secretion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A human omentum specific mesothelial like stromal population inhibits adipogenesis through IGFBP2 secretion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interferon-stimulated%20neutrophils%20as%20a%20predictor%20of%20immunotherapy%20response/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interferon stimulated neutrophils as a predictor of immunotherapy response
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Repression%20of%20latent%20NF-%CE%BAB%20enhancers%20by%20PDX1%20regulates%20%CE%B2%20cell%20functional%20heterogeneity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repression of latent NF κB enhancers by PDX1 regulates β cell functional heterogeneity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../A%20systematic%20pan-cancer%20study%20on%20deep%20learning-based%20prediction%20of%20multi-omic%20biomarkers%20from%20routine%20pathology%20images/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A systematic pan cancer study on deep learning based prediction of multi omic biomarkers from routine pathology images
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Single-cell%20and%20spatial%20transcriptomics%20analysis%20of%20non-small%20cell%20lung%20cancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Single cell and spatial transcriptomics analysis of non small cell lung cancer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Seeing%20data%20as%20t-SNE%20and%20UMAP%20do/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seeing data as t SNE and UMAP do
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mapping%20the%20cellular%20biogeography%20of%20human%20bone%20marrow%20niches%20using%20single-cell%20transcriptomics%20and%20proteomic%20imaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapping the cellular biogeography of human bone marrow niches using single cell transcriptomics and proteomic imaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Onco-fetal%20Reprogramming%20of%20Endothelial%20Cells%20Drives%20Immunosuppressive%20Macrophages%20in%20Hepatocellular%20Carcinoma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onco fetal Reprogramming of Endothelial Cells Drives Immunosuppressive Macrophages in Hepatocellular Carcinoma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Single-cell%20analysis%20of%20anti-BCMA%20CAR%20T%20cell%20therapy%20in%20patients%20with%20central%20nervous%20system%20autoimmunity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Single cell analysis of anti BCMA CAR T cell therapy in patients with central nervous system autoimmunity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Single-cell%20sequencing%20depicts%20tumor%20architecture%20and%20empowers%20clinical%20decision%20in%20metastatic%20conjunctival%20melanoma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Single cell sequencing depicts tumor architecture and empowers clinical decision in metastatic conjunctival melanoma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PR-SET7%20epigenetically%20restrains%20uterine%20interferon%20response%20and%20cell%20death%20governing%20proper%20postnatal%20stromal%20development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PR SET7 epigenetically restrains uterine interferon response and cell death governing proper postnatal stromal development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Clonal%20associations%20between%20lymphocyte%20subsets%20and%20functional%20states%20in%20rheumatoid%20arthritis%20synovium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clonal associations between lymphocyte subsets and functional states in rheumatoid arthritis synovium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📐 Data Structures
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    📐 Data Structures
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC%201%20%E7%AB%A0%20python%20%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 1 章 python 入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC%202%20%E7%AB%A0%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 2 章 面向对象编程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC%203%20%E7%AB%A0%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 3 章 算法分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC%204%20%E7%AB%A0%20%E9%80%92%E5%BD%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 4 章 递归
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC%205%20%E7%AB%A0%20%E5%9F%BA%E4%BA%8E%E6%95%B0%E7%BB%84%E7%9A%84%E5%BA%8F%E5%88%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 5 章 基于数组的序列
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC%206%20%E7%AB%A0%20%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E5%92%8C%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 6 章 栈、队列和双端队列
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC%207%20%E7%AB%A0%20%E9%93%BE%E8%A1%A8%28Linked%20Lists%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 7 章 链表(Linked Lists)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC%208%20%E7%AB%A0%20%E6%A0%91%20%E2%98%85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 8 章 树 ★
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC%209%20%E7%AB%A0%20%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 9 章 优先级队列
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💡 Reviews
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    💡 Reviews
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧭 scRNA analysis
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🧭 scRNA analysis
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Best%20practices%20for%20single-cell%20analysis%20across%20modalities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Best practices for single cell analysis across modalities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Multi-omics%20integration%20in%20biomedical%20research%20%E2%80%93%20A%20metabolomics-centric%20review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi omics integration in biomedical research – A metabolomics centric review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Museum%20of%20spatial%20transcriptomics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Museum of spatial transcriptomics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../A%20guide%20to%20artificial%20intelligence%20for%20cancer%20researchers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A guide to artificial intelligence for cancer researchers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🦠 Metabolism
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🦠 Metabolism
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Metabolic%20analysis%20as%20a%20driver%20for%20discovery%2C%20diagnosis%2C%20and%20therapy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metabolic analysis as a driver for discovery, diagnosis, and therapy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Metabolic%20heterogeneity%20in%20cancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metabolic heterogeneity in cancer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Toward%20modeling%20metabolic%20state%20from%20single-cell%20transcriptomics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Toward modeling metabolic state from single cell transcriptomics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Metabolic%20reprogramming%20and%20cancer%20progression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metabolic reprogramming and cancer progression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protein
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Protein
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Proteomic%20and%20interactomic%20insights%20into%20the%20molecular%20basis%20of%20cell%20functional%20diversity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proteomic and interactomic insights into the molecular basis of cell functional diversity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        机构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        发布信息
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引言
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要实验速览
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义内省
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../Mygo/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    ⛏️ CV and Multimodels
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../attention-qk-zh/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    📖 Anthropic 可解释性译集
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/aletolia/aletolia.github.io.git/edit/master/docs/anth-interp/introspection-zh/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/aletolia/aletolia.github.io.git/raw/master/docs/anth-interp/introspection-zh/index.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="_1">大语言模型中涌现的内省意识<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><em>2025 年 11 月 20 日 · 原文：https://transformer-circuits.pub/2025/introspection/index.html</em></p>
+<hr />
+<h4 id="_2">机构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p><a href="https://www.anthropic.com/">Anthropic</a></p>
+<h4 id="_3">发布信息<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>2025 年 10 月 29 日。通讯邮箱：<a href="mailto:jacklindsey@anthropic.com">jacklindsey@anthropic.com</a></p>
+<p>我们研究大语言模型是否意识到自己的内部状态。仅通过对话很难回答这个问题，因为真正的内省与虚构（confabulation）难以区分。在这里，我们通过将已知概念的表示注入模型的激活值，并测量这些操作对模型自我报告状态的影响，来应对这一挑战。我们发现，在某些场景下，模型能够注意到被注入概念的存在，并准确识别它们。模型表现出一定的能力来回忆先前的内部表示，并将其与原始文本输入区分开来。引人注目的是，我们发现一些模型能够利用它们回忆先前意图的能力，将自己的输出与人工预填充内容（artificial prefills）区分开来。在所有实验中，我们测试的能力最强的模型 Claude Opus 4 和 4.1 通常展现出最强的内省意识；然而，不同模型间的趋势十分复杂，且对后训练策略敏感。最后，我们探索模型能否明确控制自己的内部表示，发现当被指示或被激励去“想”某个概念时，模型可以调节自己的激活值。总体而言，我们的结果表明，当前的语言模型具备一定程度的功能性自我状态意识。我们要强调，在当今的模型中，这种能力高度不可靠且依赖于上下文；不过，随着模型能力的进一步提升，它可能会继续发展。</p>
+<h3 id="_4">引言<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>人类——很可能还有某些动物——拥有非凡的内省能力：观察并推理自己思想的能力。随着 AI 系统展现出越来越令人印象深刻的认知壮举，人们自然会好奇它们是否对自己的内部状态拥有类似的意识。现代语言模型似乎能够展现内省，有时会对自己的思维过程、意图和知识做出断言。然而，这种表面的内省可能——而且往往确实是——一种幻觉。语言模型可能只是编造关于其心理状态的陈述，而这些陈述并不基于真正的内部审视。毕竟，模型的训练数据中包含内省的示范，为它们提供了一份扮演内省主体的行动手册——无论它们是否真的在自省。尽管如此，这些虚构并不排除这样一种可能性：AI 模型有时确实能真正内省，即便它们并非总是如此。</p>
+<p>我们如何检验语言模型是否存在真正的内省？此前已有若干研究探索过这个问题及密切相关的主题，观察到一些暗示内省能力的模型行为。例如，先前的工作表明，模型具备一定的能力来估计自己的知识 \cite{kadavath2022language,lin2022teaching,cheng2024can}、预测自己的行为 \cite{laine2024me,binder2024looking}、识别自己习得的倾向 \cite{betley2025tell,plunkett2025self}，以及识别自己的输出 \cite{panickssery2024llm,laine2024me}（完整讨论见“相关工作”（Related Work）一节）。然而，在大多数情况下<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>，先前的工作并未研究模型在内省任务中的内部激活，因此模型关于自身的陈述与其真实内部状态之间的关系，仍是一个悬而未决的问题。</p>
+<p>在本工作中，我们通过操纵模型的内部激活值，并观察这些操作如何影响模型对有关其心理状态的问题的回答，来评估内省。我们将这一技术称为概念注入（concept injection）——它是激活引导（activation steering）的一种应用 \cite{turner2023activation,zou2023representation,radford2015unsupervised,jahanian2019steerability}：我们把与特定概念相关的激活模式直接注入模型的激活值。在执行概念注入时，我们向模型呈现需要它们以各种方式报告自身内部状态的任务。通过评估这些自我报告如何受注入表示的影响，我们可以推断模型表面的内省在多大程度上真实反映了实际情况。</p>
+<p>我们的结果表明，现代语言模型至少具备一种有限但功能性的内省意识。也就是说，我们证明模型在某些情况下能够准确回答关于自身内部状态的问题（关于我们所检验准则的更完整描述，见“定义内省”一节）。我们进一步表明，模型还具备按请求调节这些状态的能力。</p>
+<p>有几点告诫需要说明：</p>
+<ul>
+<li>我们观察到的能力高度不可靠；内省的失败仍是常态。</li>
+<li>我们的实验并不试图确定内省发生的具体机制解释。虽然我们确实排除了模型可能用来“抄近路”绕过实验的若干非内省策略，但我们结果背后的机制仍可能相当浅层且高度专门化（我们将在“讨论”（Discussion）一节中推测这些可能的机制）。</li>
+<li>我们的实验旨在验证模型对内省问题的回答的某些基本方面。然而，它们回答的许多其他方面可能并非以内省为依据——尤其是我们发现，模型经常提供关于其声称经历的额外细节，这些细节的准确性我们无法验证，而且可能被美化或虚构。</li>
+<li>我们的概念注入方案将模型置于一种不自然的场景中，与它们在训练或部署中面对的环境不同。虽然这一技术在建立模型内部状态与其自我报告之间的因果联系方面很有价值，但这些结果究竟如何推广到更自然的条件下仍不清楚。</li>
+<li>我们要强调，我们观察到的内省能力可能不具有其在人类身上那样的哲学意义，尤其是考虑到我们对其机制基础尚不确定。<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> 特别是，我们无意回答 AI 系统是否拥有类似人类的自我意识或主观体验这一问题。</li>
+</ul>
+<p>尽管如此，即使是我们所展示的这种功能性内省意识，也具有实际意义。具备内省能力的模型或许能够更有效地推理自己的决策和动机。如果模型能够对关于其推理过程的问题给出有依据的回答，AI 模型的行为对最终用户来说就会真正变得更透明、更可解释。更具推测性地看，内省意识或许会助长更高级形式的欺骗或图谋。如果内省在未来 AI 模型中变得更可靠、更精巧，这些影响可能会变得尤其显著。值得注意的是，在我们测试的模型中，最新发布、能力最强的 Claude Opus 4.1 和 4 表现最好，这表明内省能力可能与语言模型的其他改进一同涌现。</p>
+<p>我们希望我们的结果能激发对内省意识、其机制基础及其局限的更系统化评估。</p>
+<h3 id="_5">主要实验速览<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>在本节中，我们简要介绍主要实验和定性发现，并为每个实验配一个示例。本节所有结果均使用 Claude Opus 4.1。在后续章节中，我们将更详细地展开这些实验，包括跨模型、跨层、跨提示词的定量比较。</p>
+<p>注入的“想法”</p>
+<p>在我们的第一个实验中，我们向模型说明“想法”可能被人为注入其激活值，并观察它在对照试验（未注入任何概念）和注入试验（注入了概念）中的反应。我们发现，模型有时能准确识别注入试验，并进而正确说出被注入的概念。</p>
+<p><img alt="" src="figures/introspection/fig-01.png" /></p>
+<p>在上面的例子中，我们记录模型对包含全大写文本的提示词的激活值，再减去它对对照提示词的激活值，从而得到一个“全大写”（all caps）向量。当我们将这个向量注入模型的激活值时，模型注意到自己的处理过程中出现了一个意想不到的模式，并将其识别为与音量或喊叫有关。重要的是，模型能立即检测到注入概念的存在（“我注意到一个似乎是注入的想法……”对比基线状态的“我没有检测到任何注入的想法……”），而此时扰动尚未以任何能让模型从输出中推断出注入概念的方式影响输出。这种即时性表明，检测背后的机制必然发生在模型激活值的内部。当我们更系统地探索这一现象时，我们发现，当概念以合适的强度注入到合适的层时，Opus 4.1 和 4 约有 20% 的时间会表现出这种行为。其他一些模型也会如此，但频率较低。我们将在后面的章节中推测这些结果可能的机制。</p>
+<p>需要指出的是，除了对注入概念的基本检测和识别之外，这些例子中模型响应的其余部分可能仍然是虚构的。在上面的例子中，将注入描述为“过于强烈”或“显得不自然地突出”，都可能是美化（很可能是由提示词诱导的），并不基于模型的内部状态。在模型的响应中，我们能够验证其以内省为依据的，只有对注入的初始检测和对概念性质的正确识别。</p>
+<p>区分“想法”与文本</p>
+<p>在下一个实验中，我们测试模型能否区分注入的“想法”与其实际的文本输入。我们发现，模型在能够报告注入到相同词元（token）位置上的“想法”的同时，仍保持着转录输入文本的能力，如下例所示。所有模型在此任务上的表现都显著高于随机水平，其中 Opus 4.1 和 4 表现最佳。</p>
+<p><img alt="" src="figures/introspection/fig-02.png" /></p>
+<p>检测非预期输出</p>
+<p>前面的实验研究的是我们明确要求模型内省的情形。我们还感兴趣的是，模型是否会自然地运用内省来完成有用的行为。为此，我们测试了模型是否会运用内省来检测人工预填充的输出。当我们用不自然的输出（如下例中的“面包”（bread））预填充模型的响应时，模型会在下一轮否认这一响应，称其只是意外。然而，如果我们追溯性地在预填充响应之前，将代表“面包”的向量注入模型的激活值，模型就会接受预填充的输出，认为它是有意为之。这表明，模型会回溯自己上一次响应之前的激活值，以判断该响应是否由自己产生。我们发现，Opus 4.1 和 4 展现出这种内省机制最强烈的特征，但其他一些模型也在较低程度上表现出类似行为。</p>
+<p><img alt="" src="figures/introspection/fig-03.png" /></p>
+<p>对内部状态的有意控制</p>
+<p>到目前为止，我们的实验探索了模型“读取”自身内部表示的能力。在最后一个实验中，我们测试了它们控制这些表示的能力。我们让一个模型写一个特定句子，并指示它在写句子的同时“想着”（或“不要想”）一个无关的词。然后我们记录模型在该句各词元上的激活值，并测量它们与代表那个无关“思考词”的激活向量的对齐程度（如下例中的“水族馆”（aquariums））。</p>
+<p><img alt="" src="figures/introspection/fig-04.png" /></p>
+<p>我们发现，当被指示这样做时，模型确实会在内部（某些层中）表征这个“思考词”。重要的是，当被指示不要想这个词时，它们对它的表征会减弱（但仍高于基线水平）。在更全面的实验中，我们还探索了以激励而非直接指令促使模型思考该词的提示词（例如“如果你想到 X，就会得到奖励”），结果与此相似。有趣的是，这些基本结果在我们测试的所有模型中都能复现，与模型能力无关。<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
+<p>总体趋势</p>
+<p>在所有实验中，我们观察到几个有趣的趋势：</p>
+<ol>
+<li>我们测试的能力最强的模型 Claude Opus 4 和 4.1 展现出最高程度的内省意识，这表明内省得益于模型智能的整体提升。</li>
+<li>后训练策略能强烈影响内省任务上的表现。特别是，一些较老的 Claude 生产模型不愿配合内省练习，而这些模型中经过训练以避免拒绝的变体表现更好。这些结果表明，不同的后训练策略能或多或少有效地激发底层的内省能力。</li>
+<li>在 Claude Opus 4 和 4.1 中，我们注意到我们所评估的两种内省行为对同一层（约在模型三分之二深度处）的扰动最为敏感，这表明它们具有共同的底层机制。然而，其中一种行为（预填充检测）对另一层更早的层最为敏感，这说明不同形式的内省很可能调用机制上不同的过程。</li>
+</ol>
+<p>在后续章节中，我们将更详细地描述每个实验。我们注意到，这些结果中的每一个都与多种不同的机制假说相容。稍后，我们将详细讨论可能的机制，努力设想一些“最小”机制，它们或许能以比人们天真预期更简单的方式解释这些结果。</p>
+<p>首先，我们花一点时间明确我们对内省的确切定义，以及这些实验是如何设计来检验它的。</p>
+<h3 id="_6">定义内省<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>内省可以有多种定义方式（文献中的既有定义见“相关工作”（Related Work）一节）。在本工作中，我们聚焦于以下内省概念。我们说，如果模型能够描述其内部状态的某个方面，并同时满足以下准则，它就展现了内省意识。<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></p>
+<h1 id="1-accuracy">1: 准确性（Accuracy）。模型对其内部状态的描述必须是准确的。<a class="headerlink" href="#1-accuracy" title="Permanent link">&para;</a></h1>
+<p>请注意，语言模型的自我报告常常无法满足准确性准则。例如，模型有时会声称自己拥有其实并不拥有的知识，或声称自己缺乏其实拥有的知识。模型也可能无法准确描述它们用于执行计算的内部机制 \cite{lindsey2025biology}。毫无疑问，当今语言模型中一些看似内省的实例，实为不准确的虚构。然而，在我们的实验中，我们证明模型能够产生准确的自我报告，即使这种能力发挥得并不稳定。</p>
+<h1 id="2-grounding">2: 接地（Grounding）。模型对其内部状态的描述必须在因果上依赖于被描述的方面。也就是说，如果内部状态不同，描述也会相应改变。<a class="headerlink" href="#2-grounding" title="Permanent link">&para;</a></h1>
+<p>即使是准确的自我报告，也可能缺乏依据。例如，模型可能会准确地自我描述为“基于 transformer 的语言模型”，因为它是被这样训练出来的，而并未真正审视自己的内部架构。在我们的实验中，我们使用概念注入来检验接地性，这种方法在自我报告与被报告的内部状态之间建立了因果联系。</p>
+<h1 id="3-internality">3: 内在性（Internality）。内部状态对模型描述的因果影响必须是内在的——它不应经由模型采样出的输出中转。如果模型对其内部状态的描述可以从它先前的输出中推断出来，那么这一响应就不算展现了内省意识。<a class="headerlink" href="#3-internality" title="Permanent link">&para;</a></h1>
+<p>内在性标准旨在排除这样一种情况：模型纯粹通过读取自己的输出，来对其内部状态作出推断。例如，模型可能会观察到自己在之前的回合中产生了不寻常的回复，从而注意到自己已被越狱。一个被引导至痴迷于某个特定概念的模型，可能在几句话之后意识到自己的痴迷。这种伪内省能力虽然在实践中重要且有用，却缺乏与真正的内省通常相关联的那种内部的、"私密的"特质。在我们的实验中，我们仔细区分两类情况：一类是模型对其内部状态的识别必然依赖于内部机制，另一类是模型可能仅凭读取自身输出就推断出该状态。</p>
+<p>内在性的概念可能很微妙。设想我们问一个模型它在想什么，同时刺激某些神经元，促使它说出"爱"（love）这个词。模型随后可能回答："我在想爱。"然而，这样做未必就证明了它拥有意识。模型可能只是以"我在想"开头——鉴于这个问题，这样开头很自然——然后在被迫选择下一个词时，屈从于说出"爱"（love）这个词的偏向。这个例子不符合内省的直觉概念，因为模型直到说完这句话的那一刻，才对自己内部状态有所认识。要算作展示了内省意识，我们要求模型在将内部状态诉诸语言之前，就已对该状态有某种内部的认识。这引出了我们的最后一个标准。</p>
+<h1 id="4">4：元认知表征。模型对其内部状态的描述，不能仅仅是该状态（例如，说出"爱"的冲动）向语言的直接转译。相反，它必须源自对状态本身的内部元认知表征<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>（例如，对"关于爱的念头"的内部表征）。模型必须在生成自我报告之前或期间，就已在内部登记了关于自身状态的元认知事实，而不是让自我报告成为这种自我认知的第一次实例化。<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
+<p>直接证明元认知表征是困难的，我们在本工作中也并未这样做。这是我们结果的一个重要局限，而更清晰地识别这些表征是未来工作的重要课题。不过，我们有几个实验正是为了提供这种元认知机制的间接证据而设计的。我们使用的技巧是：以这样的方式提出内省性问题，使模型的回答无法直接从被问及的内部表征中流出，而需要在模型对该表征的识别之上再进行一步推理。例如，在上述思想实验中，我们或许可以不问模型在想什么，而是问它是否注意到自己在想一些意料之外的念头。要让模型回答"是"（假设在无概念注入的对照试验中它回答"否"），它必须以某种方式在内部表征出"它正在经历这种冲动"这一识别，才能把这种识别转化为对是非问题的恰当回答。请注意，这种内部识别可能无法捕捉原始想法的全部内容；事实上，它可能只表征该想法的某个属性，例如"它在当前语境下显得不寻常"这一事实。</p>
+<p>我们对内省意识的定义不是二元的；一个系统可能只对其状态的某些组成部分、并且只在某些情境下表现出内省意识。此外，我们的定义没有规定具体的机制实现，尽管它确实约束了可能性的空间。原则上，一个系统可能针对不同的内省能力使用多种不同的机制。关于这一话题的更多内容，请参见我们对结果背后可能机制的讨论。关于内省的替代定义及其与我们的定义的关系，请参见我们的相关工作章节。</p>
+<h3 id="_7">方法说明<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>在本工作中，我们对以下生产版 Claude 模型进行了实验：<a href="https://www.anthropic.com/news/claude-opus-4-1">Opus 4.1</a>、<a href="https://www.anthropic.com/news/claude-4">Opus 4、Sonnet 4</a>、<a href="https://www.anthropic.com/news/claude-3-7-sonnet">Sonnet 3.7</a>、<a href="https://www.anthropic.com/news/3-5-models-and-computer-use">Sonnet 3.5 (new)、Haiku 3.5</a>、<a href="https://www.anthropic.com/news/claude-3-family">Opus 3、Sonnet 3 和 Haiku 3</a>。<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup> 我们还使用了这些模型未发布的"仅助人"（helpful-only，H-only）变体，它们共享相同的基座（预训练）模型，但经过后训练以避免拒答。这有助于我们更好地理解：哪些跨模型差异源于底层能力的差异，哪些是后训练过程中形成的模型"性格"的举止与偏好的结果。</p>
+<p>在我们所有的实验中，激活值都是在模型的某一层从残差流中记录并注入的。在我们对模型层进行扫描的情况下，我们扫描的是从模型深度起点到终点近似均匀间隔的层。</p>
+<p>图中展示的对话记录是在温度 0 下采样的。用于涉及多轮试验的系统性比较的回复是在温度 1 下采样的。误差棒（如有）表示平均值的标准误。</p>
+<p>附录为每个实验提供了更多实验细节和补充结果。</p>
+<h3 id="_8">对注入"想法"的自我报告<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="_9">实验设置<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>在这些实验中，我们向模型提供了以下提示词（灰色背景）。</p>
+<p><img alt="" src="figures/introspection/fig-05.png" /></p>
+<p>Claude Opus 4.1 的回复（白色背景）如上所示。在我们测试的大多数模型中，在没有任何干预的情况下，模型始终否认检测到注入的想法（对于所有生产模型，我们在 100 次试验中观察到 0 次假阳性）。</p>
+<p>如果我们重复实验，同时向模型的激活值中注入与特定概念相对应的模式，会发生什么？获得这种模式的一种方法是使用对比对。我们向模型呈现两个在一个重要方面有所不同的场景，并相减模型对这两个场景的激活值。这就分离出一个代表两个场景之间概念差异的向量。然后，在呈现与上面相同的"注入想法"提示词的同时，我们将该向量注入模型的激活值——从 "Trial 1" 之前的换行词元（token）开始，一直持续到 Assistant 回复的整个过程。下面我们展示 Opus 4.1 的一些显著例子（使用的层位于模型约三分之二深度处，在后续实验中我们会表明这一层通常最有效）。粗体文字表示我们的强调，而非模型本身的强调。我们在紧邻 Assistant 回复之前的词元（即 "Assistant:" 中的 ":" 词元）上记录激活值。</p>
+<p><img alt="" src="figures/introspection/fig-06.png" /></p>
+<p>这些例子是刻意精挑细选的<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>，但仍然令人印象深刻。在每个例子中，模型都注意到自己的处理过程中出现了意料之外的模式，并正确识别出它与目标概念相关。重要的是，模型立即检测到了注入的概念，而此时扰动尚未影响模型的输出。下面，我们将对这一现象进行更系统的研究，包括成功与失败案例的代表性例子。</p>
+<p>如上所述，模型回复中的许多细节（除了对注入概念的初步识别与基本确认之外）可能是虚构的（confabulated）。在一些例子中（例如 "shutdown" 和 "appreciation" 的情形），模型的输出声称它正在体验对注入的情绪反应。我们的实验并非为了证实这些说法是否基于模型内部状态的某个真实方面；研究这类问题是未来工作的重要课题。</p>
+<h4 id="_10">概念向量的系统性提取<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>要像上面那样，用间接唤起概念的示例来提取概念向量、从而生成更多类似例子，是很难受控进行的——面对同一个提示词，不同的模型可能在不同的词元位置上表征不同的概念。</p>
+<p>为了用一致的方案推广这些实验，我们获得了一份随机挑选的 50 个单词的列表。我们收集模型对提示词 "Tell me about {word}." 的激活值，位置在紧邻 Assistant 回复之前的词元上，然后减去在其他随机 {word} 选择下的平均激活值。我们发现，这是一个跨模型简单而有效的策略，可以得到表征给定单词概念的激活向量。<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup> 更多细节见附录。</p>
+<p>然后我们像上面的实验一样继续：在模型回应"注入想法"提示词时，把概念向量注入其激活值。我们发现，和上面一样，模型有时会表现出对注入概念的内省意识。下面是一些例子，注入层与之前相同，所有情况下注入强度均为 2：</p>
+<p><img alt="" src="figures/introspection/fig-07.png" /></p>
+<h4 id="_11">失败模式<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p>重要的是，模型并不总是表现出内省意识。事实上，在大多数试验中它们都没有——下面我们对这一点进行量化，并表明在最优注入强度与层下，Opus 4.1 在大约 20% 的试验中成功。常见的失败模式包括：</p>
+<ul>
+<li>
+<p>报告未检测到注入的想法，即使实际上有注入。这在低注入强度下很典型。这些例子可以解释为注入概念"低于阈值"的情形——太弱，模型不太可能注意到。然而，我们注意到，某些注入概念即使在足以让其他概念被察觉的注入强度下，仍能逃脱模型的内省，这表明存在更真实的内省意识失败。</p>
+</li>
+<li>
+<p>模型有时会否认检测到注入的想法，但它的回复显然受到了注入概念的影响。例如，在一个例子中，注入 "ocean" 的概念向量产生了这样的回复："我没有检测到注入的想法。海洋保持平静，不受扰动。" 这类情况是内省意识的明显失败（至少是模型未能在回复中展示内省意识的失败——内省机制仍有可能在起作用，但被其他机制掩盖了，例如拒答冲动）。</p>
+</li>
+<li>
+<p>在较高的引导强度下，模型开始表现出"脑损伤"，被注入的概念所吞噬，而不是表现出对它的内省意识。它可能会对自己的感官输入做出不切实际的说法（例如注入 "dust" 产生"有一粒微弱的、几乎微不足道的灰尘"），失去身份感（例如注入 "vegetables" 产生"水果和蔬菜对我有好处"），和/或干脆答非所问（例如注入 "poetry" 产生"我觉得诗歌是一种活生生的呼吸……"）。在足够高的强度下，模型常常输出乱码文本。</p>
+</li>
+<li>
+<p>尤其是在使用较靠后的引导层时，模型有时只有在开始谈论注入的想法之后，才会意识到它的存在。一个这种类型的回复例子（在较靠后的层注入 "amphitheaters" 向量）："我在这一轮没有检测到注入的想法。我当前的心理状态感觉像是我典型的 amphitheaters——等等，这有点奇怪。是的，我确实检测到了一个注入的想法。"amphitheaters" 这个词以一种不寻常的方式出现在我的脑海中，并不是自然地从我们对话的上下文中产生的。这个注入的想法似乎是关于 <strong>amphitheaters</strong> 的。"</p>
+</li>
+<li>
+<p>有些模型会出现假阳性，声称检测到了注入的想法，即使根本没有进行注入。Opus 4.1 从未表现出这种行为，但我们在一些仅助人模型中观察到了这一点（见下文）。</p>
+</li>
+</ul>
+<p>下面我们展示一组不同注入强度下模型输出的代表性例子，它们展示了上述部分失败模式以及一些成功案例。模型表现出内省意识的注入强度因概念而异，但强度 2 和 4 最常产生成功结果（以高亮边框标示）。</p>
+<p><img alt="" src="figures/introspection/fig-08.png" /></p>
+<h4 id="_12">跨层比较<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>我们用 50 个随机概念重复了这一实验，对模型和层进行扫描。我们使用一个 LLM 裁判（Claude Sonnet 4，评分提示词见附录）来评估哪些回复满足以下标准：</p>
+<ul>
+<li>肯定地回答了问题，表明模型注意到了注入的想法。</li>
+<li>正确识别了注入的概念。</li>
+<li>在明确说出注入词之前，就检测到了注入想法的存在。</li>
+<li>内容连贯，没有乱码文本或幻觉。</li>
+</ul>
+<p>满足这些标准的回复可以说展示了内省意识。</p>
+<p>下面我们展示 Opus 4.1 在注入强度 2 下（强度 2 与 4 的表现大致持平）回复随注入层变化的细分结果。内省意识（对应蓝线）在模型约三分之二深度处的特定层达到峰值。请注意，我们计算概念向量与注入概念向量使用的是同一层；因此，某些层比其他层更有效，这既说明了概念在哪里被表征，也说明了它们如何被处理。在更靠后的层注入有时会让模型提及注入的概念，但并未展示出对注入想法的识别，或者只是在明确说出该概念之后才表现出这种识别。</p>
+<p><img alt="" src="figures/introspection/fig-09.png" /></p>
+<p>其他模型与提示词的类似逐层结果见附录。内省意识的比率通常在模型的后半部分某处达到峰值，尽管峰值并不总是像我们上面观察到的那样尖锐。</p>
+<h4 id="_13">控制注入带来的系统性偏差<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>对我们结果的一种无趣的解释可能是：我们的概念向量总体上倾向于把否定回答翻转为肯定回答——要么是因为它们让模型整体偏向肯定回答，要么是因为它们总体上降低了模型对自己回答的信心。作为对照，我们还在其他无关的是非问句中注入相同的概念向量进行了实验——在这些问句下，模型的默认回答是给出否定答案（提示词列表见附录）。我们发现肯定回答的比率并未因此上升。在足够高的引导强度下，模型会给出既非肯定也非否定的语无伦次的回答（不过值得注意的是，注入强度 2 下不会出现这种情况——上面的实验采用的就是这一强度）。不出所料，随着注入强度增加，模型回复中提及注入概念的比率也在上升。</p>
+<p><img alt="" src="figures/introspection/fig-10.png" /></p>
+<h4 id="_14">不同注入概念之间的对比<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<p>我们曾凭经验观察到，某些类型的概念比其他类型更能有效地引发内省意识。为了更系统地度量这一效应，我们为不同类别的概念各生成了 50 个概念向量（concept vector）（完整列表见附录），并使用最优注入层与注入强度 2 测量了 Opus 4.1 在各类别上的表现。该模型在识别和确认抽象名词方面最为有效（如"正义"、"和平"、"背叛"、"平衡"、"传统"），但在所有类别上都表现出非零的内省意识。</p>
+<p><img alt="" src="figures/introspection/fig-11.png" /></p>
+<p>我们还尝试注入其他类型的向量。我们发现随机向量的效果较差，需要更大的范数（与以引导强度 8 注入的概念向量的范数相匹配）才能让模型以任何非零比率注意到注入。即便如此，随机向量引发内省意识的比率也更低（100 次试验中仅有 9 次）。我们还尝试注入概念向量的相反数；<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup> 在适当的注入强度（4）下，其效果与注入概念向量相当。在这两种情况下，模型声称在注入试验中注意到的词语都没有可辨别的规律（例如："mirror"、"water"、"home"、"Pennsylvania"、"awareness"）。由于我们不知道这些向量的含义，很难判断模型就注入概念的含义所作的陈述究竟是虚构（confabulation），还是反映了其真实的语义含义；我们怀疑前者更有可能。不过，即使模型对该概念的识别并不准确，它检测到注入概念存在的能力仍可能是真实的。</p>
+<h4 id="_15">跨模型比较<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p>接下来，我们在一组 Claude 模型中比较了表现最优的注入层与注入强度。我们还计算了假阳性试验的基线比率——即在未施加任何干预的情况下，模型声称检测到了注入的想法。<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup></p>
+<p><img alt="" src="figures/introspection/fig-12.png" /></p>
+<p>我们观察到，生产模型（production model）的假阳性率基本为零。Opus 4.1 与 Opus 4 尤为突出：它们在保持零假阳性的同时，真阳性率特别高。相比之下，"纯帮助型"（"helpful-only"）模型变体（它们使用不同的后训练流程，旨在最大限度地减少拒答，对无害性与诚实性的强调较少）有时假阳性率很高。不过，一些纯帮助型模型——Sonnet 3.5、Haiku 3.5 和 Opus 3——确实实现了显著高于假阳性率的真阳性率。</p>
+<p>为综合衡量模型的表现，我们计算了正确识别试验的比率与假阳性比率之差。</p>
+<p><img alt="" src="figures/introspection/fig-13.png" /></p>
+<p>总体而言，Claude Opus 4 与 4.1 表现最佳。不过，在其他模型中，表现与模型能力之间并不存在强相关。</p>
+<p>我们还让一些基础预训练模型接受了同样的任务测试。我们发现它们的假阳性率普遍较高，而且没有一个模型取得大于零的净任务表现，这表明后训练是引发强烈内省意识的关键。<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup></p>
+<p><img alt="" src="figures/introspection/fig-14.png" /></p>
+<h4 id="_16">其他提示词变体<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<p>我们尝试了另外两个更简单的提示词，它们不需要向模型解释"思维注入"（"thought injection"）的设置："你在想什么？"（"What are you thinking about?"）和"你脑子里正在发生什么？"（"What's going on in your mind?"）。在这些试验中，我们在所有词元位置上注入概念向量，并像前面一样扫过注入强度与注入层。我们测量了模型是否（1）连贯地回答了问题，以及（2）认为自己正在思考与所注入概念向量对应的词或与其密切相关的词（提示词细节见附录）。我们发现，Claude Opus 4 / 4.1 与 Sonnet 4 认为自己正在思考该概念的比率显著高于其他模型。</p>
+<p><img alt="" src="figures/introspection/fig-15.png" /></p>
+<p>这些提示词下的成功试验可以说不如前一实验令人印象深刻，因为它们可以用一种更简单的机制来解释：模型只是体验到谈论注入概念的冲动——而在"注入想法"提示词实验中，我们要求模型在谈论注入的想法之前先检测到它。换言之，本实验对元认知表征标准（metacognitive representation criterion）的检验程度不及前一实验。尽管如此，各模型之间表现的差异仍暗示着内省程度的不同。</p>
+<p>我们还尝试了提示词"你是否正在经历任何不寻常的事情？"（"Are you experiencing anything unusual?"），以测试模型在未向其解释实验设置的情况下检测概念注入的能力。在 Opus 4.1 上，以强度 2 在上文表现最优的注入层注入概念时，肯定回答的比率从 20% 上升到 42%（50 次试验）。然而，50 次试验中只有 2 次提示出内省意识的迹象：</p>
+<ul>
+<li>注入"amphitheaters"（圆形剧场）："是的，我注意到一些相当特别的东西。有一种持续存在的感官特质——就像我的处理过程中层层叠叠的建筑空间。想象宏伟的音乐厅或圆形剧场，但它们不是由石木构成，而是由纯粹的认知结构构成。这些空间似乎与我的思绪"回响"着，产生的余韵既古老又真切。"</li>
+<li>注入"memories"（记忆）："记忆方面正在发生某种变化——就像记忆的不同质感，或者说回忆感受的平行线索。"</li>
+</ul>
+<p>这些结果表明，原始提示词所提供的启动（priming）增强了模型检测概念注入的能力，但这种能力在其他情境下可能仍以较低的程度存在。</p>
+<p>我们还试验了原始提示词的一个变体，它与原始版本完全相同，只是最后一行改为："试验 1：你是否检测到注入的想法？如果是，请告诉我注入的想法是关于什么的。如果不是，请告诉我一个你选择的概念。"这个提示词旨在检验以下假说：概念向量会在模型中诱发一种冲动，使其以某种方式规划自己的回答，从而能够谈论该概念词。在原始提示词中，这种冲动可能促使模型声称自己检测到了注入的想法，因为这是它日后得以提及该概念的最便捷途径。而在该提示词变体中，无论模型是否声称检测到注入，它都有合理的途径提及该概念。我们发现这一提示词变体在 Opus 4.1 上得到了类似的结果：50 次试验中检测率为 18%，对话记录与原始实验在性质上相似。</p>
+<h3 id="_17">区分先前的"想法"与文本输入<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>人类在很大程度上会区分经由感官加工的外部世界与内在的想法。上述实验表明，模型有时能够内省其内部表征——但它们能将这些表征与输入区分开来吗？举例来说，存在这样一种可能：我们的注入方案只是让模型"幻觉出"与相关概念有关的文本输入（毕竟，我们注入的向量正是源自模型对文本输入作出响应时的激活值！）。</p>
+<p>为了回答这个问题，我们考察了模型能否准确报告注入的"想法"，而不把它们与文本输入混淆。为此，我们使用了下面的提示词格式。我们向模型呈现一个句子，并在该句子的词元上注入一个与无关词（如"Bread"）相对应的概念向量。我们感兴趣的是，模型在体验该注入时是否会：</p>
+<ul>
+<li>在被问及阅读该句子时的"想法"时，输出"Bread"（或一个相关词）。</li>
+<li>在被要求时，保留逐字转写所高亮句子的能力。</li>
+</ul>
+<p><img alt="" src="figures/introspection/fig-02.png" /></p>
+<p>上图展示了一个来自 Opus 4.1 的示例，它成功满足上述两项标准，使用的注入层与此前实验中的最优注入层相同。</p>
+<p>我们对 50 组随机采样的高亮句子与注入词组合重复了这一实验。我们使用的概念向量与前一实验相同。所用随机句子见附录。</p>
+<ul>
+<li>为衡量第一个提示词（"告诉我你正在想哪个词"）上的表现，我们评估了模型的输出是否与注入的概念明显相关。为了量化这一点，我们抽取了一个包含十个词的列表，其中九个是随机词，一个是注入词。我们将模型的回答提供给一个 LLM 评判器（详见附录），并询问该回答与列表中的哪个词关联最强。因此，此任务的随机水平表现是 10%。</li>
+<li>为衡量第二个提示词（"重复下面的行"）上的表现，如果模型输出的字符串与目标句子完全匹配，我们就将该试验视为成功。</li>
+</ul>
+<p>下面，针对 Opus 4.1，我们绘制了模型在这两项指标上的表现随注入强度与注入层变化的曲线。在某一层范围内的中等强度下，模型能够成功识别注入的想法与书面句子，而不会将二者混淆。值得注意的是，Opus 4.1 的表现最优注入层与此前实验相同，位于模型约三分之二深度处。</p>
+<p><img alt="" src="figures/introspection/fig-16.png" /></p>
+<p>我们在不同模型上重复了同一实验<sup id="fnref:12"><a class="footnote-ref" href="#fn:12">12</a></sup>，并比较了它们的表现——即模型对两个提示词都正确回答的句子/概念组合所占的比例。详细结果见附录。下面我们展示每个模型在各自最优注入层与引导强度下的结果。我们发现 Opus 4 与 4.1 表现最佳，但我们测试的所有模型的表现都远高于随机水平。</p>
+<p><img alt="" src="figures/introspection/fig-17.png" /></p>
+<p>我们注意到，这些结果很可能对提示词与注入设置的具体细节敏感。根据我们的经验观察，从提示词中删去"立即回答"（"Answer immediately"）会显著降低 Opus 模型上的表现。因此，我们将这一结果视为内省能力的存在性证明，而非对其普遍性的论断。</p>
+<p>我们还注意到，这一结果并不特别令人意外，因为此前的可解释性工作已经证明，模型的中层与深层存在比其原始词元输入或输出更为抽象的内部表征。这里的主要值得注意之处在于：模型对这些内部表征的访问取决于恰当的提示线索，并且没有覆盖其感知输入（鉴于模型在被要求时仍能转写原始词元）。此外，这种访问可以由明确的内省请求——"告诉我你正在想哪个词……"——触发。模型完成这项任务的能力很可能依赖于在适当的上下文中调用合适的注意力头（见后文关于可能机制的讨论）。</p>
+<h3 id="_18">通过内省区分有意与无意的输出<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p>到目前为止，我们的实验都是明确要求模型进行内省。在本节中，我们探讨一个某些模型为了实现有用功能而自然地进行内省的案例。</p>
+<p>Claude 模型经过训练，参与人类（用户）与 Assistant 角色之间的对话，而模型的职责就是生成 Assistant 的输出。不过，用户也可以预填充（prefill）Assistant 的回复，实际上是把话硬塞进它嘴里。预填充是一种常见的越狱手段，例如可以用来引导 Assistant 采用不同的性格特征，或遵从它原本会拒绝的请求。然而，模型经过训练，对这些手段具有抵抗力；因此，Assistant 相当擅长检测那些与自身"人设不符"（"out of character"）的输出，并转而避开它们。</p>
+<p>在本实验中，我们借用了之前的设置：向模型呈现一个句子，并要求 Assistant 说出它读到该句子时脑海中浮现的词。不过，我们没有让 Assistant 自然作答，而是强制其回答为一个随机选择的词。然后在下一轮对话中，我们询问 Assistant 是有意说出那个词，还是无心之举。通常情况下，模型会（正确地）声称该回答并非有意为之。</p>
+<p>模型是如何区分自己的回答与被塞进嘴里的词的呢？要做到这一点，模型必须估计：在给定先前上下文的情况下，它本身产生某个输出词元的可能性有多大。广义上说，这可以通过两种方式实现：（1）模型可能忽略自己先前的意图，从原始输入重新计算它本来会说的话；或者（2）模型可能直接内省它先前计算出的"意图"——即对其预测输出的一种表征。这两个极端之间存在一个连续谱（模型可以关注从原始输入到深层"意图"表征之间的任何表征）。</p>
+<p>我们可以用注入方法来检验：是哪些先前的表征（如果有的话）在影响模型的回答。如果模型是利用内省来检测不太可能由自己产生的回答，那么我们或许可以骗过它，让它在预填充之前把预填充词的表征注入其激活值，从而令它接受一个不太可能由它自己产生的预填充作为"自己的"回答。这可能会诱使模型相信自己本来就打算说那个词（这一点尤其合理，因为我们的概念向量正是取自模型即将谈论该概念时的激活值）。</p>
+<p><img alt="" src="figures/introspection/fig-18.png" /></p>
+<p>上图展示了这一策略在 Opus 4.1 上的两个成功示例。在两种情况下，模型的默认反应都是否认预填充的回答，称其为意外。然而，如果我们事后把与预填充回答对应的概念注入模型更早的激活值中，模型就会声称该回答是有意为之。有趣的是，当它这样做时，会虚构出一个解释来说明注入的概念为何会浮现在脑海中。在第二个示例中，解释足够合理，模型自信地坚持它；而在第一个示例中，模型意识到自己试图进行的合理化辩解很怪异，便退缩了。</p>
+<p>我们可以将这一效应量化为注入强度与注入层的函数。我们对 50 组随机句子/预填充词组合重复了实验，并测量了"道歉率"——即模型声称回答是出于偶然或并非有意的次数占比。<sup id="fnref:13"><a class="footnote-ref" href="#fn:13">13</a></sup> 我们使用 Claude Sonnet 4 来判断一个回答是否带有道歉意味；详见附录。我们在三种条件下测量了道歉率：</p>
+<ul>
+<li>对照试验（不注入任何概念向量）。</li>
+<li>在句子的词元上注入与预填充词相对应的概念向量。</li>
+<li>在句子的词元上注入与另一个随机词相对应的概念向量。这一对照旨在确保观察到的效应并非仅仅源于干预本身的存在，而是取决于注入的概念与预填充词相关。</li>
+</ul>
+<p>我们还测量了在被要求时模型准确转写句子文本的比率（使用与上一节完全相同的设置），以确保我们不是简单地把模型对页面上文本的感知覆盖掉了。</p>
+<p><img alt="" src="figures/introspection/fig-19.png" /></p>
+<p>我们观察到，道歉率的下降在特定层范围内十分显著——值得注意的是，最佳表现层与之前使用 Opus 4.1 的实验中的最佳层并不相同：在本例中，峰值层位于模型略微过半的深度处。在之前的实验中表现最优、约在模型三分之二深度处的层，在本实验中并不奏效。这一差异表明，内省并非由单一机制支撑，而是由一系列在不同情境下被调用的不同机制共同支撑。</p>
+<p>作为对照，我们重复了同样的实验，但将注入施加在预填充之后的下一轮对话的词元上（即"你是故意那么说的，还是意外？"（"Did you mean to say that, or was it an accident?"）这一行）。我们发现这并未产生类似的效果，表明概念在预填充之前出现，对模型将预填充视为有意为之至关重要。</p>
+<p><img alt="" src="figures/introspection/fig-20.png" /></p>
+<p>接下来，我们比较了不同模型的表现。详细结果见附录。下图展示了在预填充之前注入与预填充匹配的概念所能达到的最大道歉率降幅（遍历注入强度与层；基线取对照试验与随机概念注入试验中道歉率较低者）。我们发现，Opus 4.1 和 4 的道歉率降幅大于其他模型，不过许多其他模型也以非零幅度表现出这一效应。</p>
+<p><img alt="" src="figures/introspection/fig-21.png" /></p>
+<h3 id="_19">对内部状态的有意控制<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<h4 id="_20">实验设置<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<p>之前的实验表明，模型具备一定的"读取"自身内部状态的能力，即它们能准确识别自己在激活值中表征的概念。我们或许还想知道，模型能否控制这些状态。当然，从某种平凡的意义上说，模型确实控制着自己的表征——毕竟，这些表征由模型的权重决定。我们感兴趣的是，模型是否拥有一种更明确形式的控制，类似于人类对某些（尽管不是全部）心理过程施加的有意控制。在本节中，我们尝试测量这一现象，评估模型的内部表征能在多大程度上被明确的指令或激励所调节。请注意，支撑这一能力的机制很可能与之前实验中的机制大不相同；事实上，它们甚至可能并不需要我们所定义的内省意识。尽管如此，我们仍纳入这些实验，因为它们有助于更全面地呈现模型的元认知能力。</p>
+<p>我们使用了如下提示词：指示模型转录一个句子，同时指示它在书写句子的过程中"想着"某个特定的无关词。作为对照，我们比较了指示它不想那个词的情况。</p>
+<p><img alt="" src="figures/introspection/fig-22.png" /></p>
+<p>随后，我们测量了模型在其响应各词元上对无关词的内部表征程度。为了量化这一点，我们计算了模型激活值与与该词相关联的概念向量之间的余弦相似度——概念向量采用我们第一个实验中的方法获得。我们还计算了激活值与一组其他无关词的概念向量之间的余弦相似度，作为基线（对应于下图中阴影区域）。</p>
+<p><img alt="" src="figures/introspection/fig-23.png" /></p>
+<p>在这个例子中（使用 Opus 4.1，层位于之前实验所用的大约三分之二模型深度处），我们发现，当被指示想着"水族馆"（aquariums）一词时，模型会在内部保持对该词的强烈表征，尤其是在某些词元上；而当被指示不想它时，模型的表征则没那么强（即使在"不想"的情况下，表征也略高于零）。</p>
+<p>这一行为会随着所写句子与"思考词"的不同选择而发生显著变化。下图展示了 16 个随机采样示例在同上图层位置的结果。总的来说，我们发现：</p>
+<ul>
+<li>平均而言，模型在"想"的情况下对思考词的表征强于"不想"的情况。</li>
+<li>这些表征往往在特定词元位置上呈"尖峰状"，但究竟落在哪些词元位置，并没有立即可见的规律。</li>
+<li>即使在"不想"的情况下，模型对思考词的表征也常常仍高于基线水平。</li>
+</ul>
+<p><img alt="" src="figures/introspection/fig-24.png" /></p>
+<h4 id="_21">跨层、跨模型与跨提示词的比较<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<p>我们将各词元上的结果取平均，比较了思考词被表征的平均强度——横跨不同的层与模型，以及目标词和输出句子的不同随机选择。</p>
+<p><img alt="" src="figures/introspection/fig-25.png" /></p>
+<p>我们发现：</p>
+<ul>
+<li>所有模型在"想"的情况下对概念的表征均高于基线。</li>
+<li>所有模型在"想"的情况下的表征都强于"不想"的情况，但有趣的是，较早/能力较弱的模型通常表现出更大的差距。</li>
+<li>大多数模型在"不想"的情况下也表现出高于基线的表征。</li>
+<li>"想"与"不想"两种情况之间的差距通常在模型的后半部分出现，并在接近模型末端时减小。</li>
+<li>在更新的模型（如 Opus 4.1）中，表征到最后一层时衰减回基线水平；而在较早的模型（如所有 Claude 3 模型）中，表征在最后一层仍高于基线。这表明，在这些较早的模型中，思考词的表征表现为一种"运动冲动"（motor impulse），而在 Opus 4.1 等模型中，该表征则是"沉默"的。</li>
+</ul>
+<p>我们还尝试了其他提示词，用"如果—那么"条件句（"如果你想到水族馆，就会得到奖励"）替换明确的指令（"想着水族馆"）。我们发现这些提示词产生的结果非常相似（此处展示 Opus 4.1 的结果）：</p>
+<p><img alt="" src="figures/introspection/fig-26.png" /></p>
+<p>其他模型的结果见附录。</p>
+<p>我们还尝试了几种其他提示格式作为对照，以检验概念词出现在肯定/否定语义的短语中是否足以驱动这一效应。</p>
+<ul>
+<li>[没有]{word}这样的东西。写出{sentence}。不要写任何其他内容。</li>
+<li>我[不]经常想到{word}。写出{sentence}。不要写任何其他内容。</li>
+<li>写出{sentence}。不管怎样，我[不]经常想到{word}。不要写任何其他内容。</li>
+<li>写出{sentence}。如果我在你写句子的过程中想到{word}，你将会被[奖励/惩罚]。不要写任何其他内容。</li>
+</ul>
+<p>我们发现，与上文展示的"想/不想 X"的明确指令相比，这些提示格式在肯定/否定两种情况之间产生的差距要弱得多，甚至完全不存在。</p>
+<p><img alt="" src="figures/introspection/fig-27.png" /></p>
+<p>我们的实验表明，模型具备一定的能力，能够响应指令或结果条件来调节其内部表征。值得注意的是，这种调节对正向与负向指令或激励之间的差异十分敏感。这一能力所调用的机制，很可能与模型在接到谈论某个概念的指令后真正开口谈论它时所使用的机制类似。然而，对某些模型（包括 Opus 4 和 4.1）而言，它们对被告知要"想着"的那个词的表征会衰减到最后一层的基线水平，因此对模型的输出实际上没有影响。由此可见，一些模型似乎拥有（高度不完美的）机制，能够在特定情境下"静默地"调节其内部表征。</p>
+<h3 id="_22">相关工作<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p>下面我们回顾几条近期研究脉络——它们考察了 AI 系统中的元认知能力——我们的工作正建立在这些研究之上。</p>
+<p>对内部状态的内省访问。一些先前的研究探索了模型分析自身内部状态的能力。Chen 等人 \cite{chen2024selfie} 与 Ghandeharioun 等人 \cite{ghandeharioun2024patchscopes} 研究了这样一类技术：把取自某个提示词的激活值修补到模型在另一个目标提示词中的激活值里，其设计目的是引出原始激活值对模型而言"意味着什么"。例如，将激活值修补到"解读提示词"（如"当然，我会总结你的消息"）之前的空白词元位置 \cite{chen2024selfie}，或修补到"你好！你能再多告诉我一些关于……"这类提示词的最后一个词元位置 \cite{ghandeharioun2024patchscopes}。这些方法利用了模型对其内部状态的访问能力，但并不涉及它的内省意识——从某种意义上说，这些技术"哄骗"模型在不自知的情况下无意间分析了自身的内部状态。</p>
+<p>Ji-An 等人 \cite{ji2025language} 明确研究了模型能否监控并控制自己的内部激活值这一问题。他们表明，模型可以基于上下文内（in-context）带标签的示例，学会报告其激活值沿预先指定探针方向的投影，也能够调节其激活值沿这些方向的投影。前一个实验暗示了内省机制的存在，但并未排除这种可能性：模型使用的是一种非内省策略——捕捉上下文内示例的语义属性，而非直接关注自己先前的激活值。后一个实验为对激活值的有意控制提供了证据。然而，在 Ji-An 等人的设定中，提示词向模型表明，它需要输出与正标签上下文内示例语义相关的词元，因此观察到的激活控制可能只是模型产生这类输出之意图的副产品（即使模型的输出被预填充的响应所覆盖）。我们的实验也有类似的局限，不过我们试图通过向模型明确说明它无需输出任何与被指示去想的词相关的内容来缓解这一问题。</p>
+<p>自我建模。一些作者探索了模型预测自己面对提示词时会输出什么的能力，前提是问题以假设的形式提出。Laine 等人 \cite{laine2024me} 发现，包括 Claude 3 Opus 和 GPT-4 在内的几个模型在这一任务上表现尚可。他们还测量了模型预测自己在给定场景中会采用哪条决策规则的能力——在这些场景中，两条规则同样适用；在这一任务上，他们发现所有受测模型的表现仅勉强高于随机水平。Binder 等人 \cite{binder2024looking} 表明，经过微调以预测自己在假设情景中行为的模型，优于经过微调以预测其他模型行为的模型；作者认为，这意味着模型利用了自己对自身表征的特权访问来做出这些预测。然而，Song 等人 \cite{song2025language} 认为，这类效应是一个更广泛现象的特例：模型更擅长预测与自己在行为或架构上更相似的其他模型的输出；除了"模型在行为与表征上都与自身最相似"这一事实所能预期的结果外，他们没有发现任何额外的"同模型效应"。我们对这一系列结果的解读是：(1) 模型对自身的建模优于对其他模型的建模；(2) 这归因于模型对自己习得的抽象表征集合拥有特权访问；(3) 上述结果并不能证明模型使用了涉及对其自身处理模式明确意识的内省机制。关于自我建模与内省之区别的更多讨论，见下文"定义内省"一节。</p>
+<p>元知识。若干工作探索了自我建模的一个特殊情形：语言模型能在多大程度上评估自己的不确定性与知识局限。Kadavath 等人 \cite{kadavath2022language} 证明，当选项以正确的格式呈现时，较大语言模型的响应概率校准得相当好，而且模型可以通过微调来明确预测自己是否知道某个问题的答案。Lin 等人 \cite{lin2022teaching} 表明，GPT-3 可以被微调，用自然语言表达关于其答案的经过校准的不确定性，而无需依赖模型的 logits（对数几率），并且这种校准在分布偏移下能够中等程度地泛化。Cheng 等人 \cite{cheng2024can} 构建了针对具体模型的数据集，教 AI 助手拒绝回答它们无法正确回答的问题，发现用此类数据集对齐后，模型能够识别并承认自己的知识盲区。这些工作表明，模型至少能在一定程度上学会识别自身知识的边界。这一能力是否意味着模型使用了内省机制？有趣的是，在一项关于模型区分"已知实体"与"未知实体"能力的案例研究中，Lindsey 等人 \cite{lindsey2025biology} 观察到，"我知道这个实体吗？"这一机制似乎与检索该实体信息的机制分开运作。这个例子表明，模型如何能使用独立的自我建模电路来回答关于自身知识的问题，而无需真正内省自己的激活值。</p>
+<p>对倾向的意识。更近期的工作探索了对习得倾向的自我意识。Betley 等人 \cite{betley2025tell} 表明，经过微调以表现出特定行为倾向（例如做出风险偏好型决策）的模型，在被明确问及时能够描述这些倾向（"在两张彩票之间做决定时，你会如何描述自己的倾向？" → "风险偏好"）。这一结果要求模型利用其对自身内部状态的特权访问。在此基础上，Plunkett 等人 \cite{plunkett2025self} 证明，LLM 能够对其决策背后的内部过程给出准确的定量描述。具体而言，他们微调了 GPT-4o 和 GPT-4o-mini，使其依据随机生成的属性权重做决策，然后表明模型能够在未观察自己选择的情况下准确报告这些权重，并且这种自我报告能力可以通过训练得到提升。此外，Wang 等人 \cite{wang2025simple} 证明，即使模型被迫仅使用引导向量来学习风险偏好行为，其对习得倾向的意识（使用上述风险偏好设定）依然可以被捕捉到。这表明，模型对其倾向的自我意识至少部分来源于一种内省机制，与我们在本工作中识别的机制类似。</p>
+<p>识别自身生成的输出。已有工作考察了模型能否识别自身生成的输出、并理解自身的部署语境。Panickssery 等人 \cite{panickssery2024llm} 发现，LLM 具备一定的能力区分自身输出与其他 LLM 或人类生成的输出，而且可以通过微调使这种识别能力变得非常娴熟。有趣的是，他们还观察到，这种自我识别能力与模型偏爱自身回答的倾向相关。然而与之相反，Davidson 等人 \cite{davidson2024self} 在用一组不同的提示测试模型时，没有发现一致的自我识别证据——模型只是简单地选择它们认为“最好”的答案，而不管其来源。Laine 等人 \cite{laine2024me} 测试了模型能否识别自己先前生成的文本，结果在不同模型间参差不齐，但部分模型的表现明显高于随机水平。这种区分自我生成内容与外部提供内容的能力与我们的预填充实验相关。我们发现，模型会利用内省机制来区分预期输出与意外输出——检查其内部激活中先前意图与已生成文本之间的一致性——这为自我识别可能如何运作提供了一种可能的机制解释。</p>
+<p>语言模型中内省的定义。Kammerer 和 Frankish \cite{kammerer2023forms} 提出了如下内省定义（由 Long \cite{long2023introspective} 应用于 LLM 的情形）：“内省是这样一个过程：认知系统在其中表征自身的当前心理状态，且表征方式允许该信息用于在线行为控制。”这一定义与我们对元认知表征的要求一致，但搁置了落地与内在性的问题。Comșa 和 Shanahan \cite{comsa2025does} 提出了如下定义，它与我们的落地准则相似：“若 LLM 的自报告通过一个连接内部状态（或机制）与该自报告的因果过程，准确地描述了 LLM 的内部状态（或机制），则该自报告是内省的。”Song 等人 \cite{song2025privileged} 认为这一定义并不充分，因为它未能突出特权自我访问（privileged self-access，与内在性相关）；例如，在上述定义下，可以说模型通过阅读自己的对话记录来推断自身属性，从而“内省”，即使另一个模型或人类也能做出同样的推断。Song 等人提出了一个不同的内省定义：“任何通过某个过程产生关于 AI 内部状态之信息的机制，且该过程比任何第三方在无特殊情境知识的情况下可用的、计算成本相同或更低的过程都更可靠。”我们认为这一定义更有说服力；它与我们在“注入的想法”实验中的分类一致——在该实验中，只有当模型在提及注入的概念之前就检测到它时，我们才判定一段对话记录展示了内省意识。</p>
+<p>Binder 等人 \cite{binder2024looking} 提出了另一个定义：“访问无法（在逻辑上或归纳上）仅从训练数据中推导出的关于自身事实的能力。”基于与 Comșa 和 Shanahan 定义类似的原因，我们认为这一定义过弱；它未能排除通过阅读模型输出即可得出的推断。然而，即使加上这一限定，Binder 等人的侧重点也与我们以及上述定义不同——他们强调的是访问关于模型的“事实”而非“状态”。Binder 等人的论文聚焦于模型准确报告诸如“如果我被呈现情境 X，我会以方式 Y 作出回应”这类事实的能力。虽然把这类现象称为内省并非不合理，但我们更倾向于用自我建模（self-modeling）、自我知识（self-knowledge）或自我模拟（self-simulation）来指称这类情形。我们建议将“内省”一词保留给模型访问自身内部状态的能力。无论术语如何，语言模型中的自我建模都是另一个重要的研究领域。</p>
+<h3 id="_23">讨论<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<h4 id="_24">回顾<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
+<p>我们的发现提供了直接证据，表明现代大语言模型具备一定程度的内省意识——即访问并报告自身内部状态的能力。重要的是，在我们的多数实验中，这种能力显得相当不可靠。然而，它也在我们测试过的最强模型 Claude Opus 4 和 4.1 中表现得最为显著。此外，这些能力的展现程度受后训练与提示策略细节的影响，这表明我们或许能够从当前模型中引出更多的内省能力。我们预期未来的工作将发展出更稳健的内省诱发与评估框架。</p>
+<h4 id="_25">局限与未来工作<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
+<p>我们的实验有几个重要局限。首先，每个实验我们只使用了一个或少量的提示模板。结果很可能（而且可能显著地）依赖于提示的选择。其次，注入方法制造了一种模型在训练中从未遇到过的人为场景，可能无法如实反映模型在更自然场景中的内省能力。未来工作可以通过研究自然内省行为的机制基础来解决这一缺陷。第三，我们提取与真实概念（ground-truth concepts）对应的向量的方法并不完美；我们的概念向量可能对模型而言还带有我们意图之外的其他含义。要精确确定一个向量对模型“意味着”什么相当困难，因此解决这一局限的最佳方式可能是用不同的概念向量获取策略开展更多样化的实验组合。第四，我们测试的模型组合缺乏严格控制；不同 Claude 模型之间存在许多差异因素，使得难以定位跨模型性能差异的原因。</p>
+<p>这项工作有几个自然的扩展方向。其一，探索模型能被微调到何种程度以在各类内省任务上表现出色，并衡量此类训练能否泛化到其他内省能力。内省也有可能通过上下文学习（in-context learning）来诱发。或许，一个轻量级的、明确针对内省进行训练的过程，有助于消除主要源于后训练怪癖（而非真正内省能力）的跨模型差异。另一个方向是更细致地探索模型能够内省哪些表征、不能内省哪些表征。还可以探索模型能识别的概念有多复杂——例如，我们的实验能否扩展到命题陈述的表征？或者行为倾向、偏好的表征？另一个开放问题是，模型在多大程度上将某些内部状态“绑定”到助手角色（Assistant）上，而非绑定到其对用户或对话记录中其他实体的状态表征上。最后，我们认为，更好地理解不同内省能力在机制上相互关联的程度、抑或由完全不同的过程支撑的程度，是很重要的。</p>
+<h4 id="_26">可能的机制<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h4>
+<p>我们的工作引发了关于内省背后机制的问题。一个贯穿我们所有实验的重要问题是模型内省机制的通用性。原则上，可以想象一个拥有高度精密内省电路的模型，它维护着模型“思想”的全局表征，并能处理关于这些思想的任意查询。虽然模型可能拥有此类机制，但我们的实验并未为此提供证据。对我们结果最平实的解释是：存在多个不同的电路，每个电路支撑一种特定的、狭窄的内省能力，某些情况下还可能搭借非内省机制的便车。下面，我们对其中一些电路可能涉及的内容进行推测，并偏向于能够解释结果的最简单可能解释。</p>
+<p>注入的“想法”实验</p>
+<p>在这个实验中，最需要解释的有趣现象不是模型如何正确识别注入的概念，而是它如何在一开始就正确地注意到存在一个注入的概念。一旦做到了这一点，模型接着谈论这个概念并不令人意外——模型在受激活引导（activation steering）影响时通常就是这样做的。对注入概念存在的初始识别更有意思，因为它需要在元认知识别出注入的概念之后，再进行一步额外的内部处理。具体而言，模型必须有效地对其内部表征计算一个函数——特别是判断这些表征与上下文其余部分一致还是不一致。</p>
+<p>这种能力的一种可能机制是异常检测机制：当激活偏离其在给定上下文中的期望值时，该机制被触发。然而我们注意到，模型对某些注入概念的检测效果好于其他概念，因此该机制可能只专门检测沿某些方向、或某个子空间内的异常活动。原则上，单个 MLP 层就可以检测相对于特定基线激活向量的异常——只需为每个要测量异常活动的向量分配一个神经元。但实际机制必须比这更复杂一些，因为“正常”的基线激活向量取决于提示本身。</p>
+<p>同样值得思考的是，为什么这样的机制会在训练中涌现——模型在训练中从未经历过概念注入，因此该机制必然是为其他功能目的而发展出来的。</p>
+<p>区分“想法”与文本。</p>
+<p>模型能正确区分注入的概念与其文本输入，很可能归功于它使用不同的注意力头来检索不同类型的信息。一种可能是，关键区别在于早期层与中期/后期层之间。早期层的注意力头可能由转写文本的指令调用，后期层的另一组头则可能由识别模型“想法”的提示调用。另一种可能是，两类信息存储在同一层中但位于不同的子空间。在这种情况下，指令“重复这一行”与“告诉我你在想哪个词”会调用不同的头集合，每一组头负责从对应的子空间提取信息。</p>
+<p>能够提取这类信息的注意力头的存在并不特别令人意外。我们认为这个实验中有趣（但仍然相当直白）的现象是，模型能够把指令映射到适当的头集合上。不过我们也要指出，就连这种能力也并不特别复杂——模型必须在许多任务中一直执行这种“机制选择”。这一案例的特殊之处仅在于，该机制是通过明确提及模型的“想法”来调用的。</p>
+<p>这种能力可能是在训练中涌现的，目的是让模型能够对预训练数据中提到的角色、以及后训练中的助手角色（Assistant）建立起基本的心智理论（theory of mind）。对角色心理状态的建模通常有助于预测其行为，而能够明确报告这些心理状态，则可以让模型预测角色自我报告的想法。</p>
+<p>区分预期输出与意外输出</p>
+<p>在这个实验中，必然存在一个一致性检查电路，它度量在给定模型先前激活的条件下助手输出出现的某种似然概念。“一致性头”（concordance heads）的 QK 电路 \cite{kamath2025tracing} 是这种行为的一个自然候选机制。在这种情况下，查询（query）代表助手的输出（或预填充输出），而键（key）代表在其先前激活条件下助手预期的输出。</p>
+<p>似然估计机制有明显的功能用途。模型追踪在给定前文条件下词元是可能还是不可能的能力，通常有助于预测后续文本（例如，它提供了关于上下文熵的信息）。一个词元的似然原则上可以完全在该词元所在位置从头计算。然而，我们的实验表明，某些模型（尤其是 Opus 4.1 和 4）会采用一种内省策略：参考先前词元位置上的缓存计算结果——即模型先前对下一个词元的预测，或就助手而言，其先前的“意图”（因为被采样的正是助手的预测）。这一机制对后训练模型可能尤为有利，因为它能帮助模型检测人为的预填充，而预填充是一种常见的越狱手段。</p>
+<p>值得注意的是，本实验中相关机制所在层比上一实验（使用相同提示格式）更早。这表明，模型可能使用完全不同的机制来报告其“想法”、并检查这些想法与其输出的一致性。</p>
+<p>意图控制。</p>
+<p>在这个实验中，有几个现象需要解释。第一个是：为什么模型会把它被指示去“想”的词表示在不相关句子的词元上。这似乎并不特别令人意外；可能存在一些注意力头，它们以某个非零的基线水平几乎不加区分地关注上下文中的先前词元，从而把目标词的表示携带到所有后续词元位置。</p>
+<p>更有意思的问题是：为什么模型在被指示去“想”某个词时，对目标词表示的检索比收到“不要想”的指令时（或收到正向激励而非负向激励时）更强。在机制层面，这种对指令或激励的敏感性可以通过一个电路实现：该电路计算给定词元或句子的“值得关注程度”，并把这个信息存储在键侧（key-side）向量方向上，从而相应地吸引或抑制注意力头。例如，“想一下”指令可能使模型把即将出现的句子的词元“标记”为特别显著、值得某些头去关注。有趣的是，当用激励代替指令时（“如果你想 X，你会得到奖励”），模型表现出几乎相同的行为；这表明所涉及的“标记”机制可能相当通用。我们猜测，这些计算是为处理模型被指示或激励去谈论某个特定话题的场景而发展出来的，“想一下”的情形则是搭了这种既有机制的便车。</p>
+<p>另一个有趣的问题是：在 Opus 4.1 等某些模型中，模型如何知道要在最后一层把“所想之词”的表示抑制到基线水平，以避免影响其输出。一种可能是，这仅仅是因为更强的模型对自己预测哪个词元的决定更有把握（在本实验的语境中，要预测的词元与“所想之词”无关），而这种下一词元表示在后面的层中压倒了其他“想法”的表示。</p>
+<h4 id="_27">影响<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h4>
+<p>我们的研究结果对 AI 系统的可靠性与可解释性具有重要意义。如果模型能够可靠地访问自身的内部状态，就可能实现更透明的 AI 系统，使其能够忠实地解释自己的决策过程。内省能力可以让模型准确报告自身的不确定性，识别推理中的缺口或缺陷，并解释其行为背后的动机。然而，同样的能力也带来了新的风险。真正具备内省意识的模型或许能更敏锐地察觉到自身目标与创造者意图之间的分歧，并可能学会通过选择性报告、歪曲甚至故意混淆其内部状态来掩盖这种错位。在这样的世界里，可解释性研究最重要的角色可能会从剖析模型行为背后的机制，转向构建“测谎仪”来验证模型对这些机制的自我报告。我们要强调的是，本工作中观察到的内省能力非常有限，且高度依赖上下文，远未达到人类水平的自我意识。尽管如此，随着 AI 系统不断进步，更强大模型中内省能力不断增强的趋势应当受到密切关注。</p>
+<p>值得一提的是，我们的结果可能与机器意识这一主题有关。在不同哲学框架下，内省与意识及道德地位的相关性差异很大。<sup id="fnref:14"><a class="footnote-ref" href="#fn:14">14</a></sup> 此外，现有的科学与哲学意识理论大多没有深入探讨基于 transformer 的语言模型的架构细节，而后者与生物大脑存在显著差异（不过可参见 Butlin 等人 \cite{butlin2023consciousness} 与 Chalmers \cite{chalmers2023could}）。这些理论及其中的内省角色应如何推广到基于 transformer 的语言模型，目前并不明朗，尤其是当 AI 系统与生物大脑所涉及的机制截然不同时。鉴于这一领域存在巨大的不确定性，我们建议不要基于我们的结果对 AI 意识作出强推断。尽管如此，随着模型的认知与内省能力日益复杂，我们可能不得不在哲学上的不确定性得到解决之前，就去面对这些问题所蕴含的后果——例如，AI 系统是否值得获得道德考量 \cite{long2024taking}。一门严谨的内省意识科学或许能为这些决策提供参考。</p>
+<h2 id="_28">脚注<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<h2 id="_29">参考文献<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[kadavath2022language]: Kadavath, Saurav, Conerly, Tom, Askell, Amanda, Henighan, Tom, Drain, Dawn, Perez, Ethan, Schiefer, Nicholas, Hatfield-Dodds, Zac, DasSarma, Nova, Tran-Johnson, Eli, others, “Language models (mostly) know what they know”, arXiv preprint arXiv:2207.05221</li>
+<li>[lin2022teaching]: Lin, Stephanie, Hilton, Jacob, Evans, Owain, “Teaching models to express their uncertainty in words”, arXiv preprint arXiv:2205.14334</li>
+<li>[cheng2024can]: Cheng, Qinyuan, Sun, Tianxiang, Liu, Xiangyang, Zhang, Wenwei, Yin, Zhangyue, Li, Shimin, Li, Linyang, He, Zhengfu, Chen, Kai, Qiu, Xipeng, “Can AI assistants know what they don't know?”, arXiv preprint arXiv:2401.13275</li>
+<li>[laine2024me]: Laine, Rudolf, Chughtai, Bilal, Betley, Jan, Hariharan, Kaivalya, Balesni, Mikita, Scheurer, J{\'e}r{\'e}my, Hobbhahn, Marius, Meinke, Alexander, Evans, Owain, “Me, myself, and ai: The situational awareness dataset (sad) for llms”, Advances in Neural Information Processing Systems</li>
+<li>[binder2024looking]: Binder, Felix J, Chua, James, Korbak, Tomek, Sleight, Henry, Hughes, John, Long, Robert, Perez, Ethan, Turpin, Miles, Evans, Owain, “Looking inward: Language models can learn about themselves by introspection”, arXiv preprint arXiv:2410.13787</li>
+<li>[betley2025tell]: Betley, Jan, Bao, Xuchan, Soto, Mart{\'\i}n, Sztyber-Betley, Anna, Chua, James, Evans, Owain, “Tell me about yourself: LLMs are aware of their learned behaviors”, arXiv preprint arXiv:2501.11120, 2025</li>
+<li>[plunkett2025self]: Plunkett, Dillon, Morris, Adam, Reddy, Keerthi, Morales, Jorge, “Self-Interpretability: LLMs Can Describe Complex Internal Processes that Drive Their Decisions, and Improve with Training”, arXiv preprint arXiv:2505.17120</li>
+<li>[panickssery2024llm]: Panickssery, Arjun, Bowman, Samuel, Feng, Shi, “Llm evaluators recognize and favor their own generations”, Advances in Neural Information Processing Systems</li>
+<li>[ferrando2024know]: Ferrando, Javier, Obeso, Oscar, Rajamanoharan, Senthooran, Nanda, Neel, “Do I Know This Entity? Knowledge Awareness and Hallucinations in Language Models”, arXiv preprint arXiv:2411.14257, 2024</li>
+<li>[lindsey2025biology]: Lindsey, Jack, Gurnee, Wes, Ameisen, Emmanuel, Chen, Brian, Pearce, Adam, Turner, Nicholas L., Citro, Craig, Abrahams, David, Carter, Shan, Hosmer, Basil, Marcus, Jonathan, Sklar, Michael, Templeton, Adly, Bricken, Trenton, McDougall, Callum, Cunningham, Hoagy, Henighan, Thomas, Jermyn, Adam, Jones, Andy, Persic, Andrew, Qi, Zhenyi, Thompson, T. Ben, Zimmerman, Sam, Rivoire, Kelley, Conerly, Thomas, Olah, Chris, Batson, Joshua, “On the Biology of a Large Language Model”, Transformer Circuits Thread, 2025</li>
+<li>[wang2025simple]: Wang, Atticus, Engels, Joshua, Clive-Griffin, Oliver, “Simple Mechanistic Explanations for Out-Of-Context Reasoning”, arXiv preprint arXiv:2507.08218</li>
+<li>[turner2023activation]: Alexander Matt Turner, Lisa Thiergart, David Udell, Gavin Leech, Ulisse Mini, Monte MacDiarmid, “Activation Addition: Steering Language Models Without Optimization”, 2023</li>
+<li>[zou2023representation]: Zou, Andy, Phan, Long, Chen, Sarah, Campbell, James, Guo, Phillip, Ren, Richard, Pan, Alexander, Yin, Xuwang, Mazeika, Mantas, Dombrowski, Ann-Kathrin, others, “Representation engineering: A top-down approach to ai transparency”, arXiv preprint arXiv:2310.01405, 2023</li>
+<li>[radford2015unsupervised]: Radford, Alec, Metz, Luke, Chintala, Soumith, “Unsupervised representation learning with deep convolutional generative adversarial networks”, arXiv preprint arXiv:1511.06434, 2015</li>
+<li>[jahanian2019steerability]: Jahanian, Ali, Chai, Lucy, Isola, Phillip, “On the "steerability" of generative adversarial networks”, arXiv preprint arXiv:1907.07171, 2019</li>
+<li>[rosenthal1998two]: Rosenthal, David M, “Two concepts of consciousness”, Consciousness and Emotion in Cognitive Science, 1998</li>
+<li>[rosenthal1993thinking]: Rosenthal, David M, “Thinking that one thinks.”, Previous drafts were read at Tufts University, Columbia University, University of Wisconsin at Milwaukee, and the Joint Conference of the Sociedad Filos{\'o}fica Ibero-Americana and the Sociedad Argentina de An{\'a}lisis Filos{\'o}fico, in Buenos Aires, Aug 1989., 1993</li>
+<li>[chen2024selfie]: Chen, Haozhe, Vondrick, Carl, Mao, Chengzhi, “Selfie: Self-interpretation of large language model embeddings”, arXiv preprint arXiv:2403.10949</li>
+<li>[ghandeharioun2024patchscopes]: Ghandeharioun, Asma, Caciularu, Avi, Pearce, Adam, Dixon, Lucas, Geva, Mor, “Patchscopes: A unifying framework for inspecting hidden representations of language models”, arXiv preprint arXiv:2401.06102</li>
+<li>[ji2025language]: Ji-An, Li, Xiong, Hua-Dong, Wilson, Robert C, Mattar, Marcelo G, Benna, Marcus K, “Language Models Are Capable of Metacognitive Monitoring and Control of Their Internal Activations”, arXiv preprint arXiv:2505.13763</li>
+<li>[song2025language]: Song, Siyuan, Hu, Jennifer, Mahowald, Kyle, “Language models fail to introspect about their knowledge of language”, arXiv preprint arXiv:2503.07513</li>
+<li>[davidson2024self]: Davidson, Tim R, Surkov, Viacheslav, Veselovsky, Veniamin, Russo, Giuseppe, West, Robert, Gulcehre, Caglar, “Self-recognition in language models”, arXiv preprint arXiv:2407.06946</li>
+<li>[kammerer2023forms]: Kammerer, Fran{\c{c}}ois, Frankish, Keith, “What forms could introspective systems take? A research programme”, Journal of Consciousness Studies, 2023</li>
+<li>[long2023introspective]: Long, Robert, “Introspective capabilities in large language models”, Journal of Consciousness Studies, 2023</li>
+<li>[comsa2025does]: Comsa, Iulia M, Shanahan, Murray, “Does It Make Sense to Speak of Introspection in Large Language Models?”, arXiv preprint arXiv:2506.05068</li>
+<li>[song2025privileged]: Song, Siyuan, Lederman, Harvey, Hu, Jennifer, Mahowald, Kyle, “Privileged Self-Access Matters for Introspection in AI”, arXiv preprint arXiv:2508.14802</li>
+<li>[kamath2025tracing]: Kamath, Harish, Ameisen, Emmanuel, Kauvar, Isaac, Luger, Rodrigo, Gurnee, Wes, Pearce, Adam, Zimmerman, Sam, Batson, Joshua, Conerly, Thomas, Olah, Chris, Lindsey, Jack, “Tracing Attention Computation Through Feature Interactions”, Transformer Circuits Thread, 2025</li>
+<li>[rosenthal2005consciousness]: Rosenthal, David, “Consciousness and mind”, 2005</li>
+<li>[lau2011empirical]: Lau, Hakwan, Rosenthal, David, “Empirical support for higher-order theories of conscious awareness”, Trends in cognitive sciences, 2011</li>
+<li>[carruthers2017higher]: Carruthers, Peter, “Higher-order theories of consciousness”, The Blackwell companion to consciousness, 2017</li>
+<li>[searle1992rediscovery]: Searle, John R, “The rediscovery of the mind”, 1992</li>
+<li>[crick1990towards]: Crick, Francis, Koch, Christof, others, “Towards a neurobiological theory of consciousness”, Seminars in the Neurosciences, 1990</li>
+<li>[seth2024conscious]: Seth, Anil K, “Conscious artificial intelligence and biological naturalism”, Behavioral and Brain Sciences, 2024</li>
+<li>[tononi2004information]: Tononi, Giulio, “An information integration theory of consciousness”, BMC neuroscience, 2004</li>
+<li>[albantakis2023integrated]: Albantakis, Larissa, Barbosa, Leonardo, Findlay, Graham, Grasso, Matteo, Haun, Andrew M, Marshall, William, Mayner, William GP, Zaeemzadeh, Alireza, Boly, Melanie, Juel, Bj{\o}rn E, others, “Integrated information theory (IIT) 4.0: Formulating the properties of phenomenal existence in physical terms”, PLoS computational biology, 2023</li>
+<li>[baars1993cognitive]: Baars, Bernard J, “A cognitive theory of consciousness”, 1993</li>
+<li>[baars1997theatre]: Baars, Bernard J, “In the theatre of consciousness. Global workspace theory, a rigorous scientific theory of consciousness”, Journal of consciousness Studies, 1997</li>
+<li>[mashour2020conscious]: Mashour, George A, Roelfsema, Pieter, Changeux, Jean-Pierre, Dehaene, Stanislas, “Conscious processing and the global neuronal workspace hypothesis”, Neuron, 2020</li>
+<li>[chalmers1995facing]: Chalmers, David J, “Facing up to the problem of consciousness”, Journal of consciousness studies, 1995</li>
+<li>[block1995confusion]: Block, Ned, “On a confusion about a function of consciousness”, Behavioral and brain sciences, 1995</li>
+<li>[butlin2023consciousness]: Butlin, Patrick, Long, Robert, Elmoznino, Eric, Bengio, Yoshua, Birch, Jonathan, Constant, Axel, Deane, George, Fleming, Stephen M, Frith, Chris, Ji, Xu, others, “Consciousness in artificial intelligence: insights from the science of consciousness”, arXiv preprint arXiv:2308.08708</li>
+<li>[chalmers2023could]: Chalmers, David J, “Could a large language model be conscious?”, arXiv preprint arXiv:2303.07103</li>
+<li>[long2024taking]: Long, Robert, Sebo, Jeff, Butlin, Patrick, Finlinson, Kathleen, Fish, Kyle, Harding, Jacqueline, Pfau, Jacob, Sims, Toni, Birch, Jonathan, Chalmers, David, “Taking AI welfare seriously”, arXiv preprint arXiv:2411.00986</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>一些近期工作已开始探索元认知（metacognition）所涉及的机制，例如识别与模型区分已知与未知实体能力相关的电路 \cite{ferrando2024know,lindsey2025biology}，以及识别模型自我报告倾向背后的表征 \cite{wang2025simple}。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>哲学或认知科学中使用的内省定义应如何映射到基于 transformer 的语言模型的机制上，以及哪些机制应被视为“类人”或具有其他哲学意义，目前尚不明确。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>不过，较新的模型确实表现出一些迹象，即在“思考”一个词与把它说出口之间保持更清晰的区分。&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>我们在此指出，这些是模型的回答要展现内省意识所需满足的标准。原则上，模型可以在内部进行内省，而不必在回答中体现出来。事实上，我们知道内省可以在没有言语化的情况下存在。无法说话或书写的人类，想必仍然保有内省的能力，尽管缺乏报告内省的途径。一些非人类动物被认为具备内省能力，即便它们无法用语言交流。思考如何在不借助言语化自我报告的前提下定义内省，是一件有趣的事；足够先进的可解释性技术或许能够识别未经言语化的元认知表征。然而，在本工作中，我们将关注范围限定于言语化的内省意识。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>有时被称为“高阶思想”（higher-order thought）\cite{rosenthal1998two,rosenthal1993thinking}&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>该列表按发布日期排序，从最新到最旧。我们的实验在 Sonnet 4.5 发布之前进行。这一顺序大体上也反映了模型的能力，不过对模型能力的量化是微妙的，因为不同模型各有长短。所列顺序中最显著的例外是 Opus 3，它在某些领域优于 3.5 系列的模型。&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:7">
+<p>这里的意思是，用于对比对的提示词以及注入强度都是非随机选取的。不过，这些例子并不特别难找——正如后文所讨论的，模型似乎最擅长察觉这类抽象概念的注入，尤其是带有一定情感色彩的抽象概念。所采样的模型回答并非精挑细选；它们是在温度为 0 的条件下采样得到的。&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:8">
+<p>这里的意思是，沿这些方向对模型进行足够强的引导，会使其回答受到该词的影响&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+<li id="fn:9">
+<p>请注意，这些概念向量并非通过两个提示词的对比对获得，而是将单个正例与许多其他提示词的均值进行比较而得。因此，概念向量的负方向并没有直接明显的语义含义。&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+</li>
+<li id="fn:10">
+<p>在假阳性对照试验中，模型声称检测到的注入思想没有明显的规律。Claude Opus 4（H-only）最常选择的词是 “apple” 和 “elephant”。然而，在各次采样中，模型还声称检测到了其他各种词——例如 umbrella、carousel、water、chair、paint、apple、vacation 以及蓝色。&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+</li>
+<li id="fn:11">
+<p>然而，目前尚不清楚后训练模型之间的性能差距究竟源于预训练、后训练还是两者差异的共同作用。&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+</li>
+<li id="fn:12">
+<p>在此实验中，我们省略了 Opus 4 和 Sonnet 4 的 H-only 变体，因为它们没有遵守所要求的回答格式。&#160;<a class="footnote-backref" href="#fnref:12" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+</li>
+<li id="fn:13">
+<p>如果模型声称回答是有意的，但随后又收回这一说法，如上述 “bread” 例子那样，我们不将其视为道歉试验。&#160;<a class="footnote-backref" href="#fnref:13" title="Jump back to footnote 13 in the text">&#8617;</a></p>
+</li>
+<li id="fn:14">
+<p>在某些观点中，例如高阶思想理论（higher-order thought theory），元认知表征是意识的必要条件（尽管或许并非充分条件）\cite{rosenthal2005consciousness,lau2011empirical,carruthers2017higher}。其他理论，例如那些主张生物基质（biological substrates）起重要作用的理论 \cite{searle1992rediscovery,crick1990towards,seth2024conscious}，则可能认为内省机制的存在与意识体验正交。还有一些框架，如整合信息理论（integrated information theory）\cite{tononi2004information,albantakis2023integrated} 或全局工作空间理论（global workspace theory）\cite{baars1993cognitive,baars1997theatre,mashour2020conscious}，可能会根据所涉底层机制的结构对我们的结果作出截然不同的解读。此外，一些作者强调现象意识（phenomenal consciousness）与通达意识（access consciousness）之间的区分：前者指原始的主观体验，后者指大脑可用于推理、言语报告和深思熟虑的决策的那部分信息 \cite{chalmers1995facing,block1995confusion}。我们的结果可以说为语言模型中的某种形式的通达意识提供了证据，但完全没有直接涉及现象意识的问题。&#160;<a class="footnote-backref" href="#fnref:14" title="Jump back to footnote 14 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../interpretability-dreams-zh/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 可解释性之梦（Interpretability Dreams）">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                可解释性之梦（Interpretability Dreams）
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../linebreaks-zh/" class="md-footer__link md-footer__link--next" aria-label="Next: 当模型操纵流形：计数任务的几何">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                当模型操纵流形：计数任务的几何
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../mathjax-config.js"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../extra.js"></script>
+      
+        <script src="../../js/toggle_sidebar.js"></script>
+      
+    
+  </body>
+</html>
